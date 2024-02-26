@@ -1,0 +1,11 @@
+Asignación: X := b
+Ámbito: {}
+Paso por referencia por defecto. Para paso por valor añadir # delante
+Comentarios de una linea: //
+Declaración de arrays multidimensionales: tipo nombre[i_1]..[i_n]
+Asignacion de arrays: X := [elem1, elem2, ...]
+If, elsif, else y switch
+While, for
+Valor de un puntero: *X
+Acceso a campo de registro: registro.campo
+
