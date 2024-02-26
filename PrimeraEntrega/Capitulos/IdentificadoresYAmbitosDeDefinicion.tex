@@ -6,27 +6,33 @@
 
 \section{Declaración de variables}
 Para declarar una variable, se realiza de una forma muy similar a C++.
-Primero de todo, se nombra el tipo de la variable y posteriormente el nombre de la misma y si es un array de $n$ dimensiones, detrás se escribe 
-$ [ i_{1} ] \dots [ i_{n} ]$ donde cada $i_{j}$ representa el tamaño de la $j$-ésima dimensión. Por lo tanto, los arrays son estáticos ya que su tamaño es fijo. El nombre de una variable no puede ser cualquier cadena de caracteres, solo permitimos palabras cuyo primer carácter sea alguno de 
+Primero de todo, se nombra el tipo de la variable y posteriormente el nombre de la misma. El nombre de una variable no puede ser cualquier cadena de caracteres, solo permitimos palabras cuyo primer carácter sea alguno de 
 $["a"-"z"] \mid ["A"-"z"] \mid  "\_"$ 
 y el resto de caracteres sean de
 $["0"-"9"] \mid  ["a"-"z"] \mid  ["A"-"z"] \mid  "\_"$. 
-Además, permitiremos declarar una variable a la misma vez que la instanciamos con un valor. Adelantamos que cada instrucción termina con \;.
+Además, permitiremos declarar una variable a la misma vez que la instanciamos con un valor. Para cada tipo $T$ y número natural $n$, definimos un nuevo tipo $T[n]$ que representa los arrays de $n$ elementos del tipo $T$. Este proceso puede encadenarse dando lugar a los arrays multidimensionales. De la misma manera, para cada tipo $T$, podemos definir el tipo $T*$ que representa el tipo de punteros al tipo $T$. El tipo de un registro o una clase es una palabra clave acompañado de un nombre, struct nombre y class nombre respectivamente.
+
+Mostramos algunos ejemplos:
 
 \begin{algorithm}
 
-	\Integer X \Assign \const{0} \;
+	\Integer{} X  \;
 	
-	\Boolean Y[\const{2}] \Assign [\const{True}, \const{False}] \;
+	\Integer{*} p  \;
 	
-	\Integer Z[\const{2}][\const{2}] \Assign [[\const{0},\const{1}],[\const{2},\const{3}]] \;
+	\Boolean{[\const{3}]} Y \Assign 
+	[\const{True}, \const{True}, \const{False}] \;
+	
+	\Integer{[\const{2}][\const{2}]} Z \Assign 
+	[[\const{0},\const{1}],[\const{2},\const{3}]] \;
+	
+	\Struct estudiante antonio \; 
 \end{algorithm}
 
 
 
-\section{Objetivos}
-Descripción de los objetivos del trabajo.
-
+\section{Bloques anidados}
+Cada par $\{$ $\}$ colocado correctamente define un ámbito en nuestro lenguaje
 
 \section{Plan de trabajo}
 Aquí se describe el plan de trabajo a seguir para la consecución de los objetivos descritos en el apartado anterior.

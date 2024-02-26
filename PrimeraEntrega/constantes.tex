@@ -50,27 +50,15 @@
 \SetKwProg{Fn}{\textcolor{BurntOrange}]{function}}{ \{ }{ \} }
 %\Fn{nombre y argumentos}{código}
 
-%Argumentos función
-\SetKwBlock{Arg}{(}{)}
-
-%Corchetes array
-\SetKwBlock{Arr}{[}{]}
-
 
 %Return
-\SetKw{Return}{\textcolor{BurntOrange}]{return}}
+\SetKw{Return}{\textcolor{BurntOrange}{return}}
 %\Return
 
 %Assign
 \SetKw{Assign}{:=}
 %\Assign
 
-
-%Tipos de datos
-\SetKwData{Integer}{\textcolor{BurntOrange}{int}}
-%\Integer
-
-\SetKwData{Boolean}{\textcolor{BurntOrange}{bool}}
 
 %Comentarios
 \SetKwComment{Comment}{\textcolor{olive}{//}}{}
@@ -80,6 +68,17 @@
 %\Comment*{side comment text}
 
 \newcommand{\const}[1]{\textcolor{blue}{#1}}
+\newcommand{\reserved}[1]{\textcolor{BurntOrange}{\textbf{#1}}}
+
+%Tipos de datos
+\newcommand{\Integer}[1]{\reserved{int}#1 \,}
+%\Integer
+
+\newcommand{\Boolean}[1]{\reserved{bool}#1 \,}
+
+\newcommand{\Struct}{\reserved{struct} \,}
+
+\newcommand{\Class}{\reserved{struct} \,}
 
 
 
