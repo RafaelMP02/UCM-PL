@@ -65,16 +65,26 @@
 
 \newcommand{\const}[1]{\textcolor{blue}{#1}}
 \newcommand{\reserved}[1]{\textcolor{BurntOrange}{\texttt{\textbf{#1}}}}
+\newcommand{\operator}[1]{\textcolor{violet}{\texttt{\textbf{#1}}}}
 
 %Tipos de datos
+%\newcommand{\Integer}[1]{\reserved{int}}
+%\newcommand{\Boolean}[1]{\reserved{bool}}
+%\newcommand{\Struct}{\reserved{struct}}
+%\newcommand{\Class}{\reserved{struct}}
 \newcommand{\Integer}[1]{\reserved{int}#1 \,}
-%\Integer
-
 \newcommand{\Boolean}[1]{\reserved{bool}#1 \,}
-
 \newcommand{\Struct}{\reserved{struct} \,}
-
 \newcommand{\Class}{\reserved{struct} \,}
+
+%Operadores
+\newcommand{\And}{\operator{\&\&}}
+\newcommand{\Or}{\operator{||}}
+\newcommand{\Not}{\operator{not}}
+\newcommand{\Sum}{\operator{+}}
+\newcommand{\Sub}{\operator{-}}
+\newcommand{\Mul}{\operator{*}}
+\newcommand{\Div}{\operator{/}}
 
 
 
