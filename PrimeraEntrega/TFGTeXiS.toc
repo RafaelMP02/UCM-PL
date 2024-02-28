@@ -14,13 +14,16 @@
 \contentsline {chapter}{\numberline {3}Tipos y operadores en C-Horizon--}{13}{chapter.29}%
 \contentsline {section}{\numberline {3.1}Integer}{13}{section.30}%
 \contentsline {section}{\numberline {3.2}Boolean}{13}{section.31}%
-\contentsline {section}{\numberline {3.3}Operadores aritméticos (para enteros)}{13}{section.32}%
-\contentsline {section}{\numberline {3.4}Operadores lógicos (para booleanos)}{14}{section.33}%
-\contentsline {section}{\numberline {3.5}Operadores genéricos}{14}{section.34}%
-\contentsline {chapter}{\numberline {4}Conjunto de instrucciones de C-Horizon}{17}{chapter.41}%
-\contentsline {section}{\numberline {4.1}Motivación}{18}{section.48}%
-\contentsline {section}{\numberline {4.2}Objetivos}{18}{section.49}%
-\contentsline {section}{\numberline {4.3}Plan de trabajo}{18}{section.50}%
-\contentsline {section}{\numberline {4.4}Explicaciones adicionales sobre el uso de esta plantilla}{18}{section.51}%
-\contentsline {subsection}{\numberline {4.4.1}Texto de prueba}{19}{subsection.53}%
-\contentsline {chapter}{\numberline {5}Gestión de errores en C-Horizon}{23}{chapter.54}%
+\contentsline {section}{\numberline {3.3}Void}{13}{section.32}%
+\contentsline {section}{\numberline {3.4}Struct}{13}{section.33}%
+\contentsline {section}{\numberline {3.5}Class}{14}{section.44}%
+\contentsline {section}{\numberline {3.6}Operadores aritméticos (para enteros)}{14}{section.58}%
+\contentsline {section}{\numberline {3.7}Operadores lógicos (para booleanos)}{15}{section.59}%
+\contentsline {section}{\numberline {3.8}Operadores genéricos}{15}{section.60}%
+\contentsline {chapter}{\numberline {4}Conjunto de instrucciones de C-Horizon}{19}{chapter.67}%
+\contentsline {section}{\numberline {4.1}Motivación}{20}{section.74}%
+\contentsline {section}{\numberline {4.2}Objetivos}{20}{section.75}%
+\contentsline {section}{\numberline {4.3}Plan de trabajo}{20}{section.76}%
+\contentsline {section}{\numberline {4.4}Explicaciones adicionales sobre el uso de esta plantilla}{20}{section.77}%
+\contentsline {subsection}{\numberline {4.4.1}Texto de prueba}{21}{subsection.79}%
+\contentsline {chapter}{\numberline {5}Gestión de errores en C-Horizon}{25}{chapter.80}%

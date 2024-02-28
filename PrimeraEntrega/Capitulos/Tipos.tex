@@ -9,8 +9,48 @@ por lo que su rango de valores es [-2147483648, 2147483647]. La palabra reservad
  
 \section{Boolean}
 Corresponde con el \textit{bool} de C++. Almacenará valores verdaderos (\const{True}) o falsos (\const{False}). Se realizará conversión automática de tipo 
-\Integer{} siendo "$0$" el entero que represente falso y cualquier otro número, verdadero. Las operaciones que podremos realizar serán:
+\Integer{} siendo "$0$" el entero que represente falso y cualquier otro número, verdadero. La palabra reservada para este tipo es \Boolean.
+
+\section{Void}
+Es el tipo vacío. Lo usaremos cuando alguna función o método no devuelva ningún valor. Su palabra reservada es \Void.
+
+\section{Struct}
+Utilizaremos la palabra reservada \Struct para declararar un registro y para instanciarlo. Se realizará de manera semejante a C++. Los registros tendrán
+solo atributos (como es de esperar). Se accederá a los atributos con el operador "." (sin las dobles comillas). Este es un ejemplo:
+
+\begin{algorithm}
+	\Struct{} tEstudiante \{ \\
+		\quad \Integer{} edad; \\
+		\quad \Integer{} id; \\
+	\}; \\
+
+	\Integer{} main () \{ \\
+		\quad \Struct{} tEstudiante antonio = \{22, 67532\}; \\
+		\quad antonio.edad = antonio.edad + 1; \comm{//La edad se ha incrementado en 1} \\
+	\}
+\end{algorithm}
+
+\section{Class}
+Utilizaremos la palabra reservada \Class para declararar un registro y para instanciarlo. Se realizará de manera semejante a C++. Las clases tendrán atributos
+y métodos, todos ellos públicos. Deberán tener definido un método especial, el constructor, cuyo nombre deberá coincidir con el de la clase. Se accederá a los
+métodos y a los atributos con el operador "." (sin las dobles comillas). Este es un ejemplo:
  
+\begin{algorithm}
+	class Estudiante \{ \\
+		\quad Estudiante (\Integer{} e, \Integer{} i) \{ \\
+		\quad \quad edad = e; \\
+		\quad \quad id = i; \\
+		\quad \} \\
+		\quad \Integer{} edad; \\
+		\quad \Integer{} id; \\
+		%\Void incr_edad() \{ edad = edad + 1; \} \\ ESTA LÍNEA
+	\}; \\
+
+	\Integer{} main () \{ \\
+		\quad Estudiante antonio = Estudiante(22, 67532); \\
+		%\quad antonio.incr_edad(); \comm{//La edad se ha incrementado en 1} \\ ESTA LÍNEA
+	\}
+\end{algorithm}
 
 %OPERADORES ARITMÉTICOS
 \section{Operadores aritméticos (para enteros)}
@@ -72,11 +112,6 @@ Asigna un valor a una variable. El tipo del valor asignado debe corresponder con
 	\Integer{} num := 5; \comm{//Asignación válida} \\
 	\Integer{} num2 := \const{True}; \comm{//Asignación no válida por fallo de tipos} \\
 \end{algorithm}
-
-\subsection*{Struct}
-Sirve para declarar registros.
-
-\subsection*{Class}
 
 \subsection*{Paso por valor}
 Indica que el argumento de la función se pasa por valor. Lo que realiza realmente es crear una nueva variable con el valor de la anterior. Esta variable se crea
