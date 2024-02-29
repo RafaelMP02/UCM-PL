@@ -14,6 +14,23 @@ Corresponde con el \textit{bool} de C++. Almacenará valores verdaderos (\const{
 \section{Void}
 Es el tipo vacío. Lo usaremos cuando alguna función o método no devuelva ningún valor. Su palabra reservada es \Void.
 
+\section{Array}
+Corresponde con el array de C++. Para declararlo escrbiremos el tipo seguido "[]" (pudiendo especificar el tamaño). Se accederá a los elementos de la misma
+manera. En los ejemplos siguientes vienen detallados los distintos usos:
+
+\begin{algorithm}
+	\Integer{[]} a; \comm{//Declaración de un array vacío sin tamaño inicial} \\
+	\Integer{[5]} b; \comm{//Declaración de un array vacío con tamaño inicial} \\
+	\Integer{[]} c := { 2, 3, 4}; \comm{//Declaración de un array inicializado (se le asigna tamaño 3, por no especificarlo)} \\
+	\Integer{[3]} d := { 2, 3, 4}; \comm{//Igual que el anterior pero especificando el tamaño} \\
+	a[0]; \comm{//Error por acceso fuera de rango} \\
+	b[0]; \comm{//Error por no estar inicializado ese valor} \\
+	a[0] := 2; \comm{//Error por no estar inicializado ese valor} \\
+	b[0] := 2; \comm{//Se le asigna un 2 a la primera posición del array "b"} \\
+	c[2] := 6; \comm{//Se sustituye el 4 por un 6} \\
+	d[5] := 7; \comm{//Error por acceso fuera de rango} \\
+\end{algorithm}
+
 \section{Struct}
 Utilizaremos la palabra reservada \Struct para declararar un registro y para instanciarlo. Se realizará de manera semejante a C++. Los registros tendrán
 solo atributos (como es de esperar). Se accederá a los atributos con el operador "." (sin las dobles comillas). Este es un ejemplo:
@@ -25,29 +42,29 @@ solo atributos (como es de esperar). Se accederá a los atributos con el operado
 	\}; \\
 
 	\Integer{} main () \{ \\
-		\quad \Struct{} tEstudiante antonio = \{22, 67532\}; \\
-		\quad antonio.edad = antonio.edad + 1; \comm{//La edad se ha incrementado en 1} \\
+		\quad \Struct{} tEstudiante antonio := \{22, 67532\}; \\
+		\quad antonio.edad := antonio.edad + 1; \comm{//La edad se ha incrementado en 1} \\
 	\}
 \end{algorithm}
 
 \section{Class}
-Utilizaremos la palabra reservada \Class para declararar un registro y para instanciarlo. Se realizará de manera semejante a C++. Las clases tendrán atributos
+Utilizaremos la palabra reservada \Class para declararar una clase. Se realizará de manera semejante a C++. Las clases tendrán atributos
 y métodos, todos ellos públicos. Deberán tener definido un método especial, el constructor, cuyo nombre deberá coincidir con el de la clase. Se accederá a los
 métodos y a los atributos con el operador "." (sin las dobles comillas). Este es un ejemplo:
  
 \begin{algorithm}
-	class Estudiante \{ \\
+	\Class Estudiante \{ \\
 		\quad Estudiante (\Integer{} e, \Integer{} i) \{ \\
-		\quad \quad edad = e; \\
-		\quad \quad id = i; \\
+		\quad \quad edad := e; \\
+		\quad \quad id := i; \\
 		\quad \} \\
 		\quad \Integer{} edad; \\
 		\quad \Integer{} id; \\
-		%\Void incr_edad() \{ edad = edad + 1; \} \\ ESTA LÍNEA
+		%\Void incr_edad() \{ edad := edad + 1; \} \\ ESTA LÍNEA
 	\}; \\
 
 	\Integer{} main () \{ \\
-		\quad Estudiante antonio = Estudiante(22, 67532); \\
+		\quad Estudiante antonio := Estudiante(22, 67532); \\
 		%\quad antonio.incr_edad(); \comm{//La edad se ha incrementado en 1} \\ ESTA LÍNEA
 	\}
 \end{algorithm}
@@ -56,13 +73,13 @@ métodos y a los atributos con el operador "." (sin las dobles comillas). Este e
 \section{Operadores aritméticos (para enteros)}
 
 \subsection*{Suma}
-Suma entera de dos números enteros. Se utilizará el operador infijo \Sum. \\Tipado: \Sum :: (\Integer, \Integer) $\rightarrow$ \Integer. \\Prioridad: 7.
+Suma de dos números enteros. Se utilizará el operador infijo \Sum. \\Tipado: \Sum :: (\Integer, \Integer) $\rightarrow$ \Integer. \\Prioridad: 7.
 
 \subsection*{Resta}
-Resta entera de dos números enteros. Se utilizará el operador infijo \Sub. \\Tipado: \Sub :: (\Integer, \Integer) $\rightarrow$  \Integer. \\Prioridad: 7.
+Resta de dos números enteros. Se utilizará el operador infijo \Sub. \\Tipado: \Sub :: (\Integer, \Integer) $\rightarrow$  \Integer. \\Prioridad: 7.
 
 \subsection*{Multiplicación}
-Multiplicación entera de dos números enteros. Se utilizará el operador \Mul. \\Tipado: \Mul :: (\Integer, \Integer) $\rightarrow$  \Integer. \\Prioridad: 8.
+Multiplicación de dos números enteros. Se utilizará el operador \Mul. \\Tipado: \Mul :: (\Integer, \Integer) $\rightarrow$  \Integer. \\Prioridad: 8.
 
 \subsection*{División}
 División entera de dos números enteros. Se truncará el resultado obtenido en caso de ser fraccionario. El operador utilizado será \Div. \\Tipado: \Div :: 
@@ -107,21 +124,29 @@ Equivale a \Not (a \Gt b). \\Prioridad: 3.
 
 \subsection*{Asignación}
 Asigna un valor a una variable. El tipo del valor asignado debe corresponder con el tipo de la variable. Su operador infijo será ":="
-(sin las dobles comillas). \\Tipado: ??.\\Prioridad: 1.
+(sin las dobles comillas).\\Prioridad: 1.
 \begin{algorithm}
 	\Integer{} num := 5; \comm{//Asignación válida} \\
 	\Integer{} num2 := \const{True}; \comm{//Asignación no válida por fallo de tipos} \\
 \end{algorithm}
 
 \subsection*{Paso por valor}
-Indica que el argumento de la función se pasa por valor. Lo que realiza realmente es crear una nueva variable con el valor de la anterior. Esta variable se crea
-en el ámbito de la función, de tal manera que se destruye al terminar ésta. Su operador será \Val.
-\\Tipado: \Val :: t $\rightarrow$ t. \\Prioridad 1.
+Indica que el argumento de la función se pasa por valor. Lo que realiza realmente es crear una nueva variable inicializada con el valor de la anterior.
+La variable se crea en el ámbito de la función, de tal manera que se destruye al terminar ésta. Su operador será \Val.
+\\Tipado: \Val :: t $\rightarrow$ t. \\Prioridad 1.\\
+
+\begin{algorithm}
+	 \Integer{} sumaNum (\Integer{} \$ a, \Integer{} b); \comm{//Se declara una función con dos parámetros enteros, uno por valor y otro por referencia 
+	 (por defecto es referencia)}
+\end{algorithm}
 
 \subsection*{Punteros}
-Indica que el argumento de la función se pasa por valor. Lo que realiza realmente es crear una nueva variable con el valor de la anterior. Esta variable se crea
-en el ámbito de la función, de tal manera que se destruye al terminar ésta. Su operador será \Val.
-\\Tipado: \Val :: t $\rightarrow$ t. \\Prioridad 1.
+Para declarar un puntero a una variable, simplemente usaremos el operador \Ptr al lado del tipo. Para acceder al valor del puntero, también usaremos este operador
+\\Tipado: \Ptr :: t* $\rightarrow$ t. \\Prioridad 11.\\
+\begin{algorithm}
+	\Integer{}* p := 5; \comm{//Se declara un puntero a una vairable main inicializada con el valor 5} \\
+	\Integer{} num := p*; \comm{//Se accede al valor del puntero}
+\end{algorithm}
 
 
 %TABLA RESUMEN DE PRIORIDADES
