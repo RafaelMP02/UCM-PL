@@ -21,8 +21,8 @@ manera. En los ejemplos siguientes vienen detallados los distintos usos:
 \begin{algorithm}
 	\Integer{[]} a; \comm{//Declaración de un array vacío sin tamaño inicial} \\
 	\Integer{[5]} b; \comm{//Declaración de un array vacío con tamaño inicial} \\
-	\Integer{[]} c := { 2, 3, 4}; \comm{//Declaración de un array inicializado (se le asigna tamaño 3, por no especificarlo)} \\
-	\Integer{[3]} d := { 2, 3, 4}; \comm{//Igual que el anterior pero especificando el tamaño} \\
+	\Integer{[]} c := \{ 2, 3, 4\}; \comm{//Declaración de un array inicializado (se le asigna tamaño 3, por no especificarlo)} \\
+	\Integer{[3]} d := \{ 2, 3, 4\}; \comm{//Igual que el anterior pero especificando el tamaño} \\
 	a[0]; \comm{//Error por acceso fuera de rango} \\
 	b[0]; \comm{//Error por no estar inicializado ese valor} \\
 	a[0] := 2; \comm{//Error por no estar inicializado ese valor} \\
