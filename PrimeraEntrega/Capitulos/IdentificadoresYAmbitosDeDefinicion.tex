@@ -6,49 +6,25 @@
 
 \section{Declaración de variables}
 Para declarar una variable, se realiza de una forma muy similar a C++.
-Primero de todo, se nombra el tipo de la variable y posteriormente el nombre de la misma. El nombre de una variable no puede ser cualquier cadena de caracteres, solo permitimos palabras cuyo primer carácter sea alguno de 
-$["a"-"z"] \mid ["A"-"z"] \mid  "\_"$ 
+Al declarar, generalmente se nombra el tipo de la variable y posteriormente el nombre de la misma. Hablemos ahora de la declaración de variables puntero, array o funcional. En el caso de los punteros, para cada tipo $T$ podemos crear el tipo puntero a $T$ denotado como $T*$. De la misma forma, para cada  tipo $T$ y número natural $n$, tenemos el tipo array de tipo $T$ y tamaño $n$, denotado por 
+$T[n]$. Finalmente, para cada  tipo $T$ y cada tupla ordenada  de tipos, $Targ_{1},\dots,Targ_{m}$, tenemos un tipo funcional de funciones que devuelven un valor de tipo  $T$, tienen $m$ parámetros y el $i$-ésimo argumento es de tipo 
+$Targ_{i}$. Denotamos este tipo funcional por 
+$T(Targ_{1},\dots,Targ_{m})$.
+  
+El nombre de una variable no puede ser cualquier cadena de caracteres, solo permitimos palabras cuyo primer carácter sea alguno de 
+$["a"-"z"] \mid ["A"-"z"]$ 
 y el resto de caracteres sean de
 $["0"-"9"] \mid  ["a"-"z"] \mid  ["A"-"z"] \mid  "\_"$. 
-Además, permitiremos declarar una variable a la misma vez que la instanciamos con un valor. Para cada tipo $T$ y número natural $n$, definimos un nuevo tipo $T[n]$ que representa los arrays de $n$ elementos del tipo $T$. Este proceso puede encadenarse dando lugar a los arrays multidimensionales. De la misma manera, para cada tipo $T$, podemos definir el tipo $T*$ que representa el tipo de punteros al tipo $T$. El tipo de un registro o una clase es una palabra clave acompañado de un nombre, struct nombre y class nombre respectivamente.
-
-Mostramos algunos ejemplos:
-
-\begin{algorithm}
-
-	\Integer{} X  \;
-	
-	\Integer{*} p  \;
-	
-	\Boolean{[\const{3}]} Y \Assign 
-	[\const{True}, \const{True}, \const{False}] \;
-	
-	\Integer{[\const{2}][\const{2}]} Z \Assign 
-	[[\const{0},\const{1}],[\const{2},\const{3}]] \;
-	
-	\Struct \texttt{estudiante} \texttt{antonio} \; 
-\end{algorithm}
-
-
+Además, permitiremos declarar una variable a la misma vez que la instanciamos con un valor. 
 
 \section{Bloques anidados}
-Cada par $\{$ $\}$ colocado correctamente define un ámbito en nuestro lenguaje
+Cada par $\{$ $\}$ colocado correctamente marca un ámbito en nuestro lenguaje y recíprocamente, cada ámbito es marcado mediante este par, excepto por el ámbito total. Cada par $\{$ $\}$ debe ser colocado tras un contexto que lo permita, como tras un if + condición o tras la declaración de una función con sus argumentos. Cada ámbito puede tener variables locales, las cuales se pierden al abandonar dicho ámbito, y una tabla de simbolos propia. Además, como es razonable, se permite el anidamiento de ámbitos, es decir, subámbitos de un ámbito más grande, el superámbito, definidos mediante el anidamiento de $\{$ $\}$ o si el superámbito es el total, por incluir  $\{$ $\}$. Por tanto, los símbolos del subámbito son un superconjunto de los símbolos del superámbito.
 
-\section{Plan de trabajo}
-Aquí se describe el plan de trabajo a seguir para la consecución de los objetivos descritos en el apartado anterior.
+\section{Módulos y cláusulas de importación}
+Nuestro lenguaje permite el uso de módulos externos, que son meramente archivos de código. Para usarlos, hacemos uso de la palabra reservada \reserved{import} 'nombre\_archivo'. Al compilar, cada módulo es enlazado y el resultado del compilado es el programa generado por nuestro código donde en cada \reserved{import} es como si estuviera copiado el módulo entero. Por ello, es importante que los conjuntos de símbolos de todos los módulos sean disjuntos dos a dos para que las importaciones sean consistentes.
 
+\section{Funciones}
+Como comentamos, las funciones son variables. Además, cada programa tiene una función especial de nombre main con tipos de retorno y argumentos sin definir hasta que la creemos, ya que es solo un símbolo especial. 
 
+Por defecto, el paso de argumentos a función es por referencia y será por valor si se indica lo contrario con el operador \Val. No obstante, este operador es un azúcar sintáctico, el tipo no cambia ya que lo único que nos indica es que debemos copiar cada argumento pasado por valor en una variable nueva auxiliar y operar sobre esa variable nueva como si fuera la antigua. No obstante, no todos los tipos permiten el paso por valor tal como es cualquier tipo funcional.
 
-\section{Explicaciones adicionales sobre el uso de esta plantilla}
-Si quieres cambiar el \textbf{estilo del título} de los capítulos del documento, edita el fichero \verb|TeXiS\TeXiS_pream.tex| y comenta la línea \verb|\usepackage[Lenny]{fncychap}| para dejar el estilo básico de \LaTeX.
-
-Si no te gusta que no haya \textbf{espacios entre párrafos} y quieres dejar un pequeño espacio en blanco, no metas saltos de línea (\verb|\\|) al final de los párrafos. En su lugar, busca el comando  \verb|\setlength{\parskip}{0.2ex}| en \verb|TeXiS\TeXiS_pream.tex| y aumenta el valor de $0.2ex$ a, por ejemplo, $1ex$.
-
-TFGTeXiS se ha elaborado a partir de la plantilla de TeXiS\footnote{\url{http://gaia.fdi.ucm.es/research/texis/}}, creada por Marco Antonio y Pedro Pablo Gómez Martín para escribir su tesis doctoral. Para explicaciones más extensas y detalladas sobre cómo usar esta plantilla, recomendamos la lectura del documento \texttt{TeXiS-Manual-1.0.pdf} que acompaña a esta plantilla.
-
-El siguiente texto se genera con el comando \verb|\lipsum[2-20]| que viene a continuación en el fichero .tex. El único propósito es mostrar el aspecto de las páginas usando esta plantilla. Quita este comando y, si quieres, comenta o elimina el paquete \textit{lipsum} al final de \verb|TeXiS\TeXiS_pream.tex|
-
-\subsection{Texto de prueba}
-
-
-\lipsum[2-20]

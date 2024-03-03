@@ -1,7 +1,7 @@
-\chapter{Tipos y operadores en C-Horizon--}
+\chapter{Tipos y operadores en C-Horizon}
 \label{cap:tipos y operadores}
-En esta sección se especifican los tipos y operadores que vamos a usar. Los operadores infijos serán señalados como tal. En caso de empate de prioridades,
-siempre asociaremos por la izuierda.
+En esta sección se especifican los tipos y operadores que vamos a usar. En caso de empate de prioridades,
+siempre asociaremos por la izquierda.
 
 \section{Integer}
 Corresponde con el \textit{signed int} de C++. Es decir, almacena números enteros representados en sistema decimal. Tienen un espacio reservado de 32 bits, 
@@ -9,27 +9,49 @@ por lo que su rango de valores es [-2147483648, 2147483647]. La palabra reservad
  
 \section{Boolean}
 Corresponde con el \textit{bool} de C++. Almacenará valores verdaderos (\const{True}) o falsos (\const{False}). Se realizará conversión automática de tipo 
-\Integer{} siendo "$0$" el entero que represente falso y cualquier otro número, verdadero. La palabra reservada para este tipo es \Boolean.
+\Integer{} siendo $0$ el entero que represente falso y cualquier otro entero, verdadero. La palabra reservada para este tipo es \Boolean.
 
 \section{Void}
 Es el tipo vacío. Lo usaremos cuando alguna función o método no devuelva ningún valor. Su palabra reservada es \Void.
 
 \section{Array}
-Corresponde con el array de C++. Para declararlo escrbiremos el tipo seguido "[]" (pudiendo especificar el tamaño). Se accederá a los elementos de la misma
-manera. En los ejemplos siguientes vienen detallados los distintos usos:
+Corresponde con el array de C++. Para declararlo escribiremos el tipo seguido de $[n]$ donde $n$ es un número natural fijo que representa el tamaño. Se accederá a los elementos de la misma
+manera, usando el operador []. 
+En los ejemplos siguientes vienen detallados los distintos usos:
 
 \begin{algorithm}
-	\Integer{[]} a; \comm{//Declaración de un array vacío sin tamaño inicial} \\
-	\Integer{[5]} b; \comm{//Declaración de un array vacío con tamaño inicial} \\
-	\Integer{[]} c := \{ 2, 3, 4\}; \comm{//Declaración de un array inicializado (se le asigna tamaño 3, por no especificarlo)} \\
-	\Integer{[3]} d := \{ 2, 3, 4\}; \comm{//Igual que el anterior pero especificando el tamaño} \\
-	a[0]; \comm{//Error por acceso fuera de rango} \\
-	b[0]; \comm{//Error por no estar inicializado ese valor} \\
-	a[0] := 2; \comm{//Error por no estar inicializado ese valor} \\
-	b[0] := 2; \comm{//Se le asigna un 2 a la primera posición del array "b"} \\
-	c[2] := 6; \comm{//Se sustituye el 4 por un 6} \\
-	d[5] := 7; \comm{//Error por acceso fuera de rango} \\
+	\Integer{[\const{1}]} a; \comm{//Declaración de un array de un solo elemento} \\
+	\Integer{[\const{5}]} b; 
+	\comm{//Declaración de un array de cinco elementos} \\
+	\Integer{[\const{3}]} c := 
+	[\const{2}, \const{3}, \const{4}]; 
+	\comm{//Declaración de un array inicializado } \\
+	\Integer{[\const{3}][\const{2}]} d := 
+	[[\const{2},\const{1}], [\const{3},\const{3}], 
+	[\const{4},\const{4}]]; 
+	\comm{//Array bidimensional (array de tipo array)} \\
+	a[\const{0}] := a[\const{0}]+a[\const{0}]; 
+	\comm{//Acceso a contenido sin inizializar (basura)} \\
+	b[\const{0}] := \const{2}; 
+	\comm{//Se le asigna un 2 a la primera posición del array b} \\
+	c[\const{2}] := \const{6}; 
+	\comm{//Se sustituye el 4 por un 6} \\
+	d[\const{5}] := \const{7}; 
+	\comm{//Error por mal tipado} \\
+	d[\const{1}] := [\const{2} , \const{2}] ; 
+	\comm{
+	//Se le asigna el array [2,2] 
+	a la segunda posición de d}\\
 \end{algorithm}
+
+\subsection*{Operador []}
+Dado un tipo array $t[n]$ , el operador \operator{[]} asigna a cada objeto array y cada entero en rango el elemento que tiene en esa posición. Además, hemos visto que también se usa como functor parcial para definir nuevos tipos o para instanciar arrays.
+\\Operador  binario.
+\\Tipado: \operator{[]} :: 
+$(t[n], {1,\dots,n-1})$
+$\rightarrow$ $t$. 
+\\Prioridad: 12.
+\\Asociatividad: izquierda.
 
 \section{Struct}
 Utilizaremos la palabra reservada \Struct para declararar un registro y para instanciarlo. Se realizará de manera semejante a C++. Los registros tendrán
@@ -49,103 +71,236 @@ solo atributos (como es de esperar). Se accederá a los atributos con el operado
 
 \section{Class}
 Utilizaremos la palabra reservada \Class para declararar una clase. Se realizará de manera semejante a C++. Las clases tendrán atributos
-y métodos, todos ellos públicos. Deberán tener definido un método especial, el constructor, cuyo nombre deberá coincidir con el de la clase. Se accederá a los
-métodos y a los atributos con el operador "." (sin las dobles comillas). Este es un ejemplo:
+y métodos (atributos funcionales), todos ellos públicos. Deberán tener definido un método especial, el constructor, que debe ser único en principio. 
+Se accederá a los otros
+métodos y a los atributos con el operador "." (sin las dobles comillas) seguido del nombre del método o atributo excepto para el constructor en el que se accede solo mencionando la clase, y dependiendo de si tiene argumentos o no, se interpreta una u otra cosa. Para referenciar el constructor dentro de la clase, se usa la palabra reservada \reserved{this}.
+
+Este es un ejemplo:
+
  
 \begin{algorithm}
 	\Class Estudiante \{ \\
-		\quad Estudiante (\Integer{} e, \Integer{} i) \{ \\
+		\quad Estudiante(\Integer{}, \reserved{int}) 
+		\reserved{this}(e , i)\{ \\
 		\quad \quad edad := e; \\
 		\quad \quad id := i; \\
-		\quad \} \\
+		\quad \} ;\
 		\quad \Integer{} edad; \\
 		\quad \Integer{} id; \\
 		%\Void incr_edad() \{ edad := edad + 1; \} \\ ESTA LÍNEA
 	\}; \\
 
-	\Integer{} main () \{ \\
+	\Integer{}() main() := \{ \\
 		\quad Estudiante antonio := Estudiante(22, 67532); \\
-		%\quad antonio.incr_edad(); \comm{//La edad se ha incrementado en 1} \\ ESTA LÍNEA
-	\}
+		\quad antonio.incr\_edad(); 
+		\comm{//La edad se ha incrementado en 1}  \\
+		\reserved{return} \const{0};
+	\} \;
 \end{algorithm}
+
+\subsection*{Operador .}
+Dado un tipo clase o struct $t$ con conjunto de atributos/métodos $A_{t}$, el operador \operator{.} asigna a cada objeto struct/clase y cada atributo/método de ese struct/clase el valor de ese campo en esa instancia. Si $B_{t}$ es el conjunto de la unión del tipo de los atributos/métodos de $t$ tenemos que
+\\Operador  binario infijo.
+\\Tipado: \operator{.} :: 
+$(t, A_{t})$
+$\rightarrow$ $B_{t}$. 
+\\Prioridad: 12.
+\\Asociatividad: izquierda.
+
+\section{Punteros}
+Para declarar un puntero a una variable, simplemente usaremos el operador \Ptr al lado del tipo. Para acceder al valor del puntero, también usaremos este operador. Cuando se declara un puntero sin instanciarlo toma el valor \const{nullptr} como en C++.
+\begin{algorithm}
+	\Integer{}* p; \comm{//Se declara un puntero} \\
+	p* := \const{5}; \comm{//Se asigna valor 5} \\
+	\Integer{} num := p*; \comm{//Se accede al valor del puntero}
+\end{algorithm}
+
+
+\subsection*{Operador * (punteros)}
+Este símbolo, a parte de su uso en la multiplicación, nos vale para relacionar un tipo y los punteros a ese tipo pero como operador de punteros, nos sirve también para saber el valor que tiene cada puntero. 
+\\Operador  unario postfijo.
+\\Tipado: \Ptr :: t* $\rightarrow$ t. 
+\\Prioridad 11.
+\\Asociatividad: asociativo.
+
+
+
+
+
+\section{Funcional}
+Como dijimos antes, hay tipos funcionales que están determinados por el tipo de retorno del argumento y los tipos de la tupla ordenada de argumentos. 
+Para saber el valor para determinados argumentos de una función, se usa el operador $()$. Dentro del ámbito de una función, podemos usar la palabra reservada \reserved{return} para devolver un valor. Si el tipo de retorno no es void, el ámbito de la función debe ser una propiedad que llamaremos retornable. Un ámbito se dice retornable si contiene un return fuera de todo subámbito suyo o todos sus subámbitos son retornables. 
+Las funciones sin inicializar tienen valor \const{nullfun}, que pertenece a cada tipo funcional el cuál es semejante a la lista vacía o \const{nullptr}, el cuál da error siempre que se intente usar con el operador $()$.
+	Mostramos ejemplos:
+
+\begin{algorithm}
+	\reserved{int}(\reserved{int}, \reserved{int}) suma;
+	\comm{//Declaramos función sin inicializar} \\ 
+	suma(\const{0}, \const{1});	
+	\comm{//Error al no estar instanciada (es nullfunc) } \\ 
+	suma(a,b) := \{ \\
+	\quad \reserved{return} a + b;  \\
+	\} ;
+	\comm{//Instanciamos suma} \\
+	\reserved{int}(\reserved{int}, \reserved{int}) 
+	division\_entera(a,b) := \{ \\
+	\quad \Ifff{ b \operator{=/=} \const{0} }
+	\comm{//a es 1 o -1 y tiene inverso entero}\\
+	\quad \quad \reserved{return} a;\\
+	\quad \}\\
+	\} ;
+	\comm{//En principio da un error al no ser el ámbito de la función retornable pero se podrá arreglar ampliando la definición para permitir devolver errores y no solo returns o permitiendo asertos} \\
+	
+	
+	
+\end{algorithm}
+
+\subsection*{Operador ()}
+Dado un tipo funcional $t(ta_{1},\dots,ta_{n})$, el operador \operator{()} asigna a cada función y argumentos un valor de retorno, es decir, si $f$ es una función de tipo $t(ta_{1},\dots,ta_{n})$ y $a_{i}$ es de tipo $ta_{i}$ para 
+$i \in \{1,\dots,n\}$, tenemos que \operator{()} tiene aridad $n+1$ en este caso y 
+$()(f,a_{1},\dots,a_{n}) = f(a_{1},\dots,a_{n})$.
+Además, hemos visto que también nos permite definir nuevos tipos funcionales aunque no como operador en sí.
+\\Operador  binario viendo los argumentos como uno solo.
+\\Tipado: \operator{()} :: 
+$(t(ta_{1},\dots,ta_{n}), ta_{1}, \dots, ta_{1})$
+$\rightarrow$ $t$. 
+\\Prioridad: 12.
+\\Asociatividad: izquierda.
+
+\subsection*{Paso por valor}
+Indica que el argumento de la función se pasa por valor. Es azúcar sintáctico, realmente solo indica que debemos realizar una copia del argumento dentro del ámbito de la función y usarlo como nuevo argumento.
+Su pseudo-operador será \Val \, ya que al ser solo azúcar sintáctico, no es un operador como tal.
+\\Tipado: \Val :: t $\rightarrow$ t. 
+\\Prioridad 1.
+\\Asociatividad: no asociativo.
+
+
+\begin{algorithm}
+	 \Integer{}(\Val \, \Integer{} , \reserved{int}) 
+	 sumaNum(a, b); \comm{//Se declara una función sin inicializar con dos parámetros enteros, uno por valor y otro por referencia 
+	 (por defecto es referencia)}
+\end{algorithm}
+
+
+\section{Alias}
+Nuestro lenguaje va a tener alias para tipos representado con la palabra reservada \reserved{typedef}. Su sintaxis es:
+
+\begin{algorithm}
+	\reserved{typedef} tipo\_original alias\_tipo\;
+\end{algorithm}
+
 
 %OPERADORES ARITMÉTICOS
 \section{Operadores aritméticos (para enteros)}
 
 \subsection*{Suma}
-Suma de dos números enteros. Se utilizará el operador infijo \Sum. \\Tipado: \Sum :: (\Integer, \Integer) $\rightarrow$ \Integer. \\Prioridad: 7.
+Suma de dos números enteros. Se utilizará el operador \Sum. 
+\\Operador  binario infijo.
+\\Tipado: \Sum :: (\Integer, \Integer) $\rightarrow$ \Integer. \\Prioridad: 7.
+\\Asociatividad: izquierda.
 
 \subsection*{Resta}
-Resta de dos números enteros. Se utilizará el operador infijo \Sub. \\Tipado: \Sub :: (\Integer, \Integer) $\rightarrow$  \Integer. \\Prioridad: 7.
+
+Resta de dos números enteros. Se utilizará el operador \Sub. 
+\\Operador  binario infijo.
+\\Tipado: \Sub :: (\Integer, \Integer) $\rightarrow$  \Integer. \\Prioridad: 7.
+\\Asociatividad: izquierda.
+
+Opuesto de un numero entero. Se utilizará el operador \Sub. 
+\\Operador  unario prefijo.
+\\Tipado: \Sub :: \Integer $\rightarrow$  \Integer. \\Prioridad: 11.
+\\Asociatividad: asociativo.
+
 
 \subsection*{Multiplicación}
-Multiplicación de dos números enteros. Se utilizará el operador \Mul. \\Tipado: \Mul :: (\Integer, \Integer) $\rightarrow$  \Integer. \\Prioridad: 8.
+Multiplicación de dos números enteros. Se utilizará el operador \Mul. 
+\\Operador  binario infijo.
+\\Tipado: \Mul :: (\Integer, \Integer) $\rightarrow$  \Integer. \\Prioridad: 8.
+\\Asociatividad: izquierda.
 
 \subsection*{División}
-División entera de dos números enteros. Se truncará el resultado obtenido en caso de ser fraccionario. El operador utilizado será \Div. \\Tipado: \Div :: 
+División entera de dos números enteros. Se truncará el resultado obtenido en caso de ser fraccionario. El operador utilizado será \Div. 
+\\Operador  binario infijo.
+\\Tipado: \Div :: 
 (\Integer, \Integer) $\rightarrow$  \Integer. \\Prioridad: 8.
+\\Asociatividad: izquierda.
 
 %OPERADORES LÓGICOS
 \section{Operadores lógicos (para booleanos)}
 
 \subsection*{Conjunción}
-Conjunción lógica de dos booleanos. Su operador infijo será el \And. \\Tipado: \And :: (\Boolean, \Boolean) $\rightarrow$ \Boolean. \\Prioridad: 4.
+Conjunción lógica de dos booleanos. Su operador infijo será el \And. 
+\\Operador  binario infijo.
+\\Tipado: \And :: (\Boolean, \Boolean) $\rightarrow$ \Boolean. \\Prioridad: 4.
+\\Asociatividad: izquierda.
 
 \subsection*{Disyunción}
-Disyunción lógica de dos booleanos. Su operador infijo será el \Or. \\Tipado: \Or :: (\Boolean, \Boolean) $\rightarrow$ \Boolean. \\Prioridad: 5.
+Disyunción lógica de dos booleanos. Su operador infijo será el \Or. 
+\\Operador  binario infijo.
+\\Tipado: \Or :: (\Boolean, \Boolean) $\rightarrow$ \Boolean. \\Prioridad: 5.
+\\Asociatividad: izquierda.
 
 \subsection*{Negación}
-Negación lógica de dos booleanos. Su operador infijo será el \Not. \\Tipado: \Not :: \Boolean $\rightarrow$ \Boolean. \\Prioridad: 6.
+Negación lógica de un booleano. Su operador prefijo será el \Not. 
+\\Operador  unario prefijo.
+\\Tipado: \Not :: \Boolean $\rightarrow$ \Boolean. \\Prioridad: 6.
+\\Asociatividad: asociativo.
+
 
 %OTROS OPERADORES
-\section{Operadores genéricos}
+\section{Operadores de comparación y asignación}
 
 \subsection*{Igual que}
-Compara dos valores de un mismo tipo y devuelve \const{True} si tienen el mismo valor, en caso contrario devuelve \const{False}. \\Tipado: \Eq :: (t, t)
+Compara dos valores de un mismo tipo y devuelve \const{True} si tienen el mismo valor, en caso contrario devuelve \const{False}. 
+\\Operador  binario infijo.
+\\Tipado: \Eq :: (t, t)
 \footnote{Usaremos "t" para designar un tipo cualquiera} $\rightarrow$ \Boolean. \\Prioridad 3.
+\\Asociatividad: no asociativo.
 
 \subsection*{Distinto que}
-Equivale a \Not (a \Eq b). \\Prioridad 3.
+Equivale a \Not (a \Eq b). 
+\\Operador  binario infijo.
+\\Tipado: \operator{=/=} :: (t, t)  $\rightarrow$ \Boolean.
+\\Prioridad 3.
+\\Asociatividad: no asociativo.
 
 \subsection*{Menor que}
 Compara dos valores de un mismo tipo y devuelve \const{True} si el primero es menor que el segundo, en caso contrario devuelve \const{False}
 \footnote{Consideramos que \const{False}  es menor que \const{True}}. Su operador infijo es \Lt. 
+\\Operador  binario infijo.
 \\Tipado: \Lt :: (t, t) $\rightarrow$ \Boolean. \\Prioridad: 3.
+\\Asociatividad: no asociativo.
 
 \subsection*{Mayor que}
 Compara dos valores y devuelve \const{True} si el primero es mayor que el segundo, en caso contrario devuelve \const{False}. Su operador infijo es \Gt.
+\\Operador binario infijo.
 \\Tipado: \Gt :: (t, t) $\rightarrow$ \Boolean. \\Prioridad: 3.
+\\Asociatividad: no asociativo.
 
 \subsection*{Menor o igual que}
-Equivale a \Not (a \Lt b). \\Prioridad: 3.
+Equivale a \Not (a \Lt b). 
+\\Operador binario infijo.
+\\Tipado: \operator{<=} :: (t, t) $\rightarrow$ \Boolean.
+\\Prioridad: 3.
+\\Asociatividad: no asociativo.
 
 \subsection*{Mayor o igual que}
-Equivale a \Not (a \Gt b). \\Prioridad: 3.
+Equivale a \Not (a \Gt b). 
+\\Operador binario infijo.
+\\Tipado: \operator{>=} :: (t, t) $\rightarrow$ \Boolean.
+\\Prioridad: 3.
+\\Asociatividad: no asociativo.
 
 \subsection*{Asignación}
 Asigna un valor a una variable. El tipo del valor asignado debe corresponder con el tipo de la variable. Su operador infijo será ":="
-(sin las dobles comillas).\\Prioridad: 1.
+(sin las dobles comillas).
+\\Operador binario infijo.
+\\Prioridad: 1.
+\\Asociatividad: no asociativo.
+
 \begin{algorithm}
-	\Integer{} num := 5; \comm{//Asignación válida} \\
+	\Integer{} num := \const{5}; \comm{//Asignación válida} \\
 	\Integer{} num2 := \const{True}; \comm{//Asignación no válida por fallo de tipos} \\
-\end{algorithm}
-
-\subsection*{Paso por valor}
-Indica que el argumento de la función se pasa por valor. Lo que realiza realmente es crear una nueva variable inicializada con el valor de la anterior.
-La variable se crea en el ámbito de la función, de tal manera que se destruye al terminar ésta. Su operador será \Val.
-\\Tipado: \Val :: t $\rightarrow$ t. \\Prioridad 1.\\
-
-\begin{algorithm}
-	 \Integer{} sumaNum (\Integer{} \$ a, \Integer{} b); \comm{//Se declara una función con dos parámetros enteros, uno por valor y otro por referencia 
-	 (por defecto es referencia)}
-\end{algorithm}
-
-\subsection*{Punteros}
-Para declarar un puntero a una variable, simplemente usaremos el operador \Ptr al lado del tipo. Para acceder al valor del puntero, también usaremos este operador
-\\Tipado: \Ptr :: t* $\rightarrow$ t. \\Prioridad 11.\\
-\begin{algorithm}
-	\Integer{}* p := 5; \comm{//Se declara un puntero a una vairable main inicializada con el valor 5} \\
-	\Integer{} num := p*; \comm{//Se accede al valor del puntero}
 \end{algorithm}
 
 

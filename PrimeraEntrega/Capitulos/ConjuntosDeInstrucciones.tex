@@ -1,55 +1,113 @@
 \chapter{Conjunto de instrucciones de C-Horizon}
 \label{cap:instrucciones}
 
-\chapterquote{Frase célebre dicha por alguien inteligente}{Autor}
-
-Según la normativa  para Trabajos de Fin de Grado\footnote{\url{https://informatica.ucm.es/file/normativatfg-2021-2022?ver} (ver versión actualizada para cada curso académico)}, la memoria incluirá una portada normalizada con la siguiente información: título en castellano, título en inglés, autores, profesor director, codirector si es el caso, curso
-académico e identificación de la asignatura (Trabajo de fin de grado del Grado en -
-nombre del grado correspondiente-, Facultad de Informática, Universidad Complutense de Madrid). Los datos referentes al título y director (y codirector en su caso) deben corresponder a los publicados en la página web de TFG.
-
-La memoria debe incluir la descripción detallada de la propuesta hardware/software realizada y ha de contener:
-\begin{enumerate}
-\renewcommand{\theenumi}{\alph{enumi}}
-	\item un índice,
-	\item un resumen y una lista de no más de 10 palabras clave para su búsqueda bibliográfica, ambos en castellano e inglés,
-	\item una introducción con los antecedentes, objetivos y plan de trabajo,
-	\item resultados y discusión crítica y razonada de los mismos, con sus conclusiones,
-	\item bibliografía.
-\end{enumerate}
-Para facilitar la escritura de la memoria siguiendo esta estructura, el estudiante podrá usar las plantillas en LaTeX o Word preparadas al efecto y publicadas en la página web de TFG.
-
-La memoria constará de un mínimo de 25 páginas para los proyectos realizados por un único estudiante, y de al menos 5 páginas más por cada integrante adicional del grupo. En este número de páginas solo se tiene en cuenta el contenido correspondiente a los apartados c y d del punto anterior.
-
-La memoria puede estar escrita en castellano o inglés, pero en el primer caso la introducción y las conclusiones deben aparecer también en inglés. Las memorias de los TFG matriculados en el grupo I deberán estar escritas íntegramente en inglés, excepto por lo especificado en los puntos 1 y 2 anteriores (título, resumen y lista de palabras clave).
-
-En caso de trabajos no unipersonales, cada participante indicará en la memoria su contribución al proyecto con una extensión de al menos dos páginas por cada uno de los participantes.
-
-Todo el material no original, ya sea texto o figuras, deberá ser convenientemente citado y referenciado. En el caso de material complementario se deben respetar las licencias y \emph{copyrights} asociados al software y hardware que se emplee. En caso contrario no se autorizará la defensa, sin menoscabo de otras acciones que correspondan.
 
 
-\section{Motivación}
-Introducción al tema del TFG.
+\section{Asignación}
+Nuestro primer tipo de instrucciones son las de asignación. Como hemos visto a lo largo del documento, hay una sintaxis variada para ello dependiendo del tipo de la variable. Se muestran ejemplos de todo el documento.
 
+\begin{algorithm}
 
-\section{Objetivos}
-Descripción de los objetivos del trabajo.
+	\Integer{} X  := \const{2};
+	\comm{\\asignación a variable de tipo entero} \\
+	
+	\Integer{*} p  := \const{nullptr}\;
+	
+	p := malloc(sizeof(\Integer))
+	
+	p* := \const{2}
+	
+	\Boolean{[\const{3}]} Y \Assign 
+	[\const{True}, \const{True}, \const{False}] \;
+	
+	\Integer{[\const{2}][\const{2}]} Z \Assign 
+	[[\const{0},\const{1}],[\const{2},\const{3}]] \;
+	
+	\Class \texttt{estudiante} \texttt{antonio} := 
+	\texttt{estudiante}(\const{1}, \const{2})\; 
+	
+	int(int, int) potencia(a,b) := \{ \\
+	\quad \Ifff{b < \const{0}}\\
+	\quad \quad \reserved{return} \const{0}\;
+	\quad \} \Elsif{b == \const{0}}\\
+	\quad \quad \reserved{return} \const{1}\;
+	\quad \} \Elsee\\
+	\quad \quad \reserved{return} potencia(a,b-\const{1})\;
+	\quad \} \\
+	\}\;
+	
+	
+\end{algorithm}
 
+Solo nos queda por comentar las funciones malloc y sizeof. La primera sirve para asignar memoria dinámica libre del tamaño específicado mientras que sizeof te dice el tamaño en palabras de 4 bytes del tipo que le das como argumento.
 
-\section{Plan de trabajo}
-Aquí se describe el plan de trabajo a seguir para la consecución de los objetivos descritos en el apartado anterior.
+\section{;}
+Como en C++, el ; sirve para unir dos instrucciones en una sola.
 
+\section{While}
+El siguiente tipo de instrucciones son las formadas por un while. Se usa la palabra reservada \reserved{while} y la sintaxis es la habitual,
 
+while (expresión booleana) \{ instrucción \}
+y además, obligamos a colocar \{ y \} para mostrar su ámbito. 
 
-\section{Explicaciones adicionales sobre el uso de esta plantilla}
-Si quieres cambiar el \textbf{estilo del título} de los capítulos del documento, edita el fichero \verb|TeXiS\TeXiS_pream.tex| y comenta la línea \verb|\usepackage[Lenny]{fncychap}| para dejar el estilo básico de \LaTeX.
+\section{For}
+El siguiente tipo de instrucciones son las formadas por un for. Se usa la palabra reservada \reserved{for} y la sintaxis es la habitual, aunque la variable contadora se declara fuera de este.
+Como antes obligamos a colocar \{ y \} para describir su ámbito. 
 
-Si no te gusta que no haya \textbf{espacios entre párrafos} y quieres dejar un pequeño espacio en blanco, no metas saltos de línea (\verb|\\|) al final de los párrafos. En su lugar, busca el comando  \verb|\setlength{\parskip}{0.2ex}| en \verb|TeXiS\TeXiS_pream.tex| y aumenta el valor de $0.2ex$ a, por ejemplo, $1ex$.
+	
+\section{If, elsif y else}
+Las instrucciones if, elsif y else con la sintaxis habitual que usan palabras reservadas \reserved{if}, \reserved{elsif} y 
+\reserved{else} respectivamente. Igual que en todos los casos anteriores, es obligatorio el uso de \{ \} `para declarar el ámbito de cada uno de los bloques.
 
-TFGTeXiS se ha elaborado a partir de la plantilla de TeXiS\footnote{\url{http://gaia.fdi.ucm.es/research/texis/}}, creada por Marco Antonio y Pedro Pablo Gómez Martín para escribir su tesis doctoral. Para explicaciones más extensas y detalladas sobre cómo usar esta plantilla, recomendamos la lectura del documento \texttt{TeXiS-Manual-1.0.pdf} que acompaña a esta plantilla.
+\section{Switch}
+Finalmente, llegamos al último tipo de instrucción, las formadas por un switch. Usamos las palabras reservadas \reserved{switch},
+\reserved{case} y \reserved{default}. No es necesario usar break ya que cada switch es independiente del otro pero sí es obligatorio colocar una cláusula default al final. La instrucción switch valora una expresión booleana una sola vez y busca entre cada uno de los casos el que se corresponda con esa evaluación.
 
-El siguiente texto se genera con el comando \verb|\lipsum[2-20]| que viene a continuación en el fichero .tex. El único propósito es mostrar el aspecto de las páginas usando esta plantilla. Quita este comando y, si quieres, comenta o elimina el paquete \textit{lipsum} al final de \verb|TeXiS\TeXiS_pream.tex|
+Finalmente, mostramos un ejemplo en el que se usan todas las instrucciones para ejemplificar su uso:
 
-\subsection{Texto de prueba}
+\begin{algorithm}
 
+	\Integer{} X  := \const{100}\;
+	\Integer{} Y  := \const{0}\;
+	\Integer{} Z  := \const{1}\;
+	\Integer{} T \;
+	
+	\reserved{int}(\reserved{int}, \reserved{int}) f(a,b) := \{ \\
+	\quad \Ifff{\const{2}*a < \, b}\\
+	\quad \quad \reserved{return} \const{2}*a + \const{1}\;
+	\quad \} \Elsif{a > \, b}\\
+	\quad \quad \reserved{return} b\;
+	\quad \} \Elsee\\
+	\quad \quad \reserved{return} a + \const{1}\;
+	\quad \} \\
+	\}\;
 
-\lipsum[2-20]
+    \reserved{for} (Y := \const{0}; Y < \, X; Y := f(Y,X))	 \{ \\
+    \quad \reserved{for} 
+    (T := \const{0}; T < \, Y; T := T + \const{1})	 \{ \\
+	\quad \quad \Ifff{\const{2}*Y < \, X}\\
+	\quad \quad \quad Z := Z + \const{1}\;
+	\quad \quad \} \\
+	\quad \} \\
+	\}\\
+	
+	
+	\Integer{} Y  := X - Z\;
+	
+	\reserved{while} (Y < \, X)	 \{ \\
+	\quad \reserved{switch}(T - \const{2}*Y)\\
+	\quad \quad \reserved{case} 0 \{ \\
+	\quad \quad \quad T := X\;
+	\quad \quad\} \reserved{case} 1 \{ \\
+	\quad \quad \quad T := 2*X\;
+	\quad \quad\} \reserved{case} 2 \{ \\
+	\quad \quad \quad T := \const{0}\;
+	\quad \quad\} \reserved{default} \{ \\
+	\quad \quad \quad T := Y\;
+	\quad \quad\}\\
+	\quad \} \\
+	\quad Y := Y + \const{1}\;
+	\}\\
+\end{algorithm}
+
+	
