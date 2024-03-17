@@ -13,7 +13,7 @@ Nuestro primer tipo de instrucciones son las de asignación. Como hemos visto a 
 	
 	\Integer{*} p  := \const{nullptr}\;
 	
-	p := malloc(sizeof(\Integer))
+	p := \reserved{new} \;
 	
 	p* := \const{2}
 	
@@ -39,8 +39,7 @@ Nuestro primer tipo de instrucciones son las de asignación. Como hemos visto a 
 	
 \end{algorithm}
 
-Solo nos queda por comentar las funciones malloc y sizeof. La primera sirve para asignar memoria dinámica libre del tamaño específicado mientras que sizeof te dice el tamaño en palabras de 4 bytes del tipo que le das como argumento.
-
+Solo nos queda por comentar la función new que es una función sobrecargada que permite asignarle memoria dinámica a un puntero.
 \section{;}
 Como en C++, el ; sirve para unir dos instrucciones en una sola.
 
@@ -60,9 +59,13 @@ Las instrucciones if, elsif y else con la sintaxis habitual que usan palabras re
 \reserved{else} respectivamente. Igual que en todos los casos anteriores, es obligatorio el uso de \{ \} `para declarar el ámbito de cada uno de los bloques.
 
 \section{Switch}
-Finalmente, llegamos al último tipo de instrucción, las formadas por un switch. Usamos las palabras reservadas \reserved{switch},
+Vemos ahora el siguiente tipo de instrucción, las formadas por un switch. Usamos las palabras reservadas \reserved{switch},
 \reserved{case} y \reserved{default}. No es necesario usar break ya que cada switch es independiente del otro pero sí es obligatorio colocar una cláusula default al final. La instrucción switch valora una expresión booleana una sola vez y busca entre cada uno de los casos el que se corresponda con esa evaluación.
 
+\section{Entrada y salida}
+Finalmente el último tipo de instrucción. Para la salida estándar está reservada la palabra \reserved{print} que imprime el contenido de una variable primitiva por la salida estándar. Para la entrada estándar, tenemos la palabra reservada \reserved{read} que de igual manera recoge el valor de una variable primitiva dada por la entrada estándar.
+
+\bigskip
 Finalmente, mostramos un ejemplo en el que se usan todas las instrucciones para ejemplificar su uso:
 
 \begin{algorithm}
@@ -95,6 +98,7 @@ Finalmente, mostramos un ejemplo en el que se usan todas las instrucciones para 
 	\Integer{} Y  := X - Z\;
 	
 	\reserved{while} (Y < \, X)	 \{ \\
+	\quad \reserved{read}(T)\;
 	\quad \reserved{switch}(T - \const{2}*Y)\\
 	\quad \quad \reserved{case} 0 \{ \\
 	\quad \quad \quad T := X\;
@@ -108,6 +112,7 @@ Finalmente, mostramos un ejemplo en el que se usan todas las instrucciones para 
 	\quad \} \\
 	\quad Y := Y + \const{1}\;
 	\}\\
+	\reserved{print}(Y)\;
 \end{algorithm}
 
 	

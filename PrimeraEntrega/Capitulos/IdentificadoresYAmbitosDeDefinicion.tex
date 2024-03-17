@@ -26,5 +26,5 @@ Nuestro lenguaje permite el uso de módulos externos, que son meramente archivos
 \section{Funciones}
 Como comentamos, las funciones son variables. Además, cada programa tiene una función especial de nombre main con tipos de retorno y argumentos sin definir hasta que la creemos, ya que es solo un símbolo especial. 
 
-Por defecto, el paso de argumentos a función es por referencia y será por valor si se indica lo contrario con el operador \Val. No obstante, este operador es un azúcar sintáctico, el tipo no cambia ya que lo único que nos indica es que debemos copiar cada argumento pasado por valor en una variable nueva auxiliar y operar sobre esa variable nueva como si fuera la antigua. No obstante, no todos los tipos permiten el paso por valor tal como es cualquier tipo funcional.
+Por defecto, el paso de argumentos a función es por referencia y será por valor si se indica lo contrario con el operador \Val. No obstante, este operador es un azúcar sintáctico, el tipo no cambia ya que lo único que nos indica es que debemos copiar cada argumento pasado por valor en una variable nueva auxiliar y operar sobre esa variable nueva como si fuera la antigua. No obstante, no todos los tipos permiten el paso por valor tal como es cualquier tipo funcional. También admitimos la sobrecarga de funciones si tienen parámetros diferentes, en tamaño o en tipo.
 
