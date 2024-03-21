@@ -1,0 +1,5 @@
+Analiador léxico:
+$ java -cp jflex.jar jflex.Main ./alex/AnalizadorLexicoTiny.l
+
+Analizador sintáctico:
+
