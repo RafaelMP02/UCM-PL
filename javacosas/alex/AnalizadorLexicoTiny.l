@@ -54,31 +54,34 @@ opPunto = \.
 opPasoValor = \$
 igual = \=\=
 distinto = \=\/\=
-negacion = "not"
+negacion = not
 conjuncion = \&\&
 disyuncion = \|\|
 menorQue = \<
 mayorQue = \>
 menorIgual = \<\=
 mayorIgual = \>\=
+new = new
+prints = prints
+scans = scans
 
-while = "while"
-for = "for"
-switch = "switch"
-case = "case"
-default = "default"
-return = "return"
-if = "if"
-elsif = "elsif"
-else = "else"
+while = while
+for = for
+switch = switch
+case = case
+default = default
+return = return
+if = if
+elsif = elsif
+else = else
 
-class = "class"
-struct = "struct"
-typedef = "typedef"
-int = "int"
-bool = "bool"
-true = "True"
-false = "False"
+class = class
+struct = struct
+typedef = typedef
+int = int
+bool = bool
+true = True
+false = False
 
 letra  = ([A-Z]|[a-z])
 identificador = {letra}({letra}|{digito}|{guion})*
@@ -86,7 +89,6 @@ identificador = {letra}({letra}|{digito}|{guion})*
 %%
 {separador}               {}
 {comentario}              {}
-{identificador}           {return ops.unidadId();}
 {numeroEntero}            {return ops.unidadEnt();}
 {operadorSuma}            {return ops.unidadSuma();}
 {operadorResta}           {return ops.unidadResta();}
@@ -110,9 +112,13 @@ identificador = {letra}({letra}|{digito}|{guion})*
 {conjuncion}              {return ops.unidadConjuncion();}
 {disyuncion}              {return ops.unidadDisyuncion();}
 {menorQue}                {return ops.unidadMenorQue();}
-{mayorQue}                {return ops.unidadmayorQue();}
+{mayorQue}                {return ops.unidadMayorQue();}
 {menorIgual}              {return ops.unidadMenorIgual();}
 {mayorIgual}              {return ops.unidadMayorIgual();}
+{new}                     {return ops.unidadNew();}
+{prints}                  {return ops.unidadPrints();}
+{scans}                   {return ops.unidadScans();}
+
 
 {while}           	  {return ops.unidadWhile();}
 {for}           	  {return ops.unidadFor();}
@@ -131,5 +137,7 @@ identificador = {letra}({letra}|{digito}|{guion})*
 {bool}           	  {return ops.unidadBool();}
 {true}           	  {return ops.unidadTrue();}
 {false}           	  {return ops.unidadFalse();}
+
+{identificador}           {return ops.unidadId();}
 
 [^]                       {errores.errorLexico(fila(),columna(),lexema());}  

@@ -1,5 +1,26 @@
-Analiador léxico:
-$ java -cp jflex.jar jflex.Main ./alex/AnalizadorLexicoTiny.l
+Analiador léxico: (desde fuera de los directorios)
 
-Analizador sintáctico:
+java -cp jflex.jar jflex.Main ./alex/AnalizadorLexicoTiny.l
+
+---
+
+Analizador sintáctico: (desde el directorio asint)
+
+java -cp $path/cup.jar java_cup.Main -parser AnalizadorSintacticoTiny -symbols ClaseLexica -nopositions TinyErrors.cup
+
+java -cp ../cup.jar java_cup.Main -parser AnalizadorSintacticoTiny -symbols ClaseLexica -nopositions TinyErrors.cup
+
+---
+
+Compilación: (desde fuera)
+
+javac -cp "$path/cup.jar:." */*.java
+
+javac alex/*.java
+
+---
+
+NOTAS:
+Si no has definido CLASSPATH, donde pone "$path" tienes que poner el path literalmente
+
 

@@ -37,10 +37,10 @@ public class ALexOperations {
      return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.CCIERRE,"]"); 
   } 
   public UnidadLexica unidadLlAp() {
-     return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.LlAP,"{"); 
+     return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.LLAP,"{"); 
   } 
   public UnidadLexica unidadLlCierre() {
-     return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.LlCIERRE,"}"); 
+     return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.LLCIERRE,"}"); 
   } 
   public UnidadLexica unidadPComa() {
      return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.PCOMA,";"); 
@@ -89,6 +89,15 @@ public class ALexOperations {
   } 
   public UnidadLexica unidadMayorIgual() {
      return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.MAYORIGUAL,">="); 
+  } 
+  public UnidadLexica unidadNew() {
+     return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.NEW,"new"); 
+  } 
+  public UnidadLexica unidadPrints() {
+     return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.PRINTS,"prints"); 
+  } 
+  public UnidadLexica unidadScans() {
+     return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.SCANS,"scans"); 
   } 
   
   
