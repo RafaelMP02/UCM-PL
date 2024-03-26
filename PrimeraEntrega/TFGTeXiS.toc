@@ -1,30 +1,28 @@
 \babel@toc {spanish}{}\relax 
-\contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.2}%
-\contentsline {section}{\numberline {1.1}Motivación}{2}{section.9}%
-\contentsline {section}{\numberline {1.2}Objetivos}{2}{section.10}%
-\contentsline {section}{\numberline {1.3}Plan de trabajo}{2}{section.11}%
-\contentsline {section}{\numberline {1.4}Explicaciones adicionales sobre el uso de esta plantilla}{2}{section.12}%
-\contentsline {subsection}{\numberline {1.4.1}Texto de prueba}{3}{subsection.14}%
-\contentsline {chapter}{\numberline {2}Identificadores y ámbitos de definición en C-Horizon}{7}{chapter.15}%
-\contentsline {section}{\numberline {2.1}Declaración de variables}{7}{section.16}%
-\contentsline {section}{\numberline {2.2}Bloques anidados}{7}{section.24}%
-\contentsline {section}{\numberline {2.3}Plan de trabajo}{8}{section.25}%
-\contentsline {section}{\numberline {2.4}Explicaciones adicionales sobre el uso de esta plantilla}{8}{section.26}%
-\contentsline {subsection}{\numberline {2.4.1}Texto de prueba}{8}{subsection.28}%
-\contentsline {chapter}{\numberline {3}Tipos y operadores en C-Horizon--}{13}{chapter.29}%
-\contentsline {section}{\numberline {3.1}Integer}{13}{section.30}%
-\contentsline {section}{\numberline {3.2}Boolean}{13}{section.31}%
-\contentsline {section}{\numberline {3.3}Void}{13}{section.32}%
-\contentsline {section}{\numberline {3.4}Array}{13}{section.33}%
-\contentsline {section}{\numberline {3.5}Struct}{14}{section.46}%
-\contentsline {section}{\numberline {3.6}Class}{14}{section.57}%
-\contentsline {section}{\numberline {3.7}Operadores aritméticos (para enteros)}{14}{section.71}%
-\contentsline {section}{\numberline {3.8}Operadores lógicos (para booleanos)}{15}{section.72}%
-\contentsline {section}{\numberline {3.9}Operadores genéricos}{16}{section.73}%
-\contentsline {chapter}{\numberline {4}Conjunto de instrucciones de C-Horizon}{19}{chapter.87}%
-\contentsline {section}{\numberline {4.1}Motivación}{20}{section.94}%
-\contentsline {section}{\numberline {4.2}Objetivos}{20}{section.95}%
-\contentsline {section}{\numberline {4.3}Plan de trabajo}{20}{section.96}%
-\contentsline {section}{\numberline {4.4}Explicaciones adicionales sobre el uso de esta plantilla}{20}{section.97}%
-\contentsline {subsection}{\numberline {4.4.1}Texto de prueba}{21}{subsection.99}%
-\contentsline {chapter}{\numberline {5}Gestión de errores en C-Horizon}{25}{chapter.100}%
+\contentsline {chapter}{\numberline {1}Identificadores y ámbitos de definición en C-Horizon}{1}{chapter.2}%
+\contentsline {section}{\numberline {1.1}Declaración de variables}{1}{section.3}%
+\contentsline {section}{\numberline {1.2}Bloques anidados}{1}{section.4}%
+\contentsline {section}{\numberline {1.3}Módulos y cláusulas de importación}{2}{section.5}%
+\contentsline {section}{\numberline {1.4}Funciones}{2}{section.6}%
+\contentsline {chapter}{\numberline {2}Tipos y operadores en C-Horizon}{3}{chapter.7}%
+\contentsline {section}{\numberline {2.1}Integer}{3}{section.8}%
+\contentsline {section}{\numberline {2.2}Boolean}{3}{section.9}%
+\contentsline {section}{\numberline {2.3}Void}{3}{section.10}%
+\contentsline {section}{\numberline {2.4}Array}{3}{section.11}%
+\contentsline {section}{\numberline {2.5}Struct}{4}{section.23}%
+\contentsline {section}{\numberline {2.6}Class}{4}{section.34}%
+\contentsline {section}{\numberline {2.7}Punteros}{5}{section.48}%
+\contentsline {section}{\numberline {2.8}Funcional}{6}{section.54}%
+\contentsline {section}{\numberline {2.9}Alias}{7}{section.70}%
+\contentsline {section}{\numberline {2.10}Operadores aritméticos (para enteros)}{7}{section.74}%
+\contentsline {section}{\numberline {2.11}Operadores lógicos (para booleanos)}{8}{section.75}%
+\contentsline {section}{\numberline {2.12}Operadores de comparación y asignación}{9}{section.76}%
+\contentsline {chapter}{\numberline {3}Conjunto de instrucciones de C-Horizon}{11}{chapter.83}%
+\contentsline {section}{\numberline {3.1}Asignación}{11}{section.84}%
+\contentsline {section}{\numberline {3.2};}{11}{section.104}%
+\contentsline {section}{\numberline {3.3}While}{12}{section.105}%
+\contentsline {section}{\numberline {3.4}For}{12}{section.106}%
+\contentsline {section}{\numberline {3.5}If, elsif y else}{12}{section.107}%
+\contentsline {section}{\numberline {3.6}Switch}{12}{section.108}%
+\contentsline {section}{\numberline {3.7}Entrada y salida}{12}{section.109}%
+\contentsline {chapter}{\numberline {4}Gestión de errores en C-Horizon}{15}{chapter.149}%

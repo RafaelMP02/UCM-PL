@@ -237,13 +237,13 @@ Conjunción lógica de dos booleanos. Su operador infijo será el \And.
 \subsection*{Disyunción}
 Disyunción lógica de dos booleanos. Su operador infijo será el \Or. 
 \\Operador  binario infijo.
-\\Tipado: \Or :: (\Boolean, \Boolean) $\rightarrow$ \Boolean. \\Prioridad: 5.
+\\Tipado: \Or :: (\Boolean, \Boolean) $\rightarrow$ \Boolean. \\Prioridad: 3.
 \\Asociatividad: izquierda.
 
 \subsection*{Negación}
 Negación lógica de un booleano. Su operador prefijo será el \Not. 
 \\Operador  unario prefijo.
-\\Tipado: \Not :: \Boolean $\rightarrow$ \Boolean. \\Prioridad: 6.
+\\Tipado: \Not :: \Boolean $\rightarrow$ \Boolean. \\Prioridad: 5.
 \\Asociatividad: asociativo.
 
 
@@ -261,34 +261,34 @@ Compara dos valores de un mismo tipo y devuelve \const{True} si tienen el mismo 
 Equivale a \Not (a \Eq b). 
 \\Operador  binario infijo.
 \\Tipado: \operator{=/=} :: (t, t)  $\rightarrow$ \Boolean.
-\\Prioridad 3.
+\\Prioridad 6.
 \\Asociatividad: no asociativo.
 
 \subsection*{Menor que}
 Compara dos valores de un mismo tipo y devuelve \const{True} si el primero es menor que el segundo, en caso contrario devuelve \const{False}
 \footnote{Consideramos que \const{False}  es menor que \const{True}}. Su operador infijo es \Lt. 
 \\Operador  binario infijo.
-\\Tipado: \Lt :: (t, t) $\rightarrow$ \Boolean. \\Prioridad: 3.
+\\Tipado: \Lt :: (t, t) $\rightarrow$ \Boolean. \\Prioridad: 6.
 \\Asociatividad: no asociativo.
 
 \subsection*{Mayor que}
 Compara dos valores y devuelve \const{True} si el primero es mayor que el segundo, en caso contrario devuelve \const{False}. Su operador infijo es \Gt.
 \\Operador binario infijo.
-\\Tipado: \Gt :: (t, t) $\rightarrow$ \Boolean. \\Prioridad: 3.
+\\Tipado: \Gt :: (t, t) $\rightarrow$ \Boolean. \\Prioridad: 6.
 \\Asociatividad: no asociativo.
 
 \subsection*{Menor o igual que}
 Equivale a \Not (a \Lt b). 
 \\Operador binario infijo.
 \\Tipado: \operator{<=} :: (t, t) $\rightarrow$ \Boolean.
-\\Prioridad: 3.
+\\Prioridad: 6.
 \\Asociatividad: no asociativo.
 
 \subsection*{Mayor o igual que}
 Equivale a \Not (a \Gt b). 
 \\Operador binario infijo.
 \\Tipado: \operator{>=} :: (t, t) $\rightarrow$ \Boolean.
-\\Prioridad: 3.
+\\Prioridad: 6.
 \\Asociatividad: no asociativo.
 
 \subsection*{Asignación}
