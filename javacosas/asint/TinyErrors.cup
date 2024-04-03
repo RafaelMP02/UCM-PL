@@ -23,61 +23,65 @@ init with {:
 terminal  TokenValue  IDEN, ENT, MAS, MENOS, DIV, PAP, PCIERRE, CAP, CCIERRE, LLAP, LLCIERRE, PCOMA, COMA, ASIG, OPASTERISCO, OPPUNTO, OPPASOVALOR, IGUAL, DISTINTO, NEGACION, CONJUNCION, DISYUNCION, MENORQUE, MAYORQUE, MENORIGUAL, MAYORIGUAL, NEW, PRINTS, SCANS, WHILE, FOR, SWITCH, CASE, DEFAULT, RETURN, IF, ELSIF, ELSE, CLASS, STRUCT, TYPEDEF, INT, BOOL, TRUE, FALSE;
 
 
-non terminal  S, INSTRUCCION, DECLARACION, ASIGNACION, AMBITO, CONDICIONALIF, RAMAELSIF, RAMAELSE, CONDICIONALSWITCH, RAMASWITCH, BUCLEW, BUCLEF, CABECERAF, CAMBIO_VALOR, ESCRIBIR, LEER, EARIT, EARIT1, EARIT2, OP0, OP1, EBOOL, EBOOL1, EBOOL2, EBOOL3, EBOOL4, COMPARACION;
+non terminal  S, INSTRUCCION, DECLARACION, ASIGNACION, AMBITO, CONDICIONALIF, RAMAELSIF, RAMAELSE, CONDICIONALSWITCH, RAMASWITCH, BUCLEW, BUCLEF, CABECERAF, CAMBIO_VALOR, ESCRIBIR, LEER, TIPO, EB1, EB2, EB3, EB4, COMPARACION, EA1, EA2, EBASICA, OP0, OP1;
 
--------------------------------------------------------------------------------------------------------------
-S   ::= INSTRUCCION S;
 
--------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------------------------------
+S   ::= INSTRUCCION PCOMA S | CONDICIONALIF S | CONDICIONALSWITCH S | AMBITO S | BUCLEW S | BUCLEF S | ;
+
+//-------------------------------------------------------------------------------------------------------------
 //Instrucciones
-INSTRUCCION ::= DECLARACION PCOMA | ASIGNACION PCOMA | AMBITO | CONDICIONALIF | CONDICIONALSWITCH | BUCLEW | BUCLEF |  INSTPRINT | INSTREAD | PCOMA;
-
-//Declaraciones
-DECLARACION ::= INT IDEN | BOOL IDEN | INT IDEN ASIG EARIT| BOOL IDEN  ASIG EBOOL;
-
-//Asignación de valor a un identificador
-ASIGNACION   ::= IDEN ASIG EBOOL | IDEN ASIG EARIT;
+INSTRUCCION ::=  DECLARACION | ASIGNACION | INCREMENTO | DECREMENTO | ESCRIBIR | LEER | ;
 
 //Ámbito (se puede crear un ámbito en cualquier lugar donde cabría una isntrucción)
 AMBITO ::= LLAP S LLCIERRE;
 
+//Declaraciones
+DECLARACION ::= TIPO IDEN | TIPO IDEN ASIG EB1;
+
+//Asignación de valor a un identificador
+ASIGNACION ::= IDEN ASIG EB1;
+
+//Incremento y decremento
+INCREMENTO ::= IDEN MAS MAS;
+DECREMENTO ::= IDEN MENOS MENOS;
+
+//En los condicionales y los bucles obligamos a declarar un ámbito (con llaves)
 //If
-CONDICIONALIF ::= IF PAP EBOOL PCIERRE  INSTRUCCION RAMAELSIF RAMAELSE;
-RAMAELSIF ::= ELSIF PAP EBOOL PCIERRE  INSTRUCCION RAMAELSIF | ;
-RAMAELSE ::= ELSE INSTRUCCION | ;
+CONDICIONALIF ::= IF PAP EB1 PCIERRE  AMBITO RAMAELSIF RAMAELSE;
+RAMAELSIF ::= ELSIF PAP EB1 PCIERRE  AMBITO RAMAELSIF | ;
+RAMAELSE ::= ELSE AMBITO | ;
 
 //Switch
-CONDICIONALSWITCH ::= SWITCH PAP EARIT PCIERRE  LLAP RAMASSWITCH DEFAULT AMBITO LLCIERRE;
-RAMASWITCH ::= CASE EARIT AMBITO RAMASWITCH | ;
+CONDICIONALSWITCH ::= SWITCH PAP EB1 PCIERRE  LLAP RAMASWITCH DEFAULT AMBITO LLCIERRE;
+RAMASWITCH ::= CASE ENT AMBITO RAMASWITCH | ;
 
 //Bucle while
-BUCLEW ::= WHILE PAP EBOOL PCIERRE INSTRUCCION;
+BUCLEW ::= WHILE PAP EB1 PCIERRE AMBITO;
 
-//Bucle for
-BUCLEF ::= FOR PAP CABECERAF PCIERRE INSTRUCCION;
-CABECERAF ::= INT IDEN ASIG EARIT PCOMA EBOOL PCOMA CAMBIO_VALOR;
-CAMBIO_VALOR ::= IDEN ASIG EARIT;
+//Bucle for (en la cabecera se ve que obligamos a inicializar el valor)
+BUCLEF ::= FOR PAP CABECERAF PCIERRE AMBITO;
+CABECERAF ::= TIPO IDEN ASIG EB1 PCOMA EB1 PCOMA CAMBIO_VALOR;
+CAMBIO_VALOR ::= ASIGNACION | INCREMENTO | DECREMENTO;
 
 //Print
-ESCRIBIR ::= PRINTS PAP EARIT PCIERRE | PRINTS PAP EBOOL PCIERRE;
+ESCRIBIR ::= PRINTS PAP EB1 PCIERRE;
 
 //Read
 LEER ::= SCANS PAP IDEN PCIERRE;
 
--------------------------------------------------------------------------------------------------------------
-//Expresiones aritméticas
-EARIT  ::= EARIT OP0 EARIT1  | EARIT1 ; //Prioridad 7 (suma y resta)
-EARIT1  ::= EARIT1 OP1 EARIT2  | EARIT2 ; //Prioridad 8 (multiplicación y división)
-EARIT2  ::= ENT  | IDEN  | PAP EARIT PCIERRE ;  //Expresiones básicas
-OP0 ::= MAS  | MENOS ;
-OP1 ::= OPASTERISCO | DIV ;
+//-------------------------------------------------------------------------------------------------------------
+//Expresiones
+TIPO ::= INT | BOOL;
 
--------------------------------------------------------------------------------------------------------------
-//Expresiones booleanas
-EBOOL ::= EBOOL DISYUNCION EBOOL1 | EBOOL1; //Prioridad 3 (disyunción)
-EBOOL1 ::= EBOOL1 CONJUNCION EBOOL2 | EBOOL2; //Prioridad 4 (conjunción)
-EBOOL2 ::=  NEGACION EBOOL3 | EBOOL3; //Prioridad 5 (negación)
-EBOOL3 ::= EARIT COMPARACION EARIT | EBOOL4 COMPARACION EBOOL4; //Prioridad 6 (comparaciones)
-EBOOL4 ::= IDEN | TRUE | FALSE; //Expresiones básicas
+EB1 ::= EB1 DISYUNCION EB2 | EB2; //Prioridad 3 (disyunción)
+EB2 ::= EB2 CONJUNCION EB3 | EB3; //Prioridad 4 (conjunción)
+EB3 ::=  NEGACION EB3 | EB4; //Prioridad 5 (negación)
+EB4 ::= EB4 COMPARACION EA1 | EA1 | TRUE | FALSE; //Prioridad 6 (comparaciones) y básicas booleanas
 COMPARACION ::= IGUAL | DISTINTO | MENORQUE | MAYORQUE | MENORIGUAL | MAYORIGUAL;
 
+EA1  ::= EA1 OP0 EA2  | EA2 ; //Prioridad 7 (suma y resta)
+EA2  ::= EA2 OP1 EBASICA  | EBASICA ; //Prioridad 8 (multiplicación y división)
+EBASICA  ::= IDEN | ENT | PAP EB1 PCIERRE ;  //Expresiones básicas
+OP0 ::= MAS  | MENOS ;
+OP1 ::= OPASTERISCO | DIV ;
