@@ -7,15 +7,11 @@ If, elsif, else y switch
 While, for
 Valor de un puntero: *X
 Acceso a campo de registro: registro.campo
-
-IMPORTANTE
 Todas las declaraciones y asignaciones acaban en ";" (las de funciones, clases y structs también)
 Los bucles y condicionales requieren declarar ámbitos (necesitan las llaves)
 Paso por referencia por defecto. Para paso por valor añadir $ delante
-Se utilizan listas con llaves para los arrays y listas con corchetes para inicializar los structs.
-Los structs pueden tener clases definidas dentro?? He puesto que no porque no le veo el sentido. Si pueden tener instancias de ellas.
-He puesto que para instanciar un struct no haga falta la palabra reservada struct, aunque puedo cambiarlo. Sería tal que así:
+Hace falta la palabra struct para instanciar los struct
 
-struct tEstudiante {...}; <---- Definición
-tEstudiante estudiante; <---- Instancia
-
+IMPORTANTE
+La gramática permite hacer struct con métodos. Lo resolveremos con errores de tipo en generación de código. Esto también solucionará que en el struct se puedan crear clases.
+Incremento y decremento en la cabecera del for (lo hemos quitado)

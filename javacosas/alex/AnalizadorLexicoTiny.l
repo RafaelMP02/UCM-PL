@@ -51,6 +51,8 @@ pComa = \;
 asig = \:\=
 opAsterisco = \*
 opPunto = \.
+oPMasMas = \+\+
+oPMenosMenos = \-\-
 opPasoValor = \$
 igual = \=\=
 distinto = \=\/\=
@@ -104,6 +106,8 @@ identificador = {letra}({letra}|{digito}|{guion})*
 
 {asig}                    {return ops.unidadAsig();}
 {opAsterisco}             {return ops.unidadOpAsterisco();}
+{oPMasMas}             	  {return ops.unidadOpMasMas();}
+{oPMenosMenos}            {return ops.unidadOpMenosMenos();}
 {opPunto}                 {return ops.unidadOpPunto();}
 {opPasoValor}             {return ops.unidadOpPasoValor();}
 {igual}                   {return ops.unidadIgual();}
