@@ -4,7 +4,7 @@ import ast.Expresiones.E;
 import ast.Instruccion;
 import ast.NodeKind;
 
-public class Asignacion extends Instruccion {
+public class Asignacion implements Instruccion {
     private CabecerAsig exp1;
     private E exp2;
 

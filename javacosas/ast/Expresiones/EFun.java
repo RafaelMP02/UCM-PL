@@ -1,10 +1,11 @@
 package ast.Expresiones;
 
+import ast.Instruccion;
 import ast.KindE;
 
 import java.util.LinkedList;
 
-public class EFun extends E{
+public class EFun extends E implements Instruccion {
     private E funcion;
     private LinkedList<E> parametros;
 

@@ -5,7 +5,7 @@ import ast.Instruccion;
 import ast.NodeKind;
 import ast.Tipos.Tipo;
 
-public class Typedef extends Instruccion {
+public class Typedef implements Instruccion {
 
     private Tipo t;
     private Identificador id;

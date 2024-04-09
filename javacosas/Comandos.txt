@@ -34,7 +34,7 @@ javac -cp ./cup.jar:. */*.java
 
 java -cp "$path/cup.jar:." constructorast.Main  input.txt
 
-java -cp ../cup.jar:. constructorast.Main  input.txt
+java -cp ./cup.jar:. constructorast.Main  input.txt
 
 NOTAS:
 Si no has definido CLASSPATH, donde pone "$path" tienes que poner el path literalmente

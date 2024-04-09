@@ -3,7 +3,7 @@ package ast;
 import ast.Metaoperadores.CabecerAsig;
 import ast.Tipos.Tipo;
 
-public class Declaracion extends Instruccion implements CabecerAsig {
+public class Declaracion implements CabecerAsig, Instruccion {
     private Tipo t;
 
     private Identificador id;

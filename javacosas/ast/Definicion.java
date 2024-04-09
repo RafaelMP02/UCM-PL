@@ -1,6 +1,6 @@
 package ast;
 
-public abstract class Definicion extends Instruccion{
+public abstract class Definicion implements Instruccion{
     public NodeKind nodeKind() {
         return NodeKind.DEFINICION;
     }

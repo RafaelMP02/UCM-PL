@@ -5,7 +5,7 @@ import ast.Expresiones.E;
 import ast.Instruccion;
 import ast.NodeKind;
 
-public class Prints extends Instruccion {
+public class Prints implements Instruccion {
     private E valor;
 
     public Prints(E valor) {

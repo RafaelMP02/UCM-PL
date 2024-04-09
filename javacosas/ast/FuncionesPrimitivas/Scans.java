@@ -5,7 +5,7 @@ import ast.Identificador;
 import ast.Instruccion;
 import ast.NodeKind;
 
-public class Scans extends Instruccion {
+public class Scans implements Instruccion {
     private Identificador path;
 
     public Scans(Identificador path) {
