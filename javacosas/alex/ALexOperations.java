@@ -15,8 +15,12 @@ public class ALexOperations {
      return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.ENT,alex.lexema()); 
   } 
   public UnidadLexica unidadSuma() {
-     return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.MAS,"+"); 
-  } 
+     return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.MAS,"+");
+  }
+
+  public UnidadLexica unidadOpMasMas() { return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.OPMASMAS,"++"); }
+
+    public UnidadLexica unidadOpMenosMenos() {return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.OPMENOSMENOS,"--");  }
   public UnidadLexica unidadResta() {
      return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.MENOS,"-"); 
   }  

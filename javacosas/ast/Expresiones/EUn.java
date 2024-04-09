@@ -3,7 +3,7 @@ package ast.Expresiones;
 import ast.KindE;
 import ast.Operadores.UnOperador.OperadorUn;
 
-public abstract class EUn extends E {
+public class EUn extends E {
     private E opnd;
     private OperadorUn operador;
     public EUn(E opnd, OperadorUn operador) {
