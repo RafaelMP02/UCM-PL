@@ -1,0 +1,392 @@
+package constructorast;
+
+import java_cup.runtime.*;
+import alex.AnalizadorLexicoExp;
+import alex.UnidadLexica;
+import alex.TokenValue;
+import errors.GestionErroresExp;
+import ast.*;
+import ast.Expresiones.*;
+import ast.FuncionesPrimitivas.*;
+import ast.Operadores.BinOperadores.*;
+import ast.Operadores.UnOperador.*;
+import ast.Metaoperadores.*;
+import ast.Tipos.*;
+import java.util.*;
+
+scan with {: return getScanner().next_token(); :};
+//action code {:
+//   ... add some code to declare and initialize e.g. variables used by the code embedded in the grammar
+//:};
+parser code {: 
+   private GestionErroresExp errores;
+   public void syntax_error(Symbol unidadLexica) {
+     errores.errorSintactico((UnidadLexica)unidadLexica);
+   }
+:};
+init with {: 
+   errores = new GestionErroresExp();
+   AnalizadorLexicoExp alex = (AnalizadorLexicoExp)getScanner();
+   alex.fijaGestionErrores(errores);
+:};
+
+
+terminal  MAS, MENOS, DIV, PAP, PCIERRE, CAP, CCIERRE, LLAP, LLCIERRE, PCOMA, COMA, ASIG, OPASTERISCO, OPPUNTO, OPPASOVALOR, IGUAL, DISTINTO, NEGACION, CONJUNCION, DISYUNCION, MENORQUE, MAYORQUE, MENORIGUAL, MAYORIGUAL, NEW, PRINTS, SCANS, WHILE, FOR, SWITCH, CASE, DEFAULT, RETURN, IF, ELSIF, ELSE, CLASS, STRUCT, TYPEDEF, INT, BOOL, TRUE, FALSE, OPMASMAS, OPMENOSMENOS;
+terminal  TokenValue  IDEN;
+terminal  TokenValue  ENT;
+
+
+non terminal  S;
+
+non terminal Programa P;
+
+non terminal Instruccion INSTRUCCION;
+
+non terminal Ambito AMBITO;
+
+non terminal Declaracion DECLARACION;
+
+non terminal Definicion DEFINICION;
+
+non terminal DefStruct DEFSTRUCT;
+
+non terminal DefClase DEFCLASE;
+
+non terminal DefFuncion DEFFUNCION;
+
+non terminal Asignacion ASIGNACION;
+
+non terminal CabecerAsig CABEZASIG;
+
+non terminal Elsif RAMAELSIF;
+
+non terminal Else RAMAELSE;
+
+non terminal Case RAMASWITCH;
+
+non terminal Tipo TIPO;
+
+non terminal LinkedList<E> ELEM, ELEM1;
+
+non terminal LinkedList<Parametrico> PARAM, PARAM1;
+
+non terminal E E0, E1, E2, E3, E4, E5, E6, E7, E8;
+
+
+
+S   ::= P: aDeP
+    {: RESULT=aDeP; :};
+
+
+P ::= INSTRUCCION: aDeI PCOMA P:aDeP
+    {:RESULT= new PuntoYComa(aDeI, aDeP); :};
+
+P ::= AMBITO: aDeAmb P: aDeP
+    {: RESULT= new UnionAmbito(aDeAmb, aDeP); :};
+
+AMBITO ::= LLAP P: aDeP LLCIERRE
+    {: RESULT= new Ambito(aDeP); :};
+
+
+P ::= IF PAP E1: aDeCond  PCIERRE AMBITO:aDeAmb P:aDeP
+    {:RESULT= new If(aDeCond, aDeAmb, aDeP, null , null); :};
+
+P ::= IF PAP error  PCIERRE AMBITO:aDeAmb P:aDeP
+    {:RESULT= new If(null, aDeAmb, aDeP, null , null); :}; //Condicion nula
+
+P ::= IF PAP E1: aDeCond  PCIERRE AMBITO:aDeAmb RAMAELSIF:aDeElsif P:aDeP
+    {:RESULT= new If(aDeCond, aDeAmb, aDeP, aDeElsif , null); :};
+
+P ::= IF PAP E1: aDeCond  PCIERRE AMBITO:aDeAmb RAMAELSE:aDeElse P:aDeP
+    {:RESULT= new If(aDeCond, aDeAmb, aDeP, null , aDeElse); :};
+
+RAMAELSIF ::= ELSIF PAP E1: aDeCond PCIERRE  AMBITO:aDeAmb
+    {:RESULT= new Elsif(aDeCond, aDeAmb, null , null); :};
+
+RAMAELSIF ::= ELSIF PAP E1: aDeCond PCIERRE  AMBITO:aDeAmb RAMAELSIF:aDeElsif
+    {:RESULT= new Elsif(aDeCond, aDeAmb, aDeElsif , null); :};
+
+RAMAELSIF ::= ELSIF PAP E1: aDeCond PCIERRE  AMBITO:aDeAmb RAMAELSE:aDeElse
+    {:RESULT= new Elsif(aDeCond, aDeAmb, null , aDeElse); :};
+
+ RAMAELSE ::= ELSE AMBITO:aDeAmb
+     {:RESULT= new Else(aDeAmb); :};
+
+
+P ::= SWITCH PAP E1:aDeE PCIERRE  LLAP DEFAULT AMBITO:aDeAmb LLCIERRE P:aDeP
+    {:RESULT= new Switch(aDeE, aDeAmb, aDeP, null); :};
+
+P ::= SWITCH PAP E1:aDeE PCIERRE  LLAP RAMASWITCH: aDeSw DEFAULT AMBITO:aDeAmb LLCIERRE P:aDeP
+    {: RESULT= new Switch(aDeE, aDeAmb, aDeP, aDeSw); :};
+
+P ::= SWITCH PAP error PCIERRE  AMBITO:aDeAmb  P:aDeP
+    {:RESULT= new Switch(null, null, aDeP, null);; :};
+
+RAMASWITCH ::= CASE ENT:num AMBITO:aDeAmb
+    {:RESULT= new Case(new Num(num.lexema), aDeAmb, null); :};
+
+RAMASWITCH ::= CASE ENT:num AMBITO:aDeAmb RAMASWITCH:ADeSw
+    {:RESULT= new Case(new Num(num.lexema), aDeAmb, ADeSw); :};
+
+P ::= WHILE PAP E1:aDeE PCIERRE AMBITO:aDeAmb P:aDeP
+    {:RESULT= new While(aDeE, aDeAmb, aDeP); :};
+
+P ::= WHILE PAP error PCIERRE AMBITO:aDeAmb P:aDeP
+    {:RESULT= new While(null, aDeAmb, aDeP); :};
+
+P ::= FOR PAP ASIGNACION:aDeIni PCOMA E1:AdeFin PCOMA ASIGNACION: AdePaso PCIERRE AMBITO: aDeAmb  P:aDeP
+    {:RESULT= new For(aDeIni, AdePaso, AdeFin, aDeAmb, aDeP); :};
+
+P ::= FOR error AMBITO: aDeAmb  P:aDeP
+    {:RESULT= new For(null, null, null, aDeAmb, aDeP); :};
+
+P ::=
+{:RESULT= new Vacio(); :};
+
+P ::= error
+    {: RESULT = null; :};
+
+
+INSTRUCCION ::= DECLARACION: aDeDec
+    {: RESULT= aDeDec; :};
+
+INSTRUCCION ::= DEFINICION: aDeDef
+    {: RESULT= aDeDef; :};
+
+INSTRUCCION ::= ASIGNACION: aDeAsig
+    {: RESULT= aDeAsig; :};
+
+INSTRUCCION ::= PRINTS PAP E1:aDeE PCIERRE
+    {: RESULT= new Prints(aDeE); :};
+
+INSTRUCCION ::= PRINTS error
+    {: RESULT= new Prints(null); :};
+
+INSTRUCCION ::= SCANS PAP IDEN:id PCIERRE
+    {: RESULT= new Scans(new Identificador(id.lexema)); :};
+
+INSTRUCCION ::= SCANS error
+    {: RESULT= new Scans(null); :};
+
+INSTRUCCION ::= E8: aDee PAP ELEM: aDeElem PCIERRE
+    {: RESULT= new EFun(aDee, aDeElem); :};
+
+INSTRUCCION ::= RETURN E0: aDeE
+    {: RESULT= new Return(aDeE); :};
+
+
+INSTRUCCION ::= RETURN error
+    {: RESULT= new Return(null); :};
+
+INSTRUCCION ::= TYPEDEF TIPO: aDeT IDEN:id
+    {: RESULT= new Typedef(aDeT, new Identificador(id.lexema)); :};
+
+
+DECLARACION ::= TIPO:aDeT  IDEN:id
+     {: RESULT= new Declaracion(aDeT, new Identificador(id.lexema)); :};
+
+DECLARACION ::= TIPO:aDeT  error
+     {: RESULT= new Declaracion(aDeT, null); :};
+
+
+DEFINICION ::= DEFSTRUCT: aDeSt
+    {: RESULT= aDeSt; :};
+
+DEFINICION ::= DEFCLASE: aDeCl
+    {: RESULT= aDeCl; :};
+
+DEFINICION ::= DEFFUNCION: aDeF
+    {: RESULT= aDeF; :};
+
+DEFSTRUCT ::= STRUCT IDEN: id AMBITO:aDeAmb
+    {: RESULT= new DefStruct(new Identificador(id.lexema), aDeAmb); :};
+
+DEFCLASE ::= CLASS IDEN: id AMBITO:aDeAmb
+    {: RESULT= new DefClase(new Identificador(id.lexema), aDeAmb); :};
+
+DEFFUNCION ::= DECLARACION:aDeCa PAP ELEM:aDeElem  PCIERRE AMBITO:aDeAmb
+    {: RESULT= new DefFuncion(aDeCa, aDeElem, aDeAmb); :};
+
+DEFFUNCION ::= E8:aDeE PAP ELEM:aDeElem  PCIERRE AMBITO:aDeAmb
+    {: RESULT= new DefFuncion(aDeE, aDeElem, aDeAmb); :};
+
+DEFFUNCION ::= DECLARACION:aDeCa error AMBITO:aDeAmb
+    {: RESULT= new DefFuncion(aDeCa, null, null); :};
+
+CABEZASIG ::= DECLARACION: aDeDec
+    {: RESULT= aDeDec; :};
+
+CABEZASIG ::= E1: aDeE
+    {: RESULT= aDeE; :};
+
+ASIGNACION ::= CABEZASIG:aDeC ASIG E0:aDeE
+    {: RESULT= new Asignacion(aDeC, aDeE); :};
+
+
+
+TIPO ::= INT
+    {: RESULT= new Entero(); :};
+
+TIPO ::= BOOL
+    {: RESULT= new Booleano(); :};
+
+TIPO ::= STRUCT IDEN:id
+    {: RESULT= new Struct(new Identificador(id.lexema)); :};
+
+TIPO ::= CLASS IDEN:id
+    {: RESULT= new Clase(new Identificador(id.lexema)); :};
+
+TIPO ::= TIPO:aDeT CAP ENT:num CCIERRE
+    {: RESULT= new Array(aDeT, new Num(num.lexema)); :};
+
+TIPO ::= TIPO:aDeT OPASTERISCO
+    {: RESULT= new Puntero(aDeT); :};
+
+TIPO ::= TIPO:aDeT PAP PARAM:aDePara PCIERRE
+    {: RESULT= new Funcional(aDeT, aDePara); :};
+
+PARAM ::=
+    {: RESULT= new LinkedList<Parametrico>(); :};
+
+PARAM ::= PARAM1:aDePar1
+    {: RESULT= aDePar1; :};
+
+PARAM1 ::= TIPO:aDeT
+    {: RESULT= new LinkedList<Parametrico>(); RESULT.addFirst(aDeT); :};
+
+PARAM1 ::= OPPASOVALOR TIPO:aDeT
+    {: RESULT= new LinkedList<Parametrico>(); RESULT.addFirst(new AccesoValor(aDeT)); :};
+
+PARAM1 ::= TIPO:aDeT COMA PARAM1:aDePar1
+    {: RESULT= aDePar1; RESULT.addFirst(aDeT); :};
+
+PARAM1 ::= OPPASOVALOR TIPO:aDeT COMA PARAM1:aDePar1
+    {: RESULT= aDePar1; RESULT.addFirst(new AccesoValor(aDeT)); :};
+
+
+ELEM ::=
+    {: RESULT= new LinkedList<E>(); :};
+
+ELEM ::= ELEM1:aDeEle1
+    {: RESULT= aDeEle1; :};
+
+ELEM1 ::= E0:aDeE
+    {: RESULT= new LinkedList<E>(); RESULT.addFirst(aDeE); :};
+
+ELEM1 ::= E0:aDeE COMA ELEM1:aDeEle1
+    {: RESULT= aDeEle1; RESULT.addFirst(aDeE); :};
+
+E0 ::= CAP ELEM:AdeEle CCIERRE
+    {: RESULT= new EListaC(AdeEle); :};
+
+E0 ::= LLAP ELEM:AdeEle LLCIERRE
+    {: RESULT= new EListaL(AdeEle); :};
+
+E0 ::= E1: aDee1
+    {: RESULT=aDee1; :};
+
+
+E1 ::= E1: aDee1 DISYUNCION E2: aDee2
+    {: RESULT= new EBin(aDee1,aDee2, new Disyuncion()); :};
+
+E1 ::= E2: aDee2
+    {: RESULT=aDee2; :};
+
+E2 ::= E2: aDee2 CONJUNCION E3: aDee3
+    {: RESULT= new EBin(aDee2,aDee3, new Conjuncion()); :};
+
+E2 ::= E3: aDee3
+    {: RESULT=aDee3; :};
+
+E3 ::= NEGACION E3: aDee3
+    {: RESULT= new EUn(aDee3, new Negacion()); :};
+
+E3 ::= E4: aDee4
+    {: RESULT=aDee4; :};
+
+E4 ::= E4: aDee4 IGUAL E5: aDee5
+    {: RESULT= new EBin(aDee4,aDee5, new Igual()); :};
+
+E4 ::= E4: aDee4 DISTINTO E5: aDee5
+    {: RESULT= new EBin(aDee4,aDee5, new Distinto()); :};
+
+E4 ::= E4: aDee4 MENORQUE E5: aDee5
+    {: RESULT= new EBin(aDee4,aDee5, new MenorQue()); :};
+
+E4 ::= E4: aDee4 MAYORQUE E5: aDee5
+    {: RESULT= new EBin(aDee4,aDee5, new MayorQue()); :};
+
+E4 ::= E4: aDee4 MENORIGUAL E5: aDee5
+    {: RESULT= new EBin(aDee4,aDee5, new MenorIgual()); :};
+
+E4 ::= E4: aDee4 MAYORIGUAL E5: aDee5
+    {: RESULT= new EBin(aDee4,aDee5, new MayorIgual()); :};
+
+E4 ::= E5: aDee5
+    {: RESULT=aDee5; :};
+
+E5 ::= E5: aDee5 MAS E6: aDee6
+    {: RESULT= new EBin(aDee5,aDee6, new Suma()); :};
+
+E5 ::= E5: aDee5 MENOS E6: aDee6
+    {: RESULT= new EBin(aDee5,aDee6, new Resta()); :};
+
+E5 ::= E6: aDee6
+    {: RESULT=aDee6; :};
+
+E6 ::= E6: aDee6 OPASTERISCO E7: aDee7
+    {: RESULT= new EBin(aDee6,aDee7, new Producto()); :};
+
+E6 ::= E6: aDee6 DIV E7: aDee7
+    {: RESULT= new EBin(aDee6,aDee7, new Division()); :};
+
+E6 ::= E7: aDee7
+    {: RESULT=aDee7; :};
+
+E7 ::= OPASTERISCO E7: aDee7
+    {: RESULT= new EUn(aDee7, new AccesoPuntero()); :};
+
+E7 ::= MENOS E7: aDee7
+    {: RESULT= new EUn(aDee7, new Menos()); :};
+
+E7 ::= MAS E7: aDee7
+    {: RESULT= new EUn(aDee7, new Mas()); :};
+
+E7 ::= E8: aDee8
+    {: RESULT=aDee8; :};
+
+E8 ::= IDEN: id
+    {: RESULT = new Identificador(id.lexema); :};
+
+E8 ::= ENT: numValue
+    {: RESULT = new Num(numValue.lexema); :};
+
+E8 ::= TRUE
+    {: RESULT = new True(); :};
+
+E8 ::= FALSE
+    {: RESULT = new False(); :};
+
+E8 ::= PAP E1:aDe1 PCIERRE
+    {: RESULT = aDe1; :};
+
+E8 ::= NEW
+    {: RESULT = new New(); :};
+
+E8 ::= E8:aDeE PAP ELEM:aDeEl PCIERRE
+    {: RESULT = new EFun(aDeE, aDeEl); :};
+
+E8 ::= E8: aDeE OPPUNTO IDEN: id
+    {: RESULT = new EBin(aDeE, new Identificador(id.lexema), new AccesoCampo()); :};
+
+E8 ::= E8: aDeE CAP ENT: num CCIERRE
+    {: RESULT = new EBin(aDeE, new Num(num.lexema), new AccesoArray()); :};
+
+E8 ::= E8: aDeE OPMASMAS
+    {: RESULT = new EUn(aDeE, new MasMas()); :};
+
+E8 ::= E8: aDeE OPMENOSMENOS
+    {: RESULT = new EUn(aDeE, new MenosMenos()); :};
+
+
+
