@@ -1,4 +1,4 @@
 package ast;
 
-public class Instruccion {
+public abstract class Instruccion implements ASTNode{
 }
