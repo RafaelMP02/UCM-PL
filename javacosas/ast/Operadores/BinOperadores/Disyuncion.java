@@ -9,6 +9,6 @@ public class Disyuncion extends OperadorBin{
     }
 
     public String toString() {
-        return "Disyuncion";
+        return "Disyunción";
     }
 }

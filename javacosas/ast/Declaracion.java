@@ -1,9 +1,12 @@
 package ast;
 
+import ast.Expresiones.Identificador;
 import ast.Metaoperadores.CabecerAsig;
 import ast.Tipos.Tipo;
+import ast.Vinculacion.Vinculacion;
 
-public class Declaracion implements CabecerAsig, Instruccion {
+public class Declaracion implements Instruccion, CabecerAsig  {
+
     private Tipo t;
 
     private Identificador id;
@@ -20,5 +23,10 @@ public class Declaracion implements CabecerAsig, Instruccion {
     @Override
     public String toString() {
         return t.toString() + " " + id.toString();
+    }
+
+    @Override
+    public void bind(Vinculacion vinc) {
+        vinc.insertaId(id, this);
     }
 }

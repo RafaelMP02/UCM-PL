@@ -1,6 +1,6 @@
 package ast.FuncionesPrimitivas;
 
-import ast.Identificador;
+import ast.Expresiones.Identificador;
 import ast.Instruccion;
 import ast.NodeKind;
 import ast.Tipos.Tipo;

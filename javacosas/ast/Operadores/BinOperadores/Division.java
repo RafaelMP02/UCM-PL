@@ -8,6 +8,6 @@ public class Division extends OperadorBin{
     }
 
     public String toString() {
-        return "Division";
+        return "División";
     }
 }

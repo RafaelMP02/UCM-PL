@@ -1,7 +1,6 @@
-package ast;
+package ast.Expresiones;
 
-import ast.Expresiones.E;
-import ast.Metaoperadores.CabecerAsig;
+import ast.KindE;
 
 public class Identificador extends E {
     private String v;

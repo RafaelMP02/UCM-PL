@@ -1,6 +1,8 @@
 package ast;
 
-public class Vacio extends Programa{
+import ast.Vinculacion.Vinculacion;
+
+public class Vacio implements Programa{
 
     public Vacio(){}
     public NodeKind nodeKind() {
@@ -8,5 +10,8 @@ public class Vacio extends Programa{
     }
     public String toString() {
         return "";
+    }
+    @Override
+    public void bind(Vinculacion vinc) {
     }
 }

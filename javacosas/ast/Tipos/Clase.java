@@ -1,6 +1,7 @@
 package ast.Tipos;
 
-import ast.Identificador;
+import ast.Expresiones.Identificador;
+import ast.Vinculacion.Vinculacion;
 
 public class Clase extends Tipo{
     Identificador iden;
@@ -9,6 +10,8 @@ public class Clase extends Tipo{
         this.iden = iden;
     }
     public String toString() {
-        return "Clase " + iden.toString();
+        return "CLASE " + iden.toString();
     }
+    @Override
+    public void bind(Vinculacion vinc) {}
 }

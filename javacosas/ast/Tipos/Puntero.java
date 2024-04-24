@@ -1,5 +1,7 @@
 package ast.Tipos;
 
+import ast.Vinculacion.Vinculacion;
+
 public class Puntero extends Tipo{
     Tipo t;
 
@@ -11,4 +13,7 @@ public class Puntero extends Tipo{
     public String toString() {
         return t.toString() + "*";
     }
+
+    @Override
+    public void bind(Vinculacion vinc) {}
 }

@@ -1,5 +1,5 @@
 package ast;
 
-public abstract class Programa implements ASTNode{
-
+public interface Programa extends ASTNode{
+    /* Interfaz para todas aquellas instrucciones que abran un ámbito */
 }

@@ -3,10 +3,12 @@ package ast;
 import ast.Expresiones.E;
 import ast.Metaoperadores.Ambito;
 import ast.Metaoperadores.CabecerAsig;
+import ast.Vinculacion.Vinculacion;
 
 import java.util.LinkedList;
 
 public class DefFuncion extends Definicion{
+    /* Define la función, es decir, la "instancia" porque se vincula el identificador a este nodo.*/
     CabecerAsig cabecera;
 
     LinkedList<E> parametros;
@@ -21,5 +23,10 @@ public class DefFuncion extends Definicion{
 
     public String toString() {
         return cabecera.toString() + parametros.toString() +ambito.toString();
+    }
+
+    @Override
+    public void bind(Vinculacion vinc) {
+        // TODO què se hace aquí si no hay identificador??
     }
 }

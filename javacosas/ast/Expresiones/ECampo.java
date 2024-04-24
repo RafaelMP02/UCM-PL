@@ -1,6 +1,5 @@
 package ast.Expresiones;
 
-import ast.Identificador;
 import ast.KindE;
 
 public class ECampo extends E{

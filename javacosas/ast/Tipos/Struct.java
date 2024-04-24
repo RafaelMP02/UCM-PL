@@ -1,7 +1,7 @@
 package ast.Tipos;
 
-import ast.Identificador;
-import ast.NodeKind;
+import ast.Expresiones.Identificador;
+import ast.Vinculacion.Vinculacion;
 
 public class Struct extends Tipo{
     Identificador iden;
@@ -10,6 +10,8 @@ public class Struct extends Tipo{
         this.iden = iden;
     }
     public String toString() {
-        return "Struct " + iden.toString();
+        return "STRUCT " + iden.toString();
     }
+    @Override
+    public void bind(Vinculacion vinc) {}
 }

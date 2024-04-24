@@ -15,4 +15,9 @@ public class GestionErroresExp {
      }
      System.exit(1);
    }
+
+   public void errorVinculacion(int fila, int columna, String lexema) {
+    System.out.println("ERROR fila "+fila+" columna "+columna+": Identificador no declarado: "+lexema); 
+    System.exit(1);
+  } 
 }

@@ -1,0 +1,20 @@
+Por qué MAS es un operador unario? Para expresar números postivos? (Lo mismo para el MENOS)
+
+Qué son los multioperadores? Que pueden ser más que binarios?
+
+bool() es un tipo función que devuelve un booleano, pero.... no hace falta indicarle los parámetros? O eso es parte de la generación de código (el que no coincidan los tipos)
+
+NodeKind:  - CASE Case
+	   - , del final
+	   
+Operador la he cambiado... ahora implementa ASTNode y es una interfaz
+	   
+En algunos toString no conviene hacerlo más evidente? (PuntoYComa he cambiado ese porque el profesor nos lo ha pedido de hecho)
+
+AccesoValor no es más un operador unario que un MetaOperador??
+
+Identificador no deberÍa ir en el paquete Expresiones? (lo he movido)
+
+Vacío?? CabecerAsig??
+
+Convendría comentar el .cup y las clases del árbol un poco. Documentación??

@@ -1,6 +1,5 @@
 package ast.FuncionesPrimitivas;
 
-import ast.ASTNode;
 import ast.Expresiones.E;
 import ast.Instruccion;
 import ast.NodeKind;

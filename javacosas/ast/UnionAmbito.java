@@ -1,11 +1,10 @@
 package ast;
 
 import ast.Metaoperadores.Ambito;
-import ast.NodeKind;
-import ast.Programa;
+import ast.Vinculacion.Vinculacion;
 
 
-public class UnionAmbito extends Programa {
+public class UnionAmbito implements Programa {
     //conjunción de un ambito y el resto del programa
     private Ambito amb;
     private Programa P;
@@ -20,5 +19,9 @@ public class UnionAmbito extends Programa {
 
     public String toString() {
         return amb.toString() + P.toString();
+    }
+    @Override
+    public void bind(Vinculacion vinc) {
+        //TODO aquí nada no??
     }
 }

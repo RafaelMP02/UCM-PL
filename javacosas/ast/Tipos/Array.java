@@ -1,6 +1,7 @@
 package ast.Tipos;
 
 import ast.Expresiones.Num;
+import ast.Vinculacion.Vinculacion;
 
 public class Array extends Tipo{
     Tipo t;
@@ -14,4 +15,7 @@ public class Array extends Tipo{
     public String toString() {
         return t.toString() + "[" + n + "]";
     }
+
+    @Override
+    public void bind(Vinculacion vinc) {}
 }

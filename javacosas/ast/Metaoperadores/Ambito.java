@@ -1,7 +1,6 @@
 package ast.Metaoperadores;
 
 import ast.ASTNode;
-import ast.Instruccion;
 import ast.NodeKind;
 import ast.Programa;
 

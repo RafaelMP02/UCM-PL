@@ -18,6 +18,6 @@ public class PuntoYComa extends Programa {
     }
 
     public String toString() {
-        return inst.toString() + " puntoYcoma " + prog.toString();
+        return inst.toString() + "; " + prog.toString();
     }
 }

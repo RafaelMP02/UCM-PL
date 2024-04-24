@@ -5,7 +5,7 @@ import ast.Metaoperadores.Ambito;
 import ast.NodeKind;
 import ast.Programa;
 
-public class If extends Programa {
+public class If implements Programa {
 
     private Elsif siguienteIf = null;
     private Else siguienteElse  = null;

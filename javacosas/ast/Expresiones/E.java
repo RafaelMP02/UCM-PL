@@ -1,6 +1,5 @@
 package ast.Expresiones;
 
-import ast.Instruccion;
 import ast.KindE;
 import ast.Metaoperadores.CabecerAsig;
 import ast.NodeKind;
