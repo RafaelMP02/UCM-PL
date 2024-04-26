@@ -1,12 +1,8 @@
 package ast.Expresiones;
 
-import ast.KindE;
 import ast.Metaoperadores.CabecerAsig;
 import ast.NodeKind;
 
-public abstract class E implements CabecerAsig {
-    public abstract KindE kind();
-    public NodeKind nodeKind() {return NodeKind.EXPRESION;}
-    public abstract String toString();
-
+public interface E extends CabecerAsig {
+    default NodeKind nodeKind() {return NodeKind.EXPRESION;}
 }

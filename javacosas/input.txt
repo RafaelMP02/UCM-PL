@@ -1,4 +1,7 @@
-bool() funcion(a,b) {
-    a := a + b;
-	return a + b;
-};
+if (True) {
+	if (True) {
+		b := 2;
+	}
+}
+
+a := 2;

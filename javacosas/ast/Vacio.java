@@ -12,6 +12,5 @@ public class Vacio implements Programa{
         return "";
     }
     @Override
-    public void bind(Vinculacion vinc) {
-    }
+    public void bind(Vinculacion vinc) {}
 }

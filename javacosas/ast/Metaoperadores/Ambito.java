@@ -3,12 +3,13 @@ package ast.Metaoperadores;
 import ast.ASTNode;
 import ast.NodeKind;
 import ast.Programa;
+import ast.Vinculacion.Vinculacion;
 
 public class Ambito implements ASTNode {
-    private Programa prog;
+    private Programa programa;
 
     public Ambito(Programa prog) {
-        this.prog = prog;
+        this.programa = prog;
     }
 
     public NodeKind nodeKind() {
@@ -16,6 +17,11 @@ public class Ambito implements ASTNode {
     }
 
     public String toString() {
-        return "{" + prog.toString() + "}";
+        return "{" + programa.toString() + "}";
+    }
+
+    @Override
+    public void bind(Vinculacion vinc) {
+        programa.bind(vinc);
     }
 }

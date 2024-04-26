@@ -31,9 +31,8 @@ init with {:
 :};
 
 
-terminal  MAS, MENOS, DIV, PAP, PCIERRE, CAP, CCIERRE, LLAP, LLCIERRE, PCOMA, COMA, ASIG, OPASTERISCO, OPPUNTO, OPPASOVALOR, IGUAL, DISTINTO, NEGACION, CONJUNCION, DISYUNCION, MENORQUE, MAYORQUE, MENORIGUAL, MAYORIGUAL, NEW, PRINTS, SCANS, WHILE, FOR, SWITCH, CASE, DEFAULT, RETURN, IF, ELSIF, ELSE, CLASS, STRUCT, TYPEDEF, INT, BOOL, TRUE, FALSE, OPMASMAS, OPMENOSMENOS;
-terminal  TokenValue  IDEN;
-terminal  TokenValue  ENT;
+terminal  TokenValue MAS, MENOS, DIV, PAP, PCIERRE, CAP, CCIERRE, LLAP, LLCIERRE, PCOMA, COMA, ASIG, OPASTERISCO, OPPUNTO, OPPASOVALOR, IGUAL, DISTINTO, NEGACION, CONJUNCION, DISYUNCION, MENORQUE, MAYORQUE, MENORIGUAL, MAYORIGUAL, NEW, PRINTS, SCANS, WHILE, FOR, SWITCH, CASE, DEFAULT, RETURN, IF, ELSIF, ELSE, CLASS, STRUCT, TYPEDEF, INT, BOOL, TRUE, FALSE, OPMASMAS, OPMENOSMENOS, IDEN, ENT;
+
 
 
 non terminal  S;
@@ -62,7 +61,7 @@ non terminal Elsif RAMAELSIF;
 
 non terminal Else RAMAELSE;
 
-non terminal Case RAMASWITCH;
+non terminal Case RAMACASE;
 
 non terminal Tipo TIPO;
 
@@ -71,6 +70,8 @@ non terminal LinkedList<E> ELEM, ELEM1;
 non terminal LinkedList<Parametrico> PARAM, PARAM1;
 
 non terminal E E0, E1, E2, E3, E4, E5, E6, E7, E8;
+
+non terminal E PARENTEXPRESION;
 
 
 
@@ -86,65 +87,74 @@ P ::= AMBITO: aDeAmb P: aDeP
 
 AMBITO ::= LLAP P: aDeP LLCIERRE
     {: RESULT= new Ambito(aDeP); :};
+    
+    
+//Condición, para todas las siguientes instrucciones
+PARENTEXPRESION ::= PAP E1: aDeCond  PCIERRE
+	{:RESULT = aDeCond; :};
+	
+PARENTEXPRESION ::= error
+	{:RESULT = new EError(); :};
 
+//If sin ramas
+P ::= IF:aDeIf PARENTEXPRESION:aDeCond AMBITO:aDeAmb P:aDeP
+    {:RESULT= new If(aDeCond, aDeAmb, aDeP, null , null, aDeIf.fila, aDeIf.columna); :};
+    
+//If con rama elsif
+P ::= IF:aDeIf PARENTEXPRESION:aDeCond  AMBITO:aDeAmb RAMAELSIF:aDeElsif P:aDeP
+    {:RESULT= new If(aDeCond, aDeAmb, aDeP, aDeElsif , null, aDeIf.fila, aDeIf.columna); :};
+    
+//If con rama else sin elsif
+P ::= IF:aDeIf PARENTEXPRESION:aDeCond  AMBITO:aDeAmb RAMAELSE:aDeElse P:aDeP
+    {:RESULT= new If(aDeCond, aDeAmb, aDeP, null , aDeElse, aDeIf.fila, aDeIf.columna); :};
+    
+//Rama elsif final
+RAMAELSIF ::= ELSIF:aDeElsif PARENTEXPRESION:aDeCond  AMBITO:aDeAmb
+    {:RESULT= new Elsif(aDeCond, aDeAmb, null , null, aDeElsif.fila, aDeElsif.columna); :};
 
-P ::= IF PAP E1: aDeCond  PCIERRE AMBITO:aDeAmb P:aDeP
-    {:RESULT= new If(aDeCond, aDeAmb, aDeP, null , null); :};
+//Rama elsif con otra elsif
+RAMAELSIF ::= ELSIF:aDeElsif1 PARENTEXPRESION:aDeCond  AMBITO:aDeAmb RAMAELSIF:aDeElsif2
+    {:RESULT= new Elsif(aDeCond, aDeAmb, aDeElsif2 , null, aDeElsif1.fila, aDeElsif1.columna); :};
+    
+//Rama elsif con rama else
+RAMAELSIF ::= ELSIF:aDeElsif PARENTEXPRESION:aDeCond AMBITO:aDeAmb RAMAELSE:aDeElse
+    {:RESULT= new Elsif(aDeCond, aDeAmb, null , aDeElse, aDeElsif.fila, aDeElsif.columna); :};
 
-P ::= IF PAP error  PCIERRE AMBITO:aDeAmb P:aDeP
-    {:RESULT= new If(null, aDeAmb, aDeP, null , null); :}; //Condicion nula
+//Rama else
+ RAMAELSE ::= ELSE:aDeElse AMBITO:aDeAmb
+     {:RESULT= new Else(aDeAmb, aDeElse.fila, aDeElse.columna); :};
 
-P ::= IF PAP E1: aDeCond  PCIERRE AMBITO:aDeAmb RAMAELSIF:aDeElsif P:aDeP
-    {:RESULT= new If(aDeCond, aDeAmb, aDeP, aDeElsif , null); :};
+//Switch con solo default
+P ::= SWITCH:aDeSw PARENTEXPRESION:aDeCond LLAP DEFAULT AMBITO:aDeAmb LLCIERRE P:aDeP
+    {:RESULT= new Switch(aDeCond, aDeAmb, aDeP, null, aDeSw.fila, aDeSw.columna); :};
 
-P ::= IF PAP E1: aDeCond  PCIERRE AMBITO:aDeAmb RAMAELSE:aDeElse P:aDeP
-    {:RESULT= new If(aDeCond, aDeAmb, aDeP, null , aDeElse); :};
+//Switch con rama case
+P ::= SWITCH:aDeSw PARENTEXPRESION:aDeCond LLAP RAMACASE: aDeRama DEFAULT AMBITO:aDeAmb LLCIERRE P:aDeP
+    {: RESULT= new Switch(aDeCond, aDeAmb, aDeP, aDeRama, aDeSw.fila, aDeSw.columna); :};
 
-RAMAELSIF ::= ELSIF PAP E1: aDeCond PCIERRE  AMBITO:aDeAmb
-    {:RESULT= new Elsif(aDeCond, aDeAmb, null , null); :};
+//Rama case final
+RAMACASE ::= CASE:aDeCase ENT:num AMBITO:aDeAmb
+    {:RESULT= new Case(new Num(num.lexema, num.fila, num.columna), aDeAmb, null, aDeCase.fila, aDeCase.columna); :};
 
-RAMAELSIF ::= ELSIF PAP E1: aDeCond PCIERRE  AMBITO:aDeAmb RAMAELSIF:aDeElsif
-    {:RESULT= new Elsif(aDeCond, aDeAmb, aDeElsif , null); :};
+//Rama case con otra rama case
+RAMACASE ::= CASE:aDeCase ENT:num AMBITO:aDeAmb RAMACASE:aDeRama
+    {:RESULT= new Case(new Num(num.lexema, num.fila, num.columna), aDeAmb, aDeRama, aDeCase.fila, aDeCase.columna); :};
 
-RAMAELSIF ::= ELSIF PAP E1: aDeCond PCIERRE  AMBITO:aDeAmb RAMAELSE:aDeElse
-    {:RESULT= new Elsif(aDeCond, aDeAmb, null , aDeElse); :};
+//While
+P ::= WHILE:aDeWh PARENTEXPRESION:aDeCond AMBITO:aDeAmb P:aDeP
+    {:RESULT= new While(aDeCond, aDeAmb, aDeP, aDeWh.fila, aDeWh.columna); :};
 
- RAMAELSE ::= ELSE AMBITO:aDeAmb
-     {:RESULT= new Else(aDeAmb); :};
+P ::= FOR:aDeFor PAP ASIGNACION:aDeIni PCOMA E1:aDeFin PCOMA ASIGNACION: aDePaso PCIERRE AMBITO: aDeAmb  P:aDeP
+    {:RESULT= new For(aDeIni, aDePaso, aDeFin, aDeAmb, aDeP, aDeFor.fila, aDeFor.columna); :};
 
-
-P ::= SWITCH PAP E1:aDeE PCIERRE  LLAP DEFAULT AMBITO:aDeAmb LLCIERRE P:aDeP
-    {:RESULT= new Switch(aDeE, aDeAmb, aDeP, null); :};
-
-P ::= SWITCH PAP E1:aDeE PCIERRE  LLAP RAMASWITCH: aDeSw DEFAULT AMBITO:aDeAmb LLCIERRE P:aDeP
-    {: RESULT= new Switch(aDeE, aDeAmb, aDeP, aDeSw); :};
-
-P ::= SWITCH PAP error PCIERRE  AMBITO:aDeAmb  P:aDeP
-    {:RESULT= new Switch(null, null, aDeP, null);; :};
-
-RAMASWITCH ::= CASE ENT:num AMBITO:aDeAmb
-    {:RESULT= new Case(new Num(num.lexema), aDeAmb, null); :};
-
-RAMASWITCH ::= CASE ENT:num AMBITO:aDeAmb RAMASWITCH:ADeSw
-    {:RESULT= new Case(new Num(num.lexema), aDeAmb, ADeSw); :};
-
-P ::= WHILE PAP E1:aDeE PCIERRE AMBITO:aDeAmb P:aDeP
-    {:RESULT= new While(aDeE, aDeAmb, aDeP); :};
-
-P ::= WHILE PAP error PCIERRE AMBITO:aDeAmb P:aDeP
-    {:RESULT= new While(null, aDeAmb, aDeP); :};
-
-P ::= FOR PAP ASIGNACION:aDeIni PCOMA E1:AdeFin PCOMA ASIGNACION: AdePaso PCIERRE AMBITO: aDeAmb  P:aDeP
-    {:RESULT= new For(aDeIni, AdePaso, AdeFin, aDeAmb, aDeP); :};
-
-P ::= FOR error AMBITO: aDeAmb  P:aDeP
-    {:RESULT= new For(null, null, null, aDeAmb, aDeP); :};
+P ::= FOR:aDeFor error AMBITO: aDeAmb  P:aDeP
+    {:RESULT= new For(new InstrError(), new InstrError(), new EError(), aDeAmb, aDeP, aDeFor.fila, aDeFor.columna); :};
 
 P ::=
 {:RESULT= new Vacio(); :};
 
 P ::= error
-    {: RESULT = null; :};
+    {: RESULT = new InstrError(); :};
 
 
 INSTRUCCION ::= DECLARACION: aDeDec
@@ -156,34 +166,36 @@ INSTRUCCION ::= DEFINICION: aDeDef
 INSTRUCCION ::= ASIGNACION: aDeAsig
     {: RESULT= aDeAsig; :};
 
-INSTRUCCION ::= PRINTS PAP E1:aDeE PCIERRE
-    {: RESULT= new Prints(aDeE); :};
+//Prints
+INSTRUCCION ::= PRINTS:aDePr PARENTEXPRESION:aDeE
+    {: RESULT= new Prints(aDeE, aDePr.fila, aDePr.columna); :};
 
-INSTRUCCION ::= PRINTS error
-    {: RESULT= new Prints(null); :};
+//Scans
+INSTRUCCION ::= SCANS:aDeSc PAP IDEN:id PCIERRE
+    {: RESULT= new Scans(new Identificador(id.lexema, id.fila, id.columna), aDeSc.fila, aDeSc.columna); :};
 
-INSTRUCCION ::= SCANS PAP IDEN:id PCIERRE
-    {: RESULT= new Scans(new Identificador(id.lexema)); :};
+INSTRUCCION ::= SCANS:aDeSc error
+    {: RESULT= new Scans(null, aDeSc.fila, aDeSc.columna); :};
 
-INSTRUCCION ::= SCANS error
-    {: RESULT= new Scans(null); :};
+//Llamada función
+INSTRUCCION ::= E8: aDeE8 PAP ELEM: aDeElem PCIERRE:aDeDef
+    {: RESULT= new EFun(aDeE8, aDeElem, aDeDef.fila, aDeDef.columna); :};
 
-INSTRUCCION ::= E8: aDee PAP ELEM: aDeElem PCIERRE
-    {: RESULT= new EFun(aDee, aDeElem); :};
+//Return
+INSTRUCCION ::= RETURN:aDeRet E0: aDeE
+    {: RESULT= new Return(aDeE, aDeRet.fila, aDeRet.columna); :};
 
-INSTRUCCION ::= RETURN E0: aDeE
-    {: RESULT= new Return(aDeE); :};
+INSTRUCCION ::= RETURN:aDeRet error
+    {: RESULT= new Return(null, aDeRet.fila, aDeRet.columna); :};
 
-
-INSTRUCCION ::= RETURN error
-    {: RESULT= new Return(null); :};
-
-INSTRUCCION ::= TYPEDEF TIPO: aDeT IDEN:id
-    {: RESULT= new Typedef(aDeT, new Identificador(id.lexema)); :};
-
+INSTRUCCION ::= TYPEDEF:aDeTDef TIPO: aDeT IDEN:id
+    {: RESULT= new Typedef(aDeT, new Identificador(id.lexema, id.fila, id.columna), aDeTDef.fila, aDeTDef.columna); :};
+    
+INSTRUCCION ::= error
+    {: RESULT= new InstrError(); :};
 
 DECLARACION ::= TIPO:aDeT  IDEN:id
-     {: RESULT= new Declaracion(aDeT, new Identificador(id.lexema)); :};
+     {: RESULT= new Declaracion(aDeT, new Identificador(id.lexema, id.fila, id.columna)); :};
 
 DECLARACION ::= TIPO:aDeT  error
      {: RESULT= new Declaracion(aDeT, null); :};
@@ -199,19 +211,25 @@ DEFINICION ::= DEFFUNCION: aDeF
     {: RESULT= aDeF; :};
 
 DEFSTRUCT ::= STRUCT IDEN: id AMBITO:aDeAmb
-    {: RESULT= new DefStruct(new Identificador(id.lexema), aDeAmb); :};
+    {: RESULT= new DefStruct(new Identificador(id.lexema, id.fila, id.columna), aDeAmb); :};
+    
+DEFSTRUCT ::= STRUCT error AMBITO:aDeAmb
+    {: RESULT= new DefStruct(null, aDeAmb); :};
 
 DEFCLASE ::= CLASS IDEN: id AMBITO:aDeAmb
-    {: RESULT= new DefClase(new Identificador(id.lexema), aDeAmb); :};
+    {: RESULT= new DefClase(new Identificador(id.lexema, id.fila, id.columna), aDeAmb); :};
+    
+DEFCLASE ::= CLASS error AMBITO:aDeAmb
+    {: RESULT= new DefClase(null, aDeAmb); :};
 
 DEFFUNCION ::= DECLARACION:aDeCa PAP ELEM:aDeElem  PCIERRE AMBITO:aDeAmb
     {: RESULT= new DefFuncion(aDeCa, aDeElem, aDeAmb); :};
+    
+DEFFUNCION ::= DECLARACION:aDeCa error AMBITO:aDeAmb
+    {: RESULT= new DefFuncion(aDeCa, null, aDeAmb); :};
 
 DEFFUNCION ::= E8:aDeE PAP ELEM:aDeElem  PCIERRE AMBITO:aDeAmb
     {: RESULT= new DefFuncion(aDeE, aDeElem, aDeAmb); :};
-
-DEFFUNCION ::= DECLARACION:aDeCa error AMBITO:aDeAmb
-    {: RESULT= new DefFuncion(aDeCa, null, null); :};
 
 CABEZASIG ::= DECLARACION: aDeDec
     {: RESULT= aDeDec; :};
@@ -222,8 +240,6 @@ CABEZASIG ::= E1: aDeE
 ASIGNACION ::= CABEZASIG:aDeC ASIG E0:aDeE
     {: RESULT= new Asignacion(aDeC, aDeE); :};
 
-
-
 TIPO ::= INT
     {: RESULT= new Entero(); :};
 
@@ -231,13 +247,13 @@ TIPO ::= BOOL
     {: RESULT= new Booleano(); :};
 
 TIPO ::= STRUCT IDEN:id
-    {: RESULT= new Struct(new Identificador(id.lexema)); :};
+    {: RESULT= new Struct(new Identificador(id.lexema, id.fila, id.columna)); :};
 
 TIPO ::= CLASS IDEN:id
-    {: RESULT= new Clase(new Identificador(id.lexema)); :};
+    {: RESULT= new Clase(new Identificador(id.lexema, id.fila, id.columna)); :};
 
 TIPO ::= TIPO:aDeT CAP ENT:num CCIERRE
-    {: RESULT= new Array(aDeT, new Num(num.lexema)); :};
+    {: RESULT= new Array(aDeT, new Num(num.lexema, num.fila, num.columna)); :};
 
 TIPO ::= TIPO:aDeT OPASTERISCO
     {: RESULT= new Puntero(aDeT); :};
@@ -356,37 +372,36 @@ E7 ::= E8: aDee8
     {: RESULT=aDee8; :};
 
 E8 ::= IDEN: id
-    {: RESULT = new Identificador(id.lexema); :};
+    {: RESULT = new Identificador(id.lexema, id.fila, id.columna); :};
 
 E8 ::= ENT: numValue
-    {: RESULT = new Num(numValue.lexema); :};
+    {: RESULT = new Num(numValue.lexema, numValue.fila, numValue.columna); :};
 
-E8 ::= TRUE
-    {: RESULT = new True(); :};
+E8 ::= TRUE: aDeTrue
+    {: RESULT = new True(aDeTrue.fila, aDeTrue.columna); :};
 
-E8 ::= FALSE
-    {: RESULT = new False(); :};
+E8 ::= FALSE: aDeFalse
+    {: RESULT = new False(aDeFalse.fila, aDeFalse.columna); :};
 
 E8 ::= PAP E1:aDe1 PCIERRE
     {: RESULT = aDe1; :};
 
-E8 ::= NEW
-    {: RESULT = new New(); :};
+E8 ::= NEW: aDeNew
+    {: RESULT = new New(aDeNew.fila, aDeNew.columna); :};
 
-E8 ::= E8:aDeE PAP ELEM:aDeEl PCIERRE
-    {: RESULT = new EFun(aDeE, aDeEl); :};
+E8 ::= E8:aDeE8 PAP ELEM:aDeEl PCIERRE:aDeFun
+    {: RESULT = new EFun(aDeE8, aDeEl, aDeFun.fila, aDeFun.columna); :};
 
-E8 ::= E8: aDeE OPPUNTO IDEN: id
-    {: RESULT = new EBin(aDeE, new Identificador(id.lexema), new AccesoCampo()); :};
+E8 ::= E8: aDeE8 OPPUNTO IDEN: id
+    {: RESULT = new EBin(aDeE8, new Identificador(id.lexema, id.fila, id.columna), new AccesoCampo()); :};
 
-E8 ::= E8: aDeE CAP ENT: num CCIERRE
-    {: RESULT = new EBin(aDeE, new Num(num.lexema), new AccesoArray()); :};
+E8 ::= E8: aDeE8 CAP ENT: num CCIERRE
+    {: RESULT = new EBin(aDeE8, new Num(num.lexema, num.fila, num.columna), new AccesoArray()); :};
 
-E8 ::= E8: aDeE OPMASMAS
-    {: RESULT = new EUn(aDeE, new MasMas()); :};
+E8 ::= E8: aDeE8 OPMASMAS
+    {: RESULT = new EUn(aDeE8, new MasMas()); :};
 
-E8 ::= E8: aDeE OPMENOSMENOS
-    {: RESULT = new EUn(aDeE, new MenosMenos()); :};
-
+E8 ::= E8: aDeE8 OPMENOSMENOS
+    {: RESULT = new EUn(aDeE8, new MenosMenos()); :};
 
 

@@ -1,10 +1,11 @@
 package ast.Metaoperadores;
 
 import ast.Expresiones.E;
+import ast.Vinculacion.Vinculacion;
 import ast.Instruccion;
 import ast.NodeKind;
 
-public class Asignacion implements Instruccion {
+public class Asignacion implements Instruccion  {
     private CabecerAsig exp1;
     private E exp2;
 
@@ -18,5 +19,10 @@ public class Asignacion implements Instruccion {
 
     public String toString() {
         return exp1.toString() + " := " + exp2.toString();
+    }
+    @Override
+    public void bind(Vinculacion vinc) {
+        exp1.bind(vinc);
+        exp2.bind(vinc);
     }
 }

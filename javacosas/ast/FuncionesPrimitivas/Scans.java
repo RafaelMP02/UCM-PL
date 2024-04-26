@@ -2,20 +2,28 @@ package ast.FuncionesPrimitivas;
 
 
 import ast.Expresiones.Identificador;
+import ast.Vinculacion.Vinculacion;
 import ast.Instruccion;
+import ast.LocatedNode;
 import ast.NodeKind;
 
-public class Scans implements Instruccion {
-    private Identificador path;
+public class Scans extends LocatedNode implements Instruccion {
+    private Identificador id;
 
-    public Scans(Identificador path) {
-        this.path = path;
+    public Scans(Identificador id, int fila, int columna) {
+        super(fila, columna);
+        this.id = id;
     }
 
     public NodeKind nodeKind() {
         return NodeKind.SCANS;
     }
     public String toString() {
-        return "SCANS(" + path.toString() + ")";
+        return "SCANS(" + id.toString() + ")";
+    }
+
+    @Override
+    public void bind(Vinculacion vinc) {
+        id.bind(vinc);
     }
 }

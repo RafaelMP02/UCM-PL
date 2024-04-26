@@ -6,7 +6,7 @@ import ast.Tipos.Tipo;
 import ast.Vinculacion.Vinculacion;
 
 public class Declaracion implements Instruccion, CabecerAsig  {
-
+    /* Declara una variable de cualquier tipo (incluso funcional) */
     private Tipo t;
 
     private Identificador id;
@@ -27,6 +27,6 @@ public class Declaracion implements Instruccion, CabecerAsig  {
 
     @Override
     public void bind(Vinculacion vinc) {
-        vinc.insertaId(id, this);
+        vinc.insertaId(id.toString(), this);
     }
 }

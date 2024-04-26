@@ -1,9 +1,11 @@
 package ast.Expresiones;
 import ast.KindE;
 import ast.Operadores.BinOperadores.OperadorBin;
+import ast.Vinculacion.Vinculacion;
 
 
-public class EBin extends E {
+public class EBin implements E {
+    /* Expresión que incluye un operador binario como atributo */
    private E opnd1;
    private E opnd2;
    private OperadorBin operador;
@@ -23,5 +25,10 @@ public class EBin extends E {
 
     public String toString() {
         return operador.toString() + "(" + opnd1.toString() + " , " + opnd2.toString() + ")";
+    }
+    @Override
+    public void bind(Vinculacion vinc) {
+        opnd1.bind(vinc);
+        opnd2.bind(vinc);
     }
 }

@@ -1,10 +1,11 @@
 package ast.Expresiones;
 
 import ast.KindE;
+import ast.Vinculacion.Vinculacion;
 
 import java.util.LinkedList;
 
-public class EListaL extends E{
+public class EListaL implements E{
     private LinkedList<E> elementos;
 
     public EListaL(LinkedList<E> elementos) {
@@ -17,5 +18,12 @@ public class EListaL extends E{
 
     public String toString() {
         return elementos.toString();
+    }
+
+    @Override
+    public void bind(Vinculacion vinc) {
+        for (E elemento : elementos) {
+            elemento.bind(vinc);
+        }
     }
 }

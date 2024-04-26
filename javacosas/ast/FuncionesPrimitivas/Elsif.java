@@ -1,23 +1,26 @@
 package ast.FuncionesPrimitivas;
 
 import ast.ASTNode;
+import ast.LocatedNode;
 import ast.Expresiones.E;
 import ast.Metaoperadores.Ambito;
+import ast.Vinculacion.Vinculacion;
 import ast.NodeKind;
 
-public class Elsif implements ASTNode {
-    private Elsif siguienteIf = null;
+public class Elsif extends LocatedNode implements ASTNode {
+    private Elsif siguienteElsif = null;
     private Else siguienteElse  = null;
 
     //ambos o uno deben de ser nulos
 
-    private Ambito Amb;
+    private Ambito ambito;
     private E cond;
 
-    public Elsif(E cond, Ambito Amb, Elsif siguienteIf, Else siguienteElse) {
+    public Elsif(E cond, Ambito amb, Elsif siguienteElsif, Else siguienteElse, int fila, int columna) {
+        super(fila, columna);
         this.cond = cond;
-        this.Amb = Amb;
-        this.siguienteIf = siguienteIf;
+        this.ambito = amb;
+        this.siguienteElsif = siguienteElsif;
         this.siguienteElse = siguienteElse;
     }
 
@@ -26,12 +29,21 @@ public class Elsif implements ASTNode {
     }
 
     public String toString() {
-        if(siguienteIf != null) {
-            return "ELSIF(" + cond.toString() + ")" + Amb.toString()  + siguienteIf.toString();
+        if(siguienteElsif != null) {
+            return "ELSIF(" + cond.toString() + ")" + ambito.toString()  + siguienteElsif.toString();
         } else if (siguienteElse != null) {
-            return "ELSIF(" + cond.toString() + ")" + Amb.toString()  + siguienteElse.toString();
+            return "ELSIF(" + cond.toString() + ")" + ambito.toString()  + siguienteElse.toString();
         } else {
-            return "ELSIF(" + cond.toString() + ")" + Amb.toString();
+            return "ELSIF(" + cond.toString() + ")" + ambito.toString();
         }
+    }
+
+    @Override
+    public void bind(Vinculacion vinc) {
+        vinc.abreBloque();
+        ambito.bind(vinc);
+        vinc.cierraBloque();
+        siguienteElsif.bind(vinc);
+        siguienteElse.bind(vinc);
     }
 }

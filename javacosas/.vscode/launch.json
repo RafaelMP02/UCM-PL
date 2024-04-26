@@ -4,6 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        
         {
             "type": "java",
             "name": "Current File",
@@ -15,7 +16,7 @@
             "name": "Main",
             "request": "launch",
             "mainClass": "constructorast.Main",
-            "projectName": "javacosas",
+            "projectName": "javacosas_f6c64f20",
             "cwd": "${workspaceFolder}",
             "args": ["input.txt"]
         }

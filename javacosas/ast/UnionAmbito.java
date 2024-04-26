@@ -5,23 +5,24 @@ import ast.Vinculacion.Vinculacion;
 
 
 public class UnionAmbito implements Programa {
-    //conjunción de un ambito y el resto del programa
-    private Ambito amb;
-    private Programa P;
+    /* Conjunción de un ámbito y el resto del programa */
+    private Ambito ambito;
+    private Programa programa;
 
-    public UnionAmbito(Ambito amb, Programa P) {
-        this.amb = amb;
-        this.P = P;
+    public UnionAmbito(Ambito amb, Programa p) {
+        this.ambito = amb;
+        this.programa = p;
     }
     public NodeKind nodeKind() {
         return NodeKind.UNIONAMBITO;
     }
 
     public String toString() {
-        return amb.toString() + P.toString();
+        return ambito.toString() + programa.toString();
     }
     @Override
     public void bind(Vinculacion vinc) {
-        //TODO aquí nada no??
+        ambito.bind(vinc);
+        programa.bind(vinc);
     }
 }

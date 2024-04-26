@@ -2,8 +2,9 @@ package ast.Expresiones;
 
 import ast.KindE;
 import ast.Operadores.UnOperador.OperadorUn;
+import ast.Vinculacion.Vinculacion;
 
-public class EUn extends E {
+public class EUn implements E {
     private E opnd;
     private OperadorUn operador;
     public EUn(E opnd, OperadorUn operador) {
@@ -20,5 +21,9 @@ public class EUn extends E {
 
     public String toString() {
         return operador.toString() + "(" + opnd.toString() + ")";
+    }
+    @Override
+    public void bind(Vinculacion vinc) {
+        opnd.bind(vinc);
     }
 }

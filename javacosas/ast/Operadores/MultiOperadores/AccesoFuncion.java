@@ -10,6 +10,6 @@ public class AccesoFuncion extends Operador {
     }
 
     public String toString() {
-        return "AccesoFuncion";
+        return "AccesoFunción";
     }
 }

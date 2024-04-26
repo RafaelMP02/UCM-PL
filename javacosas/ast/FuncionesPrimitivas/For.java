@@ -3,30 +3,39 @@ package ast.FuncionesPrimitivas;
 import ast.Expresiones.E;
 import ast.Metaoperadores.Ambito;
 import ast.Metaoperadores.Asignacion;
+import ast.Vinculacion.Vinculacion;
+import ast.LocatedNode;
 import ast.NodeKind;
 import ast.Programa;
 
-public class For extends Programa {
+public class For extends LocatedNode implements Programa {
     private Asignacion inicio;
     private Asignacion paso;
 
     private E fin;
 
-    private Ambito amb;
+    private Ambito ambito;
 
-    private Programa P;
+    private Programa programa;
 
-   public For(Asignacion inicio, Asignacion paso, E fin, Ambito amb, Programa P){
-       this.inicio = inicio;
+   public For(Asignacion inicio, Asignacion paso, E fin, Ambito amb, Programa p, int fila, int columna) {
+        super(fila, columna);
        this.paso = paso;
        this.fin = fin;
-       this.amb = amb;
-       this.P = P;
+       this.ambito = amb;
+       this.programa = p;
    }
     public NodeKind nodeKind() {
         return NodeKind.FOR;
     }
     public String toString() {
-        return "FOR(" + inicio.toString() +";" + fin.toString() + ";" + paso.toString() + ")" + amb.toString() + P.toString();
+        return "FOR(" + inicio.toString() +";" + fin.toString() + ";" + paso.toString() + ")" + ambito.toString() + programa.toString();
+    }
+    @Override
+    public void bind(Vinculacion vinc) {
+        vinc.abreBloque();
+        ambito.bind(vinc);
+        vinc.cierraBloque();
+        programa.bind(vinc);
     }
 }

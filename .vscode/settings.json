@@ -1,0 +1,10 @@
+{
+    "java.project.sourcePaths": [
+        "JaVa",
+        "javacosas"
+    ],
+    "java.project.referencedLibraries": [
+        "javacosas/cup.jar",
+        "javacosas/jflex.jar"
+    ]
+}

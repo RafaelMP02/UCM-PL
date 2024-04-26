@@ -2,21 +2,24 @@ package ast.FuncionesPrimitivas;
 
 import ast.Expresiones.E;
 import ast.Metaoperadores.Ambito;
+import ast.Vinculacion.Vinculacion;
+import ast.LocatedNode;
 import ast.NodeKind;
 import ast.Programa;
 
-public class Switch extends Programa {
+public class Switch extends LocatedNode implements Programa {
     private E cond;
     private Case caso;
 
-    private Ambito amb;
+    private Ambito ambito;
 
-    private Programa P;
+    private Programa programa;
 
-    public Switch(E cond, Ambito amb, Programa P, Case caso) {
+    public Switch(E cond, Ambito amb, Programa p, Case caso, int fila, int columna) {
+        super(fila, columna);
         this.cond = cond;
-        this.amb = amb;
-        this.P = P;
+        this.ambito = amb;
+        this.programa = p;
         this.caso = caso;
     }
 
@@ -28,12 +31,24 @@ public class Switch extends Programa {
     public String toString() {
         if(cond != null) {
             if (caso != null) {
-                return "SWITCH(" + cond.toString() + "){" + caso.toString() + "DEFAULT" + amb.toString() + "}" + P.toString();
+                return "SWITCH(" + cond.toString() + "){" + caso.toString() + "DEFAULT" + ambito.toString() + "}" + programa.toString();
             } else {
-                return "SWITCH(" + cond.toString() + "){" + "DEFAULT" + amb.toString() + "}" + P.toString();
+                return "SWITCH(" + cond.toString() + "){" + "DEFAULT" + ambito.toString() + "}" + programa.toString();
             }
         } else {
-             return "SWITCH(#ERROR#)" + P.toString();
+             return "SWITCH(#ERROR#)" + programa.toString();
         }
+    }
+
+    @Override
+    public void bind(Vinculacion vinc) {
+        cond.bind(vinc);
+
+        vinc.abreBloque();
+        caso.bind(vinc);    //Ámbitos de los posibles "case"
+        ambito.bind(vinc);  //Ámbito del "default"
+        vinc.cierraBloque();
+
+        programa.bind(vinc);
     }
 }

@@ -8,6 +8,6 @@ public class Conjuncion extends OperadorBin{
     }
 
     public String toString() {
-        return "Conjuncion";
+        return "Conjunción";
     }
 }

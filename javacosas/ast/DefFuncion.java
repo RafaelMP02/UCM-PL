@@ -11,22 +11,22 @@ public class DefFuncion extends Definicion{
     /* Define la función, es decir, la "instancia" porque se vincula el identificador a este nodo.*/
     CabecerAsig cabecera;
 
-    LinkedList<E> parametros;
+    LinkedList<E> argumentos;
 
     Ambito ambito;
 
-    public DefFuncion( CabecerAsig cabecera, LinkedList<E> parametros, Ambito ambito){
+    public DefFuncion( CabecerAsig cabecera, LinkedList<E> arg, Ambito ambito){
         this.cabecera = cabecera;
-        this.parametros = parametros;
+        this.argumentos = arg;
         this.ambito = ambito;
     }
 
     public String toString() {
-        return cabecera.toString() + parametros.toString() +ambito.toString();
+        return cabecera.toString() + argumentos.toString() +ambito.toString();
     }
 
     @Override
     public void bind(Vinculacion vinc) {
-        // TODO què se hace aquí si no hay identificador??
+        // TODO deffuncion?????????????
     }
 }
