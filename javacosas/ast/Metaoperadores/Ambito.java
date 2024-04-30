@@ -1,19 +1,19 @@
 package ast.Metaoperadores;
 
-import ast.ASTNode;
-import ast.NodeKind;
+import ast.NodoAST;
+import ast.TiposDeNodos;
 import ast.Programa;
 import ast.Vinculacion.Vinculacion;
 
-public class Ambito implements ASTNode {
+public class Ambito implements NodoAST {
     private Programa programa;
 
     public Ambito(Programa prog) {
         this.programa = prog;
     }
 
-    public NodeKind nodeKind() {
-        return NodeKind.AMBITO;
+    public TiposDeNodos nodeKind() {
+        return TiposDeNodos.AMBITO;
     }
 
     public String toString() {

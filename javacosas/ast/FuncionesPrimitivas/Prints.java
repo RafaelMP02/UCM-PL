@@ -4,7 +4,7 @@ import ast.Expresiones.E;
 import ast.Vinculacion.Vinculacion;
 import ast.Instruccion;
 import ast.LocatedNode;
-import ast.NodeKind;
+import ast.TiposDeNodos;
 
 public class Prints extends LocatedNode implements Instruccion {
     private E valor;
@@ -14,8 +14,8 @@ public class Prints extends LocatedNode implements Instruccion {
         this.valor = valor;
     }
 
-    public NodeKind nodeKind() {
-        return NodeKind.PRINTS;
+    public TiposDeNodos nodeKind() {
+        return TiposDeNodos.PRINTS;
     }
 
     public String toString(){

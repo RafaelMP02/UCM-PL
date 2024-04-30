@@ -1,14 +1,14 @@
 package ast.FuncionesPrimitivas;
 
-import ast.ASTNode;
+import ast.NodoAST;
 import ast.LocatedNode;
 import ast.Expresiones.Num;
 import ast.Metaoperadores.Ambito;
 import ast.Vinculacion.Vinculacion;
-import ast.NodeKind;
+import ast.TiposDeNodos;
 
 
-public class Case extends LocatedNode implements ASTNode {
+public class Case extends LocatedNode implements NodoAST {
     private Num cond;
     private Case caso;
     private Ambito ambito;
@@ -20,8 +20,8 @@ public class Case extends LocatedNode implements ASTNode {
         this.caso = caso;
     }
 
-    public NodeKind nodeKind() {
-        return NodeKind.CASE;
+    public TiposDeNodos nodeKind() {
+        return TiposDeNodos.CASE;
     }
     public String toString() {
         if(caso != null) {
@@ -36,5 +36,7 @@ public class Case extends LocatedNode implements ASTNode {
         vinc.abreBloque();
         ambito.bind(vinc);
         vinc.cierraBloque();
+        if (caso != null)
+            caso.bind(vinc);
     }
 }

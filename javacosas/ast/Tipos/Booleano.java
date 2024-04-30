@@ -1,12 +1,12 @@
 package ast.Tipos;
 
-import ast.Vinculacion.Vinculacion;
+import ast.Tipos.Tipado.TiposEnum;
 
-public class Booleano extends Tipo{
-    public Booleano(){}
+public class Booleano extends NodoTipo{
+    public Booleano(){
+        super(TiposEnum.BOOLEANO);
+    }
     public String toString() {
         return "BOOL";
     }
-    @Override
-    public void bind(Vinculacion vinc) {}
 }

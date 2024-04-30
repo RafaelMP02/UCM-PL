@@ -5,7 +5,7 @@ import ast.Metaoperadores.Ambito;
 import ast.Metaoperadores.Asignacion;
 import ast.Vinculacion.Vinculacion;
 import ast.LocatedNode;
-import ast.NodeKind;
+import ast.TiposDeNodos;
 import ast.Programa;
 
 public class For extends LocatedNode implements Programa {
@@ -25,8 +25,8 @@ public class For extends LocatedNode implements Programa {
        this.ambito = amb;
        this.programa = p;
    }
-    public NodeKind nodeKind() {
-        return NodeKind.FOR;
+    public TiposDeNodos nodeKind() {
+        return TiposDeNodos.FOR;
     }
     public String toString() {
         return "FOR(" + inicio.toString() +";" + fin.toString() + ";" + paso.toString() + ")" + ambito.toString() + programa.toString();

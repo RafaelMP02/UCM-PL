@@ -1,19 +1,17 @@
 package ast.Tipos;
 
-import ast.Vinculacion.Vinculacion;
+import ast.Tipos.Tipado.TiposEnum;
 
-public class Puntero extends Tipo{
-    Tipo t;
+public class Puntero extends NodoTipo{
+    NodoTipo t;
 
 
-    public Puntero(Tipo t) {
+    public Puntero(NodoTipo t) {
+        super(TiposEnum.PUNTERO);
         this.t = t;
     }
 
     public String toString() {
-        return t.toString() + "*";
+        return t.toString() + "^";
     }
-
-    @Override
-    public void bind(Vinculacion vinc) {}
 }

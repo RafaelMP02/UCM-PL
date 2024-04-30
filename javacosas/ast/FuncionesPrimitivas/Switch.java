@@ -4,7 +4,7 @@ import ast.Expresiones.E;
 import ast.Metaoperadores.Ambito;
 import ast.Vinculacion.Vinculacion;
 import ast.LocatedNode;
-import ast.NodeKind;
+import ast.TiposDeNodos;
 import ast.Programa;
 
 public class Switch extends LocatedNode implements Programa {
@@ -23,8 +23,8 @@ public class Switch extends LocatedNode implements Programa {
         this.caso = caso;
     }
 
-    public NodeKind nodeKind() {
-        return NodeKind.SWITCH;
+    public TiposDeNodos nodeKind() {
+        return TiposDeNodos.SWITCH;
     }
 
 

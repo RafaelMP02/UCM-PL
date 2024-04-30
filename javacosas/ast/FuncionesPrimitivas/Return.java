@@ -5,7 +5,7 @@ import ast.Expresiones.E;
 import ast.Vinculacion.Vinculacion;
 import ast.Instruccion;
 import ast.LocatedNode;
-import ast.NodeKind;
+import ast.TiposDeNodos;
 
 public class Return extends LocatedNode implements Instruccion {
     private E valor;
@@ -15,8 +15,8 @@ public class Return extends LocatedNode implements Instruccion {
         this.valor = valor;
     }
 
-    public NodeKind nodeKind() {
-        return NodeKind.RETURN;
+    public TiposDeNodos nodeKind() {
+        return TiposDeNodos.RETURN;
     }
 
     public String toString(){

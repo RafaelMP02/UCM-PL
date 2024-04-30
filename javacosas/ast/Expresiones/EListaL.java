@@ -1,6 +1,5 @@
 package ast.Expresiones;
 
-import ast.KindE;
 import ast.Vinculacion.Vinculacion;
 
 import java.util.LinkedList;
@@ -10,10 +9,6 @@ public class EListaL implements E{
 
     public EListaL(LinkedList<E> elementos) {
         this.elementos = elementos;
-    }
-
-    public KindE kind() {
-        return KindE.ListaLLaves;
     }
 
     public String toString() {

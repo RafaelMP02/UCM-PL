@@ -1,7 +1,3 @@
-if (True) {
-	if (True) {
-		b := 2;
-	}
-}
+while (True) {}
 
-a := 2;
+;

@@ -1,7 +1,7 @@
 package ast.Metaoperadores;
 
 import ast.Instruccion;
-import ast.NodeKind;
+import ast.TiposDeNodos;
 import ast.Programa;
 import ast.Vinculacion.Vinculacion;
 
@@ -14,8 +14,8 @@ public class PuntoYComa implements Programa {
        this.prog = prog;
     }
 
-    public NodeKind nodeKind() {
-        return NodeKind.PUNTOYCOMA;
+    public TiposDeNodos nodeKind() {
+        return TiposDeNodos.PUNTOYCOMA;
     }
 
     public String toString() {

@@ -4,12 +4,12 @@ import ast.Expresiones.E;
 import ast.Metaoperadores.Ambito;
 import ast.Vinculacion.Vinculacion;
 import ast.LocatedNode;
-import ast.NodeKind;
+import ast.TiposDeNodos;
 import ast.Programa;
 
 public class If extends LocatedNode implements Programa {
 
-    private Elsif siguienteIf = null;
+    private Elsif siguienteElsif = null;
     private Else siguienteElse  = null;
 
     //ambos o uno deben de ser nulos
@@ -19,31 +19,29 @@ public class If extends LocatedNode implements Programa {
 
     private Programa programa;
 
-    public If(E cond, Ambito Amb, Programa p,Elsif siguienteIf, Else siguienteElse, int fila, int columna) {
+    public If(E cond, Ambito Amb, Programa p,Elsif siguienteElsif, Else siguienteElse, int fila, int columna) {
         super(fila, columna);
         this.cond = cond;
         this.ambito = Amb;
-        this.siguienteIf = siguienteIf;
+        this.siguienteElsif = siguienteElsif;
         this.siguienteElse = siguienteElse;
         this.programa = p;
     }
 
-    public NodeKind nodeKind() {
-        return NodeKind.IF;
+    public TiposDeNodos nodeKind() {
+        return TiposDeNodos.IF;
     }
 
     public String toString() {
-        if(cond != null) {
-            if (siguienteIf != null) {
-                return "IF(" + cond.toString() + ")" + ambito.toString() + siguienteIf.toString() + programa.toString();
-            } else if (siguienteElse != null) {
-                return "IF(" + cond.toString() + ")" + ambito.toString() + siguienteElse.toString() + programa.toString();
-            } else {
-                return "IF(" + cond.toString() + ")" + ambito.toString() + programa.toString();
-            }
-        } else {
-            return "#ERROR#" + programa.toString();
-        }
+        StringBuilder sb = new StringBuilder();
+        sb.append("IF(" + cond.toString() + ")" + ambito.toString());
+        if (siguienteElsif != null) 
+            sb.append(siguienteElsif.toString());
+        if (siguienteElse != null)
+            sb.append(siguienteElse.toString());
+
+        sb.append(programa.toString());
+        return sb.toString();
     }
 
     @Override
@@ -51,6 +49,14 @@ public class If extends LocatedNode implements Programa {
         vinc.abreBloque();
         ambito.bind(vinc);
         vinc.cierraBloque();
+
+        //Elsif
+        if (siguienteElsif != null) siguienteElsif.bind(vinc);
+        
+        //Else
+        if (siguienteElse != null) siguienteElse.bind(vinc);
+
         programa.bind(vinc);
+
     }
 }

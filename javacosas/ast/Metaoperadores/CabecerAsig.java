@@ -1,6 +1,6 @@
 package ast.Metaoperadores;
 
-import ast.ASTNode;
+import ast.NodoAST;
 
-public interface CabecerAsig extends ASTNode {
+public interface CabecerAsig extends NodoAST {
 }

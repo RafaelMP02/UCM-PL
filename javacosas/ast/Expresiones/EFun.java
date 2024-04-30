@@ -1,7 +1,6 @@
 package ast.Expresiones;
 
 import ast.Instruccion;
-import ast.KindE;
 import ast.LocatedNode;
 import ast.Vinculacion.Vinculacion;
 
@@ -15,10 +14,6 @@ public class EFun extends LocatedNode implements Instruccion, E {
         super(fila, columna);
         this.funcion = funcion;
         this.parametros = parametros;
-    }
-
-    public KindE kind() {
-        return KindE.AccesoFuncion;
     }
 
     public String toString() {

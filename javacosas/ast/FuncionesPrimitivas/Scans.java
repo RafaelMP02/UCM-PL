@@ -5,7 +5,7 @@ import ast.Expresiones.Identificador;
 import ast.Vinculacion.Vinculacion;
 import ast.Instruccion;
 import ast.LocatedNode;
-import ast.NodeKind;
+import ast.TiposDeNodos;
 
 public class Scans extends LocatedNode implements Instruccion {
     private Identificador id;
@@ -15,8 +15,8 @@ public class Scans extends LocatedNode implements Instruccion {
         this.id = id;
     }
 
-    public NodeKind nodeKind() {
-        return NodeKind.SCANS;
+    public TiposDeNodos nodeKind() {
+        return TiposDeNodos.SCANS;
     }
     public String toString() {
         return "SCANS(" + id.toString() + ")";

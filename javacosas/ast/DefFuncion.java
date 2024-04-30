@@ -7,7 +7,7 @@ import ast.Vinculacion.Vinculacion;
 
 import java.util.LinkedList;
 
-public class DefFuncion extends Definicion{
+public class DefFuncion implements Definicion{
     /* Define la función, es decir, la "instancia" porque se vincula el identificador a este nodo.*/
     CabecerAsig cabecera;
 
@@ -27,6 +27,6 @@ public class DefFuncion extends Definicion{
 
     @Override
     public void bind(Vinculacion vinc) {
-        // TODO deffuncion?????????????
+        cabecera.bind(vinc);
     }
 }

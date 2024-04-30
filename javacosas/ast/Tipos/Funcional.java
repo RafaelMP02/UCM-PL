@@ -2,13 +2,14 @@ package ast.Tipos;
 
 import java.util.LinkedList;
 
-import ast.Vinculacion.Vinculacion;
+import ast.Tipos.Tipado.TiposEnum;
 
-public class Funcional extends Tipo{
-    Tipo retorno;
+public class Funcional extends NodoTipo{
+    NodoTipo retorno;
     LinkedList<Parametrico> parametros;
 
-    public Funcional(Tipo retorno, LinkedList<Parametrico> parametros){
+    public Funcional(NodoTipo retorno, LinkedList<Parametrico> parametros){
+        super(TiposEnum.FUNCIONAL);
         this.retorno = retorno;
         this.parametros = parametros;
     }
@@ -16,8 +17,5 @@ public class Funcional extends Tipo{
     public String toString() {
         return retorno.toString() + parametros.toString();
     }
-
-    @Override
-    public void bind(Vinculacion vinc) {}
 
 }

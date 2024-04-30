@@ -1,6 +1,6 @@
 package ast.Tipos;
 
-import ast.ASTNode;
+import ast.NodoAST;
 
-public interface Parametrico extends ASTNode {
+public interface Parametrico extends NodoAST {
 }

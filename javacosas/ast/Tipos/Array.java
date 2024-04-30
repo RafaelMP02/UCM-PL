@@ -1,13 +1,14 @@
 package ast.Tipos;
 
 import ast.Expresiones.Num;
-import ast.Vinculacion.Vinculacion;
+import ast.Tipos.Tipado.TiposEnum;
 
-public class Array extends Tipo{
-    Tipo t;
+public class Array extends NodoTipo{
+    NodoTipo t; //Nodo Tipo del array
     Num n;
 
-    public Array(Tipo t, Num n) {
+    public Array(NodoTipo t, Num n) {
+        super(TiposEnum.ARRAY);
         this.t = t;
         this.n = n;
     }
@@ -16,6 +17,4 @@ public class Array extends Tipo{
         return t.toString() + "[" + n + "]";
     }
 
-    @Override
-    public void bind(Vinculacion vinc) {}
 }

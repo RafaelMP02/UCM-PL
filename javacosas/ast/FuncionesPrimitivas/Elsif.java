@@ -1,13 +1,13 @@
 package ast.FuncionesPrimitivas;
 
-import ast.ASTNode;
+import ast.NodoAST;
 import ast.LocatedNode;
 import ast.Expresiones.E;
 import ast.Metaoperadores.Ambito;
 import ast.Vinculacion.Vinculacion;
-import ast.NodeKind;
+import ast.TiposDeNodos;
 
-public class Elsif extends LocatedNode implements ASTNode {
+public class Elsif extends LocatedNode implements NodoAST {
     private Elsif siguienteElsif = null;
     private Else siguienteElse  = null;
 
@@ -24,18 +24,19 @@ public class Elsif extends LocatedNode implements ASTNode {
         this.siguienteElse = siguienteElse;
     }
 
-    public NodeKind nodeKind() {
-        return NodeKind.ELSIF;
+    public TiposDeNodos nodeKind() {
+        return TiposDeNodos.ELSIF;
     }
 
     public String toString() {
-        if(siguienteElsif != null) {
-            return "ELSIF(" + cond.toString() + ")" + ambito.toString()  + siguienteElsif.toString();
-        } else if (siguienteElse != null) {
-            return "ELSIF(" + cond.toString() + ")" + ambito.toString()  + siguienteElse.toString();
-        } else {
-            return "ELSIF(" + cond.toString() + ")" + ambito.toString();
-        }
+        StringBuilder sb = new StringBuilder();
+        sb.append("ELSIF(" + cond.toString() + ")" + ambito.toString());
+        if (siguienteElsif != null) 
+            sb.append(siguienteElsif.toString());
+        if (siguienteElse != null)
+            sb.append(siguienteElse.toString());
+
+        return sb.toString();
     }
 
     @Override
@@ -43,7 +44,12 @@ public class Elsif extends LocatedNode implements ASTNode {
         vinc.abreBloque();
         ambito.bind(vinc);
         vinc.cierraBloque();
-        siguienteElsif.bind(vinc);
-        siguienteElse.bind(vinc);
+
+        //Elsif
+        if (siguienteElsif != null) siguienteElsif.bind(vinc);
+        
+        //Else
+        if (siguienteElse != null) siguienteElse.bind(vinc);
+
     }
 }

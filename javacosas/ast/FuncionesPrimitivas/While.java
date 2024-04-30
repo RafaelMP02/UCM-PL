@@ -4,7 +4,7 @@ import ast.Expresiones.E;
 import ast.Metaoperadores.Ambito;
 import ast.Vinculacion.Vinculacion;
 import ast.LocatedNode;
-import ast.NodeKind;
+import ast.TiposDeNodos;
 import ast.Programa;
 
 
@@ -20,8 +20,8 @@ public class While extends LocatedNode implements Programa {
         this.programa = p;
     }
 
-    public NodeKind nodeKind() {
-        return NodeKind.WHILE;
+    public TiposDeNodos nodeKind() {
+        return TiposDeNodos.WHILE;
     }
     public String toString() {
         if( cond != null) {

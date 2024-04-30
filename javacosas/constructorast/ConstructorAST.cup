@@ -31,7 +31,7 @@ init with {:
 :};
 
 
-terminal  TokenValue MAS, MENOS, DIV, PAP, PCIERRE, CAP, CCIERRE, LLAP, LLCIERRE, PCOMA, COMA, ASIG, OPASTERISCO, OPPUNTO, OPPASOVALOR, IGUAL, DISTINTO, NEGACION, CONJUNCION, DISYUNCION, MENORQUE, MAYORQUE, MENORIGUAL, MAYORIGUAL, NEW, PRINTS, SCANS, WHILE, FOR, SWITCH, CASE, DEFAULT, RETURN, IF, ELSIF, ELSE, CLASS, STRUCT, TYPEDEF, INT, BOOL, TRUE, FALSE, OPMASMAS, OPMENOSMENOS, IDEN, ENT;
+terminal  TokenValue MAS, MENOS, DIV, PAP, PCIERRE, CAP, CCIERRE, LLAP, LLCIERRE, PCOMA, COMA, ASIG, OPPUNTERO, OPPUNTO, OPPASOVALOR, IGUAL, DISTINTO, NEGACION, CONJUNCION, DISYUNCION, MENORQUE, MAYORQUE, MENORIGUAL, MAYORIGUAL, NEW, PRINTS, SCANS, WHILE, FOR, SWITCH, CASE, DEFAULT, RETURN, IF, ELSIF, ELSE, CLASS, STRUCT, TYPEDEF, INT, BOOL, TRUE, FALSE, OPMASMAS, OPMENOSMENOS, IDEN, ENT;
 
 
 
@@ -63,7 +63,7 @@ non terminal Else RAMAELSE;
 
 non terminal Case RAMACASE;
 
-non terminal Tipo TIPO;
+non terminal NodoTipo TIPO;
 
 non terminal LinkedList<E> ELEM, ELEM1;
 
@@ -255,7 +255,7 @@ TIPO ::= CLASS IDEN:id
 TIPO ::= TIPO:aDeT CAP ENT:num CCIERRE
     {: RESULT= new Array(aDeT, new Num(num.lexema, num.fila, num.columna)); :};
 
-TIPO ::= TIPO:aDeT OPASTERISCO
+TIPO ::= TIPO:aDeT OPPUNTERO
     {: RESULT= new Puntero(aDeT); :};
 
 TIPO ::= TIPO:aDeT PAP PARAM:aDePara PCIERRE
@@ -271,13 +271,13 @@ PARAM1 ::= TIPO:aDeT
     {: RESULT= new LinkedList<Parametrico>(); RESULT.addFirst(aDeT); :};
 
 PARAM1 ::= OPPASOVALOR TIPO:aDeT
-    {: RESULT= new LinkedList<Parametrico>(); RESULT.addFirst(new AccesoValor(aDeT)); :};
+    {: RESULT= new LinkedList<Parametrico>(); RESULT.addFirst(new PasoPorValor(aDeT)); :};
 
 PARAM1 ::= TIPO:aDeT COMA PARAM1:aDePar1
     {: RESULT= aDePar1; RESULT.addFirst(aDeT); :};
 
 PARAM1 ::= OPPASOVALOR TIPO:aDeT COMA PARAM1:aDePar1
-    {: RESULT= aDePar1; RESULT.addFirst(new AccesoValor(aDeT)); :};
+    {: RESULT= aDePar1; RESULT.addFirst(new PasoPorValor(aDeT)); :};
 
 
 ELEM ::=
@@ -350,7 +350,11 @@ E5 ::= E5: aDee5 MENOS E6: aDee6
 E5 ::= E6: aDee6
     {: RESULT=aDee6; :};
 
-E6 ::= E6: aDee6 OPASTERISCO E7: aDee7
+//Aquí hay que cambiar la regla del producto a lo siguiente y añadir el terminal MULT pero explota cuando haces eso y no encuentro el error
+//E6 ::= E6: aDee6 OPPUNTERO E7: aDee7
+    //{: RESULT= new EBin(aDee6,aDee7, new Producto()); :};
+
+E6 ::= E6: aDee6 OPPUNTERO E7: aDee7
     {: RESULT= new EBin(aDee6,aDee7, new Producto()); :};
 
 E6 ::= E6: aDee6 DIV E7: aDee7
@@ -359,7 +363,7 @@ E6 ::= E6: aDee6 DIV E7: aDee7
 E6 ::= E7: aDee7
     {: RESULT=aDee7; :};
 
-E7 ::= OPASTERISCO E7: aDee7
+E7 ::= OPPUNTERO E7: aDee7
     {: RESULT= new EUn(aDee7, new AccesoPuntero()); :};
 
 E7 ::= MENOS E7: aDee7

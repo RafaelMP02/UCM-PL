@@ -1,14 +1,13 @@
 package ast.Tipos;
 
-import ast.Vinculacion.Vinculacion;
+import ast.Tipos.Tipado.TiposEnum;
 
-public class Entero extends Tipo{
-    public Entero(){}
+public class Entero extends NodoTipo{
+    public Entero(){
+        super(TiposEnum.ENTERO);
+    }
 
     public String toString() {
         return "ENTERO";
     }
-
-    @Override
-    public void bind(Vinculacion vinc) {}
 }

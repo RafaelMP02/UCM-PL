@@ -3,7 +3,7 @@ package ast.Metaoperadores;
 import ast.Expresiones.E;
 import ast.Vinculacion.Vinculacion;
 import ast.Instruccion;
-import ast.NodeKind;
+import ast.TiposDeNodos;
 
 public class Asignacion implements Instruccion  {
     private CabecerAsig exp1;
@@ -13,8 +13,8 @@ public class Asignacion implements Instruccion  {
         this.exp1 = exp1;
         this.exp2 = exp2;
     }
-    public NodeKind nodeKind() {
-        return NodeKind.ASIGNACION;
+    public TiposDeNodos nodeKind() {
+        return TiposDeNodos.ASIGNACION;
     }
 
     public String toString() {
@@ -22,7 +22,7 @@ public class Asignacion implements Instruccion  {
     }
     @Override
     public void bind(Vinculacion vinc) {
+        exp2.bind(vinc); //Vinculamos la segunda expresión primero para que no se use el elemento declarado en su asignación
         exp1.bind(vinc);
-        exp2.bind(vinc);
     }
 }

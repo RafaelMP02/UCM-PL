@@ -1,6 +1,5 @@
 package ast.Expresiones;
 
-import ast.KindE;
 import ast.Operadores.UnOperador.OperadorUn;
 import ast.Vinculacion.Vinculacion;
 
@@ -14,10 +13,6 @@ public class EUn implements E {
     public E opnd() {return opnd;}
 
     public OperadorUn operador() {return operador;}
-
-    public KindE kind() {
-        return operador.kind();
-    }
 
     public String toString() {
         return operador.toString() + "(" + opnd.toString() + ")";

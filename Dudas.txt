@@ -1,13 +1,12 @@
 "bool()" es un tipo función que devuelve un booleano, pero.... no hace falta indicarle los parámetros? O eso es parte de la generación de código (el que no coincidan los tipos)
 
-Operador la he cambiado... ahora implementa ASTNode y es una interfaz
-
-AccesoValor no es más un operador unario que un MetaOperador??
-
-Identificador no deberÍa ir en el paquete Expresiones? (lo he movido)
-
 En el .cup falta el tipo VOID, no?
 
-He cambiado la clase abstracta E a una interfaz con método por defecto que devuelve como NodeKinde EXPRESION
-
 Se produce sobrecarga entre una variable y un atributo de una clase con el mismo nombre o debería distinguirse?? En tal caso, las clases cómo guardan sus métodos y atributos en la tabla de símbolos??
+
+new no es un metaoperador?
+
+---
+E interfaz
+Solo un Error (MEJOR NO)
+Los campos de las clases se reuelven en tipado

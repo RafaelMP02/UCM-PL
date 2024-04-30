@@ -13,8 +13,8 @@ public class UnionAmbito implements Programa {
         this.ambito = amb;
         this.programa = p;
     }
-    public NodeKind nodeKind() {
-        return NodeKind.UNIONAMBITO;
+    public TiposDeNodos nodeKind() {
+        return TiposDeNodos.UNIONAMBITO;
     }
 
     public String toString() {

@@ -1,5 +1,4 @@
 package ast.Expresiones;
-import ast.KindE;
 import ast.Operadores.BinOperadores.OperadorBin;
 import ast.Vinculacion.Vinculacion;
 
@@ -19,9 +18,6 @@ public class EBin implements E {
 
    public OperadorBin operador() {return operador;}
 
-    public KindE kind() {
-        return operador.kind();
-    }
 
     public String toString() {
         return operador.toString() + "(" + opnd1.toString() + " , " + opnd2.toString() + ")";

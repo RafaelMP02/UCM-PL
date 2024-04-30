@@ -1,14 +1,13 @@
 package ast.Tipos;
 
-import ast.Vinculacion.Vinculacion;
+import ast.Tipos.Tipado.TiposEnum;
 
-public class Void extends Tipo{
-    public Void(){}
+public class Void extends NodoTipo{
+    public Void(){
+        super(TiposEnum.VOID);
+    }
 
     public String toString(){
         return "VOID";
     }
-
-    @Override
-    public void bind(Vinculacion vinc) {}
 }

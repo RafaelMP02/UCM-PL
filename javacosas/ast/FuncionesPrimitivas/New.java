@@ -2,10 +2,8 @@ package ast.FuncionesPrimitivas;
 
 
 import ast.Expresiones.E;
-import ast.Vinculacion.Vinculacion;
-import ast.KindE;
 import ast.LocatedNode;
-import ast.NodeKind;
+import ast.TiposDeNodos;
 
 public class New extends LocatedNode implements E { //New no debería ser un metaoperador??
 
@@ -13,18 +11,12 @@ public class New extends LocatedNode implements E { //New no debería ser un met
         super(fila, columna);
     }
 
-    public KindE kind() {
-        return KindE.New;
-    }
-
-    public NodeKind nodeKind() {
-        return NodeKind.NEW;
+    public TiposDeNodos nodeKind() {
+        return TiposDeNodos.NEW;
     }
 
     public String toString() {
         return "NEW";
     }
 
-    @Override
-    public void bind(Vinculacion vinc) {}
 }

@@ -2,21 +2,19 @@ package ast.Expresiones;
 
 import java.util.List;
 
-import ast.ASTNode;
-import ast.KindE;
+import ast.NodoAST;
 import ast.LocatedNode;
 import ast.Vinculacion.Vinculacion;
 
 public class Identificador extends LocatedNode implements E {
     private String v;
-    private List<ASTNode> vinculos;
+    private List<NodoAST> vinculos;
 
     public Identificador(String v, int fila, int columna) {
         super(fila, columna);
         this.v = v;
     }
     public String num() {return v;}
-    public KindE kind() {return KindE.Iden;}
     public String toString() {return v;}
 
     public void bind(Vinculacion vinc) {

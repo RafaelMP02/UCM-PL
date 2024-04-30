@@ -39,6 +39,7 @@ numeroEntero = [\+\-]?{parteEntera}
 operadorSuma = \+
 operadorResta = \-
 operadorDivision = \/
+operadorMult = \*
 parentesisApertura = \(
 parentesisCierre = \)
 corchetesApertura = \[
@@ -49,7 +50,7 @@ coma  = \,
 pComa = \;
 
 asig = \:\=
-opAsterisco = \*
+opPuntero = \@
 opPunto = \.
 opMasMas = \+\+
 opMenosMenos = \-\-
@@ -94,6 +95,7 @@ identificador = {letra}({letra}|{digito}|{guion})*
 {numeroEntero}            {return ops.unidadEnt();}
 {operadorSuma}            {return ops.unidadSuma();}
 {operadorResta}           {return ops.unidadResta();}
+{operadorMult}  	  {return ops.unidadOperadorMult();}
 {operadorDivision}        {return ops.unidadDiv();}
 {parentesisApertura}      {return ops.unidadPAp();}
 {parentesisCierre}        {return ops.unidadPCierre();}
@@ -105,9 +107,10 @@ identificador = {letra}({letra}|{digito}|{guion})*
 {pComa}                   {return ops.unidadPComa();}
 
 {asig}                    {return ops.unidadAsig();}
-{opAsterisco}             {return ops.unidadOpAsterisco();}
+
 {opMasMas}             	  {return ops.unidadOpMasMas();}
 {opMenosMenos}            {return ops.unidadOpMenosMenos();}
+{opPuntero}		  {return ops.unidadOpPuntero();}
 {opPunto}                 {return ops.unidadOpPunto();}
 {opPasoValor}             {return ops.unidadOpPasoValor();}
 {igual}                   {return ops.unidadIgual();}
