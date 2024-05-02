@@ -2,12 +2,13 @@ package ast.Operadores.MultiOperadores;
 import ast.Operadores.Operador;
 
 public class ListaCorchetes extends Operador {
+    public final static String OPSTRING = "ListaCorchetes";
     public ListaCorchetes(){
         inicializarTipado();
     }
 
     public String toString() {
-        return "ListaCorchetes";
+        return ListaCorchetes.OPSTRING;
     }
 
     @Override

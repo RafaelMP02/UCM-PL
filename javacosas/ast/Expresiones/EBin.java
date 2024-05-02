@@ -1,5 +1,9 @@
 package ast.Expresiones;
+import java.util.Set;
+
 import ast.Operadores.BinOperadores.OperadorBin;
+import ast.Tipos.NodoTipo;
+import ast.Tipos.Tipado;
 import ast.Vinculacion.Vinculacion;
 
 
@@ -22,9 +26,17 @@ public class EBin implements E {
     public String toString() {
         return operador.toString() + "(" + opnd1.toString() + " , " + opnd2.toString() + ")";
     }
+
     @Override
     public void bind(Vinculacion vinc) {
         opnd1.bind(vinc);
         opnd2.bind(vinc);
+    }
+
+    @Override
+    public Set<NodoTipo> type() {
+        /* Se le pasa el toString del operando dos para el caso de que sea un acceso a campo.
+        Necesitaremos buscar el id en la tabla de símbolos de la clase o el struct.*/
+        return Tipado.matchEBin(opnd1.type(), opnd2.type(), operador, opnd2.toString());
     }
 }

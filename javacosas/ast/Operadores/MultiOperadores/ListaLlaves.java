@@ -2,12 +2,13 @@ package ast.Operadores.MultiOperadores;
 import ast.Operadores.Operador;
 
 public class ListaLlaves extends Operador {
+    public final static String OPSTRING = "ListaLLaves";
     public ListaLlaves(){
         inicializarTipado();
     }
 
     public String toString() {
-        return "ListaLLaves";
+        return ListaLlaves.OPSTRING;
     }
 
     @Override

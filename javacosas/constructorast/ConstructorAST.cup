@@ -31,7 +31,7 @@ init with {:
 :};
 
 
-terminal  TokenValue MAS, MENOS, DIV, PAP, PCIERRE, CAP, CCIERRE, LLAP, LLCIERRE, PCOMA, COMA, ASIG, OPPUNTERO, OPPUNTO, OPPASOVALOR, IGUAL, DISTINTO, NEGACION, CONJUNCION, DISYUNCION, MENORQUE, MAYORQUE, MENORIGUAL, MAYORIGUAL, NEW, PRINTS, SCANS, WHILE, FOR, SWITCH, CASE, DEFAULT, RETURN, IF, ELSIF, ELSE, CLASS, STRUCT, TYPEDEF, INT, BOOL, TRUE, FALSE, OPMASMAS, OPMENOSMENOS, IDEN, ENT;
+terminal  TokenValue MAS, MENOS, DIV, PAP, PCIERRE, CAP, CCIERRE, LLAP, LLCIERRE, PCOMA, COMA, ASIG, OPASTERISCO, OPPUNTO, OPPASOVALOR, IGUAL, DISTINTO, NEGACION, CONJUNCION, DISYUNCION, MENORQUE, MAYORQUE, MENORIGUAL, MAYORIGUAL, NEW, PRINTS, SCANS, WHILE, FOR, SWITCH, CASE, DEFAULT, RETURN, IF, ELSIF, ELSE, CLASS, STRUCT, TYPEDEF, INT, BOOL, TRUE, FALSE, OPMASMAS, OPMENOSMENOS, IDEN, ENT;
 
 
 
@@ -78,6 +78,7 @@ non terminal E PARENTEXPRESION;
 S   ::= P: aDeP
     {: RESULT=aDeP; :};
 
+//Programas ---
 
 P ::= INSTRUCCION: aDeI PCOMA P:aDeP
     {:RESULT= new PuntoYComa(aDeI, aDeP); :};
@@ -144,8 +145,16 @@ RAMACASE ::= CASE:aDeCase ENT:num AMBITO:aDeAmb RAMACASE:aDeRama
 P ::= WHILE:aDeWh PARENTEXPRESION:aDeCond AMBITO:aDeAmb P:aDeP
     {:RESULT= new While(aDeCond, aDeAmb, aDeP, aDeWh.fila, aDeWh.columna); :};
 
+//For
 P ::= FOR:aDeFor PAP ASIGNACION:aDeIni PCOMA E1:aDeFin PCOMA ASIGNACION: aDePaso PCIERRE AMBITO: aDeAmb  P:aDeP
     {:RESULT= new For(aDeIni, aDePaso, aDeFin, aDeAmb, aDeP, aDeFor.fila, aDeFor.columna); :};
+
+P ::= FOR:aDeFor PAP ASIGNACION:aDeIni PCOMA E1:aDeFin PCOMA E8: aDeVarPaso OPMASMAS PCIERRE AMBITO: aDeAmb  P:aDeP
+    {:RESULT= new For(aDeIni, new Asignacion(aDeVarPaso, new EUn(aDeVarPaso, new MasMas())), aDeFin, aDeAmb, aDeP, aDeFor.fila, aDeFor.columna); :};
+
+P ::= FOR:aDeFor PAP ASIGNACION:aDeIni PCOMA E1:aDeFin PCOMA E8: aDeVarPaso OPMENOSMENOS PCIERRE AMBITO: aDeAmb  P:aDeP
+    {:RESULT= new For(aDeIni, new Asignacion(aDeVarPaso, new EUn(aDeVarPaso, new MenosMenos())), aDeFin, aDeAmb, aDeP, aDeFor.fila, aDeFor.columna); :};
+
 
 P ::= FOR:aDeFor error AMBITO: aDeAmb  P:aDeP
     {:RESULT= new For(new InstrError(), new InstrError(), new EError(), aDeAmb, aDeP, aDeFor.fila, aDeFor.columna); :};
@@ -156,13 +165,17 @@ P ::=
 P ::= error
     {: RESULT = new InstrError(); :};
 
+//Instrucciones ---
 
+//Declaración
 INSTRUCCION ::= DECLARACION: aDeDec
     {: RESULT= aDeDec; :};
 
+//Definición
 INSTRUCCION ::= DEFINICION: aDeDef
     {: RESULT= aDeDef; :};
 
+//Asignación
 INSTRUCCION ::= ASIGNACION: aDeAsig
     {: RESULT= aDeAsig; :};
 
@@ -180,6 +193,14 @@ INSTRUCCION ::= SCANS:aDeSc error
 //Llamada función
 INSTRUCCION ::= E8: aDeE8 PAP ELEM: aDeElem PCIERRE:aDeDef
     {: RESULT= new EFun(aDeE8, aDeElem, aDeDef.fila, aDeDef.columna); :};
+    
+//Incremento
+INSTRUCCION ::= E8: aDeE8 OPMASMAS
+    {: RESULT = new EUn(aDeE8, new MasMas()); :};
+
+//Decremento
+INSTRUCCION ::= E8: aDeE8 OPMENOSMENOS
+    {: RESULT = new EUn(aDeE8, new MenosMenos()); :};
 
 //Return
 INSTRUCCION ::= RETURN:aDeRet E0: aDeE
@@ -240,6 +261,7 @@ CABEZASIG ::= E1: aDeE
 ASIGNACION ::= CABEZASIG:aDeC ASIG E0:aDeE
     {: RESULT= new Asignacion(aDeC, aDeE); :};
 
+//Tipos ---
 TIPO ::= INT
     {: RESULT= new Entero(); :};
 
@@ -255,12 +277,15 @@ TIPO ::= CLASS IDEN:id
 TIPO ::= TIPO:aDeT CAP ENT:num CCIERRE
     {: RESULT= new Array(aDeT, new Num(num.lexema, num.fila, num.columna)); :};
 
-TIPO ::= TIPO:aDeT OPPUNTERO
+TIPO ::= TIPO:aDeT OPASTERISCO
     {: RESULT= new Puntero(aDeT); :};
 
 TIPO ::= TIPO:aDeT PAP PARAM:aDePara PCIERRE
     {: RESULT= new Funcional(aDeT, aDePara); :};
 
+//Expresiones ---
+
+//Parámetros de una función
 PARAM ::=
     {: RESULT= new LinkedList<Parametrico>(); :};
 
@@ -279,7 +304,7 @@ PARAM1 ::= TIPO:aDeT COMA PARAM1:aDePar1
 PARAM1 ::= OPPASOVALOR TIPO:aDeT COMA PARAM1:aDePar1
     {: RESULT= aDePar1; RESULT.addFirst(new PasoPorValor(aDeT)); :};
 
-
+//Listas de elementos
 ELEM ::=
     {: RESULT= new LinkedList<E>(); :};
 
@@ -301,7 +326,7 @@ E0 ::= LLAP ELEM:AdeEle LLCIERRE
 E0 ::= E1: aDee1
     {: RESULT=aDee1; :};
 
-
+//Expresiones booleanas
 E1 ::= E1: aDee1 DISYUNCION E2: aDee2
     {: RESULT= new EBin(aDee1,aDee2, new Disyuncion()); :};
 
@@ -320,6 +345,7 @@ E3 ::= NEGACION E3: aDee3
 E3 ::= E4: aDee4
     {: RESULT=aDee4; :};
 
+//Expresiones comparables
 E4 ::= E4: aDee4 IGUAL E5: aDee5
     {: RESULT= new EBin(aDee4,aDee5, new Igual()); :};
 
@@ -341,6 +367,7 @@ E4 ::= E4: aDee4 MAYORIGUAL E5: aDee5
 E4 ::= E5: aDee5
     {: RESULT=aDee5; :};
 
+//Expresiones enteras
 E5 ::= E5: aDee5 MAS E6: aDee6
     {: RESULT= new EBin(aDee5,aDee6, new Suma()); :};
 
@@ -350,11 +377,7 @@ E5 ::= E5: aDee5 MENOS E6: aDee6
 E5 ::= E6: aDee6
     {: RESULT=aDee6; :};
 
-//Aquí hay que cambiar la regla del producto a lo siguiente y añadir el terminal MULT pero explota cuando haces eso y no encuentro el error
-//E6 ::= E6: aDee6 OPPUNTERO E7: aDee7
-    //{: RESULT= new EBin(aDee6,aDee7, new Producto()); :};
-
-E6 ::= E6: aDee6 OPPUNTERO E7: aDee7
+E6 ::= E6: aDee6 OPASTERISCO E7: aDee7
     {: RESULT= new EBin(aDee6,aDee7, new Producto()); :};
 
 E6 ::= E6: aDee6 DIV E7: aDee7
@@ -363,48 +386,61 @@ E6 ::= E6: aDee6 DIV E7: aDee7
 E6 ::= E7: aDee7
     {: RESULT=aDee7; :};
 
-E7 ::= OPPUNTERO E7: aDee7
+//Punteros
+E7 ::= OPASTERISCO E7: aDee7
     {: RESULT= new EUn(aDee7, new AccesoPuntero()); :};
 
+//Números negativos
 E7 ::= MENOS E7: aDee7
     {: RESULT= new EUn(aDee7, new Menos()); :};
 
+//Números positivos
 E7 ::= MAS E7: aDee7
     {: RESULT= new EUn(aDee7, new Mas()); :};
 
 E7 ::= E8: aDee8
     {: RESULT=aDee8; :};
 
+//Identificadores
 E8 ::= IDEN: id
     {: RESULT = new Identificador(id.lexema, id.fila, id.columna); :};
 
+//Números
 E8 ::= ENT: numValue
     {: RESULT = new Num(numValue.lexema, numValue.fila, numValue.columna); :};
 
+//True
 E8 ::= TRUE: aDeTrue
     {: RESULT = new True(aDeTrue.fila, aDeTrue.columna); :};
 
+//False
 E8 ::= FALSE: aDeFalse
     {: RESULT = new False(aDeFalse.fila, aDeFalse.columna); :};
 
+//Paréntesis
 E8 ::= PAP E1:aDe1 PCIERRE
     {: RESULT = aDe1; :};
 
 E8 ::= NEW: aDeNew
     {: RESULT = new New(aDeNew.fila, aDeNew.columna); :};
 
+//Expresión funcional
 E8 ::= E8:aDeE8 PAP ELEM:aDeEl PCIERRE:aDeFun
     {: RESULT = new EFun(aDeE8, aDeEl, aDeFun.fila, aDeFun.columna); :};
 
+//Expresión campo
 E8 ::= E8: aDeE8 OPPUNTO IDEN: id
     {: RESULT = new EBin(aDeE8, new Identificador(id.lexema, id.fila, id.columna), new AccesoCampo()); :};
 
+//Expresión acceso array
 E8 ::= E8: aDeE8 CAP ENT: num CCIERRE
     {: RESULT = new EBin(aDeE8, new Num(num.lexema, num.fila, num.columna), new AccesoArray()); :};
 
+//Incremento
 E8 ::= E8: aDeE8 OPMASMAS
     {: RESULT = new EUn(aDeE8, new MasMas()); :};
 
+//Decremento
 E8 ::= E8: aDeE8 OPMENOSMENOS
     {: RESULT = new EUn(aDeE8, new MenosMenos()); :};
 

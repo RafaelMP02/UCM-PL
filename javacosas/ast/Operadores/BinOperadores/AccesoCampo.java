@@ -1,29 +1,35 @@
 package ast.Operadores.BinOperadores;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 import ast.Tipos.Tipado;
 import ast.Tipos.Tipado.TiposEnum;
 
-public class AccesoCampo extends OperadorBin{
+public class AccesoCampo extends OperadorBin {
+    public final static String OPSTRING = "AccesoCampo";
     public AccesoCampo(){
         this.inicializarTipado();
     }
     public String toString() {
-        return "AccesoCampo";
+        return AccesoCampo.OPSTRING;
     }
     @Override
     public void inicializarTipado() {
-        /* tConCampos -> int -> tCampos */
-        List<Set<TiposEnum>> tipo = new ArrayList<Set<TiposEnum>>();
-        Set<TiposEnum> param1 = new HashSet<TiposEnum>(Tipado.TIPOS_CON_CAMPOS);
-        Set<TiposEnum> param2 = new HashSet<TiposEnum>(Set.of(TiposEnum.ENTERO));
-        Set<TiposEnum> res = new HashSet<TiposEnum>(Tipado.TIPOS_CAMPOS);
-        tipo.add(param1);
-        tipo.add(param2);
-        tipo.add(res);
+        /* 
+        struct -> tAtributo 
+        class -> tAtributo
+        class -> tFuncional
+        */
+
+        tipado = new HashSet<List<TiposEnum>>();
+        for (TiposEnum t : Tipado.TIPOS_ATRIBUTOS) {
+            List<TiposEnum> lista_tipos_struct = new ArrayList<TiposEnum>(Arrays.asList(TiposEnum.STRUCT, t));
+            List<TiposEnum> lista_tipos_clase = new ArrayList<TiposEnum>(Arrays.asList(TiposEnum.CLASE, t));
+            tipado.add(lista_tipos_struct);
+            tipado.add(lista_tipos_clase);
+        }
+        tipado.add(Arrays.asList(TiposEnum.CLASE, TiposEnum.FUNCIONAL));
     }
 }

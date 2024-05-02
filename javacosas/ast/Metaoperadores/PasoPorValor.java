@@ -1,5 +1,7 @@
 package ast.Metaoperadores;
 
+import java.util.Set;
+
 import ast.TiposDeNodos;
 import ast.Tipos.Parametrico;
 import ast.Tipos.NodoTipo;
@@ -19,5 +21,10 @@ public class PasoPorValor implements Parametrico {
 
     public TiposDeNodos nodeKind() {
         return TiposDeNodos.VALOR;
+    }
+
+    @Override
+    public Set<NodoTipo> type() {
+        return t.type();
     }
 }

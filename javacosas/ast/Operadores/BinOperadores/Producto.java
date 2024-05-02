@@ -1,29 +1,25 @@
 package ast.Operadores.BinOperadores;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 import ast.Tipos.Tipado.TiposEnum;
 
-public class Producto extends OperadorBin{
+public class Producto extends OperadorBin {
+    public final static String OPSTRING = "Producto";
     public Producto(){
     }
 
     public String toString() {
-        return "Producto";
+        return Producto.OPSTRING;
     }
 
     @Override
     public void inicializarTipado() {
         /* int -> int -> int */
-        List<Set<TiposEnum>> tipo = new ArrayList<Set<TiposEnum>>();
-        Set<TiposEnum> param1 = new HashSet<TiposEnum>(Set.of(TiposEnum.ENTERO));
-        Set<TiposEnum> param2 = new HashSet<TiposEnum>(Set.of(TiposEnum.ENTERO));
-        Set<TiposEnum> res = new HashSet<TiposEnum>(Set.of(TiposEnum.ENTERO));
-        tipo.add(param1);
-        tipo.add(param2);
-        tipo.add(res);
+        tipado = new HashSet<List<TiposEnum>>();
+        List<TiposEnum> lista_tipos = new ArrayList<TiposEnum>(Arrays.asList(TiposEnum.ENTERO, TiposEnum.ENTERO, TiposEnum.ENTERO));
+        tipado.add(lista_tipos);
     }
 }

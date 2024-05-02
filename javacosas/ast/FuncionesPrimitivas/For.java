@@ -3,7 +3,12 @@ package ast.FuncionesPrimitivas;
 import ast.Expresiones.E;
 import ast.Metaoperadores.Ambito;
 import ast.Metaoperadores.Asignacion;
+import ast.Tipos.NodoTipo;
+import ast.Tipos.Tipado;
 import ast.Vinculacion.Vinculacion;
+
+import java.util.Set;
+
 import ast.LocatedNode;
 import ast.TiposDeNodos;
 import ast.Programa;
@@ -37,5 +42,11 @@ public class For extends LocatedNode implements Programa {
         ambito.bind(vinc);
         vinc.cierraBloque();
         programa.bind(vinc);
+    }
+    @Override
+    public Set<NodoTipo> type() {
+        Tipado.matchEBool(fin);
+        programa.type();
+        return null;
     }
 }

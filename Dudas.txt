@@ -8,5 +8,12 @@ new no es un metaoperador?
 
 ---
 E interfaz
-Solo un Error (MEJOR NO)
 Los campos de las clases se reuelven en tipado
+
+---
+Tareas:
+
+Incluir el tipo VOID.
+No funcionan el MASMAS y MENOSMENOS como instrucciones (líneas 152 y 197 del .cup)
+Quitar el typedef
+Que todos los operadores tengan fila y columna, para usarlo en tipado.

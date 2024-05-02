@@ -1,3 +1,7 @@
 while (True) {}
 
-;
+struct A {
+	int a;
+	bool a;
+};
+b++;

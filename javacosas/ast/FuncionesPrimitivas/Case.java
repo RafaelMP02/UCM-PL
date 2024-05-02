@@ -1,9 +1,13 @@
 package ast.FuncionesPrimitivas;
 
 import ast.NodoAST;
+
+import java.util.Set;
+
 import ast.LocatedNode;
 import ast.Expresiones.Num;
 import ast.Metaoperadores.Ambito;
+import ast.Tipos.NodoTipo;
 import ast.Vinculacion.Vinculacion;
 import ast.TiposDeNodos;
 
@@ -38,5 +42,12 @@ public class Case extends LocatedNode implements NodoAST {
         vinc.cierraBloque();
         if (caso != null)
             caso.bind(vinc);
+    }
+
+    @Override
+    public Set<NodoTipo> type() {
+        ambito.type();
+        caso.type();
+        return null;
     }
 }

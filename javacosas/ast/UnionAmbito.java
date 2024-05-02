@@ -1,6 +1,9 @@
 package ast;
 
+import java.util.Set;
+
 import ast.Metaoperadores.Ambito;
+import ast.Tipos.NodoTipo;
 import ast.Vinculacion.Vinculacion;
 
 
@@ -18,11 +21,17 @@ public class UnionAmbito implements Programa {
     }
 
     public String toString() {
-        return ambito.toString() + programa.toString();
+        return " " + ambito.toString() + programa.toString();
     }
     @Override
     public void bind(Vinculacion vinc) {
         ambito.bind(vinc);
         programa.bind(vinc);
+    }
+    @Override
+    public Set<NodoTipo> type() {
+        ambito.type();
+        programa.type();
+        return null;
     }
 }

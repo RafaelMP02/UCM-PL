@@ -2,12 +2,16 @@ package ast.Tipos;
 
 import ast.Tipos.Tipado.TiposEnum;
 
-public class Entero extends NodoTipo{
+public class Entero implements NodoTipo{
     public Entero(){
-        super(TiposEnum.ENTERO);
     }
 
     public String toString() {
         return "ENTERO";
+    }
+    
+    @Override
+    public TiposEnum typeToEnum() {
+        return TiposEnum.ENTERO;
     }
 }

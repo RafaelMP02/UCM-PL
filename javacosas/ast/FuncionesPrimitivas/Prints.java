@@ -1,7 +1,11 @@
 package ast.FuncionesPrimitivas;
 
 import ast.Expresiones.E;
+import ast.Tipos.NodoTipo;
 import ast.Vinculacion.Vinculacion;
+
+import java.util.Set;
+
 import ast.Instruccion;
 import ast.LocatedNode;
 import ast.TiposDeNodos;
@@ -25,5 +29,10 @@ public class Prints extends LocatedNode implements Instruccion {
     @Override
     public void bind(Vinculacion vinc) {
         valor.bind(vinc);
+    }
+
+    @Override
+    public Set<NodoTipo> type() {
+        return null;
     }
 }

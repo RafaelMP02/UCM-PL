@@ -1,9 +1,14 @@
 package ast.FuncionesPrimitivas;
 
 import ast.NodoAST;
+
+import java.util.Set;
+
 import ast.LocatedNode;
 import ast.Expresiones.E;
 import ast.Metaoperadores.Ambito;
+import ast.Tipos.NodoTipo;
+import ast.Tipos.Tipado;
 import ast.Vinculacion.Vinculacion;
 import ast.TiposDeNodos;
 
@@ -51,5 +56,17 @@ public class Elsif extends LocatedNode implements NodoAST {
         //Else
         if (siguienteElse != null) siguienteElse.bind(vinc);
 
+    }
+
+    @Override
+    public Set<NodoTipo> type() {
+        Tipado.matchEBool(cond);
+        ambito.type();
+        //Elsif
+        if (siguienteElsif != null) siguienteElsif.type();
+        
+        //Else
+        if (siguienteElse != null) siguienteElse.type();
+        return null;
     }
 }

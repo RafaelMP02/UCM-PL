@@ -1,5 +1,9 @@
 package ast.Expresiones;
 
+import java.util.Set;
+
+import ast.Tipos.NodoTipo;
+import ast.Tipos.Tipado;
 import ast.Vinculacion.Vinculacion;
 
 public class ECampo implements E{ // FIXME esto hay que cambiarlo para que sea para clases también? y que se pueda acceder al campo de un campo
@@ -23,6 +27,10 @@ public class ECampo implements E{ // FIXME esto hay que cambiarlo para que sea p
         En el tipado ya identificaremos si cada campo está bien tipado.
         */
         objeto.bind(vinc);
-       //FIXME esto no sé si está bien
+    }
+
+    @Override
+    public Set<NodoTipo> type() {
+        return Tipado.matchECampo(objeto.type(), campo.type());
     }
 }

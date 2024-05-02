@@ -2,7 +2,12 @@ package ast.FuncionesPrimitivas;
 
 import ast.Expresiones.E;
 import ast.Metaoperadores.Ambito;
+import ast.Tipos.NodoTipo;
+import ast.Tipos.Tipado;
 import ast.Vinculacion.Vinculacion;
+
+import java.util.Set;
+
 import ast.LocatedNode;
 import ast.TiposDeNodos;
 import ast.Programa;
@@ -50,5 +55,14 @@ public class Switch extends LocatedNode implements Programa {
         vinc.cierraBloque();
 
         programa.bind(vinc);
+    }
+
+    @Override
+    public Set<NodoTipo> type() {
+        Tipado.matchENum(cond);
+        ambito.type();
+        caso.type();
+        programa.type();
+        return null;
     }
 }

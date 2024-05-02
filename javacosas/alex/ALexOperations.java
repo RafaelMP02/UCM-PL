@@ -21,9 +21,6 @@ public class ALexOperations {
   public UnidadLexica unidadResta() {
      return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.MENOS,"-"); 
   }  
-  public UnidadLexica unidadOperadorMult() {
-     return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.MULT,"*"); 
-  } 
   public UnidadLexica unidadDiv() {
      return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.DIV,"/"); 
   } 
@@ -58,8 +55,8 @@ public class ALexOperations {
   public UnidadLexica unidadAsig() {
      return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.ASIG,":="); 
   } 
-  public UnidadLexica unidadOpPuntero() {
-     return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.OPPUNTERO,"@"); 
+  public UnidadLexica unidadOpAsterisco() {
+     return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.OPASTERISCO,"*"); 
   } 
   public UnidadLexica unidadOpPunto() {
      return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.OPPUNTO,"."); 

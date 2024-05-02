@@ -1,7 +1,10 @@
 package ast.Metaoperadores;
 
+import java.util.Set;
+
 import ast.Instruccion;
 import ast.TiposDeNodos;
+import ast.Tipos.NodoTipo;
 import ast.Programa;
 import ast.Vinculacion.Vinculacion;
 
@@ -26,5 +29,12 @@ public class PuntoYComa implements Programa {
     public void bind(Vinculacion vinc) {
         inst.bind(vinc);
         prog.bind(vinc);
+    }
+
+    @Override
+    public Set<NodoTipo> type() {
+        inst.type();
+        prog.type();
+        return null;
     }
 }

@@ -2,9 +2,13 @@ package ast.Expresiones;
 
 import ast.Instruccion;
 import ast.LocatedNode;
+import ast.Tipos.NodoTipo;
+import ast.Tipos.Tipado;
 import ast.Vinculacion.Vinculacion;
 
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
 
 public class EFun extends LocatedNode implements Instruccion, E {
     private E funcion;
@@ -27,4 +31,15 @@ public class EFun extends LocatedNode implements Instruccion, E {
             parametro.bind(vinc);
         }
     }
+
+    @Override
+    public Set<NodoTipo> type() {
+        List<Set<NodoTipo>> tParametros = new LinkedList<Set<NodoTipo>>();
+        for (E parametro: parametros) {
+            tParametros.add(parametro.type());
+        }
+        return Tipado.matchFuncion(funcion.type(), tParametros);
+    }
+
+    
 }

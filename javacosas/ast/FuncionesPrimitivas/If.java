@@ -2,7 +2,12 @@ package ast.FuncionesPrimitivas;
 
 import ast.Expresiones.E;
 import ast.Metaoperadores.Ambito;
+import ast.Tipos.NodoTipo;
+import ast.Tipos.Tipado;
 import ast.Vinculacion.Vinculacion;
+
+import java.util.Set;
+
 import ast.LocatedNode;
 import ast.TiposDeNodos;
 import ast.Programa;
@@ -58,5 +63,20 @@ public class If extends LocatedNode implements Programa {
 
         programa.bind(vinc);
 
+    }
+
+    @Override
+    public Set<NodoTipo> type() {
+        Tipado.matchEBool(cond);
+        ambito.type();
+        
+        //Elsif
+        if (siguienteElsif != null) siguienteElsif.type();
+        
+        //Else
+        if (siguienteElse != null) siguienteElse.type();
+
+        programa.type();
+        return null;
     }
 }

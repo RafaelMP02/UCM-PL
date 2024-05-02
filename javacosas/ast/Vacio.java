@@ -1,5 +1,8 @@
 package ast;
 
+import java.util.Set;
+
+import ast.Tipos.NodoTipo;
 
 public class Vacio implements Programa{
 
@@ -9,5 +12,9 @@ public class Vacio implements Programa{
     }
     public String toString() {
         return "";
+    }
+    @Override
+    public Set<NodoTipo> type() {
+        return null;
     }
 }
