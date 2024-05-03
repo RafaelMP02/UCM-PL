@@ -9,7 +9,8 @@ import ast.Tipos.Tipado.TiposEnum;
 public class Mas extends OperadorUn{
     /* Operador de números positivos */
     public final static String OPSTRING = "Más";
-    public Mas(){
+    public Mas(int fila, int columna){
+        super(fila, columna);
         this.inicializarTipado();
     }
 

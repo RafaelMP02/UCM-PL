@@ -3,7 +3,8 @@ import ast.Operadores.Operador;
 
 public class AccesoFuncion extends Operador {
     public final static String OPSTRING = "AccesoFunción";
-    public AccesoFuncion(){
+    public AccesoFuncion(int fila, int columna){
+        super(fila, columna);
         this.inicializarTipado();
     }
 

@@ -10,7 +10,9 @@ import ast.Tipos.Tipado.TiposEnum;
 
 public class MenorIgual extends OperadorBin {
     public final static String OPSTRING = "MenorIgual";
-    public MenorIgual(){
+    public MenorIgual(int fila, int columna){
+        super(fila, columna);
+        this.inicializarTipado();
     }
 
     public String toString() {

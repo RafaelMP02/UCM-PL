@@ -3,8 +3,9 @@ import ast.Operadores.Operador;
 
 public class ListaLlaves extends Operador {
     public final static String OPSTRING = "ListaLLaves";
-    public ListaLlaves(){
-        inicializarTipado();
+    public ListaLlaves(int fila, int columna){
+        super(fila, columna);
+        this.inicializarTipado();
     }
 
     public String toString() {

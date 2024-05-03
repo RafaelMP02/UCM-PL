@@ -9,7 +9,9 @@ import ast.Tipos.Tipado.TiposEnum;
 
 public class MayorQue extends OperadorBin {
     public final static String OPSTRING = "MayorQue";
-    public MayorQue(){
+    public MayorQue(int fila, int columna){
+        super(fila, columna);
+        this.inicializarTipado();
     }
 
     public String toString() {

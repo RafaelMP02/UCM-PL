@@ -8,7 +8,9 @@ import ast.Tipos.Tipado.TiposEnum;
 
 public class Producto extends OperadorBin {
     public final static String OPSTRING = "Producto";
-    public Producto(){
+    public Producto(int fila, int columna){
+        super(fila, columna);
+        this.inicializarTipado();
     }
 
     public String toString() {

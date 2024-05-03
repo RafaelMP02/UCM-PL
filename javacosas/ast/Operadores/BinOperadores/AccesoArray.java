@@ -9,7 +9,8 @@ import ast.Tipos.Tipado.TiposEnum;
 
 public class AccesoArray extends OperadorBin{
     public final static String OPSTRING = "AccesoArray";
-    public AccesoArray() {
+    public AccesoArray(int fila, int columna){
+        super(fila, columna);
         this.inicializarTipado();
     }
 

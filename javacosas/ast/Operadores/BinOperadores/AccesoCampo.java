@@ -9,7 +9,8 @@ import ast.Tipos.Tipado.TiposEnum;
 
 public class AccesoCampo extends OperadorBin {
     public final static String OPSTRING = "AccesoCampo";
-    public AccesoCampo(){
+    public AccesoCampo(int fila, int columna){
+        super(fila, columna);
         this.inicializarTipado();
     }
     public String toString() {

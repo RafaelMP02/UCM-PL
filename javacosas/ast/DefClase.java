@@ -39,8 +39,12 @@ public class DefClase implements Definicion{
         Set<NodoTipo> tAmbito = ambito.type();
 
         for (NodoTipo tipo : tAmbito) {
-            if (!Tipado.TIPOS_ATRIBUTOS.contains(tAmbito) )
+            if (!Tipado.TIPOS_ATRIBUTOS.contains(tAmbito) ){
+
+            }
         }
+
+        return null; //TODO
     }
 
 }

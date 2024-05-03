@@ -31,7 +31,7 @@ init with {:
 :};
 
 
-terminal  TokenValue MAS, MENOS, DIV, PAP, PCIERRE, CAP, CCIERRE, LLAP, LLCIERRE, PCOMA, COMA, ASIG, OPASTERISCO, OPPUNTO, OPPASOVALOR, IGUAL, DISTINTO, NEGACION, CONJUNCION, DISYUNCION, MENORQUE, MAYORQUE, MENORIGUAL, MAYORIGUAL, NEW, PRINTS, SCANS, WHILE, FOR, SWITCH, CASE, DEFAULT, RETURN, IF, ELSIF, ELSE, CLASS, STRUCT, TYPEDEF, INT, BOOL, TRUE, FALSE, OPMASMAS, OPMENOSMENOS, IDEN, ENT;
+terminal  TokenValue MAS, MENOS, DIV, PAP, PCIERRE, CAP, CCIERRE, LLAP, LLCIERRE, PCOMA, COMA, ASIG, OPASTERISCO, OPPUNTO, OPPASOVALOR, IGUAL, DISTINTO, NEGACION, CONJUNCION, DISYUNCION, MENORQUE, MAYORQUE, MENORIGUAL, MAYORIGUAL, NEW, PRINTS, SCANS, WHILE, FOR, SWITCH, CASE, DEFAULT, RETURN, IF, ELSIF, ELSE, CLASS, STRUCT, VOID, INT, BOOL, TRUE, FALSE, OPMASMAS, OPMENOSMENOS, IDEN, ENT;
 
 
 
@@ -149,11 +149,11 @@ P ::= WHILE:aDeWh PARENTEXPRESION:aDeCond AMBITO:aDeAmb P:aDeP
 P ::= FOR:aDeFor PAP ASIGNACION:aDeIni PCOMA E1:aDeFin PCOMA ASIGNACION: aDePaso PCIERRE AMBITO: aDeAmb  P:aDeP
     {:RESULT= new For(aDeIni, aDePaso, aDeFin, aDeAmb, aDeP, aDeFor.fila, aDeFor.columna); :};
 
-P ::= FOR:aDeFor PAP ASIGNACION:aDeIni PCOMA E1:aDeFin PCOMA E8: aDeVarPaso OPMASMAS PCIERRE AMBITO: aDeAmb  P:aDeP
-    {:RESULT= new For(aDeIni, new Asignacion(aDeVarPaso, new EUn(aDeVarPaso, new MasMas())), aDeFin, aDeAmb, aDeP, aDeFor.fila, aDeFor.columna); :};
+P ::= FOR:aDeFor PAP ASIGNACION:aDeIni PCOMA E1:aDeFin PCOMA E8: aDeVarPaso OPMASMAS:op PCIERRE AMBITO: aDeAmb  P:aDeP
+    {:RESULT= new For(aDeIni, new Asignacion(aDeVarPaso, new EUn(aDeVarPaso, new MasMas(op.fila, op.columna))), aDeFin, aDeAmb, aDeP, aDeFor.fila, aDeFor.columna); :};
 
-P ::= FOR:aDeFor PAP ASIGNACION:aDeIni PCOMA E1:aDeFin PCOMA E8: aDeVarPaso OPMENOSMENOS PCIERRE AMBITO: aDeAmb  P:aDeP
-    {:RESULT= new For(aDeIni, new Asignacion(aDeVarPaso, new EUn(aDeVarPaso, new MenosMenos())), aDeFin, aDeAmb, aDeP, aDeFor.fila, aDeFor.columna); :};
+P ::= FOR:aDeFor PAP ASIGNACION:aDeIni PCOMA E1:aDeFin PCOMA E8: aDeVarPaso OPMENOSMENOS:op PCIERRE AMBITO: aDeAmb  P:aDeP
+    {:RESULT= new For(aDeIni, new Asignacion(aDeVarPaso, new EUn(aDeVarPaso, new MenosMenos(op.fila, op.columna))), aDeFin, aDeAmb, aDeP, aDeFor.fila, aDeFor.columna); :};
 
 
 P ::= FOR:aDeFor error AMBITO: aDeAmb  P:aDeP
@@ -195,22 +195,26 @@ INSTRUCCION ::= E8: aDeE8 PAP ELEM: aDeElem PCIERRE:aDeDef
     {: RESULT= new EFun(aDeE8, aDeElem, aDeDef.fila, aDeDef.columna); :};
     
 //Incremento
-INSTRUCCION ::= E8: aDeE8 OPMASMAS
-    {: RESULT = new EUn(aDeE8, new MasMas()); :};
+INSTRUCCION ::= E8: aDeE8 OPMASMAS:op
+    {: RESULT = new EUn(aDeE8, new MasMas(op.fila, op.columna)); :};
 
 //Decremento
-INSTRUCCION ::= E8: aDeE8 OPMENOSMENOS
-    {: RESULT = new EUn(aDeE8, new MenosMenos()); :};
+INSTRUCCION ::= E8: aDeE8 OPMENOSMENOS:op
+    {: RESULT = new EUn(aDeE8, new MenosMenos(op.fila, op.columna)); :};
 
 //Return
 INSTRUCCION ::= RETURN:aDeRet E0: aDeE
     {: RESULT= new Return(aDeE, aDeRet.fila, aDeRet.columna); :};
 
-INSTRUCCION ::= RETURN:aDeRet error
+//Return void
+INSTRUCCION ::= RETURN:aDeRet
     {: RESULT= new Return(null, aDeRet.fila, aDeRet.columna); :};
 
-INSTRUCCION ::= TYPEDEF:aDeTDef TIPO: aDeT IDEN:id
-    {: RESULT= new Typedef(aDeT, new Identificador(id.lexema, id.fila, id.columna), aDeTDef.fila, aDeTDef.columna); :};
+INSTRUCCION ::= RETURN:aDeRet error
+    {: RESULT= new Return(new EError(), aDeRet.fila, aDeRet.columna); :};
+
+//INSTRUCCION ::= TYPEDEF:aDeTDef TIPO: aDeT IDEN:id
+    //{: RESULT= new Typedef(aDeT, new Identificador(id.lexema, id.fila, id.columna), aDeTDef.fila, aDeTDef.columna); :};
     
 INSTRUCCION ::= error
     {: RESULT= new InstrError(); :};
@@ -267,6 +271,9 @@ TIPO ::= INT
 
 TIPO ::= BOOL
     {: RESULT= new Booleano(); :};
+
+TIPO ::= VOID
+    {: RESULT= new V0id(); :};
 
 TIPO ::= STRUCT IDEN:id
     {: RESULT= new Struct(new Identificador(id.lexema, id.fila, id.columna)); :};
@@ -327,76 +334,76 @@ E0 ::= E1: aDee1
     {: RESULT=aDee1; :};
 
 //Expresiones booleanas
-E1 ::= E1: aDee1 DISYUNCION E2: aDee2
-    {: RESULT= new EBin(aDee1,aDee2, new Disyuncion()); :};
+E1 ::= E1: aDee1 DISYUNCION: op E2: aDee2
+    {: RESULT= new EBin(aDee1,aDee2, new Disyuncion(op.fila, op.columna)); :};
 
 E1 ::= E2: aDee2
     {: RESULT=aDee2; :};
 
-E2 ::= E2: aDee2 CONJUNCION E3: aDee3
-    {: RESULT= new EBin(aDee2,aDee3, new Conjuncion()); :};
+E2 ::= E2: aDee2 CONJUNCION: op E3: aDee3
+    {: RESULT= new EBin(aDee2,aDee3, new Conjuncion(op.fila, op.columna)); :};
 
 E2 ::= E3: aDee3
     {: RESULT=aDee3; :};
 
-E3 ::= NEGACION E3: aDee3
-    {: RESULT= new EUn(aDee3, new Negacion()); :};
+E3 ::= NEGACION: op E3: aDee3
+    {: RESULT= new EUn(aDee3, new Negacion(op.fila, op.columna)); :};
 
 E3 ::= E4: aDee4
     {: RESULT=aDee4; :};
 
 //Expresiones comparables
-E4 ::= E4: aDee4 IGUAL E5: aDee5
-    {: RESULT= new EBin(aDee4,aDee5, new Igual()); :};
+E4 ::= E4: aDee4 IGUAL: op E5: aDee5
+    {: RESULT= new EBin(aDee4,aDee5, new Igual(op.fila, op.columna)); :};
 
-E4 ::= E4: aDee4 DISTINTO E5: aDee5
-    {: RESULT= new EBin(aDee4,aDee5, new Distinto()); :};
+E4 ::= E4: aDee4 DISTINTO: op E5: aDee5
+    {: RESULT= new EBin(aDee4,aDee5, new Distinto(op.fila, op.columna)); :};
 
-E4 ::= E4: aDee4 MENORQUE E5: aDee5
-    {: RESULT= new EBin(aDee4,aDee5, new MenorQue()); :};
+E4 ::= E4: aDee4 MENORQUE: op E5: aDee5
+    {: RESULT= new EBin(aDee4,aDee5, new MenorQue(op.fila, op.columna)); :};
 
-E4 ::= E4: aDee4 MAYORQUE E5: aDee5
-    {: RESULT= new EBin(aDee4,aDee5, new MayorQue()); :};
+E4 ::= E4: aDee4 MAYORQUE: op E5: aDee5
+    {: RESULT= new EBin(aDee4,aDee5, new MayorQue(op.fila, op.columna)); :};
 
-E4 ::= E4: aDee4 MENORIGUAL E5: aDee5
-    {: RESULT= new EBin(aDee4,aDee5, new MenorIgual()); :};
+E4 ::= E4: aDee4 MENORIGUAL: op E5: aDee5
+    {: RESULT= new EBin(aDee4,aDee5, new MenorIgual(op.fila, op.columna)); :};
 
-E4 ::= E4: aDee4 MAYORIGUAL E5: aDee5
-    {: RESULT= new EBin(aDee4,aDee5, new MayorIgual()); :};
+E4 ::= E4: aDee4 MAYORIGUAL: op E5: aDee5
+    {: RESULT= new EBin(aDee4,aDee5, new MayorIgual(op.fila, op.columna)); :};
 
 E4 ::= E5: aDee5
     {: RESULT=aDee5; :};
 
 //Expresiones enteras
-E5 ::= E5: aDee5 MAS E6: aDee6
-    {: RESULT= new EBin(aDee5,aDee6, new Suma()); :};
+E5 ::= E5: aDee5 MAS: op E6: aDee6
+    {: RESULT= new EBin(aDee5,aDee6, new Suma(op.fila, op.columna)); :};
 
-E5 ::= E5: aDee5 MENOS E6: aDee6
-    {: RESULT= new EBin(aDee5,aDee6, new Resta()); :};
+E5 ::= E5: aDee5 MENOS: op E6: aDee6
+    {: RESULT= new EBin(aDee5,aDee6, new Resta(op.fila, op.columna)); :};
 
 E5 ::= E6: aDee6
     {: RESULT=aDee6; :};
 
-E6 ::= E6: aDee6 OPASTERISCO E7: aDee7
-    {: RESULT= new EBin(aDee6,aDee7, new Producto()); :};
+E6 ::= E6: aDee6 OPASTERISCO: op E7: aDee7
+    {: RESULT= new EBin(aDee6,aDee7, new Producto(op.fila, op.columna)); :};
 
-E6 ::= E6: aDee6 DIV E7: aDee7
-    {: RESULT= new EBin(aDee6,aDee7, new Division()); :};
+E6 ::= E6: aDee6 DIV: op E7: aDee7
+    {: RESULT= new EBin(aDee6,aDee7, new Division(op.fila, op.columna)); :};
 
 E6 ::= E7: aDee7
     {: RESULT=aDee7; :};
 
 //Punteros
-E7 ::= OPASTERISCO E7: aDee7
-    {: RESULT= new EUn(aDee7, new AccesoPuntero()); :};
+E7 ::= OPASTERISCO: op E7: aDee7
+    {: RESULT= new EUn(aDee7, new AccesoPuntero(op.fila, op.columna)); :};
 
 //Números negativos
-E7 ::= MENOS E7: aDee7
-    {: RESULT= new EUn(aDee7, new Menos()); :};
+E7 ::= MENOS: op E7: aDee7
+    {: RESULT= new EUn(aDee7, new Menos(op.fila, op.columna)); :};
 
 //Números positivos
-E7 ::= MAS E7: aDee7
-    {: RESULT= new EUn(aDee7, new Mas()); :};
+E7 ::= MAS: op E7: aDee7
+    {: RESULT= new EUn(aDee7, new Mas(op.fila, op.columna)); :};
 
 E7 ::= E8: aDee8
     {: RESULT=aDee8; :};
@@ -429,19 +436,19 @@ E8 ::= E8:aDeE8 PAP ELEM:aDeEl PCIERRE:aDeFun
     {: RESULT = new EFun(aDeE8, aDeEl, aDeFun.fila, aDeFun.columna); :};
 
 //Expresión campo
-E8 ::= E8: aDeE8 OPPUNTO IDEN: id
-    {: RESULT = new EBin(aDeE8, new Identificador(id.lexema, id.fila, id.columna), new AccesoCampo()); :};
+E8 ::= E8: aDeE8 OPPUNTO: op IDEN: id
+    {: RESULT = new EBin(aDeE8, new Identificador(id.lexema, id.fila, id.columna), new AccesoCampo(op.fila, op.columna)); :};
 
 //Expresión acceso array
-E8 ::= E8: aDeE8 CAP ENT: num CCIERRE
-    {: RESULT = new EBin(aDeE8, new Num(num.lexema, num.fila, num.columna), new AccesoArray()); :};
+E8 ::= E8: aDeE8 CAP ENT: num CCIERRE:op
+    {: RESULT = new EBin(aDeE8, new Num(num.lexema, num.fila, num.columna), new AccesoArray(op.fila, op.columna)); :};
 
 //Incremento
-E8 ::= E8: aDeE8 OPMASMAS
-    {: RESULT = new EUn(aDeE8, new MasMas()); :};
+E8 ::= E8: aDeE8 OPMASMAS: op
+    {: RESULT = new EUn(aDeE8, new MasMas(op.fila, op.columna)); :};
 
 //Decremento
-E8 ::= E8: aDeE8 OPMENOSMENOS
-    {: RESULT = new EUn(aDeE8, new MenosMenos()); :};
+E8 ::= E8: aDeE8 OPMENOSMENOS: op
+    {: RESULT = new EUn(aDeE8, new MenosMenos(op.fila, op.columna)); :};
 
 

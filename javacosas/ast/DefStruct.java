@@ -29,6 +29,11 @@ public class DefStruct implements Definicion  {
     }
 
     @Override
+    public Set<NodoTipo> type() {
+        return null; //TODO
+    }
+
+    @Override
     public void bind(Vinculacion vinc) {
         ambito.bind(vinc);
         ((Clase) t).setCampos(vinc.cierraBloque()); //Guardan su tabla de símbolos al cerrarla en el nodo tipo

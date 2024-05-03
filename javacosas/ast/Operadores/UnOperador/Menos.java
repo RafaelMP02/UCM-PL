@@ -10,8 +10,9 @@ public class Menos extends OperadorUn{
     /* Operador de números negativos */
     public final static String OPSTRING = "Menos";
 
-    public Menos() {
-        this.inicializarTipado();;
+    public Menos(int fila, int columna){
+        super(fila, columna);
+        this.inicializarTipado();
     }
 
     public String toString() {

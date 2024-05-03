@@ -9,7 +9,8 @@ import ast.Tipos.Tipado.TiposEnum;
 
 public class AccesoPuntero extends OperadorUn{
     public final static String OPSTRING = "AccesoPuntero";
-    public AccesoPuntero(){
+    public AccesoPuntero(int fila, int columna){
+        super(fila, columna);
         this.inicializarTipado();
     }
 

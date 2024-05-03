@@ -8,7 +8,8 @@ import ast.Tipos.Tipado.TiposEnum;
 
 public class Conjuncion extends OperadorBin {
     public final static String OPSTRING = "Conjunción";
-    public Conjuncion(){
+    public Conjuncion(int fila, int columna){
+        super(fila, columna);
         this.inicializarTipado();
     }
 

@@ -10,7 +10,9 @@ import ast.Tipos.Tipado.TiposEnum;
 
 public class MenorQue extends OperadorBin {
     public final static String OPSTRING = "MenorQue";
-    public MenorQue(){
+    public MenorQue(int fila, int columna){
+        super(fila, columna);
+        this.inicializarTipado();
     }
 
     public String toString() {

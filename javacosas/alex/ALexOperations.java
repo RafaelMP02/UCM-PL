@@ -143,17 +143,18 @@ public class ALexOperations {
   } 
   public UnidadLexica unidadStruct() {
      return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.STRUCT,"struct"); 
-  } 
-  public UnidadLexica unidadTypedef() {
-     return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.TYPEDEF,"typdef"); 
-  } 
+  }
   public UnidadLexica unidadInt() {
      return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.INT,"int"); 
   } 
   public UnidadLexica unidadBool() {
      return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.BOOL,"bool"); 
-  } 
-  public UnidadLexica unidadTrue() {
+  }
+
+    public UnidadLexica unidadVoid() {
+        return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.VOID,"void");
+    }
+    public UnidadLexica unidadTrue() {
      return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.TRUE,"true"); 
   } 
   public UnidadLexica unidadFalse() {

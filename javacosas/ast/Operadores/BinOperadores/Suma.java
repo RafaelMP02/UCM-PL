@@ -8,7 +8,9 @@ import ast.Tipos.Tipado.TiposEnum;
 
 public class Suma extends OperadorBin {
     public final static String OPSTRING = "Suma";
-    public Suma(){
+    public Suma(int fila, int columna){
+        super(fila, columna);
+        this.inicializarTipado();
     }
 
     public String toString() {

@@ -79,7 +79,7 @@ else = else
 
 class = class
 struct = struct
-typedef = typedef
+void = void
 int = int
 bool = bool
 true = True
@@ -137,7 +137,7 @@ identificador = {letra}({letra}|{digito}|{guion})*
 
 {class}           	  {return ops.unidadClass();}
 {struct}           	  {return ops.unidadStruct();}
-{typedef}           	  {return ops.unidadTypedef();}
+{void}           	  {return ops.unidadVoid();}
 {int}           	  {return ops.unidadInt();}
 {bool}           	  {return ops.unidadBool();}
 {true}           	  {return ops.unidadTrue();}

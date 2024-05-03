@@ -9,7 +9,9 @@ import ast.Tipos.Tipado.TiposEnum;
 
 public class Distinto extends OperadorBin {
     public final static String OPSTRING = "Distinto";
-    public Distinto() {
+    public Distinto(int fila, int columna){
+        super(fila, columna);
+        this.inicializarTipado();
     }
 
     public String toString() {

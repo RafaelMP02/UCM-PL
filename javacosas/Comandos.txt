@@ -1,6 +1,6 @@
 Analiador léxico: (desde fuera de los directorios)
 
-java -cp jflex.jar jflex.Main ./alex/AnalizadorLexicoTiny.l
+java -cp jflex.jar jflex.Main ./alex/AnalizadorLexicoExp.l
 
 ---
 

@@ -9,7 +9,8 @@ import ast.Tipos.Tipado.TiposEnum;
 public class Negacion extends OperadorUn{
     /* Operador decremento */
     public final static String OPSTRING = "Negación";
-    public Negacion(){
+    public Negacion(int fila, int columna){
+        super(fila, columna);
         this.inicializarTipado();
     }
 

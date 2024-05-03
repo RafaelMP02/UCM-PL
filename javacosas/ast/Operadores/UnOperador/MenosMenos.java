@@ -9,7 +9,8 @@ import ast.Tipos.Tipado.TiposEnum;
 public class MenosMenos extends OperadorUn{
     /* Operador decremento */
     public final static String OPSTRING = "MenosMenos";
-    public MenosMenos(){
+    public MenosMenos(int fila, int columna){
+        super(fila, columna);
         this.inicializarTipado();
     }
 
