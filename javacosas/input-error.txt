@@ -1,4 +1,7 @@
-bool() funcion(a,b) := 
-{	[];
-	return a + b;};
-	
+int(int) f(a);
+
+int(int) f (a) {
+
+}
+
+f(3);

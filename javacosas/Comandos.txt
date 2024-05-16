@@ -1,6 +1,9 @@
 Analiador léxico: (desde fuera de los directorios)
 
-java -cp jflex.jar jflex.Main ./alex/AnalizadorLexicoExp.l
+java -cp jflex.jar jflex.Main ./alex/AnalizadorLexicoTiny.l
+
+java -cp ./lib/jflex.jar jflex.Main ./src/alex/AnalizadorLexicoExp.l
+
 
 ---
 
@@ -18,6 +21,8 @@ javac -cp "$path/cup.jar:." */*.java
 
 javac alex/*.java
 
+javac ./src/alex/*.java
+
 ---
 
 AST:
@@ -26,6 +31,8 @@ AST:
 java -cp $path/cup.jar java_cup.Main -parser ConstructorASTExp -symbols ClaseLexica -nopositions ConstructorAST.cup
 
 java -cp ../cup.jar java_cup.Main -parser ConstructorASTExp -symbols ClaseLexica -nopositions ConstructorAST.cup
+
+java -cp ../../lib/cup.jar java_cup.Main -parser ConstructorASTExp -symbols ClaseLexica -nopositions ConstructorAST.cup
 
 (desde javacosas)
 javac -cp "$path/cup.jar:." */*.java
@@ -38,5 +45,7 @@ java -cp ./cup.jar:. constructorast.Main  input.txt
 
 NOTAS:
 Si no has definido CLASSPATH, donde pone "$path" tienes que poner el path literalmente
+
+find . -type f -name "*.class" -exec rm {} \;
 
 

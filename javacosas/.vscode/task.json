@@ -1,0 +1,28 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "preLaunchTasks",
+            "type": "shell",
+            "dependsOn": ["generateLexiconAnalyzer", "generateSyntaxAnalyzer"]
+        },
+        {
+            "label": "generateLexiconAnalyzer",
+            "type": "shell",
+            "command": "java -cp ${workspaceFolder}/lib/jflex.jar jflex.Main ${workspaceFolder}/src/alex/AnalizadorLexico.l -d ${workspaceFolder}/src/alex",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "generateSyntaxAnalyzer",
+            "type": "shell",
+            "command": "java -cp ${workspaceFolder}/launch/lib/cup.jar java_cup.Main -symbols LexiconClass -parser AnalizadorSintacticoTiny -package syntax -destdir ${workspaceFolder}/launch/src/syntax -nopositions ${workspaceFolder}/launch/src/syntax/Tiny.cup",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

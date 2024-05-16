@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8bf737e8-0e47-415c-a779-c288e404a575" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/C-Horizon--1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JaVa/C-Horizon--.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javacosas/javacosas.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/EVoid.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/KindE.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javacosas/src/ast/GeneracionCodigo/Comp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javacosas/src/ast/raiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/javacosas.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dudas.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Dudas.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/.vscode/launch.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/.vscode/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/Comandos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/Comandos.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/alex/ALexOperations.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/alex/ALexOperations.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/alex/AnalizadorLexicoExp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/alex/AnalizadorLexicoExp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/alex/AnalizadorLexicoExp.l" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/alex/TokenValue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/alex/TokenValue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/alex/UnidadLexica.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/alex/UnidadLexica.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/ASTNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Declaracion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Declaracion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/DefClase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/DefClase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/DefFuncion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/DefFuncion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/DefStruct.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/DefStruct.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Definicion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Definicion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Expresiones/E.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Expresiones/E.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Expresiones/EBin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Expresiones/EBin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Expresiones/ECampo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Expresiones/EError.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Expresiones/EError.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Expresiones/EFun.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Expresiones/EFun.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Expresiones/EListaC.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Expresiones/EListaC.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Expresiones/EListaL.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Expresiones/EListaL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Expresiones/EUn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Expresiones/EUn.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Expresiones/False.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Expresiones/False.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Expresiones/Identificador.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Expresiones/Identificador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Expresiones/Num.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Expresiones/Num.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Expresiones/True.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Expresiones/True.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/FuncionesPrimitivas/Case.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/FuncionesPrimitivas/Case.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/FuncionesPrimitivas/Else.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/FuncionesPrimitivas/Else.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/FuncionesPrimitivas/Elsif.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/FuncionesPrimitivas/Elsif.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/FuncionesPrimitivas/For.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/FuncionesPrimitivas/For.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/FuncionesPrimitivas/If.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/FuncionesPrimitivas/If.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/FuncionesPrimitivas/New.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/FuncionesPrimitivas/New.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/FuncionesPrimitivas/Prints.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/FuncionesPrimitivas/Prints.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/FuncionesPrimitivas/Return.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/FuncionesPrimitivas/Return.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/FuncionesPrimitivas/Scans.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/FuncionesPrimitivas/Scans.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/FuncionesPrimitivas/Switch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/FuncionesPrimitivas/Switch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/FuncionesPrimitivas/Typedef.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/FuncionesPrimitivas/Typedef.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/FuncionesPrimitivas/While.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/FuncionesPrimitivas/While.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/InstrError.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/InstrError.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Instruccion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Instruccion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/KindE.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/LocatedNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/LocatedNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Metaoperadores/AccesoValor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Metaoperadores/Ambito.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Metaoperadores/Ambito.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Metaoperadores/Asignacion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Metaoperadores/Asignacion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Metaoperadores/CabecerAsig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Metaoperadores/CabecerAsig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Metaoperadores/PasoPorValor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Metaoperadores/PasoPorValor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Metaoperadores/PuntoYComa.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Metaoperadores/PuntoYComa.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/NodeKind.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/NodoAST.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/NodoAST.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/AccesoArray.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/AccesoArray.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/AccesoCampo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/AccesoCampo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/Conjuncion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/Conjuncion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/Distinto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/Distinto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/Disyuncion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/Disyuncion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/Division.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/Division.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/Igual.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/Igual.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/MayorIgual.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/MayorIgual.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/MayorQue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/MayorQue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/MenorIgual.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/MenorIgual.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/MenorQue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/MenorQue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/OperadorBin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/OperadorBin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/Producto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/Producto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/Resta.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/Resta.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/Suma.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/BinOperadores/Suma.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/MultiOperadores/AccesoFuncion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/MultiOperadores/ListaCorchetes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/MultiOperadores/ListaLlaves.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/Operador.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/Operador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/UnOperador/AccesoPuntero.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/UnOperador/AccesoPuntero.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/UnOperador/Mas.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/UnOperador/Mas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/UnOperador/MasMas.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/UnOperador/MasMas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/UnOperador/Menos.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/UnOperador/Menos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/UnOperador/MenosMenos.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/UnOperador/MenosMenos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/UnOperador/Negacion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/UnOperador/Negacion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/UnOperador/OperadorUn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Operadores/UnOperador/OperadorUn.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Programa.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Programa.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/Array.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/Array.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/Booleano.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/Booleano.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/Clase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/Clase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/Entero.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/Entero.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/Funcional.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/Funcional.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/NodoTipo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/NodoTipo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/Parametrico.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/Parametrico.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/Puntero.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/Puntero.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/Struct.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/Struct.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/Tipado$TiposEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/Tipado.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/Tipado.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/Tipo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/TipoError.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/TipoListaC.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/TipoListaC.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/TipoListaL.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/TipoListaL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/TipoNuevo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/TipoNuevo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/TipoParametrizable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/TipoParametrizable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/V0id.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Tipos/V0id.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/TiposDeNodos.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/TiposDeNodos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/UnionAmbito.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/UnionAmbito.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Vacio.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Vacio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Vinculacion/Vinculacion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/ast/Vinculacion/Vinculacion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/constructorast/CUP$ConstructorASTExp$actions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/constructorast/ClaseLexica.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/constructorast/ClaseLexica.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/constructorast/ConstructorAST.cup" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/constructorast/ConstructorASTExp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/constructorast/ConstructorASTExp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/constructorast/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/constructorast/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/cup.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/dudas.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/errors/GestionErroresExp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/errors/GestionErroresExp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/input-error.txt" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/input-error.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/jflex.jar" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2gNeH2SrDRNNsSrYohXiHJSx2TZ" />
+  <component name="ProjectViewState">
+    <option name="flattenPackages" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-22&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/antonio/git/C-Horizon--/javacosas/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/javacosas/src" />
+      <recent name="$PROJECT_DIR$/javacosas/src/alex" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8bf737e8-0e47-415c-a779-c288e404a575" name="Changes" comment="" />
+      <created>1715542370837</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1715542370837</updated>
+      <workItem from="1715542371897" duration="33303000" />
+      <workItem from="1715784261692" duration="13385000" />
+      <workItem from="1715801279952" duration="979000" />
+      <workItem from="1715807889451" duration="7000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
