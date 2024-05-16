@@ -47,7 +47,7 @@ public class DefStruct implements Definicion  {
         Set<NodoTipo> tiposInstrucciones = Tipado.enumToTipo(Tipado.TIPOS_INSTR_STRUCTS);
 
         //Marcamos los tipos de los atributos
-        t.setTiposAtributos(Tipado.matchDefStruct(ambito.type(tiposInstrucciones), nombre.toString(), nombre.getFila(), nombre.getColumna()));   
+        t.setTiposAtributos(Tipado.matchDefTipoNuevo(ambito.type(tiposInstrucciones), nombre.toString(), nombre.getFila(), nombre.getColumna()));   
 
         //El tipo de devolución es una definición de struct
         return Collections.singleton(new TInstruccion(TiposEnum.DEFCLASE));

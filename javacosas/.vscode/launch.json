@@ -9,7 +9,7 @@
             "name": "MainConfiguration",
             "request": "launch",
             "mainClass": "constructorast.Main",
-            "args":["input.txt"],
+            "args":["tests/input.txt"],
             //"stopOnEntry": true
         },
         

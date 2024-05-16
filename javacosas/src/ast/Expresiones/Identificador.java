@@ -63,10 +63,10 @@ public class Identificador extends E {
     public String codeD(Comp hcon) {
         String s = "";
         List<Integer> l = hcon.buscaId(this);
-        s = s + Integer.toString(l.getFirst()) + "\n";
+        s = s + Integer.toString(l.get(0)) + "\n";
         s = s + "get_global MP\n";
         s = s + "set_global MP_a\n";
-        for(int i = 0; i < l.getLast(); i++) {
+        for(int i = 0; i < l.get(l.size()-1); i++) {
             s = s + "get_global MP_a\n";
             s = s + "i32.load\n";
             s = s + "set_global MP_a\n";

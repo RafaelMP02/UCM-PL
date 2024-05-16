@@ -82,14 +82,7 @@ public class GestionErroresExp {
     System.out.println("ERROR fila "+fila+" columna "+columna+": No existe el campo: " +  campo); 
     addError();
   }
-  public void errorAmbitoClase(String id, int fila, int columna) {
-    System.out.println("ERROR fila "+fila+" columna "+columna+": Error en el ámbito de la clase: " +  id);
-    addError();
-  }
-  public void errorAmbitoStruct(String id, int fila, int columna) {
-    System.out.println("ERROR fila "+fila+" columna "+columna+": Error en el ámbito del struct: " +  id);
-    addError();
-  }
+
   public void errTRetornoFuncion(Set<NodoTipo> tiposEsperados, int fila, int columna) {
     /* Piden un tipo de devolución de función imposible */
     System.out.print("ERROR fila "+fila+" columna "+columna+": Tipo esperado imposible para retorno de función. Se esperaba uno de los siguientes tipos: " ); 

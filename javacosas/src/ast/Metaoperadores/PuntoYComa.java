@@ -23,6 +23,12 @@ public class PuntoYComa implements Programa {
     }
 
     @Override
+    public void bindFunc(Vinculacion vinc) {
+        inst.bindFunc(vinc);
+        prog.bindFunc(vinc);
+    }
+
+    @Override
     public void bind(Vinculacion vinc) {
         inst.bind(vinc);
         prog.bind(vinc);

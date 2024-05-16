@@ -1,0 +1,16 @@
+int[3] arr;
+arr := [5,2,3];
+int[1][3] a := [[1],[2],[3]];
+int c;
+int(int) c (a) {};
+int b := 2 + c;
+int(int) f (a) {
+	return a;
+};
+c := f(1);
+c := f(b);
+struct A {
+	int a;
+};
+struct A hola;
+hola := {3};

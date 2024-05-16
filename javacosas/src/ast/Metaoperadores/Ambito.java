@@ -31,6 +31,7 @@ public class Ambito implements NodoAST {
     @Override
     public void bind(Vinculacion vinc) {
         vinc.abreBloque();
+        programa.bindFunc(vinc);
         programa.bind(vinc);
         mapa = vinc.cierraBloque();
     }

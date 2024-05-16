@@ -6,7 +6,8 @@ import alex.AnalizadorLexicoExp;
 import ast.NodoAST;
 import ast.Tipos.Tipado;
 import ast.Vinculacion.Vinculacion;
-import ast.raiz;
+import errors.GestionErroresExp;
+import ast.Raiz;
 import java_cup.runtime.Symbol;
 
 public class Main {
@@ -29,13 +30,15 @@ public class Main {
 		System.out.println("---\nBinding errors:");
 		root.bind(vinc);
 
-		//TIPADO
+		//Tipado
 		System.out.println("---\nType errors:");
 		root.type(Tipado.enumToTipo(Tipado.TODOS));
 
-		//Generacion de codigo
-		BufferedWriter output = new BufferedWriter(new FileWriter(args[0]+".wat"));
-		((raiz)root).compile(output);
+		//Generación de código
+		if (GestionErroresExp.NUM_ERRORES == 0) {
+			BufferedWriter output = new BufferedWriter(new FileWriter(args[0]+".wat"));
+			((Raiz)root).compile(output);
+		}
 	}
 
 	public static void clear() {

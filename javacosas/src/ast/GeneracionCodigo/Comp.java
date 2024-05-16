@@ -55,9 +55,9 @@ public class Comp {
         Eliminamos la tabla de símbolos de ese ámbito (el último) porque se ha cerrado el bloque.
         Se devuelve la tabla de símbolo para que cada ámbito la almacene (es útil para binding y tipado).
         */
-        pilaDeDeltas.removeLast();
-        deltaStack.removeLast();
-        pilaDeTipos.removeLast();
+        pilaDeDeltas.remove(pilaDeDeltas.size() - 1);
+        deltaStack.remove(deltaStack.size() - 1);
+        pilaDeTipos.remove(pilaDeTipos.size() - 1);
         this.PA = PA - 1;
     }
 
@@ -65,9 +65,9 @@ public class Comp {
         /*
         Intentamos añadir una entrada a la tabla de símbolos del ámbito actual.
          */
-        pilaDeDeltas.getLast().put(dec, deltaStack.getLast());
-        int delta = deltaStack.getLast() + dec.getTam();
-        deltaStack.removeLast();
+        pilaDeDeltas.get(pilaDeDeltas.size() - 1).put(dec, deltaStack.get(deltaStack.size() - 1));
+        int delta = deltaStack.get(deltaStack.size() - 1) + dec.getTam();
+        deltaStack.remove(deltaStack.size() - 1);
         deltaStack.add(delta);
     }
 
@@ -99,7 +99,7 @@ public class Comp {
     public void insertarTipoNuevo(TipoNuevo tipo) {
         String nombre = tipo.toString();
         int delta = 0;
-        Map<String, Integer> mapa = pilaDeTipos.getLast().get(nombre);
+        Map<String, Integer> mapa = pilaDeTipos.get(pilaDeTipos.size() - 1).get(nombre);
         for(Set<NodoTipo> X: tipo.getTipos()) {
             NodoTipo N = X.iterator().next();
             mapa.put(N.toString(), delta);

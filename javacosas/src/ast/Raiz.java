@@ -11,12 +11,12 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class raiz implements NodoAST{
+public class Raiz implements NodoAST{
     Programa programa;
 
     private Map<String, LinkedHashSet<Declaracion>> mapa;
 
-    public  raiz(Programa programa){
+    public  Raiz(Programa programa){
         this.programa = programa;
     }
 
@@ -46,6 +46,7 @@ public class raiz implements NodoAST{
     @Override
     public void bind(Vinculacion vinc) {
         vinc.abreBloque();
+        programa.bindFunc(vinc);
         programa.bind(vinc);
         mapa = vinc.cierraBloque();
     }

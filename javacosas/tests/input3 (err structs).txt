@@ -1,0 +1,30 @@
+struct A {
+	int var1;
+	bool var2 := True;
+};
+
+struct A a1;
+a1.var1 := 3;
+struct A a2 := {3, False};
+struct A a3 := {3, 4};
+
+struct B {
+	int var1;
+	bool var2;
+	struct A a;
+};
+
+struct B b1;
+b1.a := a2;
+b1.a := 4;
+struct B b2 :=  {2, True, b1};
+
+struct C {
+	int var1;
+	bool var2;
+	int(int) f(a) {
+		return a;
+	};
+};
+struct C c;
+c.var1 := a1.var1;

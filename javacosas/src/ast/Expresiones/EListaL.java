@@ -48,7 +48,7 @@ public class EListaL extends E {
             s = s + ex.codeE(hcon);
             s = s + "i32.store\n";
             s = s + "get_global $corh\n";
-            s = s + "i32.const " + Integer.toString((hcon.buscaCampo(ti.toString(), campo)).getFirst()) + "\n";
+            s = s + "i32.const " + Integer.toString((hcon.buscaCampo(ti.toString(), campo)).get(0)) + "\n";
             s = s + "i32.add";
             s = s + "tee_global $corh\n";
 

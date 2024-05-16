@@ -1,7 +1,0 @@
-int(int) f(a);
-
-int(int) f (a) {
-
-}
-
-f(3);

@@ -683,9 +683,9 @@ class CUP$ConstructorASTExp$actions {
           /*. . . . . . . . . . . . . . . . . . . .*/
           case 0: // S ::= P 
             {
-              raiz RESULT =null;
+              Raiz RESULT =null;
 		Programa aDeP = (Programa)((java_cup.runtime.Symbol) CUP$ConstructorASTExp$stack.peek()).value;
-		 RESULT= new raiz(aDeP); 
+		 RESULT= new Raiz(aDeP); 
               CUP$ConstructorASTExp$result = parser.getSymbolFactory().newSymbol("S",0, RESULT);
             }
           return CUP$ConstructorASTExp$result;
@@ -694,7 +694,7 @@ class CUP$ConstructorASTExp$actions {
           case 1: // $START ::= S EOF 
             {
               Object RESULT =null;
-		raiz start_val = (raiz)((java_cup.runtime.Symbol) CUP$ConstructorASTExp$stack.elementAt(CUP$ConstructorASTExp$top-1)).value;
+		Raiz start_val = (Raiz)((java_cup.runtime.Symbol) CUP$ConstructorASTExp$stack.elementAt(CUP$ConstructorASTExp$top-1)).value;
 		RESULT = start_val;
               CUP$ConstructorASTExp$result = parser.getSymbolFactory().newSymbol("$START",0, RESULT);
             }

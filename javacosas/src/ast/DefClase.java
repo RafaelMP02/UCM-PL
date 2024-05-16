@@ -47,7 +47,7 @@ public class DefClase implements Definicion{
         Set<NodoTipo> tiposInstrucciones = Tipado.enumToTipo(Tipado.TIPOS_INSTR_CLASES);
 
         //Marcamos los tipos de los atributos
-        t.setTiposAtributos(Tipado.matchDefClase(ambito.type(tiposInstrucciones), nombre.toString(), nombre.getFila(), nombre.getColumna()));   
+        t.setTiposAtributos(Tipado.matchDefTipoNuevo(ambito.type(tiposInstrucciones), nombre.toString(), nombre.getFila(), nombre.getColumna()));   
 
         //El tipo de devolución es una definición de clase
         return Set.of(new TInstruccion(TiposEnum.DEFCLASE));

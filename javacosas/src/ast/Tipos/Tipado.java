@@ -10,6 +10,8 @@ import java.util.Map;
 import java.util.Set;
 
 import ast.Declaracion;
+import ast.Instruccion;
+import ast.Programa;
 import ast.Expresiones.E;
 import ast.Expresiones.Identificador;
 import ast.Expresiones.Num;
@@ -371,63 +373,16 @@ public class Tipado {
 
     //DEFINICIÓN DE CLASES Y STRUCTS
 
-    public static List<Set<NodoTipo>> matchDefClase(Set<NodoTipo> tAmbito, String id, int fila, int columna) {
-        boolean hayError = false;
+    public static List<Set<NodoTipo>> matchDefTipoNuevo(Set<NodoTipo> tAmbito, String id, int fila, int columna) {
+        /* Devolvemos una lista ordenada con los tipos en el orden de la declaración de las variables. */
+
         List<Set<NodoTipo>> tiposResultado = new ArrayList<Set<NodoTipo>>();
-        /* 
-        Si alguna de ellas no coincide con las instrucciones posibles en una clase, lanzamos error. 
-        Devolvemos una lista ordenada con los tipos en el orden de la declaración de las variables. 
-        */
         for (NodoTipo tipo : tAmbito) {
-            switch (tipo.typeToEnum()) {
-                case DECVARIABLE:
-                    //Obtenemos el tipo de la declaración y lo añadimos a la lista de tipos
-                    tiposResultado.add(new LinkedHashSet<>(Arrays.asList(((TInstruccion) tipo).getTipo())));           
-                    break;
-                case DECFUNCION:
-                case DEFCLASE:
-                case DEFSTRUCT:
-                case ERROR:
-                    //Estas instrucciones son válidas en una clase, pero no son atributos
-                break;
-                default:
-                    hayError = true;
-                break;
-            }
+            if(tipo.typeToEnum().equals(TiposEnum.DECVARIABLE))
+                //Obtenemos el tipo de la declaración y lo añadimos a la lista de tipos
+                tiposResultado.add(new LinkedHashSet<>(Arrays.asList(((TInstruccion) tipo).getTipo())));  
         }
 
-        if(hayError)
-            errores.errorAmbitoClase(id, fila, columna);
-        
-        return tiposResultado;
-    }
-
-    public static List<Set<NodoTipo>> matchDefStruct(Set<NodoTipo> tAmbito, String id, int fila, int columna) {
-        boolean hayError = false;
-        List<Set<NodoTipo>> tiposResultado = new ArrayList<Set<NodoTipo>>();
-        /* 
-        Si alguna de ellas no coincide con las instrucciones posibles en un struct, lanzamos error. 
-        Devolvemos una lista ordenada con los tipos en el orden de la declaración de las variables. 
-        */
-        for (NodoTipo tipo : tAmbito) {
-            switch (tipo.typeToEnum()) {
-                case DECVARIABLE:
-                    //Obtenemos el tipo de la declaración y lo añadimos a la lista de tipos
-                    tiposResultado.add(new LinkedHashSet<>(Arrays.asList(((TInstruccion) tipo).getTipo())));           
-                    break;
-                case DEFCLASE:
-                case DEFSTRUCT:
-                case ERROR:
-                    //Estas instrucciones son válidas en un struct, pero no son atributos
-                break;
-                default:
-                    hayError = true;
-            }
-        }
-
-        if(hayError)
-            errores.errorAmbitoStruct(id, fila, columna);
-        
         return tiposResultado;
     }
 
@@ -469,10 +424,6 @@ public class Tipado {
         //Si no, error de asignación
         else
             errores.errAsignacion(fila, columna);
-        
-        //Por último, comprobamos el tipo de instrucción que se esperaba
-        if (!esTipoEsperado(tAsignacion, tiposEsperados))
-            errores.errInstrNoValida(fila, columna);
 
         return tRes;
         
@@ -653,7 +604,19 @@ public class Tipado {
         else
             return idFuncion.type(tFuncionalesEsperados); //TODO comprobar que esto funciona bien (si hace match se vincula, si ace match con más de uno se jode)
     }
+    //INSTRUCCIÓN
+    public static Set<NodoTipo> matchInstr(Instruccion inst, Programa prog, Set<NodoTipo> tiposEsperados) {
+        Set<NodoTipo> tipadoInst = inst.type(tiposEsperados);
+        Set<NodoTipo> tipadoProg = prog.type(tiposEsperados);
 
+        //Si no es una instrucción esperada, error
+        if (match2Conjuntos(tipadoInst, tiposEsperados).size() == 0) {
+            errores.errInstrNoValida(inst.getFila(), inst.getColumna());
+            tipadoInst = conjuntoError();
+        }
+
+        return unirConjuntos(tipadoInst, tipadoProg);
+    }
     //AMBITO
 
     public static void matchAmbito(Map<String, LinkedHashSet<Declaracion>> mapa, Set<NodoTipo> tPrograma) {
@@ -684,17 +647,8 @@ public class Tipado {
     public static Set<NodoTipo> matchDec(NodoTipo t, Set<NodoTipo> tiposEsperados, int fila, int columna) {
         TiposEnum tEnum = t.typeToEnum();
         Set<NodoTipo> tRes = conjuntoError();
-        boolean seEsperaDec = false;
-
-        //Primero comrpobamos si se esperaba una declaración
-        for (NodoTipo tipo : tiposEsperados) {
-            if (tipo.typeToEnum().equals(TiposEnum.DECVARIABLE) || tipo.typeToEnum().equals(TiposEnum.DECFUNCION))
-                seEsperaDec = true;
-        }
-        if (!seEsperaDec)
-            errores.errTipadoDec(tiposEsperados, fila, columna);
         
-        else if (tEnum.equals(TiposEnum.FUNCIONAL)){
+        if (tEnum.equals(TiposEnum.FUNCIONAL)){
             tRes = new LinkedHashSet<>(Arrays.asList(new TInstruccion(TiposEnum.DECFUNCION, t, fila, columna)));
         }
         else {

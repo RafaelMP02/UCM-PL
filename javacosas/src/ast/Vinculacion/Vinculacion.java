@@ -54,15 +54,15 @@ public class Vinculacion {
         Eliminamos la tabla de símbolos de ese ámbito (el último) porque se ha cerrado el bloque.
         Se devuelve la tabla de símbolo para que cada ámbito la almacene (es útil para binding y tipado).
         */
-        pilaDeTipos.removeLast();
-        return pilaDeTablas.removeLast();
+        pilaDeTipos.remove(pilaDeTipos.size() - 1);
+        return pilaDeTablas.remove(pilaDeTablas.size() - 1);
     }
 
     public void insertaId(String id, Declaracion puntero, int fila, int columna) {
         /*
         Intentamos añadir una entrada a la tabla de símbolos del ámbito actual.
          */
-        Map<String,LinkedHashSet<Declaracion>> tabla_actual = pilaDeTablas.getLast();
+        Map<String,LinkedHashSet<Declaracion>> tabla_actual = pilaDeTablas.get(pilaDeTablas.size() - 1);
 
         //Si ya existe una entrada con ese id...
         if (tabla_actual.containsKey(id)) {
@@ -115,7 +115,7 @@ public class Vinculacion {
 
     public void insertarTipoNuevo(TipoNuevo tipo, int fila, int columna) {
         String nombre = tipo.toString();
-        Map<String,TipoNuevo> mapa = pilaDeTipos.getLast();
+        Map<String,TipoNuevo> mapa = pilaDeTipos.get(pilaDeTipos.size() - 1);
         if (mapa.containsKey(nombre)) {
             errores.errorTipoYaDeclarado(fila, columna, nombre);
         }
@@ -142,14 +142,15 @@ public class Vinculacion {
         return tipo;
     }
 
-    public void bindFuncion(LinkedList<DecVariable> argumentosDec, LinkedList<Identificador> argumentosId, List<Parametrico> parametros, String idFuncion, int fila, int columna) {
+    public void bindParam(LinkedList<DecVariable> argumentosDec, LinkedList<Identificador> argumentosId, List<Parametrico> parametros, String idFuncion, int fila, int columna) {
+        /* Vincula los parámetros a una nueva declaración con el tipo de parámetros, para vincular los usos de los parámetros dentro del ámbito de la función. */
         if (argumentosId.size() != parametros.size())
             errores.errNumArgumentos(idFuncion, fila, columna);
 
         else {
             if (argumentosId != null) {
                 argumentosDec = new LinkedList<>();                    
-                for(int i = 0; i < argumentosDec.size(); i++) {
+                for(int i = 0; i < argumentosId.size(); i++) {
                     Identificador id = argumentosId.get(i);
                     DecVariable dec = new DecVariable(parametros.get(i).getTipo(), id);                    
                     argumentosDec.push(dec);

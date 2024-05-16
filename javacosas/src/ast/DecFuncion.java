@@ -49,16 +49,23 @@ public class DecFuncion extends Declaracion {
         return str.toString();
     }
 
-    @Override
-    public void bind(Vinculacion vinc) {
-        //Lo insertamos dos veces, para que pueda ser usado fuera y que dentro no se pueda declarar otra función igual
+    @Override 
+    public void bindFunc(Vinculacion vinc) {
+        /* Es el único nodo que realiza algo en bindFunc, para poder usar así las declaraciones de funciones en cualquier punto del bloque */
         int fila = id.getFila();
         int columna = id.getColumna();
         String idString = id.toString();
         vinc.insertaId(idString, this,fila, columna);
+    }
+
+    @Override
+    public void bind(Vinculacion vinc) {
+        /* Insertamos nuevas declaraciones en un bloque intermedio para poder vincular los parámetros a estas declaraciones. Después vinculamos el ámbito. */        
+        int fila = id.getFila();
+        int columna = id.getColumna();
+        String idString = id.toString();
         vinc.abreBloque();
-        vinc.insertaId(idString, this, fila, columna);
-        vinc.bindFuncion(argumentosDec, argumentosId, ((Funcional) tipo).getParametros(), idString, fila, columna);
+        vinc.bindParam(argumentosDec, argumentosId, ((Funcional) tipo).getParametros(), idString, fila, columna);
         this.ambito.bind(vinc);
         vinc.cierraBloque();
     }
