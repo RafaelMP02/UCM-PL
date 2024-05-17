@@ -1,10 +1,10 @@
 package ast.GeneracionCodigo;
 
+
 import ast.Declaracion;
 import ast.Expresiones.Identificador;
 import ast.Tipos.NodoTipo;
 import ast.Tipos.TipoNuevo;
-
 
 import java.util.*;
 

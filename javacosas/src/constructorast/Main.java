@@ -36,8 +36,12 @@ public class Main {
 
 		//Generación de código
 		if (GestionErroresExp.NUM_ERRORES == 0) {
-			BufferedWriter output = new BufferedWriter(new FileWriter(args[0]+".wat"));
-			((Raiz)root).compile(output);
+			System.out.println("---\n\n¡Todo correcto! Generando código...");
+			/* BufferedWriter output = new BufferedWriter(new FileWriter(args[0]+".wat"));
+			((Raiz)root).compile(output); */
+		}
+		else {
+			GestionErroresExp.printNumErrores();
 		}
 	}
 

@@ -32,7 +32,7 @@ public class PasoPorValor implements Parametrico {
     }
 
     @Override
-    public Set<NodoTipo> type(Set<NodoTipo> tipoEsperado) { //TODO implementar esto bien
+    public Set<NodoTipo> type(Set<NodoTipo> tipoEsperado) {
         return t.type(tipoEsperado);
     }
 

@@ -4,14 +4,6 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        {
-            "type": "java",
-            "name": "MainConfiguration",
-            "request": "launch",
-            "mainClass": "constructorast.Main",
-            "args":["tests/input.txt"],
-            //"stopOnEntry": true
-        },
         
         {
             "type": "java",
@@ -20,7 +12,7 @@
             "mainClass": "constructorast.Main",
             "projectName": "javacosas_f6c64f20",
             "cwd": "${workspaceFolder}",
-            "args": ["input.txt"],
+            "args": ["tests/input.txt"],
 
         }
     ]

@@ -11,7 +11,8 @@ public class Booleano implements NodoTipo{
         this.columna = columna;
     }
     public Booleano() {
-        //TODO Auto-generated constructor stub
+        this.fila = -1;
+        this.columna = -1;
     }
     public String toString() {
         return "BOOL";

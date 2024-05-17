@@ -49,6 +49,9 @@ public class For implements Programa {
     }
     @Override
     public void bind(Vinculacion vinc) {
+        inicio.bind(vinc);
+        fin.bind(vinc);
+        paso.bind(vinc);
         ambito.bind(vinc);
         programa.bind(vinc);
     }

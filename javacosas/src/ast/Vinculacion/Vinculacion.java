@@ -143,7 +143,7 @@ public class Vinculacion {
     }
 
     public void bindParam(LinkedList<DecVariable> argumentosDec, LinkedList<Identificador> argumentosId, List<Parametrico> parametros, String idFuncion, int fila, int columna) {
-        /* Vincula los parámetros a una nueva declaración con el tipo de parámetros, para vincular los usos de los parámetros dentro del ámbito de la función. */
+        /* Crea una nueva declaración con el tipo de parámetros y su identificador, para vincular los usos de los parámetros dentro del ámbito de la función. */
         if (argumentosId.size() != parametros.size())
             errores.errNumArgumentos(idFuncion, fila, columna);
 

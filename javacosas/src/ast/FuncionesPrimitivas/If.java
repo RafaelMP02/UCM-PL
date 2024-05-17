@@ -63,6 +63,7 @@ public class If implements Programa {
 
     @Override
     public void bind(Vinculacion vinc) {
+        cond.bind(vinc);
         ambito.bind(vinc);
 
         //Elsif
