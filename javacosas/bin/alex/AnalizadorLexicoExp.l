@@ -32,10 +32,9 @@ import errors.GestionErroresExp;
 guion = \_
 digitoPositivo = [1-9]
 digito = ({digitoPositivo}|0)
-parteEntera = ({digitoPositivo}{digito}*) | 0
+numeroEntero = ({digitoPositivo}{digito}*) | 0
 separador = [ \t\r\b\n]
 comentario = \/\/[^\n]* 
-numeroEntero = [\+\-]?{parteEntera}
 operadorSuma = \+
 operadorResta = \-
 operadorDivision = \/

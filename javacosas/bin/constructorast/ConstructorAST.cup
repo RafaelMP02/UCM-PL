@@ -35,7 +35,7 @@ terminal  TokenValue MAS, MENOS, DIV, PAP, PCIERRE, CAP, CCIERRE, LLAP, LLCIERRE
 
 
 
-non terminal  raiz S;
+non terminal  Raiz S;
 
 non terminal Programa P;
 
@@ -78,7 +78,7 @@ non terminal E PARENTEXPRESION;
 
 
 S   ::= P: aDeP
-    {: RESULT= new raiz(aDeP); :};
+    {: RESULT= new Raiz(aDeP); :};
 
 //Programas ---
 
