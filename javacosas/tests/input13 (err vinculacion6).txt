@@ -1,0 +1,10 @@
+int(int) f (a) {};
+bool f;
+{
+	int f; //Declaración de variable "f" que no produce error por ocultación
+	int(bool) f (a) {};
+	//Lo siguiente  no produce error de declaración ni de tipado porque f se ha vinculado correctamente a la declaración del primer bloque
+	int x := f(2);
+	//Lo siguiente tampoco proudcirá error de tipado porque f ha sido vinculada correctamente a la declaración de este bloque
+	x := f;
+}

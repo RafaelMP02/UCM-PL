@@ -17,6 +17,7 @@ import ast.Tipos.NodoTipo;
 import ast.Tipos.Parametrico;
 import ast.Tipos.TipoError;
 import ast.Tipos.TipoNuevo;
+import ast.Tipos.Tipado.TiposEnum;
 
 
 public class Vinculacion {
@@ -88,10 +89,13 @@ public class Vinculacion {
     
     public LinkedHashSet<Declaracion> buscaId (String id, int fila, int columna) {
         boolean encontrado = false;
+        boolean varEncontradaBloquePrevio = false;
         LinkedHashSet<Declaracion> punteros = new LinkedHashSet<Declaracion>();
         /*
         Buscamos en la pila recorriéndola desde el final hasta el comienzo. 
-        No paramos cuando lo encontramos pues podría haber sobrecarga. Devolvemos una lista de punteros.
+        No paramos cuando lo encontramos pues podría haber sobrecarga. Devolvemos una lista de punteros. Sim embargo, si en un bloque
+        hemos encontrado una declaración de variable que coincide con el id, no buscaremos más declaraciones de variables en los bloques
+        previos (ocultación).
         Esta función solo se invocará desde un nodo de tipo Identificador cuando no sea una declaración.
         */
 
@@ -99,12 +103,24 @@ public class Vinculacion {
         Mientras no lo hayamos encontrado y queden tablas de símbolos por recorrer, seguimos buscando
         Si ya lo hemos encontrado, no continuamos buscando, porque, por ocultación, las siguientes tablas no son visibles
         */
-        for (int i = pilaDeTablas.size()-1; i >= 0 && !encontrado; i--) {
+        for (int i = pilaDeTablas.size()-1; i >= 0; i--) {
             Map<String,LinkedHashSet<Declaracion>> mapa = pilaDeTablas.get(i);
+            boolean varEncontradaBloque = false;
             if (mapa.containsKey(id)) {
-                punteros = mapa.get(id);
+                for (Declaracion dec : mapa.get(id)) {
+                    if (!dec.getTipo().admiteSobrecarga()) {
+                        varEncontradaBloque = true; //Hemos encontrado una declaración de variable en este bloque
+                        //Si no lo habíamos encontrado en bloques previos, la añadimos
+                        if (!varEncontradaBloquePrevio) 
+                            punteros.add(dec);
+
+                    }
+                    else    
+                        punteros.add(dec);
+                }
                 encontrado = true;
             }
+            varEncontradaBloquePrevio = varEncontradaBloque;
         }
         //Si no estaba en ninguna tabla, lanzamos error de vinculación
         if (!encontrado) {

@@ -50,7 +50,7 @@ Output
 	\item \err{[Fila 2, Columna 8] Elemento inesperado ``int''}
 	\item \err{[Fila 6, Columna 9] Elemento inesperado ``.''}
 \end{itemize}
-
+\newpage
 \section{Errores de vinculación}
 
 Todos los nodos del árbol AST implementan dos funciones: bindFunc y bind. La primera, bindFunc,
@@ -70,11 +70,33 @@ Como también existe sobrecarga, en vinculación permitimos que dos declaracione
 identificador. Será en tipado donde contrastaremos si ambas tienen mismo tipo funcional (y lanzaremos un error
 de ambigüedad).
 
+Al usar un identificador,se buscará en hacia atrás en la pila de tablas y se añadirán al conjunto de vínculos del
+identificador todas las declaraciones que encajen. Cuando en un bloque se encuentre una declaración de variable que
+coincida, no se buscará más declaraciones de variables en los bloques previos (ocultación). Sin embargo, sí se seguirán buscando
+declaraciones de funciones a las que poder vincular el identificador.
+
 Por último, también llevaremos paralelamente otra pila de tablas que recoja los tipos nuevos (clases o structs) declarados en cada
 bloque. Cuando se defina un tipo nuevo, insertaremos en la tabla de tipos actual una entrada nueva. Esta tabla funciona
 exactamente igual que la anterior pero los pares son String (nombre del tipo nuevo) y NodoTipo (el tipo concreto). 
+\newpage
+Vamos a ver un ejemplo de un código que usa lo que acabamos de explicar y no da ningún error.
 
-A continuación, veremos los tipos de errores concretos de vinculación.
+Input [input13 (err vinculacion6)]
+
+\begin{algorithm}
+	\Integer{}(\Integer{}) f (a) \{\}\;
+	\Boolean{} f\;
+	\{\\
+		\quad \Integer{} f; \comm{//Declaración de variable "f" que no produce error por ocultación}\\
+		\quad \Integer{}(\Boolean{}) f (a) \{\}\;
+		\quad \comm{//Lo siguiente no produce error de declaración ni de tipado porque f se ha vinculado correctamente a la declaración del primer bloque}\\
+		\quad \Integer{} x := f(2)\;
+		\quad \comm{//Lo siguiente tampoco proudcirá error de tipado porque f ha sido vinculada correctamente a la declaración de este bloque}\\
+		\quad x := f\;
+	\}\\
+\end{algorithm}
+
+A continuación, veremos los tipos de errores concretos de vinculación. \\ \\ \\ \\
 
 \subsection{Identificador ya declarado}
 
@@ -94,7 +116,7 @@ Output
 \begin{itemize}
 	\item \err{[Fila 2, Columna 6] Identificador ya declarado: hola}
 \end{itemize}
-
+\newpage
 \subsection{Identificador no declarado}
 
 Este error se lanza cuando utiliza un identificador que no ha sido declarado prevaimente. \\
@@ -177,7 +199,9 @@ Output
 Este error se lanza cuando se declara una función y el número de argmuentos no corresponde con el número de los
 tipos de argumentos de la función. Este error lo detectamos en vinculación porque cuando se vincula la cabecera de 
 la función, se insertan declaraciones en la tabla de símbolos con cada uno de los argumentos, para que los identificadores
-del ámbito de la función se puedan vincular a estas declaraciones.\\
+del ámbito de la función se puedan vincular a estas declaraciones. Para que estas declaraciones no choquen con otras
+declaraciones de ese bloque, al vincular los parámetros de una función abrimos un nuevo bloque intermedio entre el bloque
+donde está definida la función y el bloque del ámbito de la función.\\
 
 Input [input12 (err vinculacion5).txt]
 
