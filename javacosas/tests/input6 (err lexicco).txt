@@ -1,7 +1,0 @@
-int hola ::= 2;
-while (int) {
-	hola++;
-}
-int(int) f(a) {
-	return .;
-};
