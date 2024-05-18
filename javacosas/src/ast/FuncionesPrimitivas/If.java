@@ -79,7 +79,7 @@ public class If implements Programa {
     @Override
     public Set<NodoTipo> type(Set<NodoTipo> tiposEsperados) {
         cond.type(new LinkedHashSet<>(Arrays.asList(new Booleano())));
-        Set<NodoTipo> tipadoAmbitos = Tipado.enumToTipo(Tipado.TODOS);
+        Set<NodoTipo> tipadoAmbitos = Tipado.enumToTipo(Tipado.TIPOS_INSTR);
         ambito.type(tipadoAmbitos);
         
         //Elsif

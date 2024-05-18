@@ -31,7 +31,7 @@ public class Tipado {
 
     ERROR; 
     } 
-    public static final Set<TiposEnum> TODOS = Set.of(TiposEnum.ENTERO, TiposEnum.BOOLEANO, TiposEnum.PUNTERO, TiposEnum.ARRAY, TiposEnum.STRUCT, TiposEnum.CLASE, TiposEnum.FUNCIONAL, TiposEnum.VOID, TiposEnum.ASIGNACION, TiposEnum.DECVARIABLE, TiposEnum.DECFUNCION, TiposEnum.DEFCLASE, TiposEnum.DEFSTRUCT, TiposEnum.RETURN, TiposEnum.ERROR);
+    //public static final Set<TiposEnum> TODOS = Set.of(TiposEnum.ENTERO, TiposEnum.BOOLEANO, TiposEnum.PUNTERO, TiposEnum.ARRAY, TiposEnum.STRUCT, TiposEnum.CLASE, TiposEnum.FUNCIONAL, TiposEnum.VOID, TiposEnum.ASIGNACION, TiposEnum.DECVARIABLE, TiposEnum.DECFUNCION, TiposEnum.DEFCLASE, TiposEnum.DEFSTRUCT, TiposEnum.RETURN, TiposEnum.ERROR);
     public static final Set<TiposEnum> TIPOS_EXPRESIONES = Set.of(TiposEnum.ENTERO, TiposEnum.BOOLEANO, TiposEnum.PUNTERO, TiposEnum.ARRAY, TiposEnum.STRUCT, TiposEnum.CLASE, TiposEnum.FUNCIONAL);
     public static final Set<TiposEnum> TIPOS_ARGUMENTOS_FUNCION = Set.of(TiposEnum.ENTERO, TiposEnum.BOOLEANO, TiposEnum.PUNTERO, TiposEnum.ARRAY, TiposEnum.STRUCT, TiposEnum.CLASE);
     public static final Set<TiposEnum> TIPOS_PUNTERO = Set.of(TiposEnum.ENTERO, TiposEnum.BOOLEANO, TiposEnum.PUNTERO, TiposEnum.ARRAY);
@@ -40,6 +40,7 @@ public class Tipado {
     public static final Set<TiposEnum> TIPOS_CONTENIDO_ARRAY = Set.of(TiposEnum.ENTERO, TiposEnum.BOOLEANO, TiposEnum.PUNTERO, TiposEnum.STRUCT, TiposEnum.CLASE, TiposEnum.ARRAY);
     public static final Set<TiposEnum> TIPOS_ATRIBUTOS = Set.of(TiposEnum.ENTERO, TiposEnum.BOOLEANO, TiposEnum.PUNTERO, TiposEnum.STRUCT, TiposEnum.CLASE);
     public static final Set<TiposEnum> TIPOS_ENTRADA_SALIDA = Set.of(TiposEnum.ENTERO, TiposEnum.BOOLEANO, TiposEnum.PUNTERO);
+    public static final Set<TiposEnum> TIPOS_INSTR = Set.of(TiposEnum.ASIGNACION, TiposEnum.DECVARIABLE, TiposEnum.DECFUNCION, TiposEnum.DEFCLASE, TiposEnum.DEFSTRUCT,  TiposEnum.RETURN, TiposEnum.OTRA_INSTRUCCION, TiposEnum.ERROR);
     public static final Set<TiposEnum> TIPOS_INSTR_STRUCTS = Set.of(TiposEnum.DECVARIABLE, TiposEnum.DEFSTRUCT, TiposEnum.ERROR);
     public static final Set<TiposEnum> TIPOS_INSTR_CLASES = Set.of(TiposEnum.DECVARIABLE, TiposEnum.DEFCLASE, TiposEnum.DEFSTRUCT, TiposEnum.DECFUNCION,  TiposEnum.ERROR);
     public static final Set<TiposEnum> TIPOS_INSTR_FUNC = Set.of(TiposEnum.ASIGNACION, TiposEnum.DECVARIABLE, TiposEnum.DEFCLASE, TiposEnum.DEFSTRUCT, TiposEnum.DECFUNCION, TiposEnum.OTRA_INSTRUCCION, TiposEnum.RETURN,TiposEnum.ERROR);
@@ -203,7 +204,7 @@ public class Tipado {
         int columna = op.getColumna();
         List<Set<NodoTipo>> tOperador = op.getTipado();     // Tipado del operador
         Set<NodoTipo> tEsperadosOpnd = conjuntoError();     // Tipos esperados para el operando
-        Set<NodoTipo> tResOperador = enumToTipo(TODOS);     // Tipos factibles de devolución
+        Set<NodoTipo> tResOperador = enumToTipo(TIPOS_EXPRESIONES);     // Tipos factibles de devolución
         Set<NodoTipo> tipadoMatch = conjuntoError();        // Tipos que se devuelven en el return
         
         //El tipo de devolución y el tipo esperado en el operando vendrán según el operador
@@ -232,7 +233,13 @@ public class Tipado {
                 tEsperadosOpnd = tOperador.get(0);
                 tResOperador = tOperador.get(1);
                 //Tipamos la expresión del operando. Este tipado será el tipado de devolución.
-                tipadoMatch = expresion.type(tEsperadosOpnd);          
+                tipadoMatch = expresion.type(tEsperadosOpnd);
+
+            //Estos dos operadores también son instrucciones, así que añadimos ese tipo
+            case MasMas.OPSTRING:
+            case MenosMenos.OPSTRING:
+                tResOperador.add(new TInstruccion(TiposEnum.ASIGNACION));
+                tipadoMatch = match2Conjuntos(tResOperador, tiposEsperados); //Intersecamos para no dar error de ambigüedad
             break;
             
         }        
@@ -261,7 +268,7 @@ public class Tipado {
         Set<NodoTipo> tEsperadosOpnd1 = conjuntoError();    // Tipo esperado el primer operando
         Set<NodoTipo> tResOperando2 = conjuntoError();      // Tipo resultado del segundo operando
         Set<NodoTipo> tEsperadosOpnd2 = conjuntoError();    // Tipo esperado el segundo operando
-        Set<NodoTipo> tResOperador = enumToTipo(TODOS);     // Tipo de devolución del operando
+        Set<NodoTipo> tResOperador = enumToTipo(TIPOS_EXPRESIONES);     // Tipo de devolución del operando
         Set<NodoTipo> tipadoMatch = conjuntoError();        // Tipos que se devuelven en el return
 
         //El tipo de devolución y los tipos esperados en los operandos vendrán según el operador

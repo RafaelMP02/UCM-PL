@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.3.19)  26 MAR 2024 16:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.3.19)  18 MAY 2024 10:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/rafaelmp/Documents/UCM/4-PL/Laboratorio/C-Horizon--/PrimeraEntrega/TFGTeXiS.tex
-(/home/rafaelmp/Documents/UCM/4-PL/Laboratorio/C-Horizon--/PrimeraEntrega/TFGTeXiS.tex
+**/home/rafaelmp/Documents/UCM/4-PL/C-Horizon--/PrimeraEntrega/TFGTeXiS.tex
+(/home/rafaelmp/Documents/UCM/4-PL/C-Horizon--/PrimeraEntrega/TFGTeXiS.tex
 LaTeX2e <2023-06-01>
 L3 programming layer <2023-06-05>
 (/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
@@ -695,7 +695,7 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 \evensidemarginOriginal=\skip105
 \oddsidemarginOriginal=\skip106
 \longTitulo=\skip107
-<Imagenes/Bitmap/escudoUCMcolor.png, id=128, 600.3228pt x 678.3744pt>
+<Imagenes/Bitmap/escudoUCMcolor.png, id=132, 600.3228pt x 678.3744pt>
 File: Imagenes/Bitmap/escudoUCMcolor.png Graphic file (type png)
 <use Imagenes/Bitmap/escudoUCMcolor.png>
 Package pdftex.def Info: Imagenes/Bitmap/escudoUCMcolor.png  used on input line 165.
@@ -743,16 +743,16 @@ LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 1.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 25.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 21.
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 25.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 21.
  [1
 
 
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}])
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}])
 LaTeX Info: Redefining \. on input line 141.
 LaTeX Info: Redefining \% on input line 141.
 
@@ -796,8 +796,8 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.49998pt}.
 
 [5]
-LaTeX Info: Redefining \. on input line 176.
-LaTeX Info: Redefining \% on input line 176.
+LaTeX Info: Redefining \. on input line 173.
+LaTeX Info: Redefining \% on input line 173.
 
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
@@ -807,8 +807,8 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.49998pt}.
 
 [6]
-LaTeX Info: Redefining \. on input line 220.
-LaTeX Info: Redefining \% on input line 220.
+LaTeX Info: Redefining \. on input line 213.
+LaTeX Info: Redefining \% on input line 213.
 
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
@@ -819,14 +819,11 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 
 [7]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 257.
+(Font)              <7> on input line 249.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 257.
-
-Underfull \vbox (badness 1062) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 259.
-LaTeX Info: Redefining \% on input line 259.
+(Font)              <5> on input line 249.
+LaTeX Info: Redefining \. on input line 251.
+LaTeX Info: Redefining \% on input line 251.
 
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
@@ -836,8 +833,8 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.49998pt}.
 
 [8]
-LaTeX Info: Redefining \. on input line 293.
-LaTeX Info: Redefining \% on input line 293.
+LaTeX Info: Redefining \. on input line 286.
+LaTeX Info: Redefining \% on input line 286.
 
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
@@ -900,18 +897,28 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 ]
 Cap\'itulo 4.
 
-Overfull \hbox (3.86035pt too wide) in paragraph at lines 11--12
-[][]\T1/cmtt/m/n/12 [Line 54. Column 12. Code 02] Invalid operation: divided by zero.[] 
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+
  []
 
-) [15] [16
+[15])
+LaTeX Info: Redefining \. on input line 144.
+LaTeX Info: Redefining \% on input line 144.
 
 
+Package fancyhdr Warning: \headheight is too small (14.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.49998pt}.
 
-]
+[16]
 \openout2 = `Cascaras/fin.aux'.
 
  (./Cascaras/fin.tex) [17
+
+
+
 
 ] (./TFGTeXiS.aux (./Cascaras/cover.aux)
 LaTeX Info: Redefining \. on input line 25.
@@ -922,21 +929,21 @@ LaTeX2e <2023-06-01>
 L3 programming layer <2023-06-05>
  ***********
 Package rerunfilecheck Info: File `TFGTeXiS.out' has not changed.
-(rerunfilecheck)             Checksum: 3CBB3B0D7F36E1575FD24F451FACC627;4315.
+(rerunfilecheck)             Checksum: 9ABF532D3B2B6AB434EDAC1517EF1FD5;4549.
  ) 
 Here is how much of TeX's memory you used:
- 19137 strings out of 475735
- 308371 string characters out of 5784786
+ 19182 strings out of 475735
+ 308873 string characters out of 5784786
  1866759 words of memory out of 5000000
- 39119 multiletter control sequences out of 15000+600000
- 530385 words of font info for 62 fonts, out of 8000000 for 9000
+ 39129 multiletter control sequences out of 15000+600000
+ 530722 words of font info for 63 fonts, out of 8000000 for 9000
  1379 hyphenation exceptions out of 8191
- 101i,12n,112p,951b,507s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 101i,12n,112p,939b,507s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on TFGTeXiS.pdf (21 pages, 668114 bytes).
+Output written on TFGTeXiS.pdf (21 pages, 673399 bytes).
 PDF statistics:
- 512 PDF objects out of 1000 (max. 8388607)
- 444 compressed objects within 5 object streams
- 175 named destinations out of 1000 (max. 500000)
- 254 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 560 PDF objects out of 1000 (max. 8388607)
+ 491 compressed objects within 5 object streams
+ 208 named destinations out of 1000 (max. 500000)
+ 262 words of extra memory for PDF output out of 10000 (max. 10000000)
 

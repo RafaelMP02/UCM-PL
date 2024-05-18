@@ -83,6 +83,7 @@ int = int
 bool = bool
 true = True
 false = False
+nullptr = null
 
 letra  = ([A-Z]|[a-z])
 identificador = {letra}({letra}|{digito}|{guion})*
@@ -141,6 +142,7 @@ identificador = {letra}({letra}|{digito}|{guion})*
 {bool}           	  {return ops.unidadBool();}
 {true}           	  {return ops.unidadTrue();}
 {false}           	  {return ops.unidadFalse();}
+{nullptr} 		  {return ops.unidadNullPtr();}
 
 {identificador}           {return ops.unidadId();}
 

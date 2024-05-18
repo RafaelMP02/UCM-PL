@@ -1,14 +1,51 @@
 \chapter{Gestión de errores en C-Horizon}
 \label{cap:errores}
 
-Para cada error se indicará su tipo y su posición en el archivo (fila y columna). Si el error se encuentra en una instrucción simple, se retomará la 
-compilación justo donde termina la instrucción, esto es, después de ";". En caso de que el error se de en la declaración de un ámbito (una función, una 
-condición, un bucle) se retomará la compilación justo al terminar ese ámbito. Es decir, se buscará el caracter "\{" y se omitirá todo el código hasta 
-encontrar el "\}" que lo cierre (para ello también se llevará un contador de los "\{" sin cerrar). Algunos ejemplos de errores: 
+Para cada error se indicará su tipo y su posición en el archivo (fila y columna). Vamos a explicar
+los distintos tipos de errores. 
+
+\section{Errores léxicos}
+Simplemente se imprimirá el token no reconocido.\\
+
+Input [input6 (err lexico).txt]\footnote[1]{Cuando pongamos un input para mostrar la salida, indicaremos así el nombre del archivo
+de texto concreto para poder ejecutar el código}
+\begin{algorithm}
+	\Integer{} hola ::= 2\;
+	\Whilee{} (\const{True}) \{ \\
+	\quad hola\operator{++}\;
+	\} \\
+	\Integer{}(\Integer{}) f(a) \{ \\
+	\quad	\Returnn a\;
+	\}\;
+\end{algorithm}
+
+Output
 
 \begin{itemize}
-	\item \err{[Line 6. Column 9. Code 01] Type missmatch. Expected type \Integer.}
-	\item \err{[Line 54. Column 12. Code 02] Invalid operation: divided by zero.}
+	\item \err{[Fila 1, Columna 10] Caracter inesperado: ":"}
+	\item \err{[Fila 3, Columna 9] Caracter inesperado: "\_"}
 \end{itemize}
-%\errmsg{Code 01: Type missmatch. Expected type .} Significa que se esperaba un tipo concreto ("_") y se ha recibido otro. 
-%\errmsg{Code 02: Inavlid operation} Significa que se ha realizado una operación aritmética inválida (dividir entre 0).
+\newpage
+\section{Errores sintácticos}
+Si el error se encuentra en una instrucción simple, se retomará la 
+compilación justo donde termina la instrucción, esto es, después de ";". En caso de que el error se dé en la declaración de un ámbito (una función, una 
+condición, un bucle) se retomará la compilación justo al terminar ese ámbito. Es decir, se buscará el caracter $"\{"$ y se omitirá todo el código hasta 
+encontrar el "\}" que lo cierre (para ello también se llevará un contador de los "\{" sin cerrar). Algunos ejemplos de errores sintácticos: 
+
+Input [input7 (err sintaxis).txt]
+\begin{algorithm}
+	\Integer{} hola := 2\;
+	\Whilee{} (\Integer{}) \{ \\
+	\quad hola\operator{++}\;
+	\} \\
+	\Integer{}(\Integer{}) f(a) \{ \\
+	\quad	\Returnn \operator{.}\;
+	\}\;
+\end{algorithm}
+
+Output
+
+\begin{itemize}
+	\item \err{[Fila 2, Columna 8] Elemento inesperado ``int"}
+	\item \err{[Fila 6, Columna 9] Elemento inesperado "."}
+\end{itemize}

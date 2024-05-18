@@ -58,7 +58,7 @@ public class For implements Programa {
     @Override
     public Set<NodoTipo> type(Set<NodoTipo> tiposEsperados) {
         fin.type(new LinkedHashSet<>(Arrays.asList(new Booleano())));
-        ambito.type(Tipado.enumToTipo(Tipado.TODOS));
+        ambito.type(Tipado.enumToTipo(Tipado.TIPOS_INSTR));
         
         Set<NodoTipo> tipado = Tipado.matchTipoEsperado(new TInstruccion(TiposEnum.OTRA_INSTRUCCION), tiposEsperados, fila, columna);
 

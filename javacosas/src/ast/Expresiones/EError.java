@@ -5,6 +5,7 @@ import java.util.Set;
 import ast.NodoAST;
 import ast.Tipos.NodoTipo;
 import ast.Tipos.Tipado;
+import ast.Vinculacion.Vinculacion;
 
 public class EError extends Identificador {
     public EError() {
@@ -15,6 +16,10 @@ public class EError extends Identificador {
     @Override
     public String toString() {
         return NodoAST.ERROR_STR;
+    }
+
+    @Override
+    public void bind(Vinculacion vinc) {
     }
 
     @Override

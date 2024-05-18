@@ -23,7 +23,6 @@ public class Main {
 		System.out.println("---\nSintax errors:");
 		ConstructorASTExp constructorast = new ConstructorASTExp(alex); //Te devuelve el AST a partir de los tokens
 		NodoAST root = (NodoAST) constructorast.parse().value;
-		System.out.println("---\nAST representation: \n" + root);	//Para imprimir el árbol
 
 		//Binding
 		Vinculacion vinc = new Vinculacion();
@@ -32,7 +31,7 @@ public class Main {
 
 		//Tipado
 		System.out.println("---\nType errors:");
-		root.type(Tipado.enumToTipo(Tipado.TODOS));
+		root.type(Tipado.enumToTipo(Tipado.TIPOS_INSTR));
 
 		//Generación de código
 		if (GestionErroresExp.NUM_ERRORES == 0) {

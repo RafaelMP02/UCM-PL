@@ -41,12 +41,14 @@ public class Return  implements Instruccion {
 
     @Override
     public void bind(Vinculacion vinc) {
-        valor.bind(vinc);
+        if (valor != null)
+            valor.bind(vinc);
     }
 
     @Override
     public Set<NodoTipo> type(Set<NodoTipo> tiposEsperados) {
-        valor.type(Tipado.enumToTipo(Tipado.TIPOS_RETURN));
+        if (valor != null)
+            valor.type(Tipado.enumToTipo(Tipado.TIPOS_RETURN));
         return Tipado.matchTipoEsperado(new TInstruccion(TiposEnum.RETURN), tiposEsperados, fila, columna);
     }
 

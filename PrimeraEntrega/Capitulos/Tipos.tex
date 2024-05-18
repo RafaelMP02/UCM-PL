@@ -90,11 +90,11 @@ Este es un ejemplo:
 		%\Void incr_edad() \{ edad := edad + 1; \} \\ ESTA LÍNEA
 	\}; \\
 
-	\Integer{}() main() := \{ \\
+	\Integer{}() main() \{ \\
 		\quad Estudiante antonio := Estudiante(22, 67532); \\
 		\quad antonio.incr\_edad(); 
 		\comm{//La edad se ha incrementado en 1}  \\
-		\reserved{return} \const{0};
+		\quad \reserved{return} \const{0}; \\
 	\} \;
 \end{algorithm}
 
@@ -130,26 +130,23 @@ Este símbolo, a parte de su uso en la multiplicación, nos vale para relacionar
 \section{Funcional}
 Como dijimos antes, hay tipos funcionales que están determinados por el tipo de retorno del argumento y los tipos de la tupla ordenada de argumentos. 
 Para saber el valor para determinados argumentos de una función, se usa el operador $()$. Dentro del ámbito de una función, podemos usar la palabra reservada \reserved{return} para devolver un valor. Si el tipo de retorno no es void, el ámbito de la función debe ser una propiedad que llamaremos retornable. Un ámbito se dice retornable si contiene un return fuera de todo subámbito suyo o todos sus subámbitos son retornables. 
-Las funciones sin inicializar tienen valor \const{nullfun}, que pertenece a cada tipo funcional el cuál es semejante a la lista vacía o \const{nullptr}, el cuál da error siempre que se intente usar con el operador $()$.
+No permitimos prototipos de funciones, siempre se debe definir el cuerpo de la función.
 	Mostramos ejemplos:
 
 \begin{algorithm}
-	\reserved{int}(\reserved{int}, \reserved{int}) suma;
-	\comm{//Declaramos función sin inicializar} \\ 
-	suma(\const{0}, \const{1});	
-	\comm{//Error al no estar instanciada (es nullfunc) } \\ 
-	suma(a,b) := \{ \\
-	\quad \reserved{return} a + b;  \\
-	\} ;
-	\comm{//Instanciamos suma} \\
 	\reserved{int}(\reserved{int}, \reserved{int}) 
-	division\_entera(a,b) := \{ \\
-	\quad \Ifff{ b \operator{=/=} \const{0} }
-	\comm{//a es 1 o -1 y tiene inverso entero}\\
-	\quad \quad \reserved{return} a;\\
+	suma(a,b) \{ \\
+	\quad \reserved{return} a \operator{+} b;  \\
+	\} \;
+	suma(\const{0}, \const{1});	
+	\comm{//Invocamos a la función suma} \\
+	\reserved{int}(\reserved{int}, \reserved{int}) 
+	division\_entera(a,b) \{ \\
+	\quad \Ifff{ b \operator{=/=} \const{0} } \\
+	\quad \quad \Returnn{} a;\\
 	\quad \}\\
+	\quad \Returnn{} 0 \;
 	\} ;
-	\comm{//En principio da un error al no ser el ámbito de la función retornable pero se podrá arreglar ampliando la definición para permitir devolver errores y no solo returns o permitiendo asertos} \\
 	
 	
 	
@@ -176,17 +173,12 @@ Su pseudo-operador será \Val \, ya que al ser solo azúcar sintáctico, no es u
 
 
 \begin{algorithm}
+	\comm{//Se declara una función con dos parámetros enteros, uno por valor y otro por referencia 
+	 (por defecto es referencia)} \\
 	 \Integer{}(\Val \, \Integer{} , \reserved{int}) 
-	 sumaNum(a, b); \comm{//Se declara una función sin inicializar con dos parámetros enteros, uno por valor y otro por referencia 
-	 (por defecto es referencia)}
-\end{algorithm}
-
-
-\section{Alias}
-Nuestro lenguaje va a tener alias para tipos representado con la palabra reservada \reserved{typedef}. Su sintaxis es:
-
-\begin{algorithm}
-	\reserved{typedef} tipo\_original alias\_tipo\;
+	 sumaNum(a, b) \{ \\
+	 \quad \reserved{return} a \operator{+} b;  \\
+	 \} \;
 \end{algorithm}
 
 

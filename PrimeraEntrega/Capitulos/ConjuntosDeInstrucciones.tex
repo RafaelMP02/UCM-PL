@@ -9,9 +9,8 @@ Nuestro primer tipo de instrucciones son las de asignación. Como hemos visto a 
 \begin{algorithm}
 
 	\Integer{} X  := \const{2};
-	\comm{\\asignación a variable de tipo entero} \\
 	
-	\Integer{*} p  := \const{nullptr}\;
+	\Integer{*} p  := \const{null}\;
 	
 	p := \reserved{new} \;
 	
@@ -26,7 +25,7 @@ Nuestro primer tipo de instrucciones son las de asignación. Como hemos visto a 
 	\Class \texttt{estudiante} \texttt{antonio} := 
 	\texttt{estudiante}(\const{1}, \const{2})\; 
 	
-	int(int, int) potencia(a,b) := \{ \\
+	\Integer{}(\Integer{}, \Integer{}) potencia(a,b) \{ \\
 	\quad \Ifff{b < \const{0}}\\
 	\quad \quad \reserved{return} \const{0}\;
 	\quad \} \Elsif{b == \const{0}}\\
@@ -75,12 +74,12 @@ Finalmente, mostramos un ejemplo en el que se usan todas las instrucciones para 
 	\Integer{} Z  := \const{1}\;
 	\Integer{} T \;
 	
-	\reserved{int}(\reserved{int}, \reserved{int}) f(a,b) := \{ \\
+	\reserved{int}(\reserved{int}, \reserved{int}) f(a,b) \{ \\
 	\quad \Ifff{\const{2}*a < \, b}\\
 	\quad \quad \reserved{return} \const{2}*a + \const{1}\;
 	\quad \} \Elsif{a > \, b}\\
 	\quad \quad \reserved{return} b\;
-	\quad \} \Elsee\\
+	\quad \} \Elsee{}\\
 	\quad \quad \reserved{return} a + \const{1}\;
 	\quad \} \\
 	\}\;

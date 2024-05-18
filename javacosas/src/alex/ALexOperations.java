@@ -159,6 +159,9 @@ public class ALexOperations {
   } 
   public UnidadLexica unidadFalse() {
      return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.FALSE,"false"); 
+  }
+  public UnidadLexica unidadNullPtr() {
+     return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.FALSE,"null"); 
   } 
   
   
