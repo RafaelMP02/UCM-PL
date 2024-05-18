@@ -602,6 +602,9 @@ public class Tipado {
         for (NodoTipo tEsperado : tiposEsperados) {
             if (TIPOS_RETURN.contains(tEsperado.typeToEnum()))
                 tFuncionalesEsperados.add(new Funcional(tEsperado, tipadoParametros));
+            //En caso de que no se esperase una expresión, sino una instrucción, el tipo funcional esperado tiene tipo retorno genérico
+            else if (tEsperado.typeToEnum().equals(TiposEnum.OTRA_INSTRUCCION))
+                tFuncionalesEsperados.add(new Funcional(new TipoGenerico(), tipadoParametros));
         }
 
         if (tFuncionalesEsperados.size() == 0) {
@@ -654,13 +657,20 @@ public class Tipado {
     public static Set<NodoTipo> matchDec(NodoTipo t, Set<NodoTipo> tiposEsperados, int fila, int columna) {
         TiposEnum tEnum = t.typeToEnum();
         Set<NodoTipo> tRes = conjuntoError();
-        
+        NodoTipo tipoDec;
         if (tEnum.equals(TiposEnum.FUNCIONAL)){
-            tRes = new LinkedHashSet<>(Arrays.asList(new TInstruccion(TiposEnum.DECFUNCION, t, fila, columna)));
+            tipoDec = new TInstruccion(TiposEnum.DECFUNCION, t, fila, columna);
         }
         else {
-            tRes = new LinkedHashSet<>(Arrays.asList(new TInstruccion(TiposEnum.DECVARIABLE, t, fila, columna)));
+            tipoDec = new TInstruccion(TiposEnum.DECVARIABLE, t, fila, columna);
         }
+        //Comprobamos si se esperaba una declaración de este tipo
+        if (!esTipoEsperado(tipoDec, tiposEsperados)) {
+            errores.errInstrNoValida(fila, columna);
+            tRes = conjuntoError();
+        }
+        else
+            tRes = new LinkedHashSet<>(Arrays.asList(tipoDec));
         return tRes;
     }
 

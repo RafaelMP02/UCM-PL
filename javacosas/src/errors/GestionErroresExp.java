@@ -72,7 +72,7 @@ public class GestionErroresExp {
 
   public void errTipadoExp(Set<NodoTipo> tiposEsperados, int fila, int columna) {
     /* Error de tipado para expresiones */
-    System.out.print("[Fila " + fila + ", Columna " + columna + "] Error tipado expresión. Se esperaba uno de los siguientes tipos: "); 
+    System.out.print("[Fila " + fila + ", Columna " + columna + "] Error de tipado. Se esperaba uno de los siguientes tipos: "); 
     System.out.println(tEsperadosToString(tiposEsperados));
     addError();
   } 
@@ -103,7 +103,7 @@ public class GestionErroresExp {
     addError();
   }
   public void errInstrNoValida(int fila, int columna) {
-    System.out.println("[Fila " + fila + ", Columna " + columna + "] Error de ambigüedad. Instrucción no válida"); 
+    System.out.println("[Fila " + fila + ", Columna " + columna + "] Instrucción no válida"); 
     addError();
   }
 

@@ -1,4 +1,17 @@
-int num := 0;
-for (int i := 0; i < 3; i++) {
-	num--;
-}
+int() main() {
+	int(int) f(a){};
+	bool(int) f(a){};
+	f(2); //Error por ser una expresión ambigua
+	
+	void () f () {
+		return True; //Error, las funciones void no devuelven nada
+	};
+	int x;
+	//En los structs solo se pueden declarar variables (inicializadas o no) y definir otros tipos nuevos
+	struct A  {
+		int a := 2; //Correcto
+		struct B {};
+		void() f2() {}; //Error, no se puede declarar una función en un struct
+		x := 2; //Error, no se puede realizar una asignación en un struct
+	};	
+};
