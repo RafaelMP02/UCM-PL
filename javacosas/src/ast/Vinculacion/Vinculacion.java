@@ -71,7 +71,7 @@ public class Vinculacion {
             for(Declaracion dec : entrada) {
                 //Si ninguno de los dos nodos admite sobrecarga (son dos declaraciones de variables)
                 if (!puntero.getTipo().admiteSobrecarga() && !dec.getTipo().admiteSobrecarga()) {
-                    errores.errorYaDeclarado(fila, columna, id);
+                    errores.errIdYaDec(fila, columna, id);
                     correcto = false;
                     break;
                 }
@@ -108,16 +108,15 @@ public class Vinculacion {
         }
         //Si no estaba en ninguna tabla, lanzamos error de vinculación
         if (!encontrado) {
-            errores.errorNoDeclarado(fila, columna, id.toString());
+            errores.errIdNoDec(fila, columna, id.toString());
         }
         return punteros;
     }
 
-    public void insertarTipoNuevo(TipoNuevo tipo, int fila, int columna) {
-        String nombre = tipo.toString();
+    public void insertarTipoNuevo(TipoNuevo tipo, String nombre, int fila, int columna) {
         Map<String,TipoNuevo> mapa = pilaDeTipos.get(pilaDeTipos.size() - 1);
         if (mapa.containsKey(nombre)) {
-            errores.errorTipoYaDeclarado(fila, columna, nombre);
+            errores.errTipoYaDef(fila, columna, nombre);
         }
         else {
             mapa.put(nombre, tipo);
@@ -137,7 +136,7 @@ public class Vinculacion {
         }
         //Si no estaba en ninguna tabla, lanzamos error de vinculación
         if (!encontrado) {
-            errores.errorTipoNoDec(fila, columna, id);
+            errores.errTipoNoDef(fila, columna, id);
         }
         return tipo;
     }

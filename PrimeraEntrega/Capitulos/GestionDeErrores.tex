@@ -1,18 +1,19 @@
 \chapter{Gestión de errores en C-Horizon}
 \label{cap:errores}
 
-Para cada error se indicará su tipo y su posición en el archivo (fila y columna). Vamos a explicar
-los distintos tipos de errores. 
+Para cada error se indicará su tipo y su posición en el archivo (fila y columna). La clase GestionErroresExp se
+encarga de actuar conforme a cada error. Además, llevará un contador de errores que imprimirá cuando haya habido
+algún error. Cuando no, permitirá la generación de código. Vamos a explicar los distintos tipos de errores. 
 
 \section{Errores léxicos}
 Simplemente se imprimirá el token no reconocido.\\
 
 Input [input6 (err lexico).txt]\footnote[1]{Cuando pongamos un input para mostrar la salida, indicaremos así el nombre del archivo
-de texto concreto para poder ejecutar el código}
+de texto concreto para poder ejecutar el código. Estos archivos se encuentran en la carpeta tests.}
 \begin{algorithm}
 	\Integer{} hola ::= 2\;
 	\Whilee{} (\const{True}) \{ \\
-	\quad hola\operator{++}\;
+	\quad hola\operator{++};\_\\
 	\} \\
 	\Integer{}(\Integer{}) f(a) \{ \\
 	\quad	\Returnn a\;
@@ -46,6 +47,147 @@ Input [input7 (err sintaxis).txt]
 Output
 
 \begin{itemize}
-	\item \err{[Fila 2, Columna 8] Elemento inesperado ``int"}
-	\item \err{[Fila 6, Columna 9] Elemento inesperado "."}
+	\item \err{[Fila 2, Columna 8] Elemento inesperado ``int''}
+	\item \err{[Fila 6, Columna 9] Elemento inesperado ``.''}
 \end{itemize}
+
+\section{Errores de vinculación}
+
+Todos los nodos del árbol AST implementan dos funciones: bindFunc y bind. La primera, bindFunc,
+solo inserta una entrada en la tabla de símbolos actual con la declaración de una función. Esto lo
+hacemos para permitir que una función declarada en un bloque pueda ser usada en cualquier punto del
+bloque. Por lo tanto, cada vez que abramos un nuevo bloque, añadiremos una nueva tabla de símbolos
+para después llamar siempre primero a bindFunc y luego a bind del prgrama de ese bloque. Al terminar
+de vincular el bloque desapilaremos la tabla de símbolos. Además al desapilarla, guardaremos la tabla
+del bloque porque nos es útil luego (para la definición de structs y clases y para el tipado). Las tablas 
+están implementadas como mapas de clave String y valor Declaracion. La pila de tablas es en realidad una
+lista, ya que resulta más eficiente.
+
+Cuando lleguemos, usando bind, a una declaración de variable, insertaremos dicha declaración en el tabla de 
+símbolos actual. Al insertar una declaración de variable comprobaremos que no se ha insertado otra declaración
+de variable con el mismo identificador. Sí se puede declarar una variable y una función con el mismo identificador.
+Como también existe sobrecarga, en vinculación permitimos que dos declaraciones de funciones tengan mismo
+identificador. Será en tipado donde contrastaremos si ambas tienen mismo tipo funcional (y lanzaremos un error
+de ambigüedad).
+
+Por último, también llevaremos paralelamente otra pila de tablas que recoja los tipos nuevos (clases o structs) declarados en cada
+bloque. Cuando se defina un tipo nuevo, insertaremos en la tabla de tipos actual una entrada nueva. Esta tabla funciona
+exactamente igual que la anterior pero los pares son String (nombre del tipo nuevo) y NodoTipo (el tipo concreto). 
+
+A continuación, veremos los tipos de errores concretos de vinculación.
+
+\subsection{Identificador ya declarado}
+
+Este error se lanza cuando se declara un identificador que ya ha sido declarado. \\
+
+Input [input8 (err vinculacion1).txt]
+
+\begin{algorithm}
+	\Integer{} hola\;
+	\Boolean{} hola; \comm{//Error por identificador ya declarado}\\
+	\Integer{}(\Integer{}) hola (a) {}\;
+	\Integer{}(\Integer{}) hola (a) {}; \comm{//Resulta en un error de tipado, no de vinculación}\\
+\end{algorithm}
+
+Output
+
+\begin{itemize}
+	\item \err{[Fila 2, Columna 6] Identificador ya declarado: hola}
+\end{itemize}
+
+\subsection{Identificador no declarado}
+
+Este error se lanza cuando utiliza un identificador que no ha sido declarado prevaimente. \\
+
+Input [input9 (err vinculacion2).txt]
+
+\begin{algorithm}
+	\Integer{} x\;
+	x := a \operator{+} 1; \comm{//Error de vinculación porque no se ha declarado ``a''} \\
+	x := f(a); \comm{//Solo hay error de id no declarado en a} \\
+
+	\{\\
+	\quad \Integer{} a\;
+	\quad x := a \operator{+} 1; \comm{//Esta instrucción sí que es correcta} \\
+	\}
+
+	x := a \operator{+} 1; \comm{//Ahora vuelve a dar error porque se ha cerrado el bloque} \\
+
+	\Integer{}(\Integer{}) f (num) {}\;
+\end{algorithm}
+
+Output
+
+\begin{itemize}
+	\item \err{[Fila 2, Columna 6] Identificador no declarado: a}
+	\item \err{[Fila 3, Columna 8] Identificador no declarado: a}
+	\item \err{[Fila 8, Columna 6] Identificador no declarado: a}
+\end{itemize}
+
+\subsection{Tipo nuevo ya definido}
+
+Este error se lanza cuando se define un tipo nuevo con un nombre con el que ya se había definido
+un tipo nuevo antes. Aunque sean tipos nuevos distintos (una clase y un struct), si ambos tienen el mismo
+nombre lanzamos error porque puede producir ambigüedad en el futuro. \\
+
+Input [input10 (err vinculacion3).txt]
+
+\begin{algorithm}
+	\Class A \{\\
+		\quad \Integer{} num\;
+	\};\\
+	\Struct A \{\};  \comm{//Error porque ya se ha definido un tipo nuevo con el nombre ``A''}\\
+	\Class A a;  \comm{//Esta declaración es correcta, pues solo se acepta la primera definición de ``A''}\\
+	a.num := 2\;
+\end{algorithm}
+
+Output
+
+\begin{itemize}
+	\item \err{[Fila 4, Columna 8] Tipo nuevo ya definido con ese nombre: A}
+\end{itemize}
+
+\subsection{Tipo nuevo no definido}
+
+Este error se lanza cuando se declara una variable de un tipo nuevo que no ha sido declarado previamente. \\
+
+Input [input11 (err vinculacion4).txt]
+
+\begin{algorithm}
+	\Struct A a; \comm{//Error porque no se ha definido ese tipo nuevo}\\
+	\Struct A \{\}; \comm{//Ahora sí se ha declarado, las declaraciones no darán error}\\
+	\Struct A a1\; 
+	\{\\
+		\quad \Struct A a2\;
+		\quad \Struct B \{\}\;
+	\}\\
+
+	\Struct B b; \comm{//Error porque no hay una declaración del struct B visible}\\
+\end{algorithm}
+
+Output
+
+\begin{itemize}
+	\item \err{[Fila 1, Columna 1] Tipo nuevo no definido: A}
+	\item \err{[Fila 8, Columna 1] Tipo nuevo no definido: B}
+\end{itemize}
+
+\subsection{Error en el número de argumentos}
+
+Este error se lanza cuando se declara una función y el número de argmuentos no corresponde con el número de los
+tipos de argumentos de la función. Este error lo detectamos en vinculación porque cuando se vincula la cabecera de 
+la función, se insertan declaraciones en la tabla de símbolos con cada uno de los argumentos, para que los identificadores
+del ámbito de la función se puedan vincular a estas declaraciones.\\
+
+Input [input12 (err vinculacion5).txt]
+
+\begin{algorithm}
+	\Integer{}(\Integer{}) f (a,b) \{\};
+\end{algorithm}
+
+Output
+
+\begin{itemize}
+	\item \err{[Fila 1, Columna 10] Error en el número de argumentos de la función: f}
+\end{itemize}
+

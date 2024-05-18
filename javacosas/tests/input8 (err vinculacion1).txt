@@ -1,0 +1,4 @@
+int hola;
+bool hola; //Error por identificador ya declarado
+int(int) hola (a) {};
+int(int) hola (a) {}; //Resulta en un error de tipado, no de vinculación

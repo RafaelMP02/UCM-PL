@@ -1,0 +1,6 @@
+class A {
+	int num;
+};
+struct A{}; //Error porque ya se ha definido un tipo nuevo con el nombre "A"
+class A a; //Esta declaración es correcta, pues solo se acepta la primera definición de "A"
+a.num := 2;

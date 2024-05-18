@@ -37,24 +37,23 @@ public class GestionErroresExp {
 
   //VINCULACIÓN
 
-  public void errorNoDeclarado(int fila, int columna, String lexema) {
-    System.out.println("[Fila " + fila + ", Columna " + columna + "] Identificador no declarado: "+lexema); 
-    addError();
-  }
-
-  public void errorTipoNoDec(int fila, int columna, String lexema) {
-    System.out.println("[Fila " + fila + ", Columna " + columna + "] Tipo no declarado: "+lexema); 
-    addError();
-  }
-
-  public void errorYaDeclarado(int fila, int columna, String lexema) {
+  public void errIdYaDec(int fila, int columna, String lexema) {
     System.out.println("[Fila " + fila + ", Columna " + columna + "] Identificador ya declarado: "+lexema); 
     addError();
   }
 
+  public void errIdNoDec(int fila, int columna, String lexema) {
+    System.out.println("[Fila " + fila + ", Columna " + columna + "] Identificador no declarado: "+lexema); 
+    addError();
+  }
+  
+  public void errTipoYaDef(int fila, int columna, String lexema) {
+    System.out.println("[Fila " + fila + ", Columna " + columna + "] Tipo nuevo ya definido con ese nombre: "+lexema); 
+    addError();
+  }
 
-  public void errorTipoYaDeclarado(int fila, int columna, String lexema) {
-    System.out.println("[Fila " + fila + ", Columna " + columna + "] Clase o struct ya declarado con ese nombre: "+lexema); 
+  public void errTipoNoDef(int fila, int columna, String lexema) {
+    System.out.println("[Fila " + fila + ", Columna " + columna + "] Tipo nuevo no definido: "+lexema); 
     addError();
   }
 
@@ -62,7 +61,6 @@ public class GestionErroresExp {
     System.out.println("[Fila " + fila + ", Columna " + columna + "] Error en el número de argumentos de la función: " + idFuncion); 
     addError();
   }
-
 
   //TIPADO
 

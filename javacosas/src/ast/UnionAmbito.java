@@ -22,6 +22,12 @@ public class UnionAmbito implements Programa {
     public String toString() {
         return " " + ambito.toString() + programa.toString();
     }
+
+    @Override 
+    public void bindFunc(Vinculacion vinc) {
+        programa.bindFunc(vinc);
+    }
+
     @Override
     public void bind(Vinculacion vinc) {
         ambito.bind(vinc);

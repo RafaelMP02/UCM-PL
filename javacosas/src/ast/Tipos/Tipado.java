@@ -32,7 +32,7 @@ public class Tipado {
     ERROR; 
     } 
     //public static final Set<TiposEnum> TODOS = Set.of(TiposEnum.ENTERO, TiposEnum.BOOLEANO, TiposEnum.PUNTERO, TiposEnum.ARRAY, TiposEnum.STRUCT, TiposEnum.CLASE, TiposEnum.FUNCIONAL, TiposEnum.VOID, TiposEnum.ASIGNACION, TiposEnum.DECVARIABLE, TiposEnum.DECFUNCION, TiposEnum.DEFCLASE, TiposEnum.DEFSTRUCT, TiposEnum.RETURN, TiposEnum.ERROR);
-    public static final Set<TiposEnum> TIPOS_EXPRESIONES = Set.of(TiposEnum.ENTERO, TiposEnum.BOOLEANO, TiposEnum.PUNTERO, TiposEnum.ARRAY, TiposEnum.STRUCT, TiposEnum.CLASE, TiposEnum.FUNCIONAL);
+    public static final Set<TiposEnum> TIPOS_EXPRESIONES = Set.of(TiposEnum.ENTERO, TiposEnum.BOOLEANO, TiposEnum.PUNTERO, TiposEnum.ARRAY, TiposEnum.STRUCT, TiposEnum.CLASE, TiposEnum.FUNCIONAL, TiposEnum.ERROR);
     public static final Set<TiposEnum> TIPOS_ARGUMENTOS_FUNCION = Set.of(TiposEnum.ENTERO, TiposEnum.BOOLEANO, TiposEnum.PUNTERO, TiposEnum.ARRAY, TiposEnum.STRUCT, TiposEnum.CLASE);
     public static final Set<TiposEnum> TIPOS_PUNTERO = Set.of(TiposEnum.ENTERO, TiposEnum.BOOLEANO, TiposEnum.PUNTERO, TiposEnum.ARRAY);
     public static final Set<TiposEnum> TIPOS_RETURN = Set.of(TiposEnum.ENTERO, TiposEnum.BOOLEANO, TiposEnum.PUNTERO, TiposEnum.ARRAY, TiposEnum.STRUCT, TiposEnum.CLASE, TiposEnum.VOID);
@@ -128,7 +128,7 @@ public class Tipado {
                         for (int i = 0; i < parametros1.size() && funIgual; i++) {
                             NodoTipo tParam1 = parametros1.get(i).getTipo();
                             NodoTipo tParam2 = parametros2.get(i).getTipo();        
-                            if (match2Tipos(tParam1, tParam2).typeToEnum().equals(TiposEnum.ERROR))
+                            if (match2Tipos(tParam1, tParam2).typeToEnum().equals(TiposEnum.ERROR) && !tParam2.typeToEnum().equals(TiposEnum.ERROR))
                                 funIgual = false;
                         }
                         if (funIgual)
@@ -545,6 +545,9 @@ public class Tipado {
     //IDENTIFICADORES
 
     public static Set<NodoTipo> matchIdentificador(Identificador identificador, Set<Declaracion> vinculos, Set<NodoTipo> tiposEsperados) {
+        //Si no hay vínculos, no hacemos match porque ya se ha detectado un error de vinculación
+        if (vinculos.size()==0)
+            return conjuntoError();
         Set<NodoTipo> tipadoMatch = new LinkedHashSet<>();
         Set<Declaracion> vincResultado = new LinkedHashSet<>();
         for (Declaracion dec : vinculos) {

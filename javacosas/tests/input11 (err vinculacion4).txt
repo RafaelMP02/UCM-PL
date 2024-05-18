@@ -1,0 +1,8 @@
+struct A a; //Error porque no se ha definido ese tipo nuevo
+struct A {}; //Ahora sí se ha declarado, las declaraciones no darán error
+struct A a1; 
+{
+	struct A a2;
+	struct B {};
+}
+struct B b; //Error porque no hay una declaración del struct B visible
