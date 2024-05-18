@@ -1,9 +1,11 @@
-int x;
-x := a + 1; //Error de vinculación porque no se ha declarado a
-x := f(a); //Solo hay error de id no declarado en a
-{
-	int a;
-	x := a + 1; //Esta instrucción sí que es correcta
-}
-x := a + 1; //Ahora vuelve a dar error porque se ha cerrado el bloque
+int() main() {
+	int x;
+	x := a + 1; //Error de vinculación porque no se ha declarado a
+	x := f(a); //Solo hay error de id no declarado en a
+	{
+		int a;
+		x := a + 1; //Esta instrucción sí que es correcta
+	}
+	x := a + 1; //Ahora vuelve a dar error porque se ha cerrado el bloque
+};
 int(int) f (num) {};

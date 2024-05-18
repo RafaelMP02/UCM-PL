@@ -21,8 +21,15 @@ public class Funcional implements NodoTipo {
         StringBuilder str = new StringBuilder();
         if (tRetorno != null)
             str.append(tRetorno.toString());
-        if(parametros != null)
-            str.append(parametros.toString());
+        if(parametros != null) {
+            str.append("(");
+            if (parametros.size() > 0) {
+                str.append(parametros.get(0).toString());
+                for (int i = 1; i < parametros.size(); i++)
+                    str.append(", " + parametros.get(i).toString());
+            }
+            str.append(")");
+        }
         return str.toString();
     }
 

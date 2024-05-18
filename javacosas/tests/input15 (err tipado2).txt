@@ -1,0 +1,8 @@
+//Estas dos funciones son distintas porque su tipo de devolución es distinto
+bool(int) f(a){};
+int(int) f(a){};
+int() main() {
+	f(2); //Error de ambigüedad, pues se espera cualquier tipo de instrucción
+	int x := f(2); //Aquí se resuelve y no hay error de ambigüedad, pues solo encaja la segunda función (porque el tipo de retorno es el que se espera en la asignación
+	int[2] arr := f(2); //Error de tipado porque ninguna declaración del identificador "f" encaja con los tipos esperados
+};

@@ -1,16 +1,22 @@
-int[3] arr;
-arr := [5,2,3];
-arr[2] := True;
-int[1][3] a := [[1],[2],[3]];
-int c;
-int(int) c (a) {};
-int b := 2 + c;
+int() main() {
+	int[3] arr;
+	arr := [5,2,3];
+	arr[2] := True; //Error de tipo
+	while (2) { //Error de tipo en la condición
+		arr := [1,2,3]; //Error de tipo, arrays de tamaño diferente
+	}
+	int[1][3] a := [[1],[2],[3]];
+	int c;
+	int(int) c (a) {};
+	int b := 2 + c;
+	c := f(True); //Error de tipo
+	struct A {
+		int a;
+	};
+	struct A hola;
+	hola := {3};
+};
+
 int(int) f (a) {
 	return a;
 };
-c := f(True);
-struct A {
-	int a;
-};
-struct A hola;
-hola := {3};

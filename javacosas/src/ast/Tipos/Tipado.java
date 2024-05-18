@@ -313,6 +313,7 @@ public class Tipado {
                     //Si no está, lanzamos error y lo devolvemos hacia arriba
                     if(!mapaCampos.containsKey(idOpnd2.toString())) {
                         errores.errorNoHayCampo(idOpnd2.toString(), op.getFila(), op.getColumna());
+                        tipadoMatch = conjuntoError();
                     }
                     else {
                         Set<Declaracion> vinculosId = new LinkedHashSet<>();
@@ -420,7 +421,10 @@ public class Tipado {
         //Si es una asignación con declaración, devolveremos una declaración
         if (esDeclaracion)
             tRes = tCabecera;            
-
+        if (match2Conjuntos(tRes, tiposEsperados).size() == 0) {
+            errores.errInstrNoValida(fila, columna);
+            tRes = conjuntoError();
+        }
         //Si el operando izquierdo es una expresión asignable, tipamos el operando derecho
         if (asignable) {       
             if (esDeclaracion)

@@ -1,17 +1,35 @@
-int() main() {
-	int(int) f(a){};
-	bool(int) f(a){};
-	f(2); //Error por ser una expresión ambigua
-	
-	void () f () {
-		return True; //Error, las funciones void no devuelven nada
+struct A {
+	int var1;
+	bool var2 := True;
+};
+
+struct C {
+	int var1;
+	bool var2;
+	//Instrucción no válida en un struct
+	int(int) f(a) {
+		return a;
 	};
-	int x;
-	//En los structs solo se pueden declarar variables (inicializadas o no) y definir otros tipos nuevos
-	struct A  {
-		int a := 2; //Correcto
-		struct B {};
-		void() f2() {}; //Error, no se puede declarar una función en un struct
-		x := 2; //Error, no se puede realizar una asignación en un struct
-	};	
+};
+
+int() main() {
+	struct A a1;
+	a1.var1 := 3;
+	struct A a2 := {3, False}; //Error de tipado en "False"
+	struct A a3 := {3, 4};
+
+	struct B {
+		int var1;
+		bool var2;
+		struct A a;
+	};
+
+	struct B b1;
+	b1.a := a2;
+	b1.a := 4; //Error de tipado
+	b1.var3 := 2; //Error, no existe el vampo var3 en struct B
+	struct B b2 :=  {2, True, b1}; //Error de tipado en "b1"
+
+	struct C c;
+	c.var1 := a1.var1;
 };
