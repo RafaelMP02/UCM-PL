@@ -33,3 +33,4 @@
 \contentsline {subsection}{\numberline {4.3.3}Tipo nuevo ya definido}{19}{subsection.215}%
 \contentsline {subsection}{\numberline {4.3.4}Tipo nuevo no definido}{20}{subsection.224}%
 \contentsline {subsection}{\numberline {4.3.5}Error en el número de argumentos}{20}{subsection.235}%
+\contentsline {section}{\numberline {4.4}Errores de tipado}{21}{section.239}%

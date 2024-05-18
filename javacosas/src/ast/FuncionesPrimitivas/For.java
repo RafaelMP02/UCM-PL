@@ -30,6 +30,7 @@ public class For implements Programa {
         this.columna = columna;
         this.paso = paso;
         this.fin = fin;
+        this.inicio = inicio;
         this.ambito = amb;
         this.programa = p;
    }
@@ -45,19 +46,39 @@ public class For implements Programa {
     }
 
     public String toString() {
-        return "FOR(" + inicio.toString() +";" + fin.toString() + ";" + paso.toString() + ")" + ambito.toString() + programa.toString();
+        StringBuilder str = new StringBuilder();
+        str.append("FOR (");
+        if (inicio != null)
+            str.append(inicio.toString() + " ; ");
+        else    
+            str.append("ERROR ; ");
+
+        str.append(fin.toString() + " ; ");
+
+        if (paso != null)
+            str.append(paso.toString() + ")");
+        else    
+            str.append("ERROR)");
+        str.append(ambito.toString() + programa.toString());
+        return str.toString();
     }
     @Override
     public void bind(Vinculacion vinc) {
-        inicio.bind(vinc);
+        if (inicio != null)
+            inicio.bind(vinc);
         fin.bind(vinc);
-        paso.bind(vinc);
+        if (paso != null)
+            paso.bind(vinc);
         ambito.bind(vinc);
         programa.bind(vinc);
     }
     @Override
     public Set<NodoTipo> type(Set<NodoTipo> tiposEsperados) {
+        if (inicio != null)
+            inicio.type(Tipado.enumToTipo(Set.of(TiposEnum.ASIGNACION, TiposEnum.DECVARIABLE)));
         fin.type(new LinkedHashSet<>(Arrays.asList(new Booleano())));
+        if (paso != null)
+            paso.type(Tipado.enumToTipo(Set.of(TiposEnum.ASIGNACION)));
         ambito.type(Tipado.enumToTipo(Tipado.TIPOS_INSTR));
         
         Set<NodoTipo> tipado = Tipado.matchTipoEsperado(new TInstruccion(TiposEnum.OTRA_INSTRUCCION), tiposEsperados, fila, columna);

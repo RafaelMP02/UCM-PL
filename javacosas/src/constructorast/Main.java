@@ -23,6 +23,7 @@ public class Main {
 		System.out.println("---\nSintax errors:");
 		ConstructorASTExp constructorast = new ConstructorASTExp(alex); //Te devuelve el AST a partir de los tokens
 		NodoAST root = (NodoAST) constructorast.parse().value;
+		System.out.println("---\nAST\n " + root);
 
 		//Binding
 		Vinculacion vinc = new Vinculacion();

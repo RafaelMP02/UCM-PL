@@ -200,7 +200,7 @@ Este error se lanza cuando se declara una función y el número de argmuentos no
 tipos de argumentos de la función. Este error lo detectamos en vinculación porque cuando se vincula la cabecera de 
 la función, se insertan declaraciones en la tabla de símbolos con cada uno de los argumentos, para que los identificadores
 del ámbito de la función se puedan vincular a estas declaraciones. Para que estas declaraciones no choquen con otras
-declaraciones de ese bloque, al vincular los parámetros de una función abrimos un nuevo bloque intermedio entre el bloque
+declaraciones de ese bloque, al vincular los argumentos de una función abrimos un nuevo bloque intermedio entre el bloque
 donde está definida la función y el bloque del ámbito de la función.\\
 
 Input [input12 (err vinculacion5).txt]
@@ -214,4 +214,18 @@ Output
 \begin{itemize}
 	\item \err{[Fila 1, Columna 10] Error en el número de argumentos de la función: f}
 \end{itemize}
+\newpage
+\section{Errores de tipado}
+
+El tipado lo hemos gestionado de la siguiente manera. En primer lugar, hemos creado más tipos que los tipos usuales
+de nuestro lenguaje de programación (enteros, booleanos, struct, etc). Estos tipos sirven para dos cosas: detectar errores
+y tipar instrucciones. El tipado de instrucciones sirve para localizar instrucciones imposibles en ciertos contextos. Por
+ejemplo, una declaración de función en un struct o una instrucción \Return{} en una función void, entre otros.
+
+Cada nodo recibe un conjunto de tipos esperados. Y, conforme a ese conjunto, se tipa él mismo y a sus hijos. Es en el tipado
+donde se resuelve definitivamente la vinculación de identificadores. Se quitan del conjunto de vínculos aquellas declaraciones
+que no coincidan con ningún tipo esperado. Si queda más de un vínculo, lanzaremos un error de expresión ambigua.
+
+
+
 

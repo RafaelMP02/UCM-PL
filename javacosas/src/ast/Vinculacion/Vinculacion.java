@@ -17,7 +17,6 @@ import ast.Tipos.NodoTipo;
 import ast.Tipos.Parametrico;
 import ast.Tipos.TipoError;
 import ast.Tipos.TipoNuevo;
-import ast.Tipos.Tipado.TiposEnum;
 
 
 public class Vinculacion {

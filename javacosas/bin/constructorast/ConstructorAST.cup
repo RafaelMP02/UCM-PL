@@ -152,14 +152,13 @@ P ::= FOR:aDeFor PAP ASIGNACION:aDeIni PCOMA E1:aDeFin PCOMA ASIGNACION: aDePaso
     {:RESULT= new For(aDeIni, aDePaso, aDeFin, aDeAmb, aDeP, aDeFor.fila, aDeFor.columna); :};
 
 P ::= FOR:aDeFor PAP ASIGNACION:aDeIni PCOMA E1:aDeFin PCOMA E8: aDeVarPaso OPMASMAS : aDeMM PCIERRE AMBITO: aDeAmb  P:aDeP
-    {:RESULT= new For(aDeIni, new Asignacion(aDeVarPaso, new EUn(aDeVarPaso, new MasMas(aDeMM.fila, aDeMM.columna))), aDeFin, aDeAmb, aDeP, aDeFor.fila, aDeFor.columna); :};
+    {:RESULT= new For(aDeIni, new Asignacion(aDeVarPaso, new EBin(aDeVarPaso, new Num("1", aDeMM.fila, aDeMM.columna), new Suma(aDeMM.fila, aDeMM.columna))), aDeFin, aDeAmb, aDeP, aDeFor.fila, aDeFor.columna); :};
 
 P ::= FOR:aDeFor PAP ASIGNACION:aDeIni PCOMA E1:aDeFin PCOMA E8: aDeVarPaso OPMENOSMENOS : aDeMM  PCIERRE AMBITO: aDeAmb  P:aDeP
-    {:RESULT= new For(aDeIni, new Asignacion(aDeVarPaso, new EUn(aDeVarPaso, new MenosMenos(aDeMM.fila, aDeMM.columna))), aDeFin, aDeAmb, aDeP, aDeFor.fila, aDeFor.columna); :};
-
+    {:RESULT= new For(aDeIni, new Asignacion(aDeVarPaso, new EBin(aDeVarPaso, new Num("1", aDeMM.fila, aDeMM.columna), new Resta(aDeMM.fila, aDeMM.columna))), aDeFin, aDeAmb, aDeP, aDeFor.fila, aDeFor.columna); :};
 
 P ::= FOR:aDeFor error AMBITO: aDeAmb  P:aDeP
-    {:RESULT= new For(new InstrError(), new InstrError(), new EError(), aDeAmb, aDeP, aDeFor.fila, aDeFor.columna); :};
+    {:RESULT= new For(null, null, new EError(), aDeAmb, aDeP, aDeFor.fila, aDeFor.columna); :};
 
 P ::=
 {:RESULT= new Vacio(); :};
@@ -190,7 +189,7 @@ INSTRUCCION ::= SCANS:aDeSc PAP IDEN:id PCIERRE
     {: RESULT= new Scans(new Identificador(id.lexema, id.fila, id.columna), aDeSc.fila, aDeSc.columna); :};
 
 INSTRUCCION ::= SCANS:aDeSc error
-    {: RESULT= new Scans(null, aDeSc.fila, aDeSc.columna); :};
+    {: RESULT= new Scans(new EError(), aDeSc.fila, aDeSc.columna); :};
 
 //Llamada función
 INSTRUCCION ::= E8: aDeE8 PAP ELEM: aDeElem PCIERRE:aDeDef
@@ -212,7 +211,7 @@ INSTRUCCION ::= RETURN:aDeRet
     {: RESULT= new Return(new EVoid(aDeRet.fila, aDeRet.columna), aDeRet.fila, aDeRet.columna); :};
 
 INSTRUCCION ::= RETURN:aDeRet error
-    {: RESULT= new Return(null, aDeRet.fila, aDeRet.columna); :};
+    {: RESULT= new Return(new EError(), aDeRet.fila, aDeRet.columna); :};
 
 INSTRUCCION ::= error
     {: RESULT= new InstrError(); :};
@@ -227,7 +226,7 @@ DECVARIABLE ::= TIPO:aDeT  IDEN:id
      {: RESULT= new DecVariable(aDeT, new Identificador(id.lexema, id.fila, id.columna)); :};
 
 DECVARIABLE ::= TIPO:aDeT  error
-     {: RESULT= new DecVariable(aDeT, null); :};
+     {: RESULT= new DecVariable(aDeT, new EError()); :};
 
 
 DEFINICION ::= DEFSTRUCT: aDeSt
@@ -240,13 +239,13 @@ DEFSTRUCT ::= STRUCT:aDeStruct IDEN: id AMBITO:aDeAmb
     {: RESULT= new DefStruct(new Identificador(id.lexema, id.fila, id.columna), aDeAmb, aDeStruct.fila, aDeStruct.columna); :};
     
 DEFSTRUCT ::= STRUCT:aDeStruct error AMBITO:aDeAmb
-    {: RESULT= new DefStruct(null, aDeAmb, aDeStruct.fila, aDeStruct.columna); :};
+    {: RESULT= new DefStruct(new EError(), aDeAmb, aDeStruct.fila, aDeStruct.columna); :};
 
 DEFCLASE ::= CLASS:aDeClase IDEN: id AMBITO:aDeAmb
     {: RESULT= new DefClase(new Identificador(id.lexema, id.fila, id.columna), aDeAmb, aDeClase.fila, aDeClase.columna); :};
     
 DEFCLASE ::= CLASS:aDeClase error AMBITO:aDeAmb
-    {: RESULT= new DefClase(null, aDeAmb, aDeClase.fila, aDeClase.columna); :};
+    {: RESULT= new DefClase(new EError(), aDeAmb, aDeClase.fila, aDeClase.columna); :};
     
 //Funciones
 
@@ -254,15 +253,15 @@ DECFUNCION ::= TIPOF:aDeT IDEN:id PAP ELEMIDEN:aDeElem  PCIERRE AMBITO:aDeAmb
     {: RESULT= new DecFuncion(aDeT, new Identificador(id.lexema, id.fila, id.columna), aDeElem, aDeAmb); :};
     
 DECFUNCION ::= TIPOF:aDeT IDEN:id error AMBITO:aDeAmb
-    {: RESULT= new DecFuncion(aDeT, new Identificador(id.lexema, id.fila, id.columna), null, aDeAmb); :};
+    {: RESULT= new DecFuncion(aDeT, new Identificador(id.lexema, id.fila, id.columna), new LinkedList<Identificador>() {{new EError();}}, aDeAmb); :};
     
 DECFUNCION ::= TIPOF:aDeT error PAP ELEMIDEN:aDeElem PCIERRE AMBITO:aDeAmb
-    {: RESULT= new DecFuncion(aDeT, null, aDeElem, aDeAmb); :};
+    {: RESULT= new DecFuncion(aDeT, new EError(), aDeElem, aDeAmb); :};
     
 DECFUNCION ::= TIPOF:aDeT error AMBITO:aDeAmb
-    {: RESULT= new DecFuncion(aDeT, null, null, aDeAmb); :};
+    {: RESULT= new DecFuncion(aDeT, new EError(), new LinkedList<Identificador>() {{new EError();}}, aDeAmb); :};
 
-CABEZASIG ::= DECLARACION: aDeDec
+CABEZASIG ::= DECVARIABLE: aDeDec
     {: RESULT= aDeDec; :};
 
 CABEZASIG ::= E1: aDeE
