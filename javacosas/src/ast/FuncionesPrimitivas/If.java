@@ -97,13 +97,26 @@ public class If implements Programa {
 
     @Override
     public String codeI(Comp hcon) {
+        StringBuilder s = new StringBuilder();
         if(siguienteElsif != null) {
-            return cond.codeE(hcon) + "if\n" + ambito.codeI(hcon) + "else\n" + siguienteElsif.codeI(hcon) + "end\n" + programa.codeI(hcon);
+            s.append( cond.codeE(hcon) ).append( "if\n" + ambito.codeI(hcon) ).append( "else\n" ).append( siguienteElsif.codeI(hcon) ).append( "end\n").append(programa.codeI(hcon));
         } else if (siguienteElse != null) {
-            return cond.codeE(hcon) + "if\n" + ambito.codeI(hcon) + "else\n" + siguienteElse.codeI(hcon) + "end\n" + programa.codeI(hcon);
+            s.append( cond.codeE(hcon) ).append( "if\n" ).append( ambito.codeI(hcon) ).append( "else\n" ).append( siguienteElse.codeI(hcon) ).append( "end\n" ).append(programa.codeI(hcon));
         } else {
-            return cond.codeE(hcon) + "if\n" + ambito.codeI(hcon) + "end\n" + programa.codeI(hcon);
+            s.append( cond.codeE(hcon) ).append( "if\n" ).append( ambito.codeI(hcon) ).append( "end\n").append(programa.codeI(hcon));
         }
+        return s.toString();
 
+    }
+
+    @Override
+    public String codeFunc(Comp hcon){
+        StringBuilder s = new StringBuilder(ambito.codeFunc(hcon));
+        if(siguienteElsif != null){
+            s .append(siguienteElsif.codeFunc(hcon));
+        } else if(siguienteElse != null){
+            s.append(siguienteElse.codeFunc(hcon));
+        }
+        return s.append( programa.codeFunc(hcon)).toString();
     }
 }

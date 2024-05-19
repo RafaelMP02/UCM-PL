@@ -1,11 +1,14 @@
 package ast.Expresiones;
 import java.util.Set;
 
+import ast.Declaracion;
+import ast.Definicion;
 import ast.GeneracionCodigo.Comp;
 import ast.Operadores.BinOperadores.*;
 import ast.Operadores.UnOperador.Negacion;
 import ast.Tipos.NodoTipo;
 import ast.Tipos.Tipado;
+import ast.Tipos.TipoNuevo;
 import ast.Vinculacion.Vinculacion;
 
 
@@ -30,6 +33,13 @@ public class EBin extends E {
 
     public OperadorBin operador() {return operador;}
 
+    public E getOpnd1() {
+        return opnd1;
+    }
+
+    public E getOpnd2(){
+        return opnd2;
+    }
 
     public String toString() {
         return operador.toString() + "(" + opnd1.toString() + " , " + opnd2.toString() + ")";
@@ -60,70 +70,74 @@ public class EBin extends E {
     @Override
     public String codeE(Comp hcon) {
         E ex;
-        String s = null;
+        StringBuilder s = new StringBuilder();
         switch (exp){
             case SUMA:
-                s = opnd1.codeE(hcon) + opnd2.codeE(hcon) + "i32.add\n";
+                s.append(opnd1.codeE(hcon)).append(opnd2.codeE(hcon) ).append( "i32.add\n");
                 break;
             case RESTA:
-                s = opnd1.codeE(hcon) + opnd2.codeE(hcon) + "i32.sub\n";
+                s .append( opnd1.codeE(hcon) ).append( opnd2.codeE(hcon) ).append( "i32.sub\n");
                 break;
             case PROD:
-                s = opnd1.codeE(hcon) + opnd2.codeE(hcon) + "i32.mul\n";
+                s .append( opnd1.codeE(hcon) ).append( opnd2.codeE(hcon) ).append( "i32.mul\n");
                 break;
             case DIVISION:
-                s = opnd1.codeE(hcon) + opnd2.codeE(hcon) + "i32.div_s\n";
+                s .append( opnd1.codeE(hcon) ).append( opnd2.codeE(hcon) ).append( "i32.div_s\n");
                 break;
             case CONJUNCION:
-                s = opnd1.codeE(hcon) + opnd2.codeE(hcon) + "i32.or\n";
+                s .append( opnd1.codeE(hcon) ).append( opnd2.codeE(hcon) ).append( "i32.or\n");
                 break;
             case DISYUNCION:
-                s = opnd1.codeE(hcon) + opnd2.codeE(hcon) + "i32.and\n";
+                s .append( opnd1.codeE(hcon) ).append( opnd2.codeE(hcon) ).append( "i32.and\n");
                 break;
             case IGUAL:
-                s = opnd1.codeE(hcon) + opnd2.codeE(hcon) + "i32.eq\n";
+                s .append( opnd1.codeE(hcon) ).append( opnd2.codeE(hcon) ).append( "i32.eq\n");
                 break;
             case DISTINTO:
-                s = opnd1.codeE(hcon) + opnd2.codeE(hcon) + "i32.ne\n";
+                s .append( opnd1.codeE(hcon) ).append( opnd2.codeE(hcon) ).append( "i32.ne\n");
                 break;
             case MENQ:
-                s = opnd1.codeE(hcon) + opnd2.codeE(hcon) + "i32.lt\n";
+                s .append( opnd1.codeE(hcon) ).append( opnd2.codeE(hcon) ).append( "i32.lt\n");
                 break;
             case MAYQ:
-                s = opnd1.codeE(hcon) + opnd2.codeE(hcon) + "i32.gt\n";
+                s.append( opnd1.codeE(hcon) ).append( opnd2.codeE(hcon) ).append( "i32.gt\n");
                 break;
             case MENIGUAL:
                 ex = new EUn(new EBin(opnd1, opnd2, new MayorQue(this.fila, this.columna)), new Negacion(this.fila, this.columna));
-                s = ex.codeE(hcon);
+                s .append( ex.codeE(hcon));
                 break;
             case MAYIGUAL:
                 ex = new EUn(new EBin(opnd1, opnd2, new MenorQue(this.fila, this.columna)), new Negacion(this.fila, this.columna));
-                s = ex.codeE(hcon);
+                s .append( ex.codeE(hcon));
                 break;
             case ACCARRAY:
-                s = this.codeD(hcon);
+                s .append( this.codeD(hcon));
                 break;
             case ACCCAMPO:
-                s = this.codeD(hcon);
+                s .append( this.codeD(hcon));
                 break;
         }
-        return s;
+        return s.toString();
     }
 
     @Override
     public  String codeD(Comp hcon){
-        String s = null;
+        StringBuilder s = new StringBuilder();
 
         switch(exp){
             case ACCARRAY:
-                s = opnd1.codeD(hcon) + "i32.const " + Integer.toString(tipo.getTam()) + "\n" + opnd2.codeE(hcon) + "i32.mul\n" + "i32.add\n";
+                s.append(opnd1.codeD(hcon)).append("i32.const " ).append( tipo.getTam()).append(  "\n" ).append( opnd2.codeE(hcon) ).append( "i32.mul\n" ).append( "i32.add\n");
                 break;
             case ACCCAMPO:
+                Identificador campo = (Identificador) opnd2;
+                Declaracion dec = campo.getVinculo();
+                Definicion def = ((TipoNuevo) opnd1.tipo).getDef();
+                s.append(opnd1.codeD(hcon)).append("i32.const " ).append( hcon.buscaCampo(def, dec)).append(  "\n" ).append( "i32.add\n");
                 break;
 
         }
 
-        return  s;
+        return  s.toString();
     }
 
 }

@@ -59,21 +59,22 @@ public class Ambito implements NodoAST {
     }
 
     public String codeI(Comp hcom){
+        StringBuilder s = new StringBuilder();
         hcom.abreBloque();
-        String s = programa.codeI(hcom);
+        s.append("get_global $SP\n");
+        s.append("set_global $MP\n");
+        s.append(programa.codeI(hcom));
         hcom.cierraBloque();
-        return s;
+        s.append("get_global $MP\n");
+        s.append("tee_global $SP\n");
+        s.append("i32.load\n");
+        s.append("set_global $MP\n");
+        return s.toString();
     }
 
-    public int numFun(){
-        int count = 0;
-        for(String s: mapa.keySet()) {
-            for(Declaracion X: mapa.get(s)){
-                if(X.getTipo().typeToEnum() == Tipado.TiposEnum.FUNCIONAL){
-                    count = count + 1;
-                }
-            }
-        }
-        return count;
+    @Override
+    public String codeFunc(Comp hcon){
+
+        return programa.codeFunc(hcon);
     }
 }

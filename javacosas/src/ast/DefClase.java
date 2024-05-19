@@ -5,10 +5,7 @@ import java.util.Set;
 import ast.Expresiones.Identificador;
 import ast.GeneracionCodigo.Comp;
 import ast.Metaoperadores.Ambito;
-import ast.Tipos.Clase;
-import ast.Tipos.NodoTipo;
-import ast.Tipos.TInstruccion;
-import ast.Tipos.Tipado;
+import ast.Tipos.*;
 import ast.Tipos.Tipado.TiposEnum;
 import ast.Vinculacion.Vinculacion;
 
@@ -37,7 +34,7 @@ public class DefClase implements Definicion{
     @Override
     public void bind(Vinculacion vinc) {
         ambito.bind(vinc);
-        t.setCampos(ambito.getMapa()); //Guardan su tabla de símbolos al cerrarla en el nodo tipo
+        t.setCampos(ambito.getMapa(), this); //Guardan su tabla de símbolos al cerrarla en el nodo tipo
         vinc.insertarTipoNuevo(t, nombre.toString(), nombre.getFila(), nombre.getColumna());
     }
 
@@ -47,7 +44,7 @@ public class DefClase implements Definicion{
         Set<NodoTipo> tiposInstrucciones = Tipado.enumToTipo(Tipado.TIPOS_INSTR_CLASES);
 
         //Marcamos los tipos de los atributos
-        t.setTiposAtributos(Tipado.matchDefTipoNuevo(ambito.type(tiposInstrucciones), nombre.toString(), nombre.getFila(), nombre.getColumna()));   
+        t.setTiposAtributos(Tipado.matchDefTipoNuevo(ambito.type(tiposInstrucciones), nombre.toString(), nombre.getFila(), nombre.getColumna()));
 
         //El tipo de devolución es una definición de clase
         return Set.of(new TInstruccion(TiposEnum.DEFCLASE));
@@ -65,7 +62,20 @@ public class DefClase implements Definicion{
 
     @Override
     public String codeI(Comp hcom) {
-        hcom.insertarTipoNuevo(t);
+        hcom.insertarTipoNuevo(this);
         return "";
+    }
+
+    @Override
+    public TipoNuevo getTipo(){
+        return this.t;
+    }
+
+    @Override
+    public String codeFunc(Comp hcom) {
+        hcom.pushAtributos(this);
+        String s = ambito.codeFunc(hcom);
+        hcom.popAtributos();
+        return s;
     }
 }

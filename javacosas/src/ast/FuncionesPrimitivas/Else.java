@@ -47,8 +47,14 @@ public class Else implements NodoAST {
         return null;
     }
 
+
     public String codeI(Comp hcon) {
         return ambito.codeI(hcon);
 
+    }
+
+    @Override
+    public String codeFunc(Comp hcon){
+        return ambito.codeFunc(hcon);
     }
 }

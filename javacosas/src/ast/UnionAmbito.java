@@ -52,4 +52,9 @@ public class UnionAmbito implements Programa {
     public String codeI(Comp hcom) {
         return ambito.codeI(hcom) + programa.codeI(hcom);
     }
+
+    @Override
+    public String codeFunc(Comp hcom) {
+        return ambito.codeFunc(hcom) + programa.codeFunc(hcom);
+    }
 }

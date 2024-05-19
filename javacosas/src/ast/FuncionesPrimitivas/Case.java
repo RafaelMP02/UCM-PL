@@ -68,10 +68,18 @@ public class Case implements NodoAST {
     }
 
     public String codeI(Comp hcon){
+        StringBuilder s = new StringBuilder();
         if(caso != null){
-            return "get_global $tem\n" + "i32.const " + cond.toString() + "\n i32.eq\n if\n" + ambito.codeI(hcon) + "else\n"  + caso.codeI(hcon) + "end\n";
+            s.append("get_global $tem\n" ).append( "i32.const " ).append( cond.toString() ).append( "\n i32.eq\n if\n" ).append( ambito.codeI(hcon) ).append( "else\n"  ).append( caso.codeI(hcon) ).append( "end\n");
         } else {
-            return "get_global $tem\n" + "i32.const " + cond.toString() + "\n i32.eq\n if\n" + ambito.codeI(hcon) + "else\n" + hcon.getha() + "end\n";
+            s.append( "get_global $tem\n" ).append( "i32.const " ).append( cond.toString() ).append( "\n i32.eq\n if\n" ).append( ambito.codeI(hcon) ).append( "else\n" ).append( hcon.getha() ).append( "end\n");
         }
+
+        return s.toString();
+    }
+
+    @Override
+    public String codeFunc(Comp hcon){
+        return ambito.codeFunc(hcon);
     }
 }

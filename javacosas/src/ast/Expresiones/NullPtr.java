@@ -13,8 +13,8 @@ public class NullPtr extends EBasica{
     }
 
     @Override
-    public String codeE(Comp hcon) {
+    public String codeE(Comp hcon) { //Los punteros nulos apuntan al sitio -1 de memoria
         //return "i32.const 0\n";
-        return null; //TODO
+        return "i32.const -1\n";
     }
 }

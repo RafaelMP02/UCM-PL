@@ -82,13 +82,25 @@ public class Elsif implements NodoAST {
     }
 
     public String codeI(Comp hcon) {
+        StringBuilder s = new StringBuilder();
         if(siguienteElsif != null) {
-            return cond.codeE(hcon) + "if\n" + ambito.codeI(hcon) + "else\n" + siguienteElsif.codeI(hcon) + "end\n";
+            s.append( cond.codeE(hcon) ).append( "if\n" + ambito.codeI(hcon) ).append( "else\n" ).append( siguienteElsif.codeI(hcon) ).append( "end\n");
         } else if (siguienteElse != null) {
-            return cond.codeE(hcon) + "if\n" + ambito.codeI(hcon) + "else\n" + siguienteElse.codeI(hcon) + "end\n" ;
+            s.append( cond.codeE(hcon) ).append( "if\n" ).append( ambito.codeI(hcon) ).append( "else\n" ).append( siguienteElse.codeI(hcon) ).append( "end\n" );
         } else {
-            return cond.codeE(hcon) + "if\n" + ambito.codeI(hcon) + "end\n";
+            s.append( cond.codeE(hcon) ).append( "if\n" ).append( ambito.codeI(hcon) ).append( "end\n");
         }
+        return s.toString();
+    }
 
+    @Override
+    public String codeFunc(Comp hcon){
+        String s = ambito.codeFunc(hcon);
+        if(siguienteElsif != null){
+            s = s + siguienteElsif.codeFunc(hcon);
+        } else if(siguienteElse != null){
+            s = s + siguienteElse.codeFunc(hcon);
+        }
+        return s;
     }
 }

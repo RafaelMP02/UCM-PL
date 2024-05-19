@@ -1,13 +1,13 @@
 package ast.Expresiones;
 
+import ast.Declaracion;
+import ast.Definicion;
 import ast.GeneracionCodigo.Comp;
 import ast.Instruccion;
-import ast.Tipos.NodoTipo;
-import ast.Tipos.Tipado;
+import ast.Tipos.*;
 import ast.Vinculacion.Vinculacion;
 
-import java.util.LinkedList;
-import java.util.Set;
+import java.util.*;
 
 public class EFun extends E implements Instruccion {
     private E idFuncion;
@@ -43,11 +43,95 @@ public class EFun extends E implements Instruccion {
 
     @Override
     public String codeE(Comp hcon) {
-        return null;
+        StringBuilder s = new StringBuilder();
+        Funcional f = (Funcional) idFuncion.tipo;
+        List<Parametrico> l = f.getParametros();
+        s.append(hcon.getFUNSTR());
+        if(idFuncion.exp == KindE.CONST){ //identificador
+            Identificador id = (Identificador) idFuncion;
+            Declaracion dec = id.getVinculo();
+
+            Iterator<Parametrico> it_p = l.iterator();
+            Iterator<E> it_e = parametros.iterator();
+            s.append("get_global $SP\n").append("tee_local $i\n");
+            int c = parametros.size();
+            s.append("i32.const ").append(4*c).append("\n").append("i32.add\n");
+            while(it_p.hasNext()) {
+                Parametrico t = it_p.next();
+                E e = it_e.next();
+                if(t.copia()) {
+                    s.append("get_global $SP\n").append("get_local $i\n").append("i32.store\n");
+                    if(e.asignable) {
+                        s.append("call \n(").append(e.codeD(hcon)).append(")\n (get_global $SP)\n").append("(i32.const ").append(
+                                4 * e.tipo.getTam()).append(")\n");
+                        s.append("get_global $SP\n").append("i32.const ").append(4 * e.tipo.getTam()).append("\n").append("i32.add\n").append("set_global $SP\n");
+                    } else {
+                        s.append(e.codeE(hcon)).append("get_global $SP\n").append("(i32.store ");
+                        s.append("get_global $SP\n").append("i32.const ").append(4).append("\n").append("i32.add\n").append("set_global $SP\n");
+                    }
+                    s.append("get_local $i\n").append("i32.const ").append(4).append("\n").append("i32.add\n").append("set_local $i\n");
+                } else {
+                    s.append(e.codeD(hcon)).append("get_local $i\n").append("(i32.store\n");
+                    s.append("get_local $i\n").append("i32.const ").append(4).append("\n").append("i32.add\n").append("set_local $i\n");
+                }
+            }
+
+            s.append()
+
+        } else { //metodo
+            EBin id = (EBin) idFuncion;
+            Identificador campo = (Identificador) id.getOpnd2();
+            E co = id.getOpnd1();
+            Definicion def = ((TipoNuevo) co.tipo).getDef();
+
+            Map<String, LinkedHashSet<Declaracion>> set = ((TipoNuevo) co.tipo).getCampos();
+            int c = 0;
+            for(String atri: set.keySet()) {
+                for(Declaracion dec: set.get(atri)) {
+                    c = c + 1;
+                }
+            }
+            c = c + parametros.size();
+
+            s.append("get_global $SP\n").append("tee_local $i\n");
+            s.append("i32.const ").append(4*c).append("\n").append("i32.add\n");
+            for(String atri: set.keySet()) {
+                for(Declaracion dec: set.get(atri)) {
+                    s.append(co.codeD(hcon)).append(hcon.buscaCampo(def, dec)).append("i32.add\n").append("get_local $i\n").append("(i32.store\n");
+                    s.append("get_local $i\n").append("i32.const ").append(4).append("\n").append("i32.add\n").append("set_local $i\n");
+                }
+            }
+
+
+
+            Iterator<Parametrico> it_p = l.iterator();
+            Iterator<E> it_e = parametros.iterator();
+            while(it_p.hasNext()) {
+                Parametrico t = it_p.next();
+                E e = it_e.next();
+                if(t.copia()) {
+                    s.append("get_global $SP\n").append("get_local $i\n").append("i32.store\n");
+                    if(e.asignable) {
+                        s.append("call \n(").append(e.codeD(hcon)).append(")\n (get_global $SP)\n").append("(i32.const ").append(
+                                4 * e.tipo.getTam()).append(")\n");
+                        s.append("get_global $SP\n").append("i32.const ").append(4 * e.tipo.getTam()).append("\n").append("i32.add\n").append("set_global $SP\n");
+                    } else {
+                        s.append(e.codeE(hcon)).append("get_global $SP\n").append("(i32.store ");
+                        s.append("get_global $SP\n").append("i32.const ").append(4).append("\n").append("i32.add\n").append("set_global $SP\n");
+                    }
+                    s.append("get_local $i\n").append("i32.const ").append(4).append("\n").append("i32.add\n").append("set_local $i\n");
+                } else {
+                    s.append(e.codeD(hcon)).append("get_local $i\n").append("(i32.store\n");
+                    s.append("get_local $i\n").append("i32.const ").append(4).append("\n").append("i32.add\n").append("set_local $i\n");
+                }
+            }
+
+        }
+        return s.toString();
     }
 
     @Override
     public String codeI(Comp hcom) {
-        return null;
+        return this.codeE(hcom);
     }
 }

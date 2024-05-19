@@ -116,6 +116,11 @@ public class GestionErroresExp {
     addError();
   }
 
+  public void errNoMain() {
+    System.out.println(" Error al no encontrar la funcion main");
+    addError();
+  }
+
   private String tEsperadosToString(Set<NodoTipo> tiposEsperados) {
     StringBuilder strBuilder = new StringBuilder();
     for (NodoTipo tipo : tiposEsperados) {

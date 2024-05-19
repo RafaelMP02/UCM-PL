@@ -3,6 +3,7 @@ package ast;
 
 import java.util.Set;
 
+import ast.GeneracionCodigo.Comp;
 import ast.Tipos.NodoTipo;
 import ast.Vinculacion.Vinculacion;
 
@@ -13,6 +14,8 @@ public interface NodoAST {
     default void bindFunc(Vinculacion vinc){} //Primero bindearemos las declaraciones de funciones de un bloque y luego el resto del bloque
     default void bind(Vinculacion vinc){}
     // public ?? generateCode() // for the future
+
+    default String codeFunc(Comp hcon){ return "";}
     public String toString();
     public int getFila();
     public int getColumna();

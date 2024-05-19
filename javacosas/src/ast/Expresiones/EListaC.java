@@ -16,6 +16,7 @@ public class EListaC extends E {
         super(fila, columna);
         this.elementos = elementos;
         asignable = false;
+        this.exp = KindE.LISTACOR;
     }
 
     public String toString() {
@@ -38,10 +39,14 @@ public class EListaC extends E {
 
     @Override
     public String codeE(Comp hcon) {
+        /*
         String s = "";
         int tam = hcon.getTam();
         for(E ex: elementos) {
             s = s + ex.codeE(hcon);
+            if(ex.exp != KindE.LISTACOR && ex.exp != KindE.LISTALLAV) {
+                s = s +
+            }
             s = s + "i32.store\n";
             s = s + "get_global $corh\n";
             s = s + "i32.const " + Integer.toString(tam) + "\n";
@@ -51,6 +56,7 @@ public class EListaC extends E {
         }
         s = s + "set_global $corh\n";
 
-        return s; 
+        return s; */
+        return "";
     }
 }

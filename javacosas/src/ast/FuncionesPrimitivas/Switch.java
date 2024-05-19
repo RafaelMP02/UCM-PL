@@ -83,6 +83,19 @@ public class Switch implements Programa {
     @Override
     public String codeI(Comp hco) {
         hco.setS(ambito.codeI(hco));
-        return cond.codeE(hco) + "set_golbal $temp\n" + caso.codeI(hco) + programa.codeI(hco);
+        StringBuilder s = new StringBuilder();
+        return s.append(cond.codeE(hco)).append(
+                "set_golbal $temp\n" ).append(
+                        caso.codeI(hco) ).append(
+                                programa.codeI(hco)).toString();
+    }
+
+    @Override
+    public String codeFunc(Comp hcon){
+        StringBuilder s = new StringBuilder();
+        if(caso != null){
+            s.append(caso.codeFunc(hcon));
+        }
+        return s.append(ambito.codeFunc(hcon)).append( programa.codeFunc(hcon)).toString();
     }
 }

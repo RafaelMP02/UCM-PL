@@ -63,6 +63,6 @@ public class Funcional implements NodoTipo {
 
     @Override
     public int getTam(){
-        return 1;
+        return 0;
     }
 }

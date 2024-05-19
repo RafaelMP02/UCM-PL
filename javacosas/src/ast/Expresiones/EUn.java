@@ -48,32 +48,36 @@ public class EUn extends E implements Instruccion {
     @Override
     public String codeE(Comp hcon) {
         E ex;
-        String s = null;
+        StringBuilder s = new StringBuilder();
         switch (exp){
             case MAS:
-                s = opnd.codeE(hcon);
+                s.append(opnd.codeE(hcon));
                 break;
             case MENOS:
                 ex = new EBin(new Num("0"), opnd,  new Resta(this.fila, this.columna));
-                s =  ex.codeE(hcon);
+                s.append(ex.codeE(hcon));
                 break;
             case MASMAS:
                 ex = new EBin(opnd, new Num("1"), new Suma(this.fila, -1));
-                s = ex.codeE(hcon);
+                s.append(opnd.codeD(hcon));
+                s.append(ex.codeE(hcon));
+                s.append("i32.store\n");
                 break;
             case MENOSMENOS:
                 ex = new EBin(opnd, new Num("1"), new Resta(this.fila, this.columna));
-                s=  ex.codeE(hcon);
+                s.append(opnd.codeD(hcon));
+                s.append(ex.codeE(hcon));
+                s.append("i32.store\n");
                 break;
             case NEG:
                 ex = new EBin(new Num("1"), opnd,  new Resta(this.fila, this.columna)); //1-x manda el 1 al 0 y el 0 al 1
-                s=  ex.codeE(hcon);
+                s.append(ex.codeE(hcon));
                 break;
             case ACCPUN:
-                s = opnd.codeE(hcon) + "i32.load\n";
+                s.append(opnd.codeE(hcon) + "i32.load\n");
                 break;
         }
-        return s;
+        return s.toString();
     }
 
     @Override

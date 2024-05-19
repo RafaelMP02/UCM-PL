@@ -6,10 +6,7 @@ import java.util.Set;
 import ast.Expresiones.Identificador;
 import ast.GeneracionCodigo.Comp;
 import ast.Metaoperadores.Ambito;
-import ast.Tipos.NodoTipo;
-import ast.Tipos.Struct;
-import ast.Tipos.TInstruccion;
-import ast.Tipos.Tipado;
+import ast.Tipos.*;
 import ast.Tipos.Tipado.TiposEnum;
 import ast.Vinculacion.Vinculacion;
 
@@ -37,7 +34,7 @@ public class DefStruct implements Definicion  {
     @Override
     public void bind(Vinculacion vinc) {
         ambito.bind(vinc);
-        t.setCampos(ambito.getMapa()); //Guardan su tabla de símbolos al cerrarla en el nodo tipo
+        t.setCampos(ambito.getMapa(), this); //Guardan su tabla de símbolos al cerrarla en el nodo tipo
         vinc.insertarTipoNuevo(t, nombre.toString(), nombre.getFila(), nombre.getColumna());
     }
 
@@ -47,7 +44,7 @@ public class DefStruct implements Definicion  {
         Set<NodoTipo> tiposInstrucciones = Tipado.enumToTipo(Tipado.TIPOS_INSTR_STRUCTS);
 
         //Marcamos los tipos de los atributos
-        t.setTiposAtributos(Tipado.matchDefTipoNuevo(ambito.type(tiposInstrucciones), nombre.toString(), nombre.getFila(), nombre.getColumna()));   
+        t.setTiposAtributos(Tipado.matchDefTipoNuevo(ambito.type(tiposInstrucciones), nombre.toString(), nombre.getFila(), nombre.getColumna()));
 
         //El tipo de devolución es una definición de struct
         return Collections.singleton(new TInstruccion(TiposEnum.DEFCLASE));
@@ -65,7 +62,16 @@ public class DefStruct implements Definicion  {
 
     @Override
     public String codeI(Comp hcom) {
-        hcom.insertarTipoNuevo(t);
+        hcom.insertarTipoNuevo(this);
         return "";
+    }
+
+    @Override
+    public TipoNuevo getTipo(){
+        return this.t;
+    }
+    @Override
+    public String codeFunc(Comp hcom) {
+        return ambito.codeFunc(hcom);
     }
 }

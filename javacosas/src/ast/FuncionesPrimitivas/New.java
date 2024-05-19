@@ -18,7 +18,12 @@ public class New extends E { //New no debería ser un metaoperador??
 
     @Override
     public String codeE(Comp hcon) {
-        return null;
+
+        StringBuilder s = new StringBuilder();
+        int c = hcon.setNew();
+        s.append("i32.const ").append(4*c).append("\n");
+        s.append("tee_global $NP\n");
+        return s.toString();
     }
 
 

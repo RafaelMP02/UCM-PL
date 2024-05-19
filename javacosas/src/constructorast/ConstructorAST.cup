@@ -37,7 +37,7 @@ terminal  TokenValue MAS, MENOS, DIV, PAP, PCIERRE, CAP, CCIERRE, LLAP, LLCIERRE
 
 non terminal  Raiz S;
 
-non terminal Programa P;
+non terminal Programa P, G;
 
 non terminal Instruccion INSTRUCCION;
 
@@ -77,8 +77,19 @@ non terminal E PARENTEXPRESION;
 
 
 
-S   ::= P: aDeP
+S   ::= G: aDeP
     {: RESULT= new Raiz(aDeP); :};
+
+G ::= DEFINICION:aDeI PCOMA G:aDeP
+    {:RESULT= new PuntoYComa(aDeI, aDeP); :};
+
+G ::= DECLARACION:aDeI PCOMA G:aDeP
+    {:RESULT= new PuntoYComa(aDeI, aDeP); :};
+
+G ::=
+   {:RESULT= new Vacio(); :};
+
+
 
 //Programas ---
 

@@ -61,21 +61,16 @@ public class Identificador extends E {
 
     @Override
     public String codeD(Comp hcon) {
-        String s = "";
-        List<Integer> l = hcon.buscaId(this);
-        s = s + Integer.toString(l.get(0)) + "\n";
-        s = s + "get_global MP\n";
-        s = s + "set_global MP_a\n";
-        for(int i = 0; i < l.get(l.size()-1); i++) {
-            s = s + "get_global MP_a\n";
-            s = s + "i32.load\n";
-            s = s + "set_global MP_a\n";
+        StringBuilder s = new StringBuilder();
+        int c = hcon.buscaId(this);
+        if(c < -1) {
+            s.append("get_local ").append(hcon.localId(this)).append("\n");
+        } else {
+            s.append("i32.const ").append(c).append("\n");
         }
-        s = s + "get_global MP_a\n";
-        s = s + "i32.add\n";
         hcon.setTam(vinculos.iterator().next().getTam());
 
-        return s;
+        return s.toString();
     }
 }
 

@@ -90,7 +90,23 @@ public class For implements Programa {
 
     @Override
     public String codeI(Comp hcon) {
-        return inicio.codeI(hcon) + "block \n loop\n" + fin.codeE(hcon) + "i32.eqz \n" + "br_if 1\n" + ambito.codeI(hcon) + paso.codeI(hcon) + "br 0\n end\n" + programa.codeI(hcon);
+       StringBuilder s = new StringBuilder();
+        s.append(
+                inicio.codeI(hcon) ).append(
+                "block \n loop\n" ).append(
+                        fin.codeE(hcon) ).append(
+                                "i32.eqz \n" ).append(
+                                        "br_if 1\n" ).append(
+                                                ambito.codeI(hcon) ).append(
+                                                        paso.codeI(hcon) ).append(
+                                                                "br 0\n end\n" ).append(
+                                                                        programa.codeI(hcon));
+        return s.toString();
+    }
+
+    @Override
+    public String codeFunc(Comp hcon){
+        return ambito.codeFunc(hcon);
     }
 
 

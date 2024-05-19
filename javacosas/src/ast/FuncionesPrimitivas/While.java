@@ -68,6 +68,18 @@ public class While implements Programa {
 
     @Override
     public String codeI(Comp hcon) {
-        return "block \n loop\n" + cond.codeE(hcon) + "i32.eqz \n" + "br_if 1\n" + ambito.codeI(hcon) + "br 0\n end\n" +programa.codeI(hcon);
+        StringBuilder s = new StringBuilder();
+        return s.append("block \n loop\n").append(
+                cond.codeE(hcon) ).append(
+                        "i32.eqz \n" ).append(
+                                "br_if 1\n" ).append(
+                                        ambito.codeI(hcon) ).append(
+                                                "br 0\n end\n" ).append(
+                                                        programa.codeI(hcon)).toString();
+    }
+
+    @Override
+    public String codeFunc(Comp hcon){
+        return ambito.codeFunc(hcon);
     }
 }

@@ -1,40 +1,96 @@
 package ast.GeneracionCodigo;
 
 
+
 import ast.Declaracion;
+import ast.Definicion;
 import ast.Expresiones.Identificador;
 import ast.Tipos.NodoTipo;
-import ast.Tipos.TipoNuevo;
+import ast.Tipos.Tipado;
+
 
 import java.util.*;
 
 public class Comp {
     private String ha;
 
-    private List<Map<Declaracion, Integer>> pilaDeDeltas; //Es una pila conceptual, lo implementamos como lista porque es más eficiente
+    private LinkedList<Map<Declaracion, Integer>> pilaDeDeltas; //Es una pila conceptual, lo implementamos como lista porque es más eficiente
 
-    private List<Map<String,  Map<String, Integer>>> pilaDeTipos; //Es una pila conceptual, lo implementamos como lista porque es más eficiente
+    private LinkedList<Map<Definicion,  Map<Declaracion, Integer>>> pilaDeTipos; //Es una pila conceptual, lo implementamos como lista porque es más eficiente
 
-    private List<Integer> deltaStack;
+    private LinkedList<Integer> MPStack;
 
-    private int PA;
+    private LinkedList<Definicion> atributos;
+    private LinkedHashMap<Declaracion, Integer> funciones;
+
+    private Map<Declaracion, Integer> globales;
+
+    private  Map<Declaracion, String> global_map;
+
+    private Map<Declaracion, String> local_map;  //Mapeo de parametros barra atributos
+
+
+    private int delta_actual;
 
     private int tam;
 
+    private int num_fun;
+
+    private int next_allocator;
+
+    private int SP;
+
+    private int NP;
+
+    private final String GL_STR;
+
+    private final String FUN_STR;
 
 
 
 
 
-    public Comp () {
+
+    public Comp (Map<String, LinkedHashSet<Declaracion>> mapa) {
+
+        this.delta_actual = 1;
+        this.globales = new LinkedHashMap<>();
+        this.global_map = new LinkedHashMap<>();
+        this.MPStack = new LinkedList<>();
+        this.MPStack.add(delta_actual);
         this.pilaDeDeltas = new LinkedList<>();
+        this.pilaDeDeltas.add(globales);
+        this.SP = delta_actual;
+        this.next_allocator = 0;
+        int num_globals = 1;
+        StringBuilder sb = new StringBuilder();
+        StringBuilder sl = new StringBuilder();
+        sl.append("get_global $MP\n").append("get_global $SP\n").append("i32.store\n");
+        sl.append("get_global $SP\n").append("i32.const 4\n").append("i32.add\n"); //direccion de SP aumentada
+        for(String  s: mapa.keySet()){
+            for(Declaracion dec: mapa.get(s)){
+                if(dec.getTipo().typeToEnum() != Tipado.TiposEnum.FUNCIONAL) {
+                    globales.put(dec, delta_actual);
+                    this.delta_actual = delta_actual + dec.getTam();
+                    this.SP = delta_actual;
+                    sb.append(" (local $global").append(num_globals).append(" i32)\n");
+                    sl.append("i32.const ").append(delta_actual).append("\n").append("get_global $SP\n").append("i32.store\n");  //guardamos la direccion de memoria
+                    sl.append("get_global $SP\n").append("i32.const 4\n").append("i32.add\n");  //actualizamos SP
+                    global_map.put(dec, "global" + Integer.toString(num_globals));
+                    num_globals = num_globals + 1;
+                }
+            }
+        }
+        this.GL_STR = sb.toString();
+        this.FUN_STR = sl.toString();
         this.pilaDeTipos = new LinkedList<>();
-        //Añadimos la tabla de símbolos inicial. Es un LinkedHashmap para que se guard
-        // en en el orden en que se insertan.
-        this.pilaDeDeltas.add(new LinkedHashMap<Declaracion, Integer>());
-        this.PA = 0;
-        this.deltaStack = new LinkedList<>();
-        this.deltaStack.add(1);
+        this.pilaDeTipos.add(new LinkedHashMap<>());
+        this.funciones = new LinkedHashMap<>();
+        this.num_fun = 0;
+        this.NP = 2000*16*1024-1;
+        this.local_map = new LinkedHashMap<>();
+        this.atributos = new LinkedList<>();
+
     }
 
     /*
@@ -44,90 +100,139 @@ public class Comp {
 
     public void abreBloque() {
         /* Añadimos una nueva tabla de símbolos porque se ha abierto un bloque.*/
-        pilaDeDeltas.add(new LinkedHashMap<Declaracion, Integer>());
-        deltaStack.add(1);
-        pilaDeTipos.add(new LinkedHashMap<>());
-        this.PA = PA + 1;
+        this.pilaDeDeltas.add(new LinkedHashMap<Declaracion, Integer>());
+        this.MPStack.add(SP);
+        this.delta_actual = 0;
+        this.pilaDeTipos.add(new LinkedHashMap<>());
     }
 
     public void cierraBloque() {
         /*
         Eliminamos la tabla de símbolos de ese ámbito (el último) porque se ha cerrado el bloque.
-        Se devuelve la tabla de símbolo para que cada ámbito la almacene (es útil para binding y tipado).
         */
-        pilaDeDeltas.remove(pilaDeDeltas.size() - 1);
-        deltaStack.remove(deltaStack.size() - 1);
-        pilaDeTipos.remove(pilaDeTipos.size() - 1);
-        this.PA = PA - 1;
+
+        pilaDeDeltas.removeLast();
+        SP = MPStack.pollLast();
+        this.delta_actual =  SP - MPStack.getLast();
+        pilaDeTipos.removeLast();
     }
 
     public void insertaId(Declaracion dec) {
         /*
         Intentamos añadir una entrada a la tabla de símbolos del ámbito actual.
          */
-        pilaDeDeltas.get(pilaDeDeltas.size() - 1).put(dec, deltaStack.get(deltaStack.size() - 1));
-        int delta = deltaStack.get(deltaStack.size() - 1) + dec.getTam();
-        deltaStack.remove(deltaStack.size() - 1);
-        deltaStack.add(delta);
+        pilaDeDeltas.getLast().put(dec, delta_actual);
+        this.delta_actual = this.delta_actual + dec.getTam();
+        this.SP = this.SP + dec.getTam();
     }
 
-    public List<Integer> buscaId (Identificador id) {
+    public void insertarFunc(Declaracion fun){
+        this.funciones.put(fun, num_fun);
+        num_fun = num_fun + 1;
+    }
+
+    public int buscarFun(){
+        return this.num_fun-1;
+    }
+
+
+    public Integer buscaId (Identificador id) {
         Declaracion dec = id.getVinculo();
-        Iterator<Map<Declaracion, Integer>> it = ((LinkedList<Map<Declaracion, Integer>>) pilaDeDeltas).descendingIterator();
+        Iterator<Map<Declaracion, Integer>> it = pilaDeDeltas.descendingIterator();
+        Iterator<Integer> it_mp = MPStack.descendingIterator();
         boolean encontrado = false;
         Map<Declaracion, Integer> tabla;
-        int delta_actual = 0;
-        int n = 0;
-        while(!encontrado) {
+        int delta = -1;
+        int MP = -1;
+        int add = -10;
+        while(!encontrado && it.hasNext()) {
             tabla = it.next();
+            MP = it_mp.next();
             if(tabla.containsKey(dec)) {
                 encontrado = true;
-                delta_actual = tabla.get(dec);
-            } else {
-                n = n + 1;
+                delta = tabla.get(dec);
+                add = 4*(MP + delta);
             }
         }
 
-        List<Integer> l = new LinkedList<>();
-        l.add(4*delta_actual);
-        l.add(n);
 
-        return l;
-
+        return add;
     }
 
-    public void insertarTipoNuevo(TipoNuevo tipo) {
-        String nombre = tipo.toString();
-        int delta = 0;
-        Map<String, Integer> mapa = pilaDeTipos.get(pilaDeTipos.size() - 1).get(nombre);
-        for(Set<NodoTipo> X: tipo.getTipos()) {
-            NodoTipo N = X.iterator().next();
-            mapa.put(N.toString(), delta);
-            delta = delta + N.getTam();
+    public String localId(Identificador id) {
+        Declaracion dec = id.getVinculo();
+        if(local_map.containsKey(dec)) {
+            return local_map.get(dec);
+        } else {
+            return global_map.get(dec);
         }
     }
 
-    public List<Integer> buscaCampo (String id, String campo) {
-        Iterator<Map<String,  Map<String, Integer>>> it = ((LinkedList<Map<String,  Map<String, Integer>>>) pilaDeTipos).descendingIterator();
+    public void insertarTipoNuevo (Definicion def) {
+        int delta = 0;
+        Map<Declaracion, Integer> mapa = new LinkedHashMap<>();
+        for(String s: def.getTipo().getCampos().keySet()) {
+            for(Declaracion X: def.getTipo().getCampos().get(s)) {
+                mapa.put(X, delta);
+                delta = delta + X.getTam();
+            }
+        }
+        pilaDeTipos.getLast().put(def, mapa);
+    }
+
+    public Integer buscaCampo (Definicion id, Declaracion campo) {
+        Iterator<Map<Definicion,  Map<Declaracion, Integer>>> it = pilaDeTipos.descendingIterator();
         boolean encontrado = false;
-        Map<String, Map<String, Integer>> tabla;
-        int delta_actual = 0;
-        int n = 0;
+        Map<Definicion , Map<Declaracion, Integer>> tabla;
+        int delta = 0;
         while(!encontrado) {
             tabla = it.next();
             if(tabla.containsKey(id)) {
                 encontrado = true;
-                delta_actual = tabla.get(id).get(campo);
-            } else {
-                n = n + 1;
+                delta = tabla.get(id).get(campo);
             }
         }
-        List<Integer> l = new LinkedList<>();
-        l.add(4*delta_actual);
-        l.add(n);
 
-        return l;
 
+        return 4*delta;
+
+    }
+
+    public void pushAtributos(Definicion def){
+        atributos.add(def);
+    }
+
+    public void popAtributos(){
+        atributos.removeLast();
+    }
+
+    public Map<String, LinkedHashSet<Declaracion>> getAtributos(){
+        Map<String, LinkedHashSet<Declaracion>> map = new LinkedHashMap<>();
+        if(!atributos.isEmpty()) {
+            map = atributos.getLast().getTipo().getCampos();
+        }
+        return map;
+    }
+
+    public int setNew(){
+        NP = NP - tam;
+        return NP;
+    }
+
+    private int getFunc(Identificador id){
+        return funciones.get(id.getVinculo());
+    }
+
+    public void setAllocator(int alloc){
+        this.next_allocator = alloc;
+    }
+
+    public int getAllocator(int alloc){
+       return next_allocator;
+    }
+
+    public void increaseAllocator(int t){
+        this.next_allocator = next_allocator + 4*t;
     }
 
 
@@ -143,5 +248,39 @@ public class Comp {
     public void setTam(int tam){this.tam = tam;}
 
     public int getTam(){return tam;}
+
+    public void abreFun() {
+        /* Añadimos una nueva tabla de símbolos porque se ha abierto un bloque.*/
+
+    }
+
+    public void cierraFun() {
+        /*
+        Eliminamos la tabla de símbolos de ese ámbito (el último) porque se ha cerrado el bloque.
+        Se devuelve la tabla de símbolo para que cada ámbito la almacene (es útil para binding y tipado).
+        */
+        pilaDeDeltas.removeLast();
+        MPStack.removeLast();
+    }
+
+    public void setLocalMap(Map<Declaracion,String> local_map){
+        this.local_map = local_map;
+    }
+
+    public void clearLocalMap(){
+        this.local_map.clear();
+    }
+
+    public Map<Declaracion, Integer> getGlobals(){
+        return this.globales;
+    }
+
+    public String getGLSTR(){
+        return GL_STR;
+    }
+
+    public String getFUNSTR(){
+        return FUN_STR;
+    }
 
 }

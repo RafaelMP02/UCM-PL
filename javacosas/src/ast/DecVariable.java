@@ -10,10 +10,11 @@ import ast.Tipos.TipoNuevo;
 import ast.Vinculacion.Vinculacion;
 
 public class DecVariable extends Declaracion  {
-    /* Declara una variable de cualquier tipo (incluso funcional) */
+    /* Declara una variable de cualquier tipo  */
+    protected Definicion def;
 
     public DecVariable(NodoTipo t, Identificador id){
-        super(t, id);
+        super(t, id); this.def = null;
     }
 
     @Override
@@ -25,8 +26,10 @@ public class DecVariable extends Declaracion  {
     public void bind(Vinculacion vinc) {
         
         //Si es un tipo clase o struct vemos si se ha definido
-        if (Tipado.TIPOS_NUEVOS.contains(tipo.typeToEnum()))
+        if (Tipado.TIPOS_NUEVOS.contains(tipo.typeToEnum())) {
             this.setTipo(vinc.buscarTipoNuevo(((TipoNuevo) tipo).getId(), tipo.getFila(), tipo.getColumna()));
+            this.def = ((TipoNuevo)this.tipo).getDef();
+        }
 
         vinc.insertaId(id.toString(), this, id.getFila(), id.getColumna());
 
@@ -45,6 +48,15 @@ public class DecVariable extends Declaracion  {
     @Override
     public String codeI(Comp hcon){
         hcon.insertaId(this);
-        return "";
+        StringBuilder s = new StringBuilder();
+        s.append("get_global $SP\n");
+        s.append("i32.const ").append(4*tipo.getTam()).append("\n");
+        s.append("i32.add\n");
+        s.append("set_global $SP\n");
+        return s.toString();
+    }
+
+    public Definicion getDef(){
+        return def;
     }
 }

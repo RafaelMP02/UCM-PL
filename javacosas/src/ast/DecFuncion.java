@@ -88,6 +88,66 @@ public class DecFuncion extends Declaracion {
 
     @Override
     public String codeI(Comp hcom) {
-        return null;
+        return "";
+    }
+
+    @Override
+    public String codeFunc(Comp hcon){
+        StringBuilder s = new StringBuilder(ambito.codeFunc(hcon));
+        hcon.insertarFunc(this);
+        String fun = "main";
+        if(!this.id.toString().equals("main")) {
+            fun = "$fun"+hcon.buscarFun();
+        }
+        s.append("( func " + fun + "\n");
+        if(this.tipo.typeToEnum() != TiposEnum.VOID){
+            s.append("(result i32\n");
+        }
+        Map<Declaracion, String> parametros = new LinkedHashMap<>();
+        s.append(hcon.getGLSTR()); //GLOBAL STRING
+        Map<String, LinkedHashSet<Declaracion>> set = hcon.getAtributos();
+        int num_campos = 1;
+        for(String atri: set.keySet()) {
+            for(Declaracion dec: set.get(atri)) {
+                s.append(" (local $campo").append(num_campos).append(" i32)\n");
+                parametros.put(dec, "campo" + Integer.toString(num_campos));
+                num_campos = num_campos + 1;
+            }
+        }
+        Iterator<DecVariable> it = argumentosDec.iterator();
+        int num_param = 1;
+        while(it.hasNext()) {
+            s.append(" (local $param").append(num_param).append(" i32)\n");
+            parametros.put(it.next(), "$param" + Integer.toString(num_param));
+            num_param = num_param + 1;
+        }
+        hcon.setLocalMap(parametros);
+        s.append("(local $i i32)\n");
+        s.append("(local $temp i32)\n");
+        s.append("get_global $MP\n");
+        s.append("i32.const 8\n");
+        s.append("i32.add\n");
+        s.append("tee_local $i\n");
+        for(int i = 1; i <= set.size(); i++) {
+            s.append("i32.load\n");
+            s.append("set_local $campo").append(i).append("\n");
+            s.append("get_local $i\n");
+            s.append("i32.const 4\n");
+            s.append("i32.add\n");
+            s.append("tee_local $i\n");
+        }
+        for(int i = 1; i <= argumentosId.size(); i++) {
+            s.append("i32.load\n");
+            s.append("set_local $param").append(i).append("\n");
+            s.append("get_local $i\n");
+            s.append("i32.const 4\n");
+            s.append("i32.add\n");
+            s.append("tee_local $i\n");
+        }
+        s.append("drop\n");
+
+        s.append(ambito.codeI(hcon)).append("return\n").append(")\n");
+        hcon.clearLocalMap();
+        return s.toString();
     }
 }

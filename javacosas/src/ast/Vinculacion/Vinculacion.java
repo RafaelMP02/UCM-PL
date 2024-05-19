@@ -29,6 +29,8 @@ public class Vinculacion {
     private List<Map<String, TipoNuevo>> pilaDeTipos;
     private GestionErroresExp errores;
 
+    int num_main;
+
     public Vinculacion () {
         this.pilaDeTablas = new LinkedList<>();
         //Añadimos la tabla de símbolos inicial. Es un LinkedHashmap para que se guarden en el orden en que se insertan.
@@ -36,6 +38,7 @@ public class Vinculacion {
         this.pilaDeTipos = new LinkedList<>();
         this.pilaDeTipos.add(new LinkedHashMap<String, TipoNuevo>());
         this.errores = new GestionErroresExp();
+        this.num_main = 0;
     }
 
     /* 

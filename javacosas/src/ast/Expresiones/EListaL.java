@@ -16,6 +16,7 @@ public class EListaL extends E {
         super(fila, columna);
         this.elementos = elementos;
         asignable = false;
+        exp = KindE.LISTALLAV;
     }
 
     public String toString() {
@@ -40,21 +41,23 @@ public class EListaL extends E {
 
     @Override
     public String codeE(Comp hcon) {
-        String s = "";
+        /*String s = "";
         Struct ti = (Struct) this.tipo;
         Iterator<String> it = ti.getCampos().keySet().iterator();
         for(E ex: elementos) {
             String campo = it.next();
             s = s + ex.codeE(hcon);
+            if(ex.kinE)
             s = s + "i32.store\n";
             s = s + "get_global $corh\n";
-            s = s + "i32.const " + Integer.toString((hcon.buscaCampo(ti.toString(), campo)).get(0)) + "\n";
+            s = s + "i32.const " + Integer.toString((hcon.buscaCampo(ti.toString(), campo))) + "\n";
             s = s + "i32.add";
             s = s + "tee_global $corh\n";
 
         }
         s = s + "set_global $corh\n";
 
-        return s;
+        return s;*/
+        return "";
     }
 }
