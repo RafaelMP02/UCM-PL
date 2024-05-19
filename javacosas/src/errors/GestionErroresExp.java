@@ -63,12 +63,12 @@ public class GestionErroresExp {
   }
 
   public void errNoMain() {
-    System.out.println("Error al no encontrar la función main");
+    System.out.println("[ERROR] No se ha declarado la función \"main\"");
     addError();
   }
 
   public void errMainDuplicado() {
-    System.out.println("Se han declarado varios \"main\"");
+    System.out.println("[ERROR] Se han declarado varias funciones \"main\"");
     addError();
   }
 

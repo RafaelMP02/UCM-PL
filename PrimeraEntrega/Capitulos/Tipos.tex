@@ -20,28 +20,17 @@ manera, usando el operador [].
 En los ejemplos siguientes vienen detallados los distintos usos:
 
 \begin{algorithm}
-	\Integer{[\const{1}]} a; \comm{//Declaración de un array de un solo elemento} \\
-	\Integer{[\const{5}]} b; 
-	\comm{//Declaración de un array de cinco elementos} \\
-	\Integer{[\const{3}]} c := 
-	[\const{2}, \const{3}, \const{4}]; 
-	\comm{//Declaración de un array inicializado } \\
-	\Integer{[\const{3}][\const{2}]} d := 
-	[[\const{2},\const{1}], [\const{3},\const{3}], 
-	[\const{4},\const{4}]]; 
-	\comm{//Array bidimensional (array de tipo array)} \\
-	a[\const{0}] := a[\const{0}]+a[\const{0}]; 
-	\comm{//Acceso a contenido sin inizializar (basura)} \\
-	b[\const{0}] := \const{2}; 
-	\comm{//Se le asigna un 2 a la primera posición del array b} \\
-	c[\const{2}] := \const{6}; 
-	\comm{//Se sustituye el 4 por un 6} \\
-	d[\const{5}] := \const{7}; 
-	\comm{//Error por mal tipado} \\
-	d[\const{1}] := [\const{2} , \const{2}] ; 
-	\comm{
-	//Se le asigna el array [2,2] 
-	a la segunda posición de d}\\
+	\Void () main () \{\\
+	\quad \Integer{[\const{1}]} a; \comm{//Declaración de un array de un solo elemento} \\
+	\quad \Integer{[\const{5}]} b; \comm{//Declaración de un array de cinco elementos} \\
+	\quad \Integer{[\const{3}]} c := [\const{2}, \const{3}, \const{4}]; \comm{//Declaración de un array inicializado } \\
+	\quad \Integer{[\const{3}][\const{2}]} d := [[\const{2},\const{1}], [\const{3},\const{3}], [\const{4},\const{4}]]; \comm{//Array bidimensional (array de tipo array)} \\
+	\quad a[\const{0}] := a[\const{0}]+a[\const{0}]; \comm{//Acceso a contenido sin inizializar (basura)} \\
+	\quad b[\const{0}] := \const{2}; \comm{//Se le asigna un 2 a la primera posición del array b} \\
+	\quad c[\const{2}] := \const{6}; \comm{//Se sustituye el 4 por un 6} \\
+	\quad d[\const{5}] := \const{7}; \comm{//Error por mal tipado} \\
+	\quad d[\const{1}] := [\const{2} , \const{2}] ; \comm{//Se le asigna el array [2,2] a la segunda posición de d}\\
+	\}\;
 \end{algorithm}
 
 \subsection*{Operador []}
@@ -66,7 +55,7 @@ solo atributos (como es de esperar). Se accederá a los atributos con el operado
 	\Integer{} main () \{ \\
 		\quad \Struct{} tEstudiante antonio := \{22, 67532\}; \\
 		\quad antonio.edad := antonio.edad + 1; \comm{//La edad se ha incrementado en 1} \\
-	\}
+	\};
 \end{algorithm}
 
 \section{Class}
@@ -108,18 +97,18 @@ $\rightarrow$ $B_{t}$.
 \\Asociatividad: izquierda.
 
 \section{Punteros}
-Para declarar un puntero a una variable, simplemente usaremos el operador \Ptr al lado del tipo. Para acceder al valor del puntero, también usaremos este operador. Cuando se declara un puntero sin instanciarlo toma el valor \const{nullptr} como en C++.
+Para declarar un puntero a una variable, simplemente usaremos el operador \Ptr al lado del tipo. Para acceder al valor del puntero, también usaremos este operador. Cuando se declara un puntero sin instanciarlo toma el valor \const{null} (palabra reservada) como en C++.
 \begin{algorithm}
-	\Integer{}* p; \comm{//Se declara un puntero} \\
-	p* := \const{5}; \comm{//Se asigna valor 5} \\
-	\Integer{} num := p*; \comm{//Se accede al valor del puntero}
+	\Integer{}\operator{*} p; \comm{//Se declara un puntero} \\
+	\operator{*}p := \const{5}; \comm{//Se asigna valor 5} \\
+	\Integer{} num := \operator{*}p; \comm{//Se accede al valor del puntero}
 \end{algorithm}
 
 
 \subsection*{Operador * (punteros)}
 Este símbolo, a parte de su uso en la multiplicación, nos vale para relacionar un tipo y los punteros a ese tipo pero como operador de punteros, nos sirve también para saber el valor que tiene cada puntero. 
-\\Operador  unario postfijo.
-\\Tipado: \Ptr :: t* $\rightarrow$ t. 
+\\Operador  unario prefijo.
+\\Tipado: \Ptr :: *t $\rightarrow$ t. 
 \\Prioridad 11.
 \\Asociatividad: asociativo.
 
@@ -138,16 +127,16 @@ No permitimos prototipos de funciones, siempre se debe definir el cuerpo de la f
 	suma(a,b) \{ \\
 	\quad \reserved{return} a \operator{+} b;  \\
 	\} \;
-	suma(\const{0}, \const{1});	
-	\comm{//Invocamos a la función suma} \\
 	\reserved{int}(\reserved{int}, \reserved{int}) 
 	division\_entera(a,b) \{ \\
-	\quad \Ifff{ b \operator{=/=} \const{0} } \\
+	\quad \Ifff{ b \operator{=/=} \const{0} } \{\\
 	\quad \quad \Returnn{} a;\\
 	\quad \}\\
 	\quad \Returnn{} 0 \;
-	\} ;
-	
+	\}\;
+	\Void () main () \{\\
+	\quad suma(\const{0}, \const{1});	\comm{//Invocamos a la función suma} \\
+	\}\;
 	
 	
 \end{algorithm}

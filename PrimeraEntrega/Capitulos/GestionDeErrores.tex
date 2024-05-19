@@ -8,7 +8,7 @@ algún error. Cuando no, permitirá la generación de código. Vamos a explicar 
 \section{Errores léxicos}
 Simplemente se imprimirá el token no reconocido.\\
 
-Input [input6 (err lexico).txt]\footnote[1]{Cuando pongamos un input para mostrar la salida, indicaremos así el nombre del archivo
+Input [input6\_errlexico.txt]\footnote[1]{Cuando pongamos un input para mostrar la salida, indicaremos así el nombre del archivo
 de texto concreto para poder ejecutar el código. Estos archivos se encuentran en la carpeta tests.}
 \begin{algorithm}
 	\Integer{} hola ::= 2; \comm{//Error léxico} \\
@@ -33,7 +33,7 @@ compilación justo donde termina la instrucción, esto es, después de ";". En c
 condición, un bucle) se retomará la compilación justo al terminar ese ámbito. Es decir, se buscará el caracter $"\{"$ y se omitirá todo el código hasta 
 encontrar el "\}" que lo cierre (para ello también se llevará un contador de los "\{" sin cerrar). Algunos ejemplos de errores sintácticos: 
 
-Input [input7 (err sintaxis).txt]
+Input [input7\_errsintaxis.txt]
 \begin{algorithm}
 	\Integer{} hola := 2\;
 	\Integer{}(\Integer{}) f(a) \{ \\
@@ -60,8 +60,8 @@ bloque. Por lo tanto, cada vez que abramos un nuevo bloque, añadiremos una nuev
 para después llamar siempre primero a bindFunc y luego a bind del prgrama de ese bloque. Al terminar
 de vincular el bloque desapilaremos la tabla de símbolos. Además al desapilarla, guardaremos la tabla
 del bloque porque nos es útil luego (para la definición de structs y clases y para el tipado). Las tablas 
-están implementadas como mapas de clave String y valor Declaracion. La pila de tablas es en realidad una
-lista, ya que resulta más eficiente.
+están implementadas como mapas de clave String y valor Declaracion. En vez de tener una pila de tablas,
+hemos usado una pila de pilas de tablas. Hay varias razones. AQUÍ EXPLÍCALO 
 
 Cuando lleguemos, usando bind, a una declaración de variable, insertaremos dicha declaración en el tabla de 
 símbolos actual. Al insertar una declaración de variable comprobaremos que no se ha insertado otra declaración
@@ -81,7 +81,7 @@ exactamente igual que la anterior pero los pares son String (nombre del tipo nue
 \newpage
 Vamos a ver un ejemplo de un código que usa lo que acabamos de explicar y no da ningún error.
 
-Input [input13 (err vinculacion6)]
+Input [input13\_errvinc.txt]
 
 \begin{algorithm}
 	\Integer{}(\Integer{}) f (a) \{\}\;
@@ -102,7 +102,7 @@ A continuación, veremos los tipos de errores concretos de vinculación. \\ \\ \
 
 Este error se lanza cuando se declara un identificador que ya ha sido declarado. \\
 
-Input [input8 (err vinculacion1).txt]
+Input [input8\_errvinc.txt]
 
 \begin{algorithm}
 	\Integer{} hola\;
@@ -121,7 +121,7 @@ Output\footnote{Solo hemos incluido los errores de vinculación aquí}
 
 Este error se lanza cuando utiliza un identificador que no ha sido declarado prevaimente. \\
 
-Input [input9 (err vinculacion2).txt]
+Input [input9\_errvinc.txt]
 
 \begin{algorithm}
 	\Integer{}() main() \{\\
@@ -153,7 +153,7 @@ Este error se lanza cuando se define un tipo nuevo con un nombre con el que ya s
 un tipo nuevo antes. Aunque sean tipos nuevos distintos (una clase y un struct), si ambos tienen el mismo
 nombre lanzamos error porque puede producir ambigüedad en el futuro. \\
 
-Input [input10 (err vinculacion3).txt]
+Input [input10\_errvinc.txt]
 
 \begin{algorithm}
 	\Class A \{\\
@@ -176,7 +176,7 @@ Output
 
 Este error se lanza cuando se declara una variable de un tipo nuevo que no ha sido declarado previamente. \\
 
-Input [input11 (err vinculacion4).txt]
+Input [input11\_errvinc.txt]
 
 \begin{algorithm}
 	\Struct A a; \comm{//Error porque no se ha definido ese tipo nuevo}\\
@@ -206,7 +206,7 @@ del ámbito de la función se puedan vincular a estas declaraciones. Para que es
 declaraciones de ese bloque, al vincular los argumentos de una función abrimos un nuevo bloque intermedio entre el bloque
 donde está definida la función y el bloque del ámbito de la función.\\
 
-Input [input12 (err vinculacion5).txt]
+Input [input12\_errvinc.txt]
 
 \begin{algorithm}
 	\Integer{}(\Integer{}) f (a,b) \{\};
@@ -234,7 +234,7 @@ Vamos a ver algunos errores a continuación. No enseñaremos todos pues son much
 unos cuantos ficheros de texto preparados con los errores señalados con comentarios.
 \\
 
-Input [input14 (err tipado1).txt]
+Input [input14\_errtipado.txt]
 
 \begin{algorithm}
 	\Integer{}() main() \{\\
@@ -269,6 +269,9 @@ Output
 Es en el tipado donde se resuelve definitivamente la vinculación de identificadores. Se quitan del conjunto de vínculos aquellas declaraciones
 que no coincidan con ningún tipo esperado. Si queda más de un vínculo, lanzaremos un error de expresión ambigua. Si no queda ningún vínculo,
 lanzaremos también error de tipado. Este es un ejemplo sencillo.
+\\
+
+Input [input15\_errtipado.txt]
 
 \begin{algorithm}
 	\comm{//Estas dos funciones son distintas porque su tipo de devolución es distinto}\\
