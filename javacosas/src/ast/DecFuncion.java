@@ -64,10 +64,10 @@ public class DecFuncion extends Declaracion {
         int fila = id.getFila();
         int columna = id.getColumna();
         String idString = id.toString();
-        vinc.abreBloque();
+        vinc.abreAmbFunc();
         vinc.bindParam(argumentosDec, argumentosId, ((Funcional) tipo).getParametros(), idString, fila, columna);
         this.ambito.bind(vinc);
-        vinc.cierraBloque();
+        vinc.cierraAmbFunc();
     }
 
     @Override

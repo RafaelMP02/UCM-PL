@@ -1,5 +1,7 @@
 package ast;
 
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import ast.GeneracionCodigo.Comp;
@@ -51,6 +53,11 @@ public class UnionAmbito implements Programa {
     @Override
     public String codeI(Comp hcom) {
         return ambito.codeI(hcom) + programa.codeI(hcom);
+    }
+
+    @Override
+    public void recoleccionAtributos(LinkedHashMap<String,LinkedHashSet<Declaracion>> mapa_actual) {
+         programa.recoleccionAtributos(mapa_actual);
     }
 
     @Override

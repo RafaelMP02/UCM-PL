@@ -1,6 +1,8 @@
 package ast;
 
 import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import ast.GeneracionCodigo.Comp;
@@ -31,5 +33,9 @@ public class Vacio implements Programa{
     @Override
     public String codeI(Comp hcon) {
         return "";
+    }
+
+    @Override
+    public void recoleccionAtributos(LinkedHashMap<String,LinkedHashSet<Declaracion>> mapa_actual) {
     }
 }

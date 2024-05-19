@@ -1,9 +1,11 @@
 package ast.FuncionesPrimitivas;
 
 import java.util.Arrays;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import ast.Declaracion;
 import ast.GeneracionCodigo.Comp;
 import ast.Programa;
 import ast.Expresiones.E;
@@ -107,6 +109,11 @@ public class For implements Programa {
     @Override
     public String codeFunc(Comp hcon){
         return ambito.codeFunc(hcon);
+    }
+
+    @Override
+    public void recoleccionAtributos(LinkedHashMap<String,LinkedHashSet<Declaracion>> mapa_actual) {
+         programa.recoleccionAtributos(mapa_actual);
     }
 
 

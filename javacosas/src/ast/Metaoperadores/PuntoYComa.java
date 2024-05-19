@@ -1,7 +1,10 @@
 package ast.Metaoperadores;
 
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
+import ast.Declaracion;
 import ast.GeneracionCodigo.Comp;
 import ast.Instruccion;
 import ast.Tipos.NodoTipo;
@@ -55,5 +58,12 @@ public class PuntoYComa implements Programa {
     @Override
     public String codeI(Comp hcom) {
         return inst.codeI(hcom) + prog.codeI(hcom);
+    }
+
+    @Override
+    public void recoleccionAtributos(LinkedHashMap<String,LinkedHashSet<Declaracion>> mapa_actual) {
+        inst.recoleccionAtributos(mapa_actual);
+        prog.recoleccionAtributos(mapa_actual);
+
     }
 }

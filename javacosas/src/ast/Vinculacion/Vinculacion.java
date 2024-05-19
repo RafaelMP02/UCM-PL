@@ -63,16 +63,18 @@ public class Vinculacion {
         pDPDeDefinicion.getLast().removeLast();
     } 
 
-    public void abreAmbFunc(Definicion def) {
+    public void abreAmbFunc() {
         pDPDeTablas.add(new LinkedList<LinkedHashMap<String, LinkedHashSet<Declaracion>>>());
         pDPDeTablas.getLast().add(pDPDeTablas.getFirst().getFirst());
+        if(pDPDeDefinicion.getLast().size() > 0) {
+            pDPDeTablas.getLast().add(pDPDeDefinicion.getLast().getLast().getDecs());
+        }
 
-        pDPDeDefinicion.add(def);
+        pDPDeDefinicion.add(new LinkedList<>());
     } 
 
     public void cierraAmbFunc() {
         pDPDeTablas.removeLast();
-        
         pDPDeDefinicion.removeLast();
     } 
 

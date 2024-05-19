@@ -7,6 +7,9 @@ import ast.Tipos.NodoTipo;
 import ast.Tipos.Puntero;
 import ast.Tipos.Tipado;
 
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+
 public abstract class Declaracion implements Instruccion, CabecerAsig {
     protected NodoTipo tipo;
     protected Identificador id;
@@ -51,5 +54,15 @@ public abstract class Declaracion implements Instruccion, CabecerAsig {
 
     @Override
     public NodoTipo tip(){return tipo;}
+
+    @Override
+    public void recoleccionAtributos(LinkedHashMap<String,LinkedHashSet<Declaracion>> mapa_actual) {
+        if(mapa_actual.containsValue(id.toString())) {
+            mapa_actual.get(id.toString()).add((this));
+        } else {
+            mapa_actual.put(id.toString(), new LinkedHashSet<>());
+            mapa_actual.get(id.toString()).add((this));
+        }
+    }
 
 }

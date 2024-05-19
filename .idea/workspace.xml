@@ -4,43 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bf737e8-0e47-415c-a779-c288e404a575" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/DecFuncion.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/DecFuncion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/DecVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/DecVariable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/DefClase.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/DefClase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/DefStruct.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/DefStruct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Definicion.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Definicion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/EBin.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/EBin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/EFun.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/EFun.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/EListaC.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/EListaC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/EListaL.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/EListaL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/EUn.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/EUn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/Identificador.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/Identificador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/KindE.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/KindE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/NullPtr.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/NullPtr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/Case.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/Case.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/Else.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/Else.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/Elsif.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/Elsif.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/For.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/For.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/If.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/If.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/New.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/New.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/Switch.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/Switch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/While.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/While.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/GeneracionCodigo/Comp.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/GeneracionCodigo/Comp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Metaoperadores/Ambito.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Metaoperadores/Ambito.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/NodoAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/NodoAST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Raiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Raiz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Tipos/Funcional.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Tipos/Funcional.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Tipos/TipoNuevo.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Tipos/TipoNuevo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/UnionAmbito.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/UnionAmbito.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Vinculacion/Vinculacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Vinculacion/Vinculacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/constructorast/ClaseLexica.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/constructorast/ClaseLexica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/constructorast/ConstructorAST.cup" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/constructorast/ConstructorAST.cup" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/constructorast/ConstructorASTExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/constructorast/ConstructorASTExp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/errors/GestionErroresExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/errors/GestionErroresExp.java" afterDir="false" />
-    </list>
+    <list default="true" id="8bf737e8-0e47-415c-a779-c288e404a575" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,7 +75,7 @@
       <workItem from="1715801279952" duration="979000" />
       <workItem from="1715807889451" duration="7000" />
       <workItem from="1716100473142" duration="146000" />
-      <workItem from="1716100622148" duration="7842000" />
+      <workItem from="1716100622148" duration="8145000" />
     </task>
     <servers />
   </component>

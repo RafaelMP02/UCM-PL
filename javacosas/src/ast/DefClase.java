@@ -1,5 +1,7 @@
 package ast;
 
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import ast.Expresiones.Identificador;
@@ -19,11 +21,14 @@ public class DefClase implements Definicion{
     private int columna;
     private int fila;
 
+    private LinkedHashMap<String,LinkedHashSet<Declaracion>> decs;
+
     public DefClase(Identificador nombre, Ambito ambito, int fila, int columna) {
         this. fila = fila;
         this. columna = columna;
         this.nombre = nombre;
         this.ambito = ambito;
+        this.decs = new LinkedHashMap<>();
         t = new Clase(nombre, fila, columna);
     }
 
@@ -33,10 +38,15 @@ public class DefClase implements Definicion{
 
     @Override
     public void bind(Vinculacion vinc) {
-        vinc.abreAmbTNuevo(null);
+        ambito.recoleccionAtributos(decs);
+        vinc.abreAmbTNuevo(this);
         ambito.bind(vinc);
         t.setCampos(ambito.getMapa(), this); //Guardan su tabla de símbolos al cerrarla en el nodo tipo
         vinc.insertarTipoNuevo(t, nombre.toString(), nombre.getFila(), nombre.getColumna());
+    }
+
+    public LinkedHashMap<String, LinkedHashSet<Declaracion>> getDecs() {
+        return decs;
     }
 
     @Override

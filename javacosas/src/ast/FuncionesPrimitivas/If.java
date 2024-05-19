@@ -1,5 +1,6 @@
 package ast.FuncionesPrimitivas;
 
+import ast.Declaracion;
 import ast.Expresiones.E;
 import ast.GeneracionCodigo.Comp;
 import ast.Metaoperadores.Ambito;
@@ -11,6 +12,7 @@ import ast.Tipos.Tipado.TiposEnum;
 import ast.Vinculacion.Vinculacion;
 
 import java.util.Arrays;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -118,5 +120,10 @@ public class If implements Programa {
             s.append(siguienteElse.codeFunc(hcon));
         }
         return s.append( programa.codeFunc(hcon)).toString();
+    }
+
+    @Override
+    public void recoleccionAtributos(LinkedHashMap<String,LinkedHashSet<Declaracion>> mapa_actual) {
+        programa.recoleccionAtributos(mapa_actual);
     }
 }
