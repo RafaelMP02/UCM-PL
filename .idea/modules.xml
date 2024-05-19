@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JaVa/C-Horizon--.iml" filepath="$PROJECT_DIR$/JaVa/C-Horizon--.iml" />
       <module fileurl="file://$PROJECT_DIR$/C-Horizon--1.iml" filepath="$PROJECT_DIR$/C-Horizon--1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Generator.iml" filepath="$PROJECT_DIR$/Generator.iml" />
       <module fileurl="file://$PROJECT_DIR$/javacosas/javacosas.iml" filepath="$PROJECT_DIR$/javacosas/javacosas.iml" />
     </modules>
   </component>

@@ -11,6 +11,6 @@ int() main() {
 		int a := 2; //Correcto
 		struct B {};
 		void() f2() {}; //Error, no se puede declarar una función en un struct
-		x := 2; //Error, no se puede realizar una asignación (si no es una declaración) en un struct
+		x := 2; //Error, no se puede realizar una asignación (si no es una declaración) en un struct y está fuera de ambito x
 	};	
 };

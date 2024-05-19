@@ -47,7 +47,15 @@ public class Identificador extends E {
     @Override
     public Set<NodoTipo> type(Set<NodoTipo> tiposEsperados) {
         /* Devolvemos los tipos del conjunto de nodos a los que está vinculado el id. Si es un id de campo, no se ha vinculado, habrá que hacerlo ahora. */
-        return Tipado.matchIdentificador(this, vinculos, tiposEsperados);
+        Set<NodoTipo> a = Tipado.matchIdentificador(this, vinculos, tiposEsperados);
+        if(a != null){
+            Iterator<NodoTipo> it = a.iterator();
+            if(it.hasNext()) {
+                tipo = it.next();
+            }
+        }
+
+        return a;
     }
 
     @Override

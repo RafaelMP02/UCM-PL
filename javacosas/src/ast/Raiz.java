@@ -121,7 +121,7 @@ public class Raiz implements NodoAST{
             Comp hcon = new Comp(mapa);
            init(s);
            copyMem(s);
-            s.append(this.codeFunc(hcon));
+            s.append(programa.codeFunc(hcon));
             s.append(")\n");
             output.write(s.toString());
             output.close();

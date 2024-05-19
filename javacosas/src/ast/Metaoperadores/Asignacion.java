@@ -47,15 +47,15 @@ public class Asignacion implements Instruccion  {
 
     @Override
     public String codeI(Comp hcon) {
-        String s = null;
+        StringBuilder s = new StringBuilder();
         if(cabecera.tip().typeToEnum() == TiposEnum.STRUCT) {
-            hcon.setTam(cabecera.tip().getTam());
-            s = cabecera.codeD(hcon) + "tee_global $llav\n" + exp.codeE(hcon);
+            //hcon.setTam(cabecera.tip().getTam());
+            //s .append(cabecera.codeD(hcon)).append( "tee_global $llav\n" ).append( exp.codeE(hcon));
         } else if(cabecera.tip().typeToEnum() == TiposEnum.ARRAY) {
-            s = cabecera.codeD(hcon) + "tee_global $corh\n" + exp.codeE(hcon);
+            //s .append( cabecera.codeD(hcon) ).append( "tee_global $corh\n" ).append( exp.codeE(hcon));
         } else {
-            s = cabecera.codeD(hcon) + exp.codeE(hcon) + "i32.store\n";
+            s .append( cabecera.codeD(hcon) ).append( exp.codeE(hcon) ).append( "i32.store\n");
         }
-        return s;
+        return s.toString();
     }
 }

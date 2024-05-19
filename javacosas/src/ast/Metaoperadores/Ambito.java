@@ -71,7 +71,8 @@ public class Ambito implements NodoAST {
         s.append(programa.codeI(hcom));
         hcom.cierraBloque();
         s.append("get_global $MP\n");
-        s.append("tee_global $SP\n");
+        s.append("set_global $SP\n");
+        s.append("get_global $SP\n");
         s.append("i32.load\n");
         s.append("set_global $MP\n");
         return s.toString();

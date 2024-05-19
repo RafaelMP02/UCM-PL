@@ -27,7 +27,7 @@ int() main() {
 	struct B b1;
 	b1.a := a2;
 	b1.a := 4; //Error de tipado
-	b1.var3; //Error, no existe el vampo var3 en struct B
+	b1.var3(); //Error, no existe el campo var3 en struct B
 	struct B b2 :=  {2, True, b1}; //Error de tipado en "b1"
 
 	struct C c;

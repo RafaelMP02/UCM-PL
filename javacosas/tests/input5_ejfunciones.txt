@@ -23,3 +23,5 @@ int(int) f2(a) {
 	}
 	return f1(a - 1);
 };
+
+//error de binding al no haber main

@@ -1,4 +1,4 @@
-int hola ::= 2;
+int hola ::= 2; //Error por dos ya que para las variables globales no hay asignacion
 
 int(int) f(a) {
 	while (True) {

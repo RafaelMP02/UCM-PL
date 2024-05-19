@@ -1,7 +1,8 @@
-int hola := 2;
+int hola := 2; //nada de asignacion para variables globales
 int(int) f(a) {
 	while (int) { //Error sintáctico en la condición
 		hola++;
 	}
 	return .; //Error sintáctico
 };
+//sin funcion main

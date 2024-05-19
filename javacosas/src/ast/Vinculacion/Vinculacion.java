@@ -199,7 +199,6 @@ public class Vinculacion {
 
         else {
             if (argumentosId != null) {
-                argumentosDec = new LinkedList<>();                    
                 for(int i = 0; i < argumentosId.size(); i++) {
                     Identificador id = argumentosId.get(i);
                     DecVariable dec = new DecVariable(parametros.get(i).getTipo(), id);                    

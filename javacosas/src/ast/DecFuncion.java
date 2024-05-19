@@ -21,6 +21,7 @@ public class DecFuncion extends Declaracion {
         super(tipo, id);
         List<Parametrico> l = tipo.getParametros();
         this.argumentosId = arg;
+        this.argumentosDec = new LinkedList<>();
         int m = Math.min(l.size(), arg.size());
         Iterator<Parametrico> it_par = l.iterator();
         Iterator<Identificador> it_id = arg.iterator();
@@ -94,7 +95,7 @@ public class DecFuncion extends Declaracion {
     @Override
     public String codeFunc(Comp hcon){
         StringBuilder s = new StringBuilder(ambito.codeFunc(hcon));
-        String fun = "main";
+        String fun = "$main";
         if(!this.id.toString().equals("main")) {
             hcon.insertarFunc(this);
             fun = hcon.buscarFun(this);
@@ -103,7 +104,7 @@ public class DecFuncion extends Declaracion {
         }
         s.append("( func " + fun + "\n");
         if(this.tipo.typeToEnum() != TiposEnum.VOID){
-            s.append("(result i32\n");
+            s.append("(result i32)\n");
         }
         Map<Declaracion, String> parametros = new LinkedHashMap<>();
         s.append(hcon.getGLSTR()); //GLOBAL STRING
@@ -126,29 +127,29 @@ public class DecFuncion extends Declaracion {
         hcon.setLocalMap(parametros);
         s.append("(local $i i32)\n");
         s.append("(local $temp i32)\n");
-        s.append("get_global $MP\n");
-        s.append("i32.const 8\n");
-        s.append("i32.add\n");
-        s.append("tee_local $i\n");
+        s.append("(get_global $MP)\n");
+        s.append("(i32.const 8)\n");
+        s.append("(i32.add)\n");
+        s.append("(tee_local $i)\n");
         for(int i = 1; i <= set.size(); i++) {
-            s.append("i32.load\n");
-            s.append("set_local $campo").append(i).append("\n");
-            s.append("get_local $i\n");
-            s.append("i32.const 4\n");
-            s.append("i32.add\n");
-            s.append("tee_local $i\n");
+            s.append("(i32.load)\n");
+            s.append("(set_local $campo").append(i).append(")\n");
+            s.append("(get_local $i)\n");
+            s.append("(i32.const 4)\n");
+            s.append("(i32.add)\n");
+            s.append("(tee_local $i)\n");
         }
         for(int i = 1; i <= argumentosId.size(); i++) {
-            s.append("i32.load\n");
-            s.append("set_local $param").append(i).append("\n");
-            s.append("get_local $i\n");
-            s.append("i32.const 4\n");
-            s.append("i32.add\n");
-            s.append("tee_local $i\n");
+            s.append("(i32.load)\n");
+            s.append("(set_local $param").append(i).append(")\n");
+            s.append("(get_local) $i\n");
+            s.append("(i32.const 4)\n");
+            s.append("(i32.add)\n");
+            s.append("(tee_local) $i\n");
         }
-        s.append("drop\n");
+        s.append("(drop)\n");
 
-        s.append(ambito.codeI(hcon)).append("return\n").append(")\n");
+        s.append(ambito.codeI(hcon)).append("(return)\n").append(")\n");
         hcon.clearLocalMap();
         return s.toString();
     }

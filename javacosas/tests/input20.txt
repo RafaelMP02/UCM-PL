@@ -4,5 +4,8 @@ int() main(){
     x := 0;
     y := x + 1;
     prints(y);
+    return x;
 };
+int z;
+int w;
 

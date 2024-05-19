@@ -1,5 +1,6 @@
 package ast.Tipos;
 
+import java.util.LinkedList;
 import java.util.List;
 import ast.Tipos.Tipado.TiposEnum;
 
@@ -15,6 +16,7 @@ public class Funcional implements NodoTipo {
 
     public Funcional() {
         this.tRetorno = new TipoGenerico();
+        this.parametros = new LinkedList<>();
     }
 
     public String toString() {

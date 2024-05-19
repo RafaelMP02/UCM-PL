@@ -27,8 +27,12 @@ public class DecVariable extends Declaracion  {
         
         //Si es un tipo clase o struct vemos si se ha definido
         if (Tipado.TIPOS_NUEVOS.contains(tipo.typeToEnum())) {
-            this.setTipo(vinc.buscarTipoNuevo(((TipoNuevo) tipo).getId(), tipo.getFila(), tipo.getColumna()));
-            this.def = ((TipoNuevo)this.tipo).getDef();
+            NodoTipo tt = vinc.buscarTipoNuevo(((TipoNuevo) tipo).getId(), tipo.getFila(), tipo.getColumna());
+            this.setTipo(tt);
+            if(tt.typeToEnum() != Tipado.TiposEnum.ERROR) { //TODO Cambie esto porque daba error
+                this.def = ((TipoNuevo)this.tipo).getDef();
+            }
+
         }
 
         vinc.insertaId(id.toString(), this, id.getFila(), id.getColumna());
