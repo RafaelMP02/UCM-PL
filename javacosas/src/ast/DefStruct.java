@@ -39,9 +39,11 @@ public class DefStruct implements Definicion  {
     @Override
     public void bind(Vinculacion vinc) {
         ambito.recoleccionAtributos(decs);
+        vinc.abreAmbTNuevo(this);
         ambito.bind(vinc);
         t.setCampos(ambito.getMapa(), this); //Guardan su tabla de símbolos al cerrarla en el nodo tipo
         vinc.insertarTipoNuevo(t, nombre.toString(), nombre.getFila(), nombre.getColumna());
+        vinc.cierraAmbTNuevo();
     }
 
     public LinkedHashMap<String, LinkedHashSet<Declaracion>> getDecs() {

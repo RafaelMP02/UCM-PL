@@ -21,7 +21,7 @@ public class Comp {
     private LinkedList<Integer> MPStack;
 
     private LinkedList<Definicion> atributos;
-    private LinkedHashMap<Declaracion, Integer> funciones;
+    private LinkedHashMap<Declaracion, String> funciones;
 
     private Map<Declaracion, Integer> globales;
 
@@ -127,12 +127,16 @@ public class Comp {
     }
 
     public void insertarFunc(Declaracion fun){
-        this.funciones.put(fun, num_fun);
+        this.funciones.put(fun, "$fun" + Integer.toString(num_fun));
         num_fun = num_fun + 1;
     }
 
-    public int buscarFun(){
-        return this.num_fun-1;
+    public void insertarMain(Declaracion main){
+        this.funciones.put(main, "$main");
+    }
+
+    public String buscarFun(Declaracion dec){
+        return this.funciones.get(dec);
     }
 
 
@@ -219,9 +223,6 @@ public class Comp {
         return NP;
     }
 
-    private int getFunc(Identificador id){
-        return funciones.get(id.getVinculo());
-    }
 
     public void setAllocator(int alloc){
         this.next_allocator = alloc;

@@ -76,11 +76,12 @@ public class EFun extends E implements Instruccion {
                 }
             }
 
-            s.append()
+            s.append("call ").append(hcon.buscarFun(dec)).append("\n");
 
         } else { //metodo
             EBin id = (EBin) idFuncion;
             Identificador campo = (Identificador) id.getOpnd2();
+            Declaracion de = campo.getVinculo();
             E co = id.getOpnd1();
             Definicion def = ((TipoNuevo) co.tipo).getDef();
 
@@ -125,6 +126,8 @@ public class EFun extends E implements Instruccion {
                     s.append("get_local $i\n").append("i32.const ").append(4).append("\n").append("i32.add\n").append("set_local $i\n");
                 }
             }
+
+            s.append("call ").append(hcon.buscarFun(de)).append("\n");
 
         }
         return s.toString();

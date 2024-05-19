@@ -32,10 +32,9 @@ import errors.GestionErroresExp;
 guion = \_
 digitoPositivo = [1-9]
 digito = ({digitoPositivo}|0)
-parteEntera = ({digitoPositivo}{digito}*) | 0
+numeroEntero = ({digitoPositivo}{digito}*) | 0
 separador = [ \t\r\b\n]
 comentario = \/\/[^\n]* 
-numeroEntero = [\+\-]?{parteEntera}
 operadorSuma = \+
 operadorResta = \-
 operadorDivision = \/
@@ -84,8 +83,10 @@ int = int
 bool = bool
 true = True
 false = False
+nullptr = null
 
 letra  = ([A-Z]|[a-z])
+main = main
 identificador = {letra}({letra}|{digito}|{guion})*
 
 %%
@@ -142,7 +143,9 @@ identificador = {letra}({letra}|{digito}|{guion})*
 {bool}           	  {return ops.unidadBool();}
 {true}           	  {return ops.unidadTrue();}
 {false}           	  {return ops.unidadFalse();}
+{nullptr} 		  {return ops.unidadNullPtr();}
 
+{main}			  {return ops.unidadMain();}
 {identificador}           {return ops.unidadId();}
 
 [^]                       {errores.errorLexico(fila(),columna(),lexema());}  

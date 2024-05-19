@@ -94,10 +94,12 @@ public class DecFuncion extends Declaracion {
     @Override
     public String codeFunc(Comp hcon){
         StringBuilder s = new StringBuilder(ambito.codeFunc(hcon));
-        hcon.insertarFunc(this);
         String fun = "main";
         if(!this.id.toString().equals("main")) {
-            fun = "$fun"+hcon.buscarFun();
+            hcon.insertarFunc(this);
+            fun = hcon.buscarFun(this);
+        } else{
+            hcon.insertarMain(this);
         }
         s.append("( func " + fun + "\n");
         if(this.tipo.typeToEnum() != TiposEnum.VOID){

@@ -66,9 +66,10 @@ public class Vinculacion {
     public void abreAmbFunc() {
         pDPDeTablas.add(new LinkedList<LinkedHashMap<String, LinkedHashSet<Declaracion>>>());
         pDPDeTablas.getLast().add(pDPDeTablas.getFirst().getFirst());
-        if(pDPDeDefinicion.getLast().size() > 0) {
+        if(pDPDeDefinicion.getLast().size() > 0 && !pDPDeDefinicion.getLast().isEmpty()) {
             pDPDeTablas.getLast().add(pDPDeDefinicion.getLast().getLast().getDecs());
         }
+        pDPDeTablas.getLast().add(new LinkedHashMap<>());
 
         pDPDeDefinicion.add(new LinkedList<>());
     } 

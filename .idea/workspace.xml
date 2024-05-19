@@ -4,7 +4,49 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bf737e8-0e47-415c-a779-c288e404a575" name="Changes" comment="" />
+    <list default="true" id="8bf737e8-0e47-415c-a779-c288e404a575" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/DecFuncion.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/DecFuncion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/DefClase.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/DefClase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/DefStruct.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/DefStruct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/EFun.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/EFun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/GeneracionCodigo/Comp.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/GeneracionCodigo/Comp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Vinculacion/Vinculacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Vinculacion/Vinculacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/src/constructorast/ClaseLexica.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/constructorast/ClaseLexica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/src/constructorast/ConstructorASTExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/constructorast/ConstructorASTExp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/tests/input1 (err arrays).txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/tests/input10 (err vinculacion3).txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/tests/input11 (err vinculacion4).txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/tests/input12 (err vinculacion5).txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/tests/input13 (err vinculacion6).txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/tests/input14 (err tipado1).txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/tests/input15 (err tipado2).txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/tests/input2 (err punteros).txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/tests/input3 (err structs).txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/tests/input4 (err clases).txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/tests/input5 (ej funciones).txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/tests/input6 (err lexico).txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/tests/input7 (err sintaxis).txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/tests/input8 (err vinculacion1).txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/tests/input9 (err vinculacion2).txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacosas/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacosas/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacosas/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacosas/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacosas/alex/ALexOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/alex/ALexOperations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacosas/alex/AnalizadorLexicoExp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/alex/AnalizadorLexicoExp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacosas/alex/AnalizadorLexicoExp.l" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/alex/AnalizadorLexicoExp.l" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacosas/alex/TokenValue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/alex/TokenValue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacosas/alex/UnidadLexica.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/alex/UnidadLexica.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/NodoAST.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/ast/NodoAST.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/NodoTipo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/NodoTipo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/Parametrico.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/Parametrico.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/Tipado$TiposEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/Tipado$TiposEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/Tipado.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/Tipado.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacosas/constructorast/ConstructorAST.cup" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/constructorast/ConstructorAST.cup" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacosas/errors/GestionErroresExp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/errors/GestionErroresExp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacosas/javacosas.iml" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,6 +104,16 @@
       <recent name="$PROJECT_DIR$/javacosas/src/alex" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="constructorast.Main" />
+      <module name="javacosas" />
+      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/javacosas/tests/input1_errarray.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -75,7 +127,7 @@
       <workItem from="1715801279952" duration="979000" />
       <workItem from="1715807889451" duration="7000" />
       <workItem from="1716100473142" duration="146000" />
-      <workItem from="1716100622148" duration="8145000" />
+      <workItem from="1716100622148" duration="14880000" />
     </task>
     <servers />
   </component>
