@@ -31,7 +31,7 @@ init with {:
 :};
 
 
-terminal  TokenValue MAS, MENOS, DIV, PAP, PCIERRE, CAP, CCIERRE, LLAP, LLCIERRE, PCOMA, COMA, ASIG, OPASTERISCO, OPPUNTO, OPPASOVALOR, IGUAL, DISTINTO, NEGACION, CONJUNCION, DISYUNCION, MENORQUE, MAYORQUE, MENORIGUAL, MAYORIGUAL, NEW, PRINTS, SCANS, WHILE, FOR, SWITCH, CASE, DEFAULT, RETURN, IF, ELSIF, ELSE, CLASS, STRUCT, VOID, INT, BOOL, TRUE, FALSE, NULLPTR, OPMASMAS, OPMENOSMENOS, IDEN, ENT;
+terminal  TokenValue MAS, MENOS, DIV, PAP, PCIERRE, CAP, CCIERRE, LLAP, LLCIERRE, PCOMA, COMA, ASIG, OPASTERISCO, OPPUNTO, OPPASOVALOR, IGUAL, DISTINTO, NEGACION, CONJUNCION, DISYUNCION, MENORQUE, MAYORQUE, MENORIGUAL, MAYORIGUAL, NEW, PRINTS, SCANS, WHILE, FOR, SWITCH, CASE, DEFAULT, RETURN, IF, ELSIF, ELSE, CLASS, STRUCT, VOID, INT, BOOL, TRUE, FALSE, NULLPTR, OPMASMAS, OPMENOSMENOS, IDEN, ENT, MAIN;
 
 
 
@@ -43,7 +43,7 @@ non terminal Instruccion INSTRUCCION;
 
 non terminal Ambito AMBITO;
 
-non terminal Declaracion DECLARACION, DECVARIABLE, DECFUNCION;
+non terminal Declaracion DECLARACION, DECVARIABLE, DECFUNCION, DECMAIN;
 
 non terminal Definicion DEFINICION;
 
@@ -85,11 +85,19 @@ G ::= DEFINICION:aDeI PCOMA G:aDeP
 
 G ::= DECLARACION:aDeI PCOMA G:aDeP
     {:RESULT= new PuntoYComa(aDeI, aDeP); :};
+    
+G ::= DECMAIN:aDeI PCOMA G:aDeP
+    {:RESULT= new PuntoYComa(aDeI, aDeP); :};
 
 G ::=
    {:RESULT= new Vacio(); :};
 
-
+DECMAIN ::= TIPOF:aDeT MAIN:id PAP ELEMIDEN:aDeElem  PCIERRE AMBITO:aDeAmb
+    {: RESULT= new DecFuncion(aDeT, new Identificador(id.lexema, id.fila, id.columna), aDeElem, aDeAmb); :};
+    
+DECMAIN ::= TIPOF:aDeT MAIN:id error AMBITO:aDeAmb
+    {: RESULT= new DecFuncion(aDeT, new Identificador(id.lexema, id.fila, id.columna), new LinkedList<Identificador>() {{new EError();}}, aDeAmb); :};
+    
 
 //Programas ---
 

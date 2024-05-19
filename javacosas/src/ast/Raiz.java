@@ -23,8 +23,12 @@ public class Raiz implements NodoAST{
 
     public  Raiz(Programa programa){
         this.programa = programa;
+        this.errores = new GestionErroresExp();
     }
 
+    public GestionErroresExp getErroresExp() {
+        return this.errores;
+    }
     @Override
     public Set<NodoTipo> type(Set<NodoTipo> tiposEsperados) {
         /* Devuelve el tipado de todas las instrucciones del programa. */
@@ -57,14 +61,8 @@ public class Raiz implements NodoAST{
        if(!mapa.containsKey("main")){
            errores.errNoMain();
        } else {
-           boolean main_fun = false;
-           for(Declaracion X: mapa.get("main")) {
-               if(X.tipo.typeToEnum() == Tipado.TiposEnum.FUNCIONAL) {
-                   main_fun = true;
-               }
-           }
-           if(!main_fun){
-               errores.errNoMain();
+           if(mapa.get("main").size() > 1){
+               errores.errMainDuplicado();
            }
        }
     }

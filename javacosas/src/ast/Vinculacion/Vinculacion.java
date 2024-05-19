@@ -1,6 +1,7 @@
 package ast.Vinculacion;
 
 import errors.GestionErroresExp;
+import java_cup.production;
 
 import java.util.Arrays;
 import java.util.LinkedHashSet;
@@ -12,6 +13,7 @@ import java.util.Map;
 
 import ast.DecVariable;
 import ast.Declaracion;
+import ast.Definicion;
 import ast.Expresiones.Identificador;
 import ast.Tipos.NodoTipo;
 import ast.Tipos.Parametrico;
@@ -25,30 +27,58 @@ public class Vinculacion {
     (en el caso de que sea una función puede haber sobrecarga).
     Cuando busquemos un nodo lo haremos llamando a buscaId(id.toString()) (se llama al toString de manera automática).
     */
-    private List<Map<String, LinkedHashSet<Declaracion>>> pilaDeTablas; //Es una pila conceptual, lo implementamos como lista porque es más eficiente
-    private List<Map<String, TipoNuevo>> pilaDeTipos;
+    private LinkedList<LinkedList<LinkedHashMap<String, LinkedHashSet<Declaracion>>>> pDPDeTablas; //Es una pila conceptual, lo implementamos como lista porque es más eficiente
+    private LinkedList<LinkedList<Definicion>> pDPDeDefinicion;
+    private LinkedList<LinkedHashMap<String, TipoNuevo>> pilaDeTipos;
     private GestionErroresExp errores;
 
-    int num_main;
-
     public Vinculacion () {
-        this.pilaDeTablas = new LinkedList<>();
-        //Añadimos la tabla de símbolos inicial. Es un LinkedHashmap para que se guarden en el orden en que se insertan.
-        this.pilaDeTablas.add(new LinkedHashMap<String, LinkedHashSet<Declaracion>>());
+        this.pDPDeTablas = new LinkedList<>();
+        this.pDPDeTablas.add(new LinkedList<LinkedHashMap<String, LinkedHashSet<Declaracion>>>());
+
+        this.pDPDeDefinicion = new LinkedList<>();
+        this.pDPDeDefinicion.add(new LinkedList<Definicion>());
+
         this.pilaDeTipos = new LinkedList<>();
         this.pilaDeTipos.add(new LinkedHashMap<String, TipoNuevo>());
+
         this.errores = new GestionErroresExp();
-        this.num_main = 0;
     }
 
     /* 
     Los que se encargan de abrir y cerrar ámbitos no son los MetaOperadores "{}", porque hay veces que no abren nuevo ámbito. 
     Ejemplo: una clase declara un ámbito global. Sus funciones y métodos se pueden acceder desde el ámbito al que pertenece la clase. 
     */
+    
+    public void abreAmbTNuevo(Definicion def) {
+        pDPDeTablas.add(new LinkedList<LinkedHashMap<String, LinkedHashSet<Declaracion>>>());
+        pDPDeTablas.getLast().add(pDPDeTablas.getFirst().getFirst());
+
+        pDPDeDefinicion.getLast().add(def);
+    } 
+
+    public void cierraAmbTNuevo() {
+        pDPDeTablas.removeLast();
+        
+        pDPDeDefinicion.getLast().removeLast();
+    } 
+
+    public void abreAmbFunc(Definicion def) {
+        pDPDeTablas.add(new LinkedList<LinkedHashMap<String, LinkedHashSet<Declaracion>>>());
+        pDPDeTablas.getLast().add(pDPDeTablas.getFirst().getFirst());
+
+        pDPDeDefinicion.add(def);
+    } 
+
+    public void cierraAmbFunc() {
+        pDPDeTablas.removeLast();
+        
+        pDPDeDefinicion.removeLast();
+    } 
 
     public void abreBloque() {
         /* Añadimos una nueva tabla de símbolos porque se ha abierto un bloque.*/
-        pilaDeTablas.add(new LinkedHashMap<String, LinkedHashSet<Declaracion>>());
+        pDPDeTablas.getLast().add(new LinkedHashMap<String, LinkedHashSet<Declaracion>>());
         pilaDeTipos.add(new LinkedHashMap<String, TipoNuevo>());
     }
 
@@ -57,15 +87,15 @@ public class Vinculacion {
         Eliminamos la tabla de símbolos de ese ámbito (el último) porque se ha cerrado el bloque.
         Se devuelve la tabla de símbolo para que cada ámbito la almacene (es útil para binding y tipado).
         */
-        pilaDeTipos.remove(pilaDeTipos.size() - 1);
-        return pilaDeTablas.remove(pilaDeTablas.size() - 1);
+        pilaDeTipos.removeLast();
+        return pDPDeTablas.getLast().removeLast();
     }
 
     public void insertaId(String id, Declaracion puntero, int fila, int columna) {
         /*
         Intentamos añadir una entrada a la tabla de símbolos del ámbito actual.
          */
-        Map<String,LinkedHashSet<Declaracion>> tabla_actual = pilaDeTablas.get(pilaDeTablas.size() - 1);
+        Map<String,LinkedHashSet<Declaracion>> tabla_actual = pDPDeTablas.getLast().getLast();
 
         //Si ya existe una entrada con ese id...
         if (tabla_actual.containsKey(id)) {
@@ -105,8 +135,8 @@ public class Vinculacion {
         Mientras no lo hayamos encontrado y queden tablas de símbolos por recorrer, seguimos buscando
         Si ya lo hemos encontrado, no continuamos buscando, porque, por ocultación, las siguientes tablas no son visibles
         */
-        for (int i = pilaDeTablas.size()-1; i >= 0; i--) {
-            Map<String,LinkedHashSet<Declaracion>> mapa = pilaDeTablas.get(i);
+        for (int i = pDPDeTablas.getLast().size()-1; i >= 0; i--) {
+            Map<String,LinkedHashSet<Declaracion>> mapa = pDPDeTablas.getLast().get(i);
             boolean varEncontradaBloque = false;
             if (mapa.containsKey(id)) {
                 for (Declaracion dec : mapa.get(id)) {
@@ -132,7 +162,7 @@ public class Vinculacion {
     }
 
     public void insertarTipoNuevo(TipoNuevo tipo, String nombre, int fila, int columna) {
-        Map<String,TipoNuevo> mapa = pilaDeTipos.get(pilaDeTipos.size() - 1);
+        Map<String,TipoNuevo> mapa = pilaDeTipos.getLast();
         if (mapa.containsKey(nombre)) {
             errores.errTipoYaDef(fila, columna, nombre);
         }

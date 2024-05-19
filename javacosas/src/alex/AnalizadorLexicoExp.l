@@ -86,6 +86,7 @@ false = False
 nullptr = null
 
 letra  = ([A-Z]|[a-z])
+main = main
 identificador = {letra}({letra}|{digito}|{guion})*
 
 %%
@@ -144,6 +145,7 @@ identificador = {letra}({letra}|{digito}|{guion})*
 {false}           	  {return ops.unidadFalse();}
 {nullptr} 		  {return ops.unidadNullPtr();}
 
+{main}			  {return ops.unidadMain();}
 {identificador}           {return ops.unidadId();}
 
 [^]                       {errores.errorLexico(fila(),columna(),lexema());}  

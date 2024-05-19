@@ -62,6 +62,16 @@ public class GestionErroresExp {
     addError();
   }
 
+  public void errNoMain() {
+    System.out.println("Error al no encontrar la función main");
+    addError();
+  }
+
+  public void errMainDuplicado() {
+    System.out.println("Se han declarado varios \"main\"");
+    addError();
+  }
+
   //TIPADO
 
   public void errExpAmbigua(int fila, int columna) {
@@ -116,11 +126,6 @@ public class GestionErroresExp {
     addError();
   }
 
-  public void errNoMain() {
-    System.out.println(" Error al no encontrar la funcion main");
-    addError();
-  }
-
   private String tEsperadosToString(Set<NodoTipo> tiposEsperados) {
     StringBuilder strBuilder = new StringBuilder();
     for (NodoTipo tipo : tiposEsperados) {
@@ -130,5 +135,6 @@ public class GestionErroresExp {
     }
     return strBuilder.toString();    
   }
+
 
 }

@@ -33,6 +33,7 @@ public class DefClase implements Definicion{
 
     @Override
     public void bind(Vinculacion vinc) {
+        vinc.abreAmbTNuevo(null);
         ambito.bind(vinc);
         t.setCampos(ambito.getMapa(), this); //Guardan su tabla de símbolos al cerrarla en el nodo tipo
         vinc.insertarTipoNuevo(t, nombre.toString(), nombre.getFila(), nombre.getColumna());

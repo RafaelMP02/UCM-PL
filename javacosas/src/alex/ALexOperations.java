@@ -7,10 +7,6 @@ public class ALexOperations {
   public ALexOperations(AnalizadorLexicoExp alex) {
    this.alex = alex;   
   }
-  public UnidadLexica unidadId() {
-     return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.IDEN,
-                                         alex.lexema()); 
-  } 
   public UnidadLexica unidadEnt() {
      return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.ENT,alex.lexema()); 
   } 
@@ -164,7 +160,15 @@ public class ALexOperations {
      return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.FALSE,"null"); 
   } 
   
+  public UnidadLexica unidadMain() {
+     return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.MAIN,
+                                         alex.lexema()); 
+  }
   
+  public UnidadLexica unidadId() {
+     return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.IDEN,
+                                         alex.lexema()); 
+  } 
 
   public UnidadLexica unidadEof() {
      return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.EOF,"<EOF>"); 
