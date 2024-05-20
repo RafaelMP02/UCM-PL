@@ -1,6 +1,5 @@
-int hola ::= 2; //Error por dos ya que para las variables globales no hay asignacion
-
-int(int) f(a) {
+int(int) main (a) {
+	int hola ::= 2; //Error por dos ya que para las variables globales no hay asignacion
 	while (True) {
 		hola++;_
 	}

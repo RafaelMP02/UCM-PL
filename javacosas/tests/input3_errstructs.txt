@@ -15,8 +15,8 @@ struct C {
 int() main() {
 	struct A a1;
 	a1.var1 := 3;
-	struct A a2 := {3, False}; //Error de tipado en "False"
-	struct A a3 := {3, 4};
+	struct A a2 := {3, False}; 
+	struct A a3 := {3, 4}; //Error de tipado en el segundo elemento de la lista de llaves
 
 	struct B {
 		int var1;

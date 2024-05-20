@@ -10,11 +10,11 @@ Nuestro primer tipo de instrucciones son las de asignación. Como hemos visto a 
 
 	\Integer{} X  := \const{2};
 	
-	\Integer{*} p  := \const{null}\;
+	\Integer{\operator{*}} p  := \const{null}\;
 	
 	p := \reserved{new} \;
 	
-	p* := \const{2}
+	\operator{*}p := \const{2}
 	
 	\Boolean{[\const{3}]} Y \Assign 
 	[\const{True}, \const{True}, \const{False}] \;
@@ -22,16 +22,13 @@ Nuestro primer tipo de instrucciones son las de asignación. Como hemos visto a 
 	\Integer{[\const{2}][\const{2}]} Z \Assign 
 	[[\const{0},\const{1}],[\const{2},\const{3}]] \;
 	
-	\Class \texttt{estudiante} \texttt{antonio} := 
-	\texttt{estudiante}(\const{1}, \const{2})\; 
-	
 	\Integer{}(\Integer{}, \Integer{}) potencia(a,b) \{ \\
-	\quad \Ifff{b < \const{0}}\\
+	\quad \Ifff{(b < \const{0})} \{\\
 	\quad \quad \reserved{return} \const{0}\;
-	\quad \} \Elsif{b == \const{0}}\\
+	\quad \} \Elsif{(b \operator{==} \const{0})} \{\\
 	\quad \quad \reserved{return} \const{1}\;
-	\quad \} \Elsee\\
-	\quad \quad \reserved{return} potencia(a,b-\const{1})\;
+	\quad \} \Elsee \{\\
+	\quad \quad \reserved{return} potencia(a,b\operator{-}\const{1})\;
 	\quad \} \\
 	\}\;
 	
@@ -65,7 +62,8 @@ Vemos ahora el siguiente tipo de instrucción, las formadas por un switch. Usamo
 Finalmente el último tipo de instrucción. Para la salida estándar está reservada la palabra \reserved{print} que imprime el contenido de una variable primitiva por la salida estándar. Para la entrada estándar, tenemos la palabra reservada \reserved{read} que de igual manera recoge el valor de una variable primitiva dada por la entrada estándar.
 
 \bigskip
-Finalmente, mostramos un ejemplo en el que se usan todas las instrucciones para ejemplificar su uso:
+Finalmente, mostramos un ejemplo en el que se usan todas las instrucciones para ejemplificar su uso: \footnote{Recordamos que es ilustrativo, en el apartado de generación de código
+mostraremos fragmentos que se puedan compilar}
 
 \begin{algorithm}
 
@@ -75,9 +73,9 @@ Finalmente, mostramos un ejemplo en el que se usan todas las instrucciones para 
 	\Integer{} T \;
 	
 	\reserved{int}(\reserved{int}, \reserved{int}) f(a,b) \{ \\
-	\quad \Ifff{\const{2}*a < \, b}\\
+	\quad \Ifff{(\const{2}*a < \, b)} \{\\
 	\quad \quad \reserved{return} \const{2}*a + \const{1}\;
-	\quad \} \Elsif{a > \, b}\\
+	\quad \} \Elsif{(a > \, b)} \{\\
 	\quad \quad \reserved{return} b\;
 	\quad \} \Elsee{}\\
 	\quad \quad \reserved{return} a + \const{1}\;
@@ -87,7 +85,7 @@ Finalmente, mostramos un ejemplo en el que se usan todas las instrucciones para 
     \reserved{for} (Y := \const{0}; Y < \, X; Y := f(Y,X))	 \{ \\
     \quad \reserved{for} 
     (T := \const{0}; T < \, Y; T := T + \const{1})	 \{ \\
-	\quad \quad \Ifff{\const{2}*Y < \, X}\\
+	\quad \quad \Ifff{(\const{2}*Y < \, X)} \{\\
 	\quad \quad \quad Z := Z + \const{1}\;
 	\quad \quad \} \\
 	\quad \} \\

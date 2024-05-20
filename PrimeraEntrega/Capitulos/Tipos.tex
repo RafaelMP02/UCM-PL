@@ -44,7 +44,8 @@ $\rightarrow$ $t$.
 
 \section{Struct}
 Utilizaremos la palabra reservada \Struct para declararar un registro y para instanciarlo. Se realizará de manera semejante a C++. Los registros tendrán
-solo atributos (como es de esperar). Se accederá a los atributos con el operador "." (sin las dobles comillas). Este es un ejemplo:
+solo atributos y/0 definiciones de otros structs (como es de esperar). Se accederá a los atributos con el operador "." (sin las dobles comillas). Dentro de un struct, solo se podrá acceder
+a variables declaradas del struct o globales y a funciones (declaradas fuera, lógicamente). Este es un ejemplo:
 
 \begin{algorithm}
 	\Struct{} tEstudiante \{ \\
@@ -53,34 +54,30 @@ solo atributos (como es de esperar). Se accederá a los atributos con el operado
 	\}; \\
 
 	\Integer{} main () \{ \\
-		\quad \Struct{} tEstudiante antonio := \{22, 67532\}; \\
+	\Struct{} tEstudiante antonio := \{22, 67532\}; \\
 		\quad antonio.edad := antonio.edad + 1; \comm{//La edad se ha incrementado en 1} \\
 	\};
 \end{algorithm}
 
 \section{Class}
 Utilizaremos la palabra reservada \Class para declararar una clase. Se realizará de manera semejante a C++. Las clases tendrán atributos
-y métodos (atributos funcionales), todos ellos públicos. Deberán tener definido un método especial, el constructor, que debe ser único en principio. 
-Se accederá a los otros
-métodos y a los atributos con el operador "." (sin las dobles comillas) seguido del nombre del método o atributo excepto para el constructor en el que se accede solo mencionando la clase, y dependiendo de si tiene argumentos o no, se interpreta una u otra cosa. Para referenciar el constructor dentro de la clase, se usa la palabra reservada \reserved{this}.
+y métodos (atributos funcionales), todos ellos públicos. No tienen constructores, sino que sus atributos se inicializan de la misma manera
+que lo hace un struct: accediendo a ellos directamente o con una expresión de lista de llaves. Se accederá a los otros
+métodos y a los atributos con el operador "." (sin las dobles comillas) seguido del nombre del método o atributo. 
+Dependiendo de si la expresión es funcional o no, se buscará un atributo o un método de la clase.
 
 Este es un ejemplo:
 
  
 \begin{algorithm}
 	\Class Estudiante \{ \\
-		\quad Estudiante(\Integer{}, \reserved{int}) 
-		\reserved{this}(e , i)\{ \\
-		\quad \quad edad := e; \\
-		\quad \quad id := i; \\
-		\quad \} ;\
 		\quad \Integer{} edad; \\
 		\quad \Integer{} id; \\
-		%\Void incr_edad() \{ edad := edad + 1; \} \\ ESTA LÍNEA
+		\quad \Void incr\_edad() \{ edad := edad + 1; \}\;
 	\}; \\
 
 	\Integer{}() main() \{ \\
-		\quad Estudiante antonio := Estudiante(22, 67532); \\
+		\quad Estudiante antonio := \{22, 67532\}; \\
 		\quad antonio.incr\_edad(); 
 		\comm{//La edad se ha incrementado en 1}  \\
 		\quad \reserved{return} \const{0}; \\
@@ -96,8 +93,9 @@ $\rightarrow$ $B_{t}$.
 \\Prioridad: 12.
 \\Asociatividad: izquierda.
 
+\newpage
 \section{Punteros}
-Para declarar un puntero a una variable, simplemente usaremos el operador \Ptr al lado del tipo. Para acceder al valor del puntero, también usaremos este operador. Cuando se declara un puntero sin instanciarlo toma el valor \const{null} (palabra reservada) como en C++.
+Para declarar un puntero a una variable, simplemente usaremos el operador \operator{*} al lado del tipo. Para acceder al valor del puntero, también usaremos este operador. Cuando se declara un puntero sin instanciarlo toma el valor \const{null} (palabra reservada) como en C++.
 \begin{algorithm}
 	\Integer{}\operator{*} p; \comm{//Se declara un puntero} \\
 	\operator{*}p := \const{5}; \comm{//Se asigna valor 5} \\
@@ -129,7 +127,7 @@ No permitimos prototipos de funciones, siempre se debe definir el cuerpo de la f
 	\} \;
 	\reserved{int}(\reserved{int}, \reserved{int}) 
 	division\_entera(a,b) \{ \\
-	\quad \Ifff{ b \operator{=/=} \const{0} } \{\\
+	\quad \Ifff{ (b \operator{=/=} \const{0}) } \{\\
 	\quad \quad \Returnn{} a;\\
 	\quad \}\\
 	\quad \Returnn{} 0 \;
@@ -174,20 +172,25 @@ Su pseudo-operador será \Val \, ya que al ser solo azúcar sintáctico, no es u
 %OPERADORES ARITMÉTICOS
 \section{Operadores aritméticos (para enteros)}
 
-\subsection*{Suma}
+\subsection*{Más}
 Suma de dos números enteros. Se utilizará el operador \Sum. 
 \\Operador  binario infijo.
 \\Tipado: \Sum :: (\Integer, \Integer) $\rightarrow$ \Integer. \\Prioridad: 7.
 \\Asociatividad: izquierda.
 
-\subsection*{Resta}
+Número entero positivo. Se utilizará el operador \Sum. 
+\\Operador  unario prefijo.
+\\Tipado: \Sum :: \Integer $\rightarrow$  \Integer. \\Prioridad: 11.
+\\Asociatividad: asociativo.
+
+\subsection*{Menos}
 
 Resta de dos números enteros. Se utilizará el operador \Sub. 
 \\Operador  binario infijo.
 \\Tipado: \Sub :: (\Integer, \Integer) $\rightarrow$  \Integer. \\Prioridad: 7.
 \\Asociatividad: izquierda.
 
-Opuesto de un numero entero. Se utilizará el operador \Sub. 
+Opuesto de un número entero. Se utilizará el operador \Sub. 
 \\Operador  unario prefijo.
 \\Tipado: \Sub :: \Integer $\rightarrow$  \Integer. \\Prioridad: 11.
 \\Asociatividad: asociativo.
@@ -251,7 +254,7 @@ Compara dos valores de un mismo tipo y devuelve \const{True} si el primero es me
 \\Operador  binario infijo.
 \\Tipado: \Lt :: (t, t) $\rightarrow$ \Boolean. \\Prioridad: 6.
 \\Asociatividad: no asociativo.
-
+\\newpage
 \subsection*{Mayor que}
 Compara dos valores y devuelve \const{True} si el primero es mayor que el segundo, en caso contrario devuelve \const{False}. Su operador infijo es \Gt.
 \\Operador binario infijo.

@@ -1,28 +1,35 @@
-int(int,int) suma(a,b) {
-	return a + b;
+struct A {
+	int var1;
+	bool var2 := True;
 };
 
-int(int) factorial(n) {
-	if (n == 0) {
-		return -1;
-	}
-	return n * factorial(n-1);
-};
-
-//Funciones anidadas
-int(int) f1(a) {
-	if (a == 0) {
+struct C {
+	int var1;
+	bool var2;
+	//Instrucción no válida en un struct
+	int(int) f(a) {
 		return a;
-	}
-	return f2(a - 1);
+	};
 };
 
-int(int) f2(a) {
-	if (a == 0) {
-		return a;
-	}
-	return f1(a - 1);
-};
+int() main() {
+	struct A a1;
+	a1.var1 := 3;
+	struct A a2 := {3, False}; 
+	struct A a3 := {3, 4}; //Error de tipado en el segundo elemento de la lista de llaves
 
-int(int) main(a) {};
-void () main() {};
+	struct B {
+		int var1;
+		bool var2;
+		struct A a;
+	};
+
+	struct B b1;
+	b1.a := a2;
+	b1.a := 4; //Error de tipado
+	b1.var3(); //Error, no existe el campo var3 en struct B
+	struct B b2 :=  {2, True, b1}; //Error de tipado en "b1"
+
+	struct C c;
+	c.var1 := a1.var1;
+};

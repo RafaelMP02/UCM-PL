@@ -1,1 +1,1 @@
-int(int) f (a,b) {};
+int(int) main (a,b) {};

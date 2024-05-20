@@ -10,10 +10,9 @@ Simplemente se imprimirá el token no reconocido.\\
 
 Input [input6\_errlexico.txt]\footnote[1]{Cuando pongamos un input para mostrar la salida, indicaremos así el nombre del archivo
 de texto concreto para poder ejecutar el código. Estos archivos se encuentran en la carpeta tests.}
-\begin{algorithm}
-	\Integer{} hola ::= 2; \comm{//Error léxico} \\
-	
-	\Integer{}(\Integer{}) f(a) \{ \\
+\begin{algorithm}	
+	\Integer{}(\Integer{}) main(a) \{ \\
+	\quad \Integer{} hola ::= 2; \comm{//Error léxico} \\
 	\quad \Whilee{} (\const{True}) \{ \\
 	\quad\quad hola\operator{++};\_\comm{//Error léxico} \\
 	\quad\} \\
@@ -22,9 +21,10 @@ de texto concreto para poder ejecutar el código. Estos archivos se encuentran e
 \end{algorithm}
 
 Output
+
 \begin{itemize}
-	\item \err{[Fila 1, Columna 10] Caracter inesperado: ":"}
-	\item \err{[Fila 5, Columna 10] Caracter inesperado: "\_"}
+	\item \err{[Fila 2, Columna 11] Caracter inesperado: ":"}
+	\item \err{[Fila 4, Columna 10] Caracter inesperado: "\_"}
 \end{itemize}
 \newpage
 \section{Errores sintácticos}
@@ -35,8 +35,8 @@ encontrar el "\}" que lo cierre (para ello también se llevará un contador de l
 
 Input [input7\_errsintaxis.txt]
 \begin{algorithm}
-	\Integer{} hola := 2\;
-	\Integer{}(\Integer{}) f(a) \{ \\
+	\Integer{}(\Integer{}) main(a) \{ \\
+	\quad \Integer{} hola := 2\;
 	\quad \Whilee{} (\Integer{}) \{ \comm{//Error sintáctico en la condición}\\
 	\quad \quad hola\operator{++}\;
 	\quad \} \\
@@ -109,6 +109,7 @@ Input [input8\_errvinc.txt]
 	\Boolean{} hola; \comm{//Error por identificador ya declarado}\\
 	\Integer{}(\Integer{}) hola (a) {}\;
 	\Integer{}(\Integer{}) hola (a) {}; \comm{//Resulta en un error de tipado, no de vinculación}\\
+	\Void () main () \{\};
 \end{algorithm}
 
 Output\footnote{Solo hemos incluido los errores de vinculación aquí}
@@ -182,10 +183,10 @@ Input [input11\_errvinc.txt]
 	\Struct A a; \comm{//Error porque no se ha definido ese tipo nuevo}\\
 	\Struct A \{\}; \comm{//Ahora sí se ha declarado, las declaraciones no darán error}\\
 	\Struct A a1\; 
-	\{\\
+	\Integer{} () main () \{\\
 		\quad \Struct A a2\;
 		\quad \Struct B \{\}\;
-	\}\\
+	\}\;
 
 	\Struct B b; \comm{//Error porque no hay una declaración del struct B visible}\\
 \end{algorithm}
@@ -209,7 +210,7 @@ donde está definida la función y el bloque del ámbito de la función.\\
 Input [input12\_errvinc.txt]
 
 \begin{algorithm}
-	\Integer{}(\Integer{}) f (a,b) \{\};
+	\Integer{}(\Integer{}) main (a,b) \{\};
 \end{algorithm}
 
 Output
@@ -217,6 +218,49 @@ Output
 \begin{itemize}
 	\item \err{[Fila 1, Columna 10] Error en el número de argumentos de la función: f}
 \end{itemize}
+
+\subsection{Error por falta de main}
+Si no se declara en el ámbito global una función main, se lanzará un error. Debe ser en el ámbito global.
+La sintaxis impide que se pueda declarar en cualquier otro ámbito.\\
+
+Input [input16\_errNoMain.txt]
+
+\begin{algorithm}
+	\comm{//No hay función main}\\
+	\Integer{}(\Integer{}, \Integer{}) suma (a,b) \{\\
+		\quad \Returnn a \operator{+} b\;
+	\}\;
+	\Integer{}(\Integer{}) factorial (n) \{\\
+		\quad \Ifff{(n \operator{==} 0)} \{ \\
+		\quad \quad \Returnn 1\;
+		\quad \}\\
+		\quad \Returnn n \operator{*} factorial(n\operator{-}1)\;
+	\}\;
+\end{algorithm}
+
+Output
+
+\begin{itemize}
+	\item \err{[ERROR] No se ha declarado la función "main"}
+\end{itemize}
+
+\newpage
+\subsection{Error por varios main}
+Se han detectado varios main, lo que impide la generación de código.
+
+\begin{algorithm}
+	\comm{//Error por haber varios main}\\
+	\Void () main() \{\}\;
+	\Integer{}(\Integer{}) main(arg)\{\}\;
+\end{algorithm}
+
+Output
+
+\begin{itemize}
+	\item \err{[ERROR] Se han declarado varias funciones "main"}
+\end{itemize}
+
+
 \newpage
 \section{Errores de tipado}
 
@@ -256,8 +300,8 @@ Input [input14\_errtipado.txt]
 	\};
 \end{algorithm}
 \newpage
-Output
 
+Output\footnote{Solo hemos incluido los errores de tipado}
 
 \begin{itemize}
 	\item \err{[Fila 4, Columna 2] Expresión ambigua}
@@ -294,13 +338,13 @@ Output
 	\item \err{[Fila 7, Columna 16] Error de tipado. Se esperaba uno de los siguientes tipos: ENTERO[2](ENTERO)}
 \end{itemize}
 
-El perimer error muestra que, al ser tomada la expresión funcional como una instrucción, no importa el tipo de retorno, y 
+El primer error muestra que, al ser tomada la expresión funcional como una instrucción, no importa el tipo de retorno, y 
 el compilador no puede distinguir entonces entre las dos declaraciones de "f", así que se produce un error de ambigüedad.
 
 El segundo error muestra que se esperaba un tipo funcional con tipo de retorno un array de entero de dos dimensiones
 y un parámetro de tipo entero. Esto es, porque el tipo de retorno era el tipo esperado que venía determinado por la 
 asignación y el tipo de los parámetros por los parámetros de esa expresión funcional. Sin embargo, no existe ninguna 
-declaración de "f" con un tipo semejante, así que se devuelve error.
+declaración de ``f'' con un tipo semejante, así que se devuelve error.
 
 Como ya hemos mencionado, para seguir contrastando otros errores de tipado, se puede tomar cualquiera de los inputs 1, 2 y 3.
 Estos son fragmentos de código más largos con múltiples errores de tipado. Todos los errores, como ya dijimos, están marcadores
