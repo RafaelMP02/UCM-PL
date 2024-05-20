@@ -5,6 +5,7 @@ package ast.GeneracionCodigo;
 import ast.Declaracion;
 import ast.Definicion;
 import ast.Expresiones.Identificador;
+import ast.Tipos.Funcional;
 import ast.Tipos.NodoTipo;
 import ast.Tipos.Tipado;
 
@@ -13,6 +14,7 @@ import java.util.*;
 
 public class Comp {
     private String ha;
+
 
     private LinkedList<Map<Declaracion, Integer>> pilaDeDeltas; //Es una pila conceptual, lo implementamos como lista porque es más eficiente
 
@@ -250,13 +252,7 @@ public class Comp {
         this.local_map.clear();
     }
 
-    public Map<Declaracion, Integer> getGlobals(){
-        return this.globales;
-    }
 
-    public boolean isGlobal(Declaracion dec){
-        return globales.containsKey(dec);
-    }
 
 
 

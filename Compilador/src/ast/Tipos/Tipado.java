@@ -70,7 +70,7 @@ public class Tipado {
             case ARRAY:
                 Array tArr1 = (Array) t1;
                 Array tArr2 = (Array) t2;
-                if (tArr2.getN() > 0 && tArr1.getN() != tArr2.getN())
+                if (tArr1.inicializado() && tArr2.inicializado() && tArr1.getN() != tArr2.getN())
                     errores.errTamArray(tArr1.getN(), t1.getFila(), t1.getColumna());
                 //Hacemos match de los elementos del array
                 tMatch = match2Tipos(tArr1.getTipo(), tArr2.getTipo());

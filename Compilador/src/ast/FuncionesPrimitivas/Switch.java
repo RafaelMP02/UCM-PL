@@ -83,7 +83,7 @@ public class Switch implements Programa {
         hco.setS(ambito.codeI(hco));
         StringBuilder s = new StringBuilder();
         return s.append(cond.codeE(hco)).append(
-                "global.set $temp\n" ).append(
+                "local.set $temp\n" ).append(
                         caso.codeI(hco) ).append(
                                 programa.codeI(hco)).toString();
     }

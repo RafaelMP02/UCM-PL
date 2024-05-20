@@ -69,9 +69,9 @@ public class Case implements NodoAST {
     public String codeI(Comp hcon){
         StringBuilder s = new StringBuilder();
         if(caso != null){
-            s.append("local.get $tem\n" ).append( "i32.const " ).append( cond.toString() ).append( "\n i32.eq\n if\n" ).append( ambito.codeI(hcon) ).append( "else\n"  ).append( caso.codeI(hcon) ).append( "end\n");
+            s.append("local.get $temp\n" ).append( "i32.const " ).append( cond.toString() ).append( "\n i32.eq\n if\n" ).append( ambito.codeI(hcon) ).append( "else\n"  ).append( caso.codeI(hcon) ).append( "end\n");
         } else {
-            s.append( "local.get $tem\n" ).append( "i32.const " ).append( cond.toString() ).append( "\n i32.eq\n if\n" ).append( ambito.codeI(hcon) ).append( "else\n" ).append( hcon.getha() ).append( "end\n");
+            s.append( "local.get $temp\n" ).append( "i32.const " ).append( cond.toString() ).append( "\n i32.eq\n if\n" ).append( ambito.codeI(hcon) ).append( "else\n" ).append( hcon.getha() ).append( "end\n");
         }
 
         return s.toString();

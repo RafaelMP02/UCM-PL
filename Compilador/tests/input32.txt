@@ -1,0 +1,16 @@
+void() main(){
+    int n := 2;
+    prints(esPar(n));
+};
+
+bool(int) esPar(a){
+    if( a == 0) {
+        return True;
+    } elsif(a == 1) {
+        return False;
+    } else {
+        return esPar(a-1);
+    }
+
+    return False;
+};

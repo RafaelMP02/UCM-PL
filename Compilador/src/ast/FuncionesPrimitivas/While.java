@@ -76,7 +76,7 @@ public class While implements Programa {
                         "i32.eqz \n" ).append(
                                 "br_if 1\n" ).append(
                                         ambito.codeI(hcon) ).append(
-                                                "br 0\n end\n" ).append(
+                                                "br 0\n end\n end\n" ).append(
                                                         programa.codeI(hcon)).toString();
     }
 

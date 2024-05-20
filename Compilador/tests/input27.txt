@@ -1,40 +1,22 @@
-int x;
 void() main() {
-    int n := 3;
-    int m := 2;
-    prints(mulIzq(n,m));
-};
+    int x := 1;
+    bool par := False;
+    switch(x) {
+        case 1 {
+        par := False;
+    }
+    case 2 {
+        par := True;
+    }
+    default {
+        par := True;
+    }
+    }
 
-int(int, int) mulDer(a,b) {
-    if ( b == 0) {
-        return 0;
-    } elsif (b == 1) {
-       return a;
+
+    if (par) {
+        prints(0);
     } else {
-         return a + mulIzq(a,b-1);
+        prints(1);
     }
 };
-
-
-int(int, int) mulIzq(a,b) {
-    int($ int, $ int) sum(a,b) {
-       int c := 0;
-       while( a > 0) {
-            a := a - 1;
-            c := c + 1;
-       }
-
-       for( int i := 0; i < b; i++) {
-            c := c + 1;
-       }
-    };
-
-    if ( a == 0) {
-        return 0;
-    } elsif (a == 1) {
-        return b;
-    } else {
-        return sum(b ,mulDer(a-1,b));
-    }
-};
-

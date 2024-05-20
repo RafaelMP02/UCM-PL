@@ -106,9 +106,10 @@ public class DecFuncion extends Declaracion {
     }
 
     @Override
-    public String codeI(Comp hcon){
+    public String codeFunc(Comp hcon){
         StringBuilder s = new StringBuilder();
         String fun = hcon.buscarFun(this);
+        s.append(ambito.getPrograma().codeFunc(hcon));
 
         s.append("( func " + fun + "\n");
         if(((Funcional)this.tipo).getTipoRetorno().typeToEnum() != TiposEnum.VOID){
@@ -163,7 +164,7 @@ public class DecFuncion extends Declaracion {
     }
 
     @Override
-    public String codeFunc(Comp hcon){
-        return this.codeI(hcon);
+    public String codeI(Comp hcon){
+        return "";
     }
 }

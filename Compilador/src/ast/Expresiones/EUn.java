@@ -19,6 +19,7 @@ public class EUn extends E implements Instruccion {
     public EUn(E opnd, OperadorUn operador) {
         super(operador.getFila(), operador.getColumna());
         this.opnd = opnd;
+        this.exp = operador.getExp();
         this.operador = operador;
         if (operador.toString().equals(AccesoPuntero.OPSTRING))
             asignable = true;
@@ -76,6 +77,15 @@ public class EUn extends E implements Instruccion {
             case ACCPUN:
                 s.append(opnd.codeE(hcon) + "i32.load\n");
                 break;
+        }
+        return s.toString();
+    }
+
+    @Override
+    public String codeD(Comp hcon) {
+        StringBuilder s = new StringBuilder();
+        if(exp == KindE.ACCPUN) {
+            s.append(opnd.codeE(hcon));
         }
         return s.toString();
     }

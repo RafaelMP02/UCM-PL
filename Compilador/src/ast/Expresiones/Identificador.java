@@ -88,9 +88,9 @@ public class Identificador extends E {
     @Override
     public String codeB(Comp hcon){
         StringBuilder s = new StringBuilder();
-        s.append(this.codeD(hcon)).append("local.get $i\n").append("i32.const ").append(4*tipo.getTam());
+        s.append(this.codeD(hcon)).append("local.get $i\n").append("i32.const ").append(4*tipo.getTam()).append("\n");
         s.append("call $copy_memory\n");
-        s.append("local.get $i\n").append(4*tipo.getTam()).append("i32.add\n").append("local.set $i\n");
+        s.append("local.get $i\n").append("i32.const ").append(4*tipo.getTam()).append("\n").append("i32.add\n").append("local.set $i\n");
 
         return s.toString();
     }

@@ -66,15 +66,15 @@ public class Ambito implements NodoAST {
     public String codeI(Comp hcom){
         StringBuilder s = new StringBuilder();
         hcom.abreBloque();
-        s.append("global.get $SP\n");
-        s.append("global.set $MP\n");
+        //s.append("global.get $SP\n");
+        //s.append("global.set $MP\n");
         s.append(programa.codeI(hcom));
         hcom.cierraBloque();
-        s.append("global.get $MP\n");
-        s.append("global.set $SP\n");
-        s.append("global.get $SP\n");
-        s.append("i32.load\n");
-        s.append("global.set $MP\n");
+        //s.append("global.get $MP\n");
+        //s.append("global.set $SP\n");
+        //s.append("global.get $SP\n");
+        //s.append("i32.load\n");
+        //s.append("global.set $MP\n");
         return s.toString();
     }
    @Override

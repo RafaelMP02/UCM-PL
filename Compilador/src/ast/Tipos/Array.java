@@ -8,27 +8,32 @@ public class Array extends TipoParametrizable{
 
     public Array(NodoTipo t, Num n, int fila, int columna) {
         super(t, fila, columna);
+        super.inicializado = true;
         this.n = n;
         this.tam = t.getTam()*n.num();
     }
 
     public Array(NodoTipo t, Num n) {
         super(t, -1, -1);
+        super.inicializado = false;
         this.n = n;
     }
 
     public Array(NodoTipo t) {
         super(t, -1, -1);
+        super.inicializado = false;
         this.n = new Num();
     }
 
     public Array(Num n) {
         super();
+        super.inicializado = false;
         this.n = n;
     }
 
     public Array() {
         super();
+        super.inicializado = false;
         this.n = new Num();
     }
 

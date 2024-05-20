@@ -11,6 +11,8 @@ public interface CabecerAsig extends NodoAST {
 
     public NodoTipo tip();
 
-    public default String codeD(Comp hcon){return null;}
+    public default String codeD(Comp hcon){return "";}
+
+    public boolean isDec();
 
 }

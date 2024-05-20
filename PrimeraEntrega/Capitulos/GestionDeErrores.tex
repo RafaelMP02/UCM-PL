@@ -267,7 +267,7 @@ Output
 El tipado lo hemos gestionado de la siguiente manera. En primer lugar, hemos creado más tipos que los tipos usuales
 de nuestro lenguaje de programación (enteros, booleanos, struct, etc). Estos tipos sirven para dos cosas: detectar errores
 y tipar instrucciones. El tipado de instrucciones sirve para localizar instrucciones imposibles en ciertos contextos. Por
-ejemplo, una declaración de función en un struct o una instrucción \Return{} en una función void, entre otros.
+ejemplo, una declaración de función en un struct, entre otros.
 
 Cada nodo recibe un conjunto de tipos esperados. Y, conforme a ese conjunto, se tipa él mismo y a sus hijos. Si el tipo del
 nodo no coincide con ninguno de los tipos esperados, se lanza error de tipado mostrando los tipos que se esperaban. Repetimos

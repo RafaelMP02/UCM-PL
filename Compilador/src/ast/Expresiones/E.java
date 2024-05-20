@@ -35,4 +35,9 @@ public abstract class E implements CabecerAsig {
         return "";
     }
 
+    @Override
+    public boolean isDec(){
+        return false;
+    }
+
 }

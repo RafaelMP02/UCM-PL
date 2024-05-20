@@ -1,5 +1,7 @@
 package ast.Metaoperadores;
 
+import ast.DecVariable;
+import ast.Declaracion;
 import ast.Expresiones.E;
 import ast.GeneracionCodigo.Comp;
 import ast.Tipos.NodoTipo;
@@ -49,17 +51,21 @@ public class Asignacion implements Instruccion  {
     public String codeI(Comp hcon) {
         StringBuilder s = new StringBuilder();
         if(cabecera.tip().typeToEnum() == TiposEnum.STRUCT) {
-            s.append("global.get $SP").append("local.get $i");
+            s.append("global.get $SP\n").append("local.get $i\n");
             s.append(exp.codeB(hcon));
-            s.append("global.get $SP").append(cabecera.codeD(hcon)).append("i32.const ").append(4*cabecera.tip().getTam()).append("\n");
-            s.append("call $copy_memory");
+            s.append("global.get $SP\n").append(cabecera.codeD(hcon)).append("i32.const ").append(4*cabecera.tip().getTam()).append("\n");
+            s.append("call $copy_memory\n");
         } else if(cabecera.tip().typeToEnum() == TiposEnum.ARRAY) {
-            s.append("global.get $SP").append("local.get $i");
+            s.append("global.get $SP\n").append("local.get $i\n");
             s.append(exp.codeB(hcon));
-            s.append("global.get $SP").append(cabecera.codeD(hcon)).append("i32.const ").append(4*cabecera.tip().getTam()).append("\n");
-            s.append("call $copy_memory");
+            s.append("global.get $SP\n").append(cabecera.codeD(hcon)).append("i32.const ").append(4*cabecera.tip().getTam()).append("\n");
+            s.append("call $copy_memory\n");
         } else {
-            s .append( cabecera.codeD(hcon) ).append( exp.codeE(hcon) ).append( "i32.store\n");
+            if(cabecera.isDec()){
+                s.append(((DecVariable)cabecera).codeH(hcon)).append(exp.codeE(hcon)).append("i32.store\n");
+            } else {
+                s.append(cabecera.codeD(hcon)).append(exp.codeE(hcon)).append("i32.store\n");
+            }
         }
         return s.toString();
     }

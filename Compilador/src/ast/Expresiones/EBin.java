@@ -102,10 +102,10 @@ public class EBin extends E {
                 s .append( opnd1.codeE(hcon) ).append( opnd2.codeE(hcon) ).append( "i32.ne\n");
                 break;
             case MENQ:
-                s .append( opnd1.codeE(hcon) ).append( opnd2.codeE(hcon) ).append( "i32.lt\n");
+                s .append( opnd1.codeE(hcon) ).append( opnd2.codeE(hcon) ).append( "i32.lt_s\n");
                 break;
             case MAYQ:
-                s.append( opnd1.codeE(hcon) ).append( opnd2.codeE(hcon) ).append( "i32.gt\n");
+                s.append( opnd1.codeE(hcon) ).append( opnd2.codeE(hcon) ).append( "i32.gt_s\n");
                 break;
             case MENIGUAL:
                 ex = new EUn(new EBin(opnd1, opnd2, new MayorQue(this.fila, this.columna)), new Negacion(this.fila, this.columna));

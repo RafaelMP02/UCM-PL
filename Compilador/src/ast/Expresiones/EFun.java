@@ -68,7 +68,7 @@ public class EFun extends E implements Instruccion {
                         s.append("call $copy_memory \n");
                         s.append("global.get $SP\n").append("i32.const ").append(4 * e.tipo.getTam()).append("\n").append("i32.add\n").append("global.set $SP\n");
                     } else {
-                        s.append("global.get $SP\n").append(e.codeE(hcon)).append("(i32.store\n");
+                        s.append("global.get $SP\n").append(e.codeE(hcon)).append("(i32.store)\n");
                         s.append("global.get $SP\n").append("i32.const ").append(4).append("\n").append("i32.add\n").append("global.set $SP\n");
                     }
                     s.append("local.get $i\n").append("i32.const ").append(4).append("\n").append("i32.add\n").append("local.set $i\n");
@@ -120,7 +120,7 @@ public class EFun extends E implements Instruccion {
                         s.append("call $copy_memory \n");
                         s.append("global.get $SP\n").append("i32.const ").append(4 * e.tipo.getTam()).append("\n").append("i32.add\n").append("global.set $SP\n");
                     } else {
-                        s.append("global.get $SP\n").append(e.codeE(hcon)).append("(i32.store\n");
+                        s.append("global.get $SP\n").append(e.codeE(hcon)).append("(i32.store)\n");
                         s.append("global.get $SP\n").append("i32.const ").append(4).append("\n").append("i32.add\n").append("global.set $SP\n");
                     }
                     s.append("local.get $i\n").append("i32.const ").append(4).append("\n").append("i32.add\n").append("local.set $i\n");

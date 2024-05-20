@@ -48,6 +48,7 @@ public abstract class Declaracion implements Instruccion, CabecerAsig {
         return "";
     }
 
+
     public int getTam(){
         return tipo.getTam();
     }
@@ -63,6 +64,11 @@ public abstract class Declaracion implements Instruccion, CabecerAsig {
             mapa_actual.put(id.toString(), new LinkedHashSet<>());
             mapa_actual.get(id.toString()).add((this));
         }
+    }
+
+    @Override
+    public boolean isDec(){
+        return true;
     }
 
 
