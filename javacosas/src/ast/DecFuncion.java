@@ -107,7 +107,6 @@ public class DecFuncion extends Declaracion {
             s.append("(result i32)\n");
         }
         Map<Declaracion, String> parametros = new LinkedHashMap<>();
-        s.append(hcon.getGLSTR()); //GLOBAL STRING
         Map<String, LinkedHashSet<Declaracion>> set = hcon.getAtributos();
         int num_campos = 1;
         for(String atri: set.keySet()) {
@@ -127,8 +126,10 @@ public class DecFuncion extends Declaracion {
         hcon.setLocalMap(parametros);
         s.append("(local $i i32)\n");
         s.append("(local $temp i32)\n");
+        s.append("(get_global $MP)\n").append("(get_global $SP)\n").append("(i32.store)\n");
+        s.append("(get_global $SP)\n").append("(i32.const 4)\n").append("(i32.add)\n"); //direccion de SP aumentada
         s.append("(get_global $MP)\n");
-        s.append("(i32.const 8)\n");
+        s.append("(i32.const 4)\n");
         s.append("(i32.add)\n");
         s.append("(tee_local $i)\n");
         for(int i = 1; i <= set.size(); i++) {
@@ -148,9 +149,12 @@ public class DecFuncion extends Declaracion {
             s.append("(tee_local) $i\n");
         }
         s.append("(drop)\n");
-
-        s.append(ambito.codeI(hcon)).append("(return)\n").append(")\n");
+        hcon.abreBloque();
+        s.append("get_global $SP\n");
+        s.append("set_global $MP\n");
+        s.append(ambito.getPrograma().codeI(hcon)).append("(return)\n").append(")\n");
         hcon.clearLocalMap();
+        hcon.cierraBloque();
         return s.toString();
     }
 }

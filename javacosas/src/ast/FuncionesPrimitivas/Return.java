@@ -54,6 +54,6 @@ public class Return  implements Instruccion {
 
     @Override
     public String codeI(Comp hco) {
-        return valor.codeE(hco) + "return\n";
+        return valor.codeE(hco) + "(return)\n";
     }
 }

@@ -21,11 +21,14 @@ public class Identificador extends E {
         this.v = v;
         asignable = true;
         copy = false;
+        this.exp = KindE.CONST;
     }
 
     public Identificador(String v) { //Para crear Identificadores auxiliares
         super(-1, -1);
         this.v = v;
+        this.exp = KindE.CONST;
+        copy = false;
     }
     public String num() {return v;}
     public String toString() {return v;}

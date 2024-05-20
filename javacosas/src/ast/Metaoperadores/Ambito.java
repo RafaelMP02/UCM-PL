@@ -83,4 +83,8 @@ public class Ambito implements NodoAST {
 
         return programa.codeFunc(hcon);
     }
+
+    public Programa getPrograma() {
+        return programa;
+    }
 }

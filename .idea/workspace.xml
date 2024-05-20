@@ -5,43 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8bf737e8-0e47-415c-a779-c288e404a575" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Generator.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javacosas/Generator/input20.wat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javacosas/Generator/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javacosas/Generator/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LAB_WASM/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/LAB_WASM/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javacosas/src/ast/DecFuncion.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/DecFuncion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/DecVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/DecVariable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/EFun.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/EFun.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/Identificador.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/Identificador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Instruccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Instruccion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/Return.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/Return.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/Scans.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/Scans.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/GeneracionCodigo/Comp.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/GeneracionCodigo/Comp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Metaoperadores/Ambito.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Metaoperadores/Ambito.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Metaoperadores/Asignacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Metaoperadores/Asignacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Metaoperadores/PuntoYComa.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Metaoperadores/PuntoYComa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Raiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Raiz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Tipos/Funcional.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Tipos/Funcional.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Vinculacion/Vinculacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Vinculacion/Vinculacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/constructorast/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/constructorast/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input11_errvinc.txt" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/tests/input11_errvinc.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input14_errtipado.txt" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/tests/input14_errtipado.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input20.txt" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/tests/input20.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input3_errstructs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/tests/input3_errstructs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input5_ejfunciones.txt" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/tests/input5_ejfunciones.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input6_errlexico.txt" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/tests/input6_errlexico.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input7_errsintaxis.txt" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/tests/input7_errsintaxis.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input8_errvinculado.txt" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/tests/input8_errvinculado.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/DecFuncion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/ast/DecFuncion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/DecVariable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/ast/DecVariable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Expresiones/Identificador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/ast/Expresiones/Identificador.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Instruccion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/ast/Instruccion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Metaoperadores/Ambito.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/ast/Metaoperadores/Ambito.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Metaoperadores/Asignacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/ast/Metaoperadores/Asignacion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Metaoperadores/PuntoYComa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/ast/Metaoperadores/PuntoYComa.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Expresiones/EFun.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/ast/Expresiones/EFun.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/FuncionesPrimitivas/Return.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/ast/FuncionesPrimitivas/Return.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/FuncionesPrimitivas/Scans.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/ast/FuncionesPrimitivas/Scans.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/GeneracionCodigo/Comp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/ast/GeneracionCodigo/Comp.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Raiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/ast/Raiz.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/Funcional.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/Funcional.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Vinculacion/Vinculacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/ast/Vinculacion/Vinculacion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/constructorast/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/constructorast/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,27 +52,27 @@
     <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "openjdk-22",
-    "last_opened_file_path": "/Users/antonio/git/C-Horizon--/javacosas/Generator",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Global Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-22&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/antonio/git/C-Horizon--/javacosas/Generator&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/javacosas/Generator" />
@@ -103,7 +81,7 @@
       <recent name="$PROJECT_DIR$/javacosas/src/alex" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test20">
+  <component name="RunManager" selected="Application.Test13">
     <configuration name="Test1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="constructorast.Main" />
       <module name="javacosas" />
@@ -272,6 +250,8 @@
       <workItem from="1715807889451" duration="7000" />
       <workItem from="1716100473142" duration="146000" />
       <workItem from="1716100622148" duration="25174000" />
+      <workItem from="1716135748594" duration="1870000" />
+      <workItem from="1716188403473" duration="544000" />
     </task>
     <servers />
   </component>
@@ -287,11 +267,6 @@
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/javacosas/src/ast/Tipos/Tipado.java</url>
-          <line>119</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/javacosas/src/ast/DecVariable.java</url>
           <line>27</line>
           <option name="timeStamp" value="14" />
@@ -300,11 +275,6 @@
           <url>file://$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/Prints.java</url>
           <line>52</line>
           <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/javacosas/src/ast/DecFuncion.java</url>
-          <line>96</line>
-          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
