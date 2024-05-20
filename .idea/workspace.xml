@@ -4,23 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bf737e8-0e47-415c-a779-c288e404a575" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/DecFuncion.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/DecFuncion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/EFun.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/EFun.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/Identificador.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/Identificador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/Return.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/Return.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/Scans.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/Scans.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/GeneracionCodigo/Comp.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/GeneracionCodigo/Comp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Metaoperadores/Ambito.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Metaoperadores/Ambito.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Raiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/javacosas/src/ast/Raiz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/DecFuncion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/ast/DecFuncion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Expresiones/EFun.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/ast/Expresiones/EFun.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/FuncionesPrimitivas/Return.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/ast/FuncionesPrimitivas/Return.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/FuncionesPrimitivas/Scans.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/ast/FuncionesPrimitivas/Scans.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/GeneracionCodigo/Comp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/ast/GeneracionCodigo/Comp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Raiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacosas/ast/Raiz.class" afterDir="false" />
-    </list>
+    <list default="true" id="8bf737e8-0e47-415c-a779-c288e404a575" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

@@ -1,0 +1,351 @@
+\chapter{Gestión de errores en C-Horizon}
+\label{cap:errores}
+
+Para cada error se indicará su tipo y su posición en el archivo (fila y columna). La clase GestionErroresExp se
+encarga de actuar conforme a cada error. Además, llevará un contador de errores que imprimirá cuando haya habido
+algún error. Cuando no, permitirá la generación de código. Vamos a explicar los distintos tipos de errores. 
+
+\section{Errores léxicos}
+Simplemente se imprimirá el token no reconocido.\\
+
+Input [input6\_errlexico.txt]\footnote[1]{Cuando pongamos un input para mostrar la salida, indicaremos así el nombre del archivo
+de texto concreto para poder ejecutar el código. Estos archivos se encuentran en la carpeta tests.}
+\begin{algorithm}	
+	\Integer{}(\Integer{}) main(a) \{ \\
+	\quad \Integer{} hola ::= 2; \comm{//Error léxico} \\
+	\quad \Whilee{} (\const{True}) \{ \\
+	\quad\quad hola\operator{++};\_\comm{//Error léxico} \\
+	\quad\} \\
+	\quad	\Returnn a\;
+	\}\;
+\end{algorithm}
+
+Output
+
+\begin{itemize}
+	\item \err{[Fila 2, Columna 11] Caracter inesperado: ":"}
+	\item \err{[Fila 4, Columna 10] Caracter inesperado: "\_"}
+\end{itemize}
+\newpage
+\section{Errores sintácticos}
+Si el error se encuentra en una instrucción simple, se retomará la 
+compilación justo donde termina la instrucción, esto es, después de ";". En caso de que el error se dé en la declaración de un ámbito (una función, una 
+condición, un bucle) se retomará la compilación justo al terminar ese ámbito. Es decir, se buscará el caracter $"\{"$ y se omitirá todo el código hasta 
+encontrar el "\}" que lo cierre (para ello también se llevará un contador de los "\{" sin cerrar). Algunos ejemplos de errores sintácticos: 
+
+Input [input7\_errsintaxis.txt]
+\begin{algorithm}
+	\Integer{}(\Integer{}) main(a) \{ \\
+	\quad \Integer{} hola := 2\;
+	\quad \Whilee{} (\Integer{}) \{ \comm{//Error sintáctico en la condición}\\
+	\quad \quad hola\operator{++}\;
+	\quad \} \\
+	\quad	\Returnn \operator{.};\comm{//Error sintáctico en la condición}\\
+	\}\;
+\end{algorithm}
+
+Output
+
+\begin{itemize}
+	\item \err{[Fila 3, Columna 9] Elemento inesperado ``int''}
+	\item \err{[Fila 6, Columna 9] Elemento inesperado ``.''}
+\end{itemize}
+\newpage
+\section{Errores de vinculación}
+
+Todos los nodos del árbol AST implementan dos funciones: bindFunc y bind. La primera, bindFunc,
+solo inserta una entrada en la tabla de símbolos actual con la declaración de una función. Esto lo
+hacemos para permitir que una función declarada en un bloque pueda ser usada en cualquier punto del
+bloque. Por lo tanto, cada vez que abramos un nuevo bloque, añadiremos una nueva tabla de símbolos
+para después llamar siempre primero a bindFunc y luego a bind del prgrama de ese bloque. Al terminar
+de vincular el bloque desapilaremos la tabla de símbolos. Además al desapilarla, guardaremos la tabla
+del bloque porque nos es útil luego (para la definición de structs y clases y para el tipado). Las tablas 
+están implementadas como mapas de clave String y valor Declaracion. En vez de tener una pila de tablas,
+hemos usado una pila de pilas de tablas. Hay varias razones. AQUÍ EXPLÍCALO 
+
+Cuando lleguemos, usando bind, a una declaración de variable, insertaremos dicha declaración en el tabla de 
+símbolos actual. Al insertar una declaración de variable comprobaremos que no se ha insertado otra declaración
+de variable con el mismo identificador. Sí se puede declarar una variable y una función con el mismo identificador.
+Como también existe sobrecarga, en vinculación permitimos que dos declaraciones de funciones tengan mismo
+identificador. Será en tipado donde contrastaremos si ambas tienen mismo tipo funcional (y lanzaremos un error
+de ambigüedad).
+
+Al usar un identificador,se buscará en hacia atrás en la pila de tablas y se añadirán al conjunto de vínculos del
+identificador todas las declaraciones que encajen. Cuando en un bloque se encuentre una declaración de variable que
+coincida, no se buscará más declaraciones de variables en los bloques previos (ocultación). Sin embargo, sí se seguirán buscando
+declaraciones de funciones a las que poder vincular el identificador.
+
+Por último, también llevaremos paralelamente otra pila de tablas que recoja los tipos nuevos (clases o structs) declarados en cada
+bloque. Cuando se defina un tipo nuevo, insertaremos en la tabla de tipos actual una entrada nueva. Esta tabla funciona
+exactamente igual que la anterior pero los pares son String (nombre del tipo nuevo) y NodoTipo (el tipo concreto). 
+\newpage
+Vamos a ver un ejemplo de un código que usa lo que acabamos de explicar y no da ningún error.
+
+Input [input13\_errvinc.txt]
+
+\begin{algorithm}
+	\Integer{}(\Integer{}) f (a) \{\}\;
+	\Boolean{} f\;
+	\Integer{}() main()\{\\
+		\quad \Integer{} f; \comm{//Declaración de variable "f" que no produce error por ocultación}\\
+		\quad \Integer{}(\Boolean{}) f (a) \{\}\;
+		\quad \comm{//Lo siguiente no produce error de declaración ni de tipado porque f se ha vinculado correctamente a la declaración del primer bloque}\\
+		\quad \Integer{} x := f(2)\;
+		\quad \comm{//Lo siguiente tampoco proudcirá error de tipado porque f ha sido vinculada correctamente a la declaración de este bloque}\\
+		\quad x := f\;
+	\};
+\end{algorithm}
+
+A continuación, veremos los tipos de errores concretos de vinculación. \\ \\ \\ \\
+\newpage
+\subsection{Identificador ya declarado}
+
+Este error se lanza cuando se declara un identificador que ya ha sido declarado. \\
+
+Input [input8\_errvinc.txt]
+
+\begin{algorithm}
+	\Integer{} hola\;
+	\Boolean{} hola; \comm{//Error por identificador ya declarado}\\
+	\Integer{}(\Integer{}) hola (a) {}\;
+	\Integer{}(\Integer{}) hola (a) {}; \comm{//Resulta en un error de tipado, no de vinculación}\\
+	\Void () main () \{\};
+\end{algorithm}
+
+Output\footnote{Solo hemos incluido los errores de vinculación aquí}
+
+\begin{itemize}
+	\item \err{[Fila 2, Columna 6] Identificador ya declarado: hola}
+\end{itemize}
+
+\subsection{Identificador no declarado}
+
+Este error se lanza cuando utiliza un identificador que no ha sido declarado prevaimente. \\
+
+Input [input9\_errvinc.txt]
+
+\begin{algorithm}
+	\Integer{}() main() \{\\
+	\quad \Integer{} x\;
+	\quad x := a \operator{+} 1; \comm{//Error de vinculación porque no se ha declarado ``a''} \\
+	\quad x := f(a); \comm{//Solo hay error de id no declarado en a} \\
+
+	\quad \{\\
+	\quad \quad \Integer{} a\;
+	\quad \quad x := a \operator{+} 1; \comm{//Esta instrucción sí que es correcta} \\
+	\quad \}
+
+	\quad x := a \operator{+} 1; \comm{//Ahora vuelve a dar error porque se ha cerrado el bloque} \\
+	\};\\
+	\Integer{}(\Integer{}) f (num) {}\;
+\end{algorithm}
+
+Output
+
+\begin{itemize}
+	\item \err{[Fila 3, Columna 6] Identificador no declarado: a}
+	\item \err{[Fila 4, Columna 8] Identificador no declarado: a}
+	\item \err{[Fila 9, Columna 6] Identificador no declarado: a}
+\end{itemize}
+
+\subsection{Tipo nuevo ya definido}
+
+Este error se lanza cuando se define un tipo nuevo con un nombre con el que ya se había definido
+un tipo nuevo antes. Aunque sean tipos nuevos distintos (una clase y un struct), si ambos tienen el mismo
+nombre lanzamos error porque puede producir ambigüedad en el futuro. \\
+
+Input [input10\_errvinc.txt]
+
+\begin{algorithm}
+	\Class A \{\\
+		\quad \Integer{} num\;
+	\};\\
+	\Struct A \{\};  \comm{//Error porque ya se ha definido un tipo nuevo con el nombre ``A''}\\
+	\Class A a;  \comm{//Esta declaración es correcta, pues solo se acepta la primera definición de ``A''}\\
+	\Integer{}() main() \{\\
+	\quad a.num := 2\;
+	\};
+\end{algorithm}
+
+Output
+
+\begin{itemize}
+	\item \err{[Fila 4, Columna 8] Tipo nuevo ya definido con ese nombre: A}
+\end{itemize}
+
+\subsection{Tipo nuevo no definido}
+
+Este error se lanza cuando se declara una variable de un tipo nuevo que no ha sido declarado previamente. \\
+
+Input [input11\_errvinc.txt]
+
+\begin{algorithm}
+	\Struct A a; \comm{//Error porque no se ha definido ese tipo nuevo}\\
+	\Struct A \{\}; \comm{//Ahora sí se ha declarado, las declaraciones no darán error}\\
+	\Struct A a1\; 
+	\Integer{} () main () \{\\
+		\quad \Struct A a2\;
+		\quad \Struct B \{\}\;
+	\}\;
+
+	\Struct B b; \comm{//Error porque no hay una declaración del struct B visible}\\
+\end{algorithm}
+
+Output
+
+\begin{itemize}
+	\item \err{[Fila 1, Columna 1] Tipo nuevo no definido: A}
+	\item \err{[Fila 8, Columna 1] Tipo nuevo no definido: B}
+\end{itemize}
+
+\subsection{Error en el número de argumentos}
+
+Este error se lanza cuando se declara una función y el número de argmuentos no corresponde con el número de los
+tipos de argumentos de la función. Este error lo detectamos en vinculación porque cuando se vincula la cabecera de 
+la función, se insertan declaraciones en la tabla de símbolos con cada uno de los argumentos, para que los identificadores
+del ámbito de la función se puedan vincular a estas declaraciones. Para que estas declaraciones no choquen con otras
+declaraciones de ese bloque, al vincular los argumentos de una función abrimos un nuevo bloque intermedio entre el bloque
+donde está definida la función y el bloque del ámbito de la función.\\
+
+Input [input12\_errvinc.txt]
+
+\begin{algorithm}
+	\Integer{}(\Integer{}) main (a,b) \{\};
+\end{algorithm}
+
+Output
+
+\begin{itemize}
+	\item \err{[Fila 1, Columna 10] Error en el número de argumentos de la función: f}
+\end{itemize}
+
+\subsection{Error por falta de main}
+Si no se declara en el ámbito global una función main, se lanzará un error. Debe ser en el ámbito global.
+La sintaxis impide que se pueda declarar en cualquier otro ámbito.\\
+
+Input [input16\_errNoMain.txt]
+
+\begin{algorithm}
+	\comm{//No hay función main}\\
+	\Integer{}(\Integer{}, \Integer{}) suma (a,b) \{\\
+		\quad \Returnn a \operator{+} b\;
+	\}\;
+	\Integer{}(\Integer{}) factorial (n) \{\\
+		\quad \Ifff{(n \operator{==} 0)} \{ \\
+		\quad \quad \Returnn 1\;
+		\quad \}\\
+		\quad \Returnn n \operator{*} factorial(n\operator{-}1)\;
+	\}\;
+\end{algorithm}
+
+Output
+
+\begin{itemize}
+	\item \err{[ERROR] No se ha declarado la función "main"}
+\end{itemize}
+
+\newpage
+\subsection{Error por varios main}
+Se han detectado varios main, lo que impide la generación de código.
+
+\begin{algorithm}
+	\comm{//Error por haber varios main}\\
+	\Void () main() \{\}\;
+	\Integer{}(\Integer{}) main(arg)\{\}\;
+\end{algorithm}
+
+Output
+
+\begin{itemize}
+	\item \err{[ERROR] Se han declarado varias funciones "main"}
+\end{itemize}
+
+
+\newpage
+\section{Errores de tipado}
+
+El tipado lo hemos gestionado de la siguiente manera. En primer lugar, hemos creado más tipos que los tipos usuales
+de nuestro lenguaje de programación (enteros, booleanos, struct, etc). Estos tipos sirven para dos cosas: detectar errores
+y tipar instrucciones. El tipado de instrucciones sirve para localizar instrucciones imposibles en ciertos contextos. Por
+ejemplo, una declaración de función en un struct o una instrucción \Return{} en una función void, entre otros.
+
+Cada nodo recibe un conjunto de tipos esperados. Y, conforme a ese conjunto, se tipa él mismo y a sus hijos. Si el tipo del
+nodo no coincide con ninguno de los tipos esperados, se lanza error de tipado mostrando los tipos que se esperaban. Repetimos
+que estos tipos también pueden ser tipos de instrucciones, como DECVARIABLE (una declaración de variable) entre otras. Después 
+de tiparse, cada nodo devuelve hacia arriba un conjunto con los posibles tipos válidos para ese nodo.
+
+Vamos a ver algunos errores a continuación. No enseñaremos todos pues son muchos. Al final de esta sección se mencionarán
+unos cuantos ficheros de texto preparados con los errores señalados con comentarios.
+\\
+
+Input [input14\_errtipado.txt]
+
+\begin{algorithm}
+	\Integer{}() main() \{\\
+		\quad \Integer{}(\Integer{}) f(a)\{\}\;
+		\quad \Boolean{}(\Integer{}) f(a)\{\}\;
+		\quad f(2); \comm{//Error por ser una expresión ambigua}\\
+		
+		\quad \Void () f () \{\\
+		\quad 	\quad return \const{True}; \comm{//Error, las funciones void no devuelven nada}\\
+		\quad \}\;
+		\quad \Integer{} x\;
+		\quad \comm{//En los structs solo se pueden declarar variables (inicializadas o no) y definir otros tipos nuevos}\\
+		\quad \Struct A  \{ \\
+		\quad 	\quad \Integer{} a := 2; \comm{//Correcto}\\
+		\quad 	\quad \Struct B \{\}\;
+		\quad 	\quad \Void() f2() {}; \comm{//Error, no se puede declarar una función en un struct}\\
+		\quad 	\quad x := 2; \comm{//Error, no se puede realizar una asignación (si no es una declaración) en un struct}\\
+		\quad \}\;	
+	\};
+\end{algorithm}
+\newpage
+
+Output\footnote{Solo hemos incluido los errores de tipado}
+
+\begin{itemize}
+	\item \err{[Fila 4, Columna 2] Expresión ambigua}
+	\item \err{[Fila 6, Columna 3] Error de tipado. Se esperaba uno de los siguientes tipos: DEFSTRUCT DEFCLASE        INSTRUCCIÓN     ASIGNACIÓN      DECVARIABLE     DECFUNCION}
+	\item \err{[Fila 13, Columna 3] Instrucción no válida}
+	\item \err{[Fila 14, Columna 3] Instrucción no válida}
+\end{itemize}
+
+Es en el tipado donde se resuelve definitivamente la vinculación de identificadores. Se quitan del conjunto de vínculos aquellas declaraciones
+que no coincidan con ningún tipo esperado. Si queda más de un vínculo, lanzaremos un error de expresión ambigua. Si no queda ningún vínculo,
+lanzaremos también error de tipado. Este es un ejemplo sencillo.
+\\
+
+Input [input15\_errtipado.txt]
+
+\begin{algorithm}
+	\comm{//Estas dos funciones son distintas porque su tipo de devolución es distinto}\\
+	\Boolean{}(\Integer{}) f(a)\{\}\;
+	\Integer{}(\Integer{}) f(a)\{\}\;
+	
+	\Integer{}() main() \{ \\
+		\quad f(2);\comm{ //Error de ambigüedad, pues se espera cualquier tipo de instrucción}\\
+		\quad \Integer{} x := f(2); \comm{//Aquí se resuelve y no hay error de ambigüedad, pues solo encaja la segunda función (porque el tipo de retorno es el que se espera en la asignación)}\\
+		\quad \Integer{}[2] arr := f(2); \comm{//Error de tipado porque ninguna declaración del identificador ``f'' encaja con los tipos esperados}\\
+	\};
+\end{algorithm}
+
+Output
+
+
+
+\begin{itemize}
+	\item \err{[Fila 5, Columna 2] Expresión ambiguaa}
+	\item \err{[Fila 7, Columna 16] Error de tipado. Se esperaba uno de los siguientes tipos: ENTERO[2](ENTERO)}
+\end{itemize}
+
+El primer error muestra que, al ser tomada la expresión funcional como una instrucción, no importa el tipo de retorno, y 
+el compilador no puede distinguir entonces entre las dos declaraciones de "f", así que se produce un error de ambigüedad.
+
+El segundo error muestra que se esperaba un tipo funcional con tipo de retorno un array de entero de dos dimensiones
+y un parámetro de tipo entero. Esto es, porque el tipo de retorno era el tipo esperado que venía determinado por la 
+asignación y el tipo de los parámetros por los parámetros de esa expresión funcional. Sin embargo, no existe ninguna 
+declaración de ``f'' con un tipo semejante, así que se devuelve error.
+
+Como ya hemos mencionado, para seguir contrastando otros errores de tipado, se puede tomar cualquiera de los inputs 1, 2 y 3.
+Estos son fragmentos de código más largos con múltiples errores de tipado. Todos los errores, como ya dijimos, están marcadores
+en la línea del error por un comentario.
