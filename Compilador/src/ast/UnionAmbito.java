@@ -56,6 +56,11 @@ public class UnionAmbito implements Programa {
     }
 
     @Override
+    public String codeFunc(Comp hcon){
+        return ambito.codeFunc(hcon) + programa.codeFunc(hcon);
+    }
+
+    @Override
     public void recoleccionAtributos(LinkedHashMap<String,LinkedHashSet<Declaracion>> mapa_actual) {
          programa.recoleccionAtributos(mapa_actual);
     }

@@ -51,16 +51,23 @@ public class DecVariable extends Declaracion  {
 
     @Override
     public String codeI(Comp hcon){
-        hcon.insertaId(this);
         StringBuilder s = new StringBuilder();
-        s.append("global.get $SP\n");
-        s.append("i32.const ").append(4*tipo.getTam()).append("\n");
-        s.append("i32.add\n");
-        s.append("global.set $SP\n");
+        if(!hcon.isGlobal(this)) {
+            hcon.insertaId(this);
+            s.append("global.get $SP\n");
+            s.append("i32.const ").append(4 * tipo.getTam()).append("\n");
+            s.append("i32.add\n");
+            s.append("global.set $SP\n");
+        }
         return s.toString();
     }
 
     public Definicion getDef(){
         return def;
+    }
+
+    @Override
+    public String codeFunc(Comp hcon){
+        return "";
     }
 }

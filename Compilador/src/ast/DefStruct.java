@@ -81,6 +81,11 @@ public class DefStruct implements Definicion  {
     @Override
     public String codeI(Comp hcom) {
         hcom.insertarTipoNuevo(this);
-        return ambito.codeI(hcom);
+        return ambito.codeFunc(hcom);
+    }
+
+    @Override
+    public String codeFunc(Comp hcon){
+        return this.codeI(hcon);
     }
 }

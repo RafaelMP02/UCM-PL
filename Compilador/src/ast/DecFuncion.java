@@ -99,7 +99,7 @@ public class DecFuncion extends Declaracion {
 
     @Override
     public String codeI(Comp hcon){
-        StringBuilder s = new StringBuilder(ambito.codeI(hcon));
+        StringBuilder s = new StringBuilder();
         String fun = hcon.buscarFun(this);
 
         s.append("( func " + fun + "\n");
@@ -152,5 +152,10 @@ public class DecFuncion extends Declaracion {
         hcon.clearLocalMap();
         hcon.cierraBloque();
         return s.toString();
+    }
+
+    @Override
+    public String codeFunc(Comp hcon){
+        return this.codeI(hcon);
     }
 }

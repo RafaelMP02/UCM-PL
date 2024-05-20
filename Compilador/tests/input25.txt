@@ -11,7 +11,8 @@ void() main(){
     scans(n);
     prints(n);
     struct A s;
-    s.b := 0;
+    s.b := n;
+    s.a := 2;
     prints(s.a);
     x := f(s.a);
     prints(s.b);

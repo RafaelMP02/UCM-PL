@@ -82,6 +82,7 @@ public class Case implements NodoAST {
 
 
 
+
     @Override
     public void getFun(Comp hcom){
         ambito.getFun(hcom);

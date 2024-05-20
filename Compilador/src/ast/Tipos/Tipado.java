@@ -324,6 +324,7 @@ public class Tipado {
                             if(esTipoEsperado(tCampo, tiposEsperados)) {
                                 vinculosId.add(vinculo);
                                 tipadoMatch.add(tCampo);
+                                tResOperador.add(tCampo);
                             }
                         }
                         //Si no hay ninguna, lanzamos error y lo devolvemos

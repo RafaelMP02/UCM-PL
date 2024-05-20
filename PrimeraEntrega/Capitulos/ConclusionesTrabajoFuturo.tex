@@ -147,8 +147,11 @@ Input23.txt en la carpeta de tests, es un ejemplo sencillo parecido al anterior 
 	
 \end{algorithm}
 
+\newpage
+
+
 \subsection{Ejemplo 5}
-Input23.txt en la carpeta de tests, es un ejemplo sencillo parecido al anterior pero se usan arrays.
+Input24.txt en la carpeta de tests, es un ejemplo sencillo parecido al anterior pero se usan arrays.
 
 \begin{algorithm}
 
@@ -161,7 +164,7 @@ Input23.txt en la carpeta de tests, es un ejemplo sencillo parecido al anterior 
 	\quad int n\;
 	\quad \reserved{scans}(n)\;
 	\quad \reserved{prints}(n)\;
-	\quad \reserved{int}[\const{3}(a)\;
+	\quad \reserved{int}[\const{3}] (a)\;
 	\quad a[\const{0}] := x\;
 	\quad a[\const{1}] := y\;
 	\quad a[\const{2}] := y + \const{1}\;
@@ -183,31 +186,99 @@ Input23.txt en la carpeta de tests, es un ejemplo sencillo parecido al anterior 
 	
 \end{algorithm}
 
+\newpage
 
-int x;
-int y;
-void() main(){
-    x := 0;
-    y := x + 1;
-    int n;
-    scans(n);
-    prints(n);
-    int[3] a;
-    a[0] := x;
-    a[1] := y;
-    a[2] := y + 1;
-    prints(a[0]);
-    x := f(a[n]);
-    prints(a[2]);
-    prints(a[n]);
-};
-int z;
-int w;
-int(int) f(y){
-    z := y;
-    y := y + 3;
-    return 2*z;
-};
+\subsection{Ejemplo 6}
+Input25.txt en la carpeta de tests, es un ejemplo sencillo parecido al anterior pero se usan structs.
+
+\begin{algorithm}
+
+	\Integer{} x  \;
+	\Integer{} y  \;
+	
+	\reserved{struct} A \{
+		\quad \reserved{int} a\,
+		\quad \reserved{int} b\;
+	\} \;
+	
+	\Void() \reserved{main}() \{ \\
+	\quad x := \const{0} \;
+	\quad y := y + \const{1}\;
+	\quad int n\;
+	\quad \reserved{scans}(n)\;
+	\quad \reserved{prints}(n)\;
+	\quad \reserved{struct} A s\;
+	\quad s.b := n\;
+	\quad s.a := 2\;
+	\quad \reserved{prints}(s.a)\;
+	\quad x := f(s.a)\;
+	\quad \reserved{prints}(s.b)\;
+	\quad \reserved{prints}(s.a)\;
+	\}\;
+
+ 	\Integer{} z \;
+	\Integer{} w \;
+	
+	\reserved{int}{(\reserved{int})} f(y) \{ \\
+	\quad z := y \;
+	\quad \reserved{prints}(z) \;
+	\quad y := y + \const{3} \;
+	\quad \reserved{prints}(y) \;
+	\quad \reserved{return} \const{2}*z \;
+	\}\;
+	
+\end{algorithm}
+
+\newpage
+
+
+\subsection{Ejemplo 7}
+Input26.txt en la carpeta de tests, es un ejemplo que combina los dos anteriores.
+
+\begin{algorithm}
+
+	\Integer{} x  \;
+	\Integer{} y  \;
+	
+	\reserved{struct} A \{
+		\quad \reserved{int}[\const{3}] a\,
+		\quad \reserved{int} b\;
+	\} \;
+	
+	\Void() \reserved{main}() \{ \\
+	\quad x := \const{0} \;
+	\quad y := y + \const{1}\;
+	\quad int n\;
+	\quad \reserved{scans}(n)\;
+	\quad \reserved{prints}(n)\;
+	\quad \reserved{struct} A s\;
+	\quad s.b := n\;
+	\quad s.a[\const{0}] := x\;
+	\quad s.a[\const{1}] := y\;
+	\quad s.a[\const{2}] := y + \const{1}\;
+	\quad x := f(a[n])\;
+	\quad \reserved{prints}(s.a[\const{n}])\;
+	\quad \reserved{prints}(s.b)\;
+	\quad \reserved{prints}(s.a[n])\;
+	\}\;
+
+ 	\Integer{} z \;
+	\Integer{} w \;
+	
+	\reserved{int}{(\reserved{int})} f(y) \{ \\
+	\quad z := y \;
+	\quad \reserved{prints}(z) \;
+	\quad y := y + \const{3} \;
+	\quad \reserved{prints}(y) \;
+	\quad \reserved{return} \const{2}*z \;
+	\}\;
+	
+\end{algorithm}
+
+
+
+
+
 
 
 

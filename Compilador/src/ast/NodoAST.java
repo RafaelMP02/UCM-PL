@@ -17,6 +17,8 @@ public interface NodoAST {
 
     default String codeI(Comp hcon){ return "";}
 
+    default String codeFunc(Comp hcon){ return "";}
+
 
     default void getFun(Comp hcon){ return;}
     public String toString();

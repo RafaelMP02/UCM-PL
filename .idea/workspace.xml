@@ -5,599 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8bf737e8-0e47-415c-a779-c288e404a575" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/libs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Compilador/generator/datos.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Compilador/tests/Input26.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Compilador/tests/input21.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Compilador/tests/input23.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Compilador/tests/input24.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/C-Horizon--1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Conceptos del lenguaje" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Apendices/appendixA.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Apendices/appendixB.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Capitulos/ConclusionesTrabajoFuturo.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Capitulos/ConclusionsFutureWork.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Capitulos/ConjuntosDeInstrucciones.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Capitulos/ConjuntosDeInstrucciones.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Capitulos/ContribucionesPersonales.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Capitulos/DescripcionTrabajo.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Capitulos/EstadoDeLaCuestion.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Capitulos/GestionDeErrores.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Capitulos/GestionDeErrores.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Capitulos/IdentificadoresYAmbitosDeDefinicion.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Capitulos/IdentificadoresYAmbitosDeDefinicion.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Capitulos/Introduccion.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Capitulos/Introduccion.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Capitulos/Introduccion.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Capitulos/Introduction.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Capitulos/Tipos.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Capitulos/Tipos.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Cascaras/abstract.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Cascaras/agradecimientos.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Cascaras/bibliografia.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Cascaras/cover.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Cascaras/cover.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Cascaras/dedicatoria.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Cascaras/fin.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Cascaras/fin.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Cascaras/resumen.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Imagenes/Bitmap/escudo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Imagenes/Bitmap/escudoUCMcolor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Imagenes/Fuentes/readme.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Imagenes/Vectorial/Todo.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/Imagenes/Vectorial/escudoUCM.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/TFGTeXiS.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/TFGTeXiS.fdb_latexmk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/TFGTeXiS.fls" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/TFGTeXiS.idx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/TFGTeXiS.ilg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/TFGTeXiS.ind" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/TFGTeXiS.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/TFGTeXiS.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/TFGTeXiS.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/TFGTeXiS.synctex.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/TFGTeXiS.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/TFGTeXiS.toc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/TeXiS-Manual-1.0.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/TeXiS/TeXiS.bst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/TeXiS/TeXiS.sty" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/TeXiS/TeXiS_acron.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/TeXiS/TeXiS_bib.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/TeXiS/TeXiS_cab.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/TeXiS/TeXiS_cover.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/TeXiS/TeXiS_dedic.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/TeXiS/TeXiS_en.bst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/TeXiS/TeXiS_indice.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/TeXiS/TeXiS_pream.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/TeXiS/TeXiS_toc.aux" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/TeXiS/TeXiS_toc.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/acronimos.gdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/biblio.bib" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/config.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/constantes.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documento/guionado.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dudas.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Generator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/generator.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JaVa/C-Horizon--.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JaVa/asint/AnalizadorSintacticoTiny.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JaVa/asint/AnalizadorSintacticoTiny.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JaVa/asint/CUP$AnalizadorSintacticoTiny$actions.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JaVa/asint/ClaseLexica.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JaVa/asint/ClaseLexica.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JaVa/asint/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JaVa/asint/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JaVa/asint/TinyErrors.cup" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/JaVa/constast/AnalizadorSintacticoTiny.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrimeraEntrega/Capitulos/ConclusionesTrabajoFuturo.tex" beforeDir="false" afterPath="$PROJECT_DIR$/PrimeraEntrega/Capitulos/ConclusionesTrabajoFuturo.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrimeraEntrega/Capitulos/ConjuntosDeInstrucciones.tex" beforeDir="false" afterPath="$PROJECT_DIR$/PrimeraEntrega/Capitulos/ConjuntosDeInstrucciones.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrimeraEntrega/Capitulos/IdentificadoresYAmbitosDeDefinicion.tex" beforeDir="false" afterPath="$PROJECT_DIR$/PrimeraEntrega/Capitulos/IdentificadoresYAmbitosDeDefinicion.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrimeraEntrega/Capitulos/Tipos.tex" beforeDir="false" afterPath="$PROJECT_DIR$/PrimeraEntrega/Capitulos/Tipos.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrimeraEntrega/TFGTeXiS.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/PrimeraEntrega/TFGTeXiS.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrimeraEntrega/TFGTeXiS.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/PrimeraEntrega/TFGTeXiS.synctex.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrimeraEntrega/TFGTeXiS.tex" beforeDir="false" afterPath="$PROJECT_DIR$/PrimeraEntrega/TFGTeXiS.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Requisitos" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithm2e.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/.idea/libraries/lib.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/.vscode/launch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/.vscode/settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/.vscode/task.json" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/.vscode/task.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/Comandos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Comandos.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/Generator/datos.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/Generator/execute.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/generator/execute.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/Generator/input20.wasm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/Generator/input20.wat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/Generator/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/generator/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/Generator/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/generator/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/alex/ALexOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/alex/ALexOperations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/alex/AnalizadorLexicoExp.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/alex/AnalizadorLexicoExp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/alex/AnalizadorLexicoExp.l" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/alex/AnalizadorLexicoExp.l" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/alex/TokenValue.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/alex/TokenValue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/alex/UnidadLexica.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/alex/UnidadLexica.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/DecFuncion.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/DecFuncion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/DecVariable.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/DecVariable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Declaracion.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Declaracion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/DefClase.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/DefClase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/DefStruct.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/DefStruct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Definicion.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Definicion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Expresiones/E.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Expresiones/E.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Expresiones/EBasica.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Expresiones/EBasica.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Expresiones/EBin.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Expresiones/EBin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Expresiones/EError.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Expresiones/EError.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Expresiones/EFun.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Expresiones/EFun.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Expresiones/EListaC.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Expresiones/EListaC.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Expresiones/EListaL.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Expresiones/EListaL.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Expresiones/EUn.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Expresiones/EUn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Expresiones/EVoid.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Expresiones/EVoid.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Expresiones/False.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Expresiones/False.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Expresiones/Identificador.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Expresiones/Identificador.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Expresiones/KindE.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Expresiones/KindE.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Expresiones/NullPtr.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Expresiones/NullPtr.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Expresiones/Num.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Expresiones/Num.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Expresiones/True.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Expresiones/True.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/FuncionesPrimitivas/Case.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/FuncionesPrimitivas/Case.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/FuncionesPrimitivas/Else.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/FuncionesPrimitivas/Else.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/FuncionesPrimitivas/Elsif.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/FuncionesPrimitivas/Elsif.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/FuncionesPrimitivas/For.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/FuncionesPrimitivas/For.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/FuncionesPrimitivas/If.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/FuncionesPrimitivas/If.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/FuncionesPrimitivas/New.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/FuncionesPrimitivas/New.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/FuncionesPrimitivas/Prints.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/FuncionesPrimitivas/Prints.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/FuncionesPrimitivas/Return.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/FuncionesPrimitivas/Return.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/FuncionesPrimitivas/Scans.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/FuncionesPrimitivas/Scans.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/FuncionesPrimitivas/Switch.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/FuncionesPrimitivas/Switch.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/FuncionesPrimitivas/While.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/FuncionesPrimitivas/While.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/GeneracionCodigo/Comp.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/GeneracionCodigo/Comp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/InstrError.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/InstrError.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Instruccion.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Instruccion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Metaoperadores/Ambito.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Metaoperadores/Ambito.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Metaoperadores/Asignacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Metaoperadores/Asignacion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Metaoperadores/CabecerAsig.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Metaoperadores/CabecerAsig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Metaoperadores/PasoPorValor.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Metaoperadores/PasoPorValor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Metaoperadores/PuntoYComa.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Metaoperadores/PuntoYComa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/NodoAST.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/NodoAST.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/AccesoArray$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/AccesoArray$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/AccesoArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/AccesoArray.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/AccesoCampo$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/AccesoCampo$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/AccesoCampo.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/AccesoCampo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/Conjuncion$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/Conjuncion$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/Conjuncion.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/Conjuncion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/Distinto$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/Distinto$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/Distinto.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/Distinto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/Disyuncion$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/Disyuncion$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/Disyuncion.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/Disyuncion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/Division$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/Division$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/Division.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/Division.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/Igual$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/Igual$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/Igual.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/Igual.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/MayorIgual$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/MayorIgual$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/MayorIgual.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/MayorIgual.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/MayorQue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/MayorQue$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/MayorQue.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/MayorQue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/MenorIgual$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/MenorIgual$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/MenorIgual.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/MenorIgual.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/MenorQue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/MenorQue$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/MenorQue.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/MenorQue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/OperadorBin.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/OperadorBin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/Producto$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/Producto$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/Producto.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/Producto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/Resta$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/Resta$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/Resta.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/Resta.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/Suma$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/Suma$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/BinOperadores/Suma.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/BinOperadores/Suma.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/Operador.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/Operador.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/UnOperador/AccesoPuntero$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/UnOperador/AccesoPuntero$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/UnOperador/AccesoPuntero.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/UnOperador/AccesoPuntero.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/UnOperador/Mas$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/UnOperador/Mas$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/UnOperador/Mas.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/UnOperador/Mas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/UnOperador/MasMas$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/UnOperador/MasMas$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/UnOperador/MasMas.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/UnOperador/MasMas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/UnOperador/Menos$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/UnOperador/Menos$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/UnOperador/Menos.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/UnOperador/Menos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/UnOperador/MenosMenos$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/UnOperador/MenosMenos$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/UnOperador/MenosMenos.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/UnOperador/MenosMenos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/UnOperador/Negacion$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/UnOperador/Negacion$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/UnOperador/Negacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/UnOperador/Negacion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Operadores/UnOperador/OperadorUn.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Operadores/UnOperador/OperadorUn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Programa.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Programa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Raiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Raiz.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Tipos/Array.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Tipos/Array.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Tipos/Booleano.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Tipos/Booleano.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Tipos/Clase.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Tipos/Clase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Tipos/Entero.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Tipos/Entero.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Tipos/Funcional.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Tipos/Funcional.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Tipos/NodoTipo.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Tipos/NodoTipo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Tipos/Parametrico.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Tipos/Parametrico.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Tipos/Puntero.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Tipos/Puntero.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Tipos/Struct.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Tipos/Struct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Tipos/TInstruccion.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Tipos/TInstruccion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Tipos/Tipado$TiposEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Tipos/Tipado$TiposEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Tipos/Tipado.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Tipos/Tipado.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Tipos/TipoError.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Tipos/TipoError.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Tipos/TipoGenerico.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Tipos/TipoGenerico.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Tipos/TipoNuevo.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Tipos/TipoNuevo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Tipos/TipoParametrizable.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Tipos/TipoParametrizable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Tipos/Void.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Tipos/Void.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/UnionAmbito.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/UnionAmbito.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Vacio.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Vacio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/ast/Vinculacion/Vinculacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/ast/Vinculacion/Vinculacion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/constructorast/CUP$ConstructorASTExp$actions$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/constructorast/CUP$ConstructorASTExp$actions$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/constructorast/CUP$ConstructorASTExp$actions$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/constructorast/CUP$ConstructorASTExp$actions$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/constructorast/CUP$ConstructorASTExp$actions$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/constructorast/CUP$ConstructorASTExp$actions$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/constructorast/CUP$ConstructorASTExp$actions.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/constructorast/CUP$ConstructorASTExp$actions.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/constructorast/ClaseLexica.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/constructorast/ClaseLexica.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/constructorast/ConstructorAST.cup" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/constructorast/ConstructorAST.cup" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/constructorast/ConstructorASTExp.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/constructorast/ConstructorASTExp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/constructorast/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/constructorast/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/bin/errors/GestionErroresExp.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/bin/errors/GestionErroresExp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/input.txt.wat" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/input.txt.wat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/javacosas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/Compilador.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/lib/cup.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/lib/cup.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/lib/jflex.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/lib/jflex.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/alex/ALexOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/alex/ALexOperations.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/alex/AnalizadorLexicoExp.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/alex/AnalizadorLexicoExp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/alex/AnalizadorLexicoExp.l" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/alex/AnalizadorLexicoExp.l" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/alex/TokenValue.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/alex/TokenValue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/alex/UnidadLexica.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/alex/UnidadLexica.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/DecFuncion.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/DecFuncion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/DecVariable.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/DecVariable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Declaracion.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Declaracion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/DefClase.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/DefClase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/DefStruct.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/DefStruct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Definicion.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Definicion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Expresiones/E.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Expresiones/E.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Expresiones/EBasica.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Expresiones/EBasica.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Expresiones/EBin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Expresiones/EBin$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Expresiones/EBin.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Expresiones/EBin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Expresiones/EError.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Expresiones/EError.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Expresiones/EFun.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Expresiones/EFun.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Expresiones/EListaC.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Expresiones/EListaC.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Expresiones/EListaL.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Expresiones/EListaL.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Expresiones/EUn$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Expresiones/EUn$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Expresiones/EUn.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Expresiones/EUn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Expresiones/EVoid.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Expresiones/EVoid.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Expresiones/False.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Expresiones/False.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Expresiones/Identificador.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Expresiones/Identificador.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Expresiones/KindE.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Expresiones/KindE.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Expresiones/Num.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Expresiones/Num.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Expresiones/True.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Expresiones/True.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/FuncionesPrimitivas/Case.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/FuncionesPrimitivas/Case.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/FuncionesPrimitivas/Else.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/FuncionesPrimitivas/Else.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/FuncionesPrimitivas/Elsif.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/FuncionesPrimitivas/Elsif.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/FuncionesPrimitivas/For.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/FuncionesPrimitivas/For.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/FuncionesPrimitivas/If.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/FuncionesPrimitivas/If.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/FuncionesPrimitivas/New.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/FuncionesPrimitivas/New.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/FuncionesPrimitivas/Prints.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/FuncionesPrimitivas/Prints.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/FuncionesPrimitivas/Return.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/FuncionesPrimitivas/Return.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/FuncionesPrimitivas/Scans.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/FuncionesPrimitivas/Scans.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/FuncionesPrimitivas/Switch.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/FuncionesPrimitivas/Switch.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/FuncionesPrimitivas/While.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/FuncionesPrimitivas/While.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/GeneracionCodigo/Comp.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/GeneracionCodigo/Comp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/InstrError.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/InstrError.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Instruccion.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Instruccion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Metaoperadores/Ambito.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Metaoperadores/Ambito.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Metaoperadores/Asignacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Metaoperadores/Asignacion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Metaoperadores/CabecerAsig.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Metaoperadores/CabecerAsig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Metaoperadores/PasoPorValor.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Metaoperadores/PasoPorValor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Metaoperadores/PuntoYComa.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Metaoperadores/PuntoYComa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/NodoAST.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/NodoAST.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/AccesoArray$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/AccesoArray$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/AccesoArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/AccesoArray.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/AccesoCampo$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/AccesoCampo$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/AccesoCampo.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/AccesoCampo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/Conjuncion$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/Conjuncion$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/Conjuncion.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/Conjuncion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/Distinto$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/Distinto$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/Distinto.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/Distinto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/Disyuncion$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/Disyuncion$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/Disyuncion.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/Disyuncion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/Division$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/Division$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/Division.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/Division.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/Igual$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/Igual$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/Igual.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/Igual.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/MayorIgual$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/MayorIgual$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/MayorIgual.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/MayorIgual.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/MayorQue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/MayorQue$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/MayorQue.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/MayorQue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/MenorIgual$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/MenorIgual$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/MenorIgual.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/MenorIgual.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/MenorQue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/MenorQue$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/MenorQue.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/MenorQue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/OperadorBin.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/OperadorBin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/Producto$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/Producto$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/Producto.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/Producto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/Resta$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/Resta$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/Resta.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/Resta.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/Suma$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/Suma$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/BinOperadores/Suma.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/BinOperadores/Suma.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/Operador.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/Operador.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/UnOperador/AccesoPuntero$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/UnOperador/AccesoPuntero$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/UnOperador/AccesoPuntero.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/UnOperador/AccesoPuntero.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/UnOperador/Mas$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/UnOperador/Mas$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/UnOperador/Mas.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/UnOperador/Mas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/UnOperador/MasMas$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/UnOperador/MasMas$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/UnOperador/MasMas.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/UnOperador/MasMas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/UnOperador/Menos$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/UnOperador/Menos$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/UnOperador/Menos.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/UnOperador/Menos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/UnOperador/MenosMenos$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/UnOperador/MenosMenos$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/UnOperador/MenosMenos.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/UnOperador/MenosMenos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/UnOperador/Negacion$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/UnOperador/Negacion$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/UnOperador/Negacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/UnOperador/Negacion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Operadores/UnOperador/OperadorUn.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Operadores/UnOperador/OperadorUn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Programa.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Programa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Tipos/Array.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Tipos/Array.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Tipos/Booleano.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Tipos/Booleano.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Tipos/Clase.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Tipos/Clase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Tipos/Entero.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Tipos/Entero.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Tipos/Funcional.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Tipos/Funcional.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Tipos/NodoTipo.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Tipos/NodoTipo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Tipos/Parametrico.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Tipos/Parametrico.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Tipos/Puntero.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Tipos/Puntero.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Tipos/Struct.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Tipos/Struct.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Tipos/TInstruccion$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Tipos/TInstruccion$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Tipos/TInstruccion.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Tipos/TInstruccion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Tipos/Tipado$TiposEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Tipos/Tipado$TiposEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Tipos/Tipado.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Tipos/Tipado.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Tipos/TipoError.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Tipos/TipoError.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Tipos/TipoGenerico.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Tipos/TipoGenerico.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Tipos/TipoNuevo.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Tipos/TipoNuevo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Tipos/TipoParametrizable.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Tipos/TipoParametrizable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Tipos/Void.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Tipos/Void.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/UnionAmbito.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/UnionAmbito.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Vacio.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Vacio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/Vinculacion/Vinculacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/Vinculacion/Vinculacion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/ast/raiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/ast/raiz.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/constructorast/CUP$ConstructorASTExp$actions.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/constructorast/CUP$ConstructorASTExp$actions.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/constructorast/ClaseLexica.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/constructorast/ClaseLexica.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/constructorast/ConstructorAST.cup" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/constructorast/ConstructorAST.cup" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/constructorast/ConstructorASTExp.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/constructorast/ConstructorASTExp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/constructorast/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/constructorast/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/out/production/javacosas/errors/GestionErroresExp.class" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/out/production/javacosas/errors/GestionErroresExp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/alex/ALexOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/alex/ALexOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/alex/AnalizadorLexicoExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/alex/AnalizadorLexicoExp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/alex/AnalizadorLexicoExp.l" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/alex/AnalizadorLexicoExp.l" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/alex/TokenValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/alex/TokenValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/alex/UnidadLexica.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/alex/UnidadLexica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/DecFuncion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/DecFuncion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/DecVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/DecVariable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Declaracion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Declaracion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/DefClase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/DefClase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/DefStruct.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/DefStruct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Definicion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Definicion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/E.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/E.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/EBasica.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/EBasica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/EBin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/EBin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/EError.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/EError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/EFun.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/EFun.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/EListaC.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/EListaC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/EListaL.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/EListaL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/EUn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/EUn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/EVoid.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/EVoid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/False.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/False.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/Identificador.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/Identificador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/KindE.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/KindE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/NullPtr.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/NullPtr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/Num.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/Num.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Expresiones/True.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/True.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/Case.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/Case.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/Else.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/Else.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/Elsif.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/Elsif.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/For.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/For.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/If.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/If.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/New.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/New.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/Prints.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/Prints.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/Return.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/Return.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/Scans.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/Scans.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/Switch.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/Switch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/FuncionesPrimitivas/While.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/While.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/GeneracionCodigo/Comp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/GeneracionCodigo/Comp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/InstrError.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/InstrError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Instruccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Instruccion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Metaoperadores/Ambito.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Metaoperadores/Ambito.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Metaoperadores/Asignacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Metaoperadores/Asignacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Metaoperadores/CabecerAsig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Metaoperadores/CabecerAsig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Metaoperadores/PasoPorValor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Metaoperadores/PasoPorValor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Metaoperadores/PuntoYComa.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Metaoperadores/PuntoYComa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/NodoAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/NodoAST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Operadores/BinOperadores/AccesoArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Operadores/BinOperadores/AccesoArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Operadores/BinOperadores/AccesoCampo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Operadores/BinOperadores/AccesoCampo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Operadores/BinOperadores/Conjuncion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Operadores/BinOperadores/Conjuncion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Operadores/BinOperadores/Distinto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Operadores/BinOperadores/Distinto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Operadores/BinOperadores/Disyuncion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Operadores/BinOperadores/Disyuncion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Operadores/BinOperadores/Division.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Operadores/BinOperadores/Division.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Operadores/BinOperadores/Igual.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Operadores/BinOperadores/Igual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Operadores/BinOperadores/MayorIgual.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Operadores/BinOperadores/MayorIgual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Operadores/BinOperadores/MayorQue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Operadores/BinOperadores/MayorQue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Operadores/BinOperadores/MenorIgual.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Operadores/BinOperadores/MenorIgual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Operadores/BinOperadores/MenorQue.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Operadores/BinOperadores/MenorQue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Operadores/BinOperadores/OperadorBin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Operadores/BinOperadores/OperadorBin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Operadores/BinOperadores/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Operadores/BinOperadores/Producto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Operadores/BinOperadores/Resta.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Operadores/BinOperadores/Resta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Operadores/BinOperadores/Suma.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Operadores/BinOperadores/Suma.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Operadores/Operador.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Operadores/Operador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Operadores/UnOperador/AccesoPuntero.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Operadores/UnOperador/AccesoPuntero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Operadores/UnOperador/Mas.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Operadores/UnOperador/Mas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Operadores/UnOperador/MasMas.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Operadores/UnOperador/MasMas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Operadores/UnOperador/Menos.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Operadores/UnOperador/Menos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Operadores/UnOperador/MenosMenos.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Operadores/UnOperador/MenosMenos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Operadores/UnOperador/Negacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Operadores/UnOperador/Negacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Operadores/UnOperador/OperadorUn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Operadores/UnOperador/OperadorUn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Programa.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Programa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Raiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Raiz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Tipos/Array.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Tipos/Array.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Tipos/Booleano.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Tipos/Booleano.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Tipos/Clase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Tipos/Clase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Tipos/Entero.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Tipos/Entero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Tipos/Funcional.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Tipos/Funcional.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Tipos/NodoTipo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Tipos/NodoTipo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Tipos/Parametrico.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Tipos/Parametrico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Tipos/Puntero.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Tipos/Puntero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Tipos/Struct.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Tipos/Struct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Tipos/TInstruccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Tipos/TInstruccion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Tipos/Tipado.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Tipos/Tipado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Tipos/TipoError.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Tipos/TipoError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Tipos/TipoGenerico.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Tipos/TipoGenerico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Tipos/TipoNuevo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Tipos/TipoNuevo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Tipos/TipoParametrizable.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Tipos/TipoParametrizable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Tipos/Void.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Tipos/Void.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/UnionAmbito.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/UnionAmbito.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Vacio.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Vacio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/ast/Vinculacion/Vinculacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Vinculacion/Vinculacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/constructorast/ClaseLexica.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/constructorast/ClaseLexica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/constructorast/ConstructorAST.cup" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/constructorast/ConstructorAST.cup" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/constructorast/ConstructorASTExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/constructorast/ConstructorASTExp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/constructorast/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/constructorast/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/src/errors/GestionErroresExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/errors/GestionErroresExp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input10_errvinc.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input10_errvinc.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input11_errvinc.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input11_errvinc.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input12_errvinc.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input12_errvinc.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input13_errvin.txt.wat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input13_errvinc.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input13_errvinc.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input14_errtipado.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input14_errtipado.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input15_errtipado.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input15_errtipado.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input16_errNoMain.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input16_errNoMain.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input17_errVariosMain.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input17_errVariosMain.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input1_errarray.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input1_errarray.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input20.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input20.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input20.txt.wat" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/generator/input20.wat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input2_errtipo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input2_errtipo.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input3_errstructs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input3_errstructs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input4_errclases.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input4_errclases.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input5_ejfunciones.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input5_ejfunciones.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input6_errlexico.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input6_errlexico.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input7_errsintaxis.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input7_errsintaxis.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input8_errvinc.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input8_errvinc.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacosas/tests/input9_errvinc.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input9_errvinc.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/alex/ALexOperations.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/alex/AnalizadorLexicoExp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/alex/AnalizadorLexicoExp.l" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/alex/TokenValue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/alex/UnidadLexica.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/DecFuncion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/DecVariable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Declaracion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/DefClase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/DefStruct.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Definicion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Expresiones/E.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Expresiones/EBasica.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Expresiones/EBin$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Expresiones/EBin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Expresiones/EError.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Expresiones/EFun.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Expresiones/EListaC.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Expresiones/EListaL.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Expresiones/EUn$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Expresiones/EUn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Expresiones/EVoid.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Expresiones/False.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Expresiones/Identificador.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Expresiones/KindE.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Expresiones/NullPtr.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Expresiones/Num.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Expresiones/True.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/FuncionesPrimitivas/Case.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/FuncionesPrimitivas/Else.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/FuncionesPrimitivas/Elsif.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/FuncionesPrimitivas/For.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/FuncionesPrimitivas/If.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/FuncionesPrimitivas/New.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/FuncionesPrimitivas/Prints.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/FuncionesPrimitivas/Return.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/FuncionesPrimitivas/Scans.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/FuncionesPrimitivas/Switch.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/FuncionesPrimitivas/While.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/GeneracionCodigo/Comp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/InstrError.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Instruccion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Metaoperadores/Ambito.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Metaoperadores/Asignacion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Metaoperadores/CabecerAsig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Metaoperadores/PasoPorValor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Metaoperadores/PuntoYComa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/NodoAST.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/AccesoArray$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/AccesoArray.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/AccesoCampo$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/AccesoCampo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/Conjuncion$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/Conjuncion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/Distinto$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/Distinto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/Disyuncion$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/Disyuncion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/Division$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/Division.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/Igual$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/Igual.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/MayorIgual$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/MayorIgual.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/MayorQue$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/MayorQue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/MenorIgual$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/MenorIgual.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/MenorQue$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/MenorQue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/OperadorBin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/Producto$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/Producto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/Resta$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/Resta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/Suma$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/BinOperadores/Suma.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/Operador.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/UnOperador/AccesoPuntero$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/UnOperador/AccesoPuntero.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/UnOperador/Mas$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/UnOperador/Mas.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/UnOperador/MasMas$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/UnOperador/MasMas.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/UnOperador/Menos$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/UnOperador/Menos.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/UnOperador/MenosMenos$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/UnOperador/MenosMenos.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/UnOperador/Negacion$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/UnOperador/Negacion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Operadores/UnOperador/OperadorUn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Programa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Raiz.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/Array.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/Booleano.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/Clase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/Entero.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/Funcional.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/NodoTipo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/Parametrico.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/Puntero.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/Struct.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/TInstruccion$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/TInstruccion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/Tipado$TiposEnum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/Tipado.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/TipoError.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/TipoGenerico.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/TipoNuevo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/TipoParametrizable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Tipos/Void.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/UnionAmbito.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Vacio.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/ast/Vinculacion/Vinculacion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/constructorast/CUP$ConstructorASTExp$actions$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/constructorast/CUP$ConstructorASTExp$actions$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/constructorast/CUP$ConstructorASTExp$actions$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/constructorast/CUP$ConstructorASTExp$actions.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/constructorast/ClaseLexica.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/constructorast/ConstructorAST.cup" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/constructorast/ConstructorASTExp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/constructorast/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacosas/errors/GestionErroresExp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/generator/input25.wat" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/generator/input25.wat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/generator/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/generator/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/DecFuncion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/DecFuncion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/DecVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/DecVariable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/DefClase.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/DefClase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/DefStruct.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/DefStruct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/Case.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/Case.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/GeneracionCodigo/Comp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/GeneracionCodigo/Comp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Metaoperadores/Ambito.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Metaoperadores/Ambito.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Metaoperadores/PuntoYComa.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Metaoperadores/PuntoYComa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/NodoAST.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/NodoAST.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Raiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Raiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Tipos/Tipado.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Tipos/Tipado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/UnionAmbito.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/UnionAmbito.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Vacio.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Vacio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/tests/input25.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input25.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/DecFuncion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/DecFuncion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/DecVariable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/DecVariable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/DefClase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/DefClase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/DefStruct.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/DefStruct.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/Case.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/Case.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/GeneracionCodigo/Comp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/GeneracionCodigo/Comp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Metaoperadores/Ambito.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Metaoperadores/Ambito.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Metaoperadores/PuntoYComa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Metaoperadores/PuntoYComa.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/NodoAST.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/NodoAST.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Raiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Raiz.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Tipos/Tipado.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Tipos/Tipado.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/UnionAmbito.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/UnionAmbito.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Vacio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Vacio.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -659,7 +96,7 @@
       <recent name="$PROJECT_DIR$/javacosas/src/alex" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test25">
+  <component name="RunManager" selected="Application.Test26">
     <configuration name="Test1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="constructorast.Main" />
       <module name="Compilador" />
@@ -764,6 +201,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test26" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="constructorast.Main" />
+      <module name="Compilador" />
+      <option name="PROGRAM_PARAMETERS" value="./Compilador/tests/input26.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test3" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="constructorast.Main" />
       <module name="Compilador" />
@@ -849,6 +294,7 @@
       <item itemvalue="Application.Test23" />
       <item itemvalue="Application.Test24" />
       <item itemvalue="Application.Test25" />
+      <item itemvalue="Application.Test26" />
       <item itemvalue="Application.Test10" />
       <item itemvalue="Application.Test1" />
       <item itemvalue="Node.js.main.js" />
@@ -876,7 +322,7 @@
       <workItem from="1716135748594" duration="1870000" />
       <workItem from="1716188403473" duration="544000" />
       <workItem from="1716213235746" duration="25000" />
-      <workItem from="1716213276328" duration="3997000" />
+      <workItem from="1716213276328" duration="8139000" />
     </task>
     <servers />
   </component>
@@ -897,9 +343,9 @@
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Compilador/src/ast/Expresiones/EFun.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="37" />
+          <url>file://$PROJECT_DIR$/Compilador/src/ast/Metaoperadores/PuntoYComa.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

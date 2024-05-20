@@ -62,7 +62,7 @@ public class Ambito implements NodoAST {
     public void recoleccionAtributos(LinkedHashMap<String,LinkedHashSet<Declaracion>> mapa_actual){
         programa.recoleccionAtributos(mapa_actual);
     }
-
+    @Override
     public String codeI(Comp hcom){
         StringBuilder s = new StringBuilder();
         hcom.abreBloque();
@@ -76,6 +76,13 @@ public class Ambito implements NodoAST {
         s.append("i32.load\n");
         s.append("global.set $MP\n");
         return s.toString();
+    }
+   @Override
+    public String codeFunc(Comp hcon){
+        hcon.abreBloque();
+        String s = programa.codeFunc(hcon);
+        hcon.cierraBloque();
+        return s;
     }
 
 

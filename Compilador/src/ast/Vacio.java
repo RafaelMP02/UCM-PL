@@ -36,6 +36,11 @@ public class Vacio implements Programa{
     }
 
     @Override
+    public String codeFunc(Comp hcon) {
+        return "";
+    }
+
+    @Override
     public void recoleccionAtributos(LinkedHashMap<String,LinkedHashSet<Declaracion>> mapa_actual) {
     }
 }

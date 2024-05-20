@@ -57,11 +57,11 @@ i32.const 20
 (i32.load)
 call $print
 global.get $SP
-i32.const 8
+i32.const 16
 i32.add
 global.set $SP
 i32.const 24
-i32.const 4
+i32.const 12
 i32.add
 i32.const 20
 (i32.load)
@@ -69,10 +69,42 @@ i32.store
 i32.const 24
 i32.const 0
 i32.add
-i32.const 2
+i32.const 4
+i32.const 0
+i32.mul
+i32.add
+i32.const 0
+(i32.load)
 i32.store
 i32.const 24
 i32.const 0
+i32.add
+i32.const 4
+i32.const 1
+i32.mul
+i32.add
+i32.const 4
+(i32.load)
+i32.store
+i32.const 24
+i32.const 0
+i32.add
+i32.const 4
+i32.const 2
+i32.mul
+i32.add
+i32.const 4
+(i32.load)
+i32.const 1
+i32.add
+i32.store
+i32.const 24
+i32.const 0
+i32.add
+i32.const 4
+i32.const 20
+(i32.load)
+i32.mul
 i32.add
 i32.load
 call $print
@@ -92,6 +124,11 @@ local.get $i
 i32.const 24
 i32.const 0
 i32.add
+i32.const 4
+i32.const 20
+(i32.load)
+i32.mul
+i32.add
 (i32.store)
 local.get $i
 i32.const 4
@@ -105,12 +142,17 @@ i32.load
 global.set $MP
 i32.store
 i32.const 24
-i32.const 4
+i32.const 12
 i32.add
 i32.load
 call $print
 i32.const 24
 i32.const 0
+i32.add
+i32.const 4
+i32.const 20
+(i32.load)
+i32.mul
 i32.add
 i32.load
 call $print

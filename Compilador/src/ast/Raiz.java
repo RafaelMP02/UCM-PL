@@ -128,7 +128,7 @@ public class Raiz implements NodoAST{
             getFun(hcon);
            init(s, x);
            copyMem(s);
-            s.append(programa.codeI(hcon));
+            s.append(programa.codeFunc(hcon));
             s.append(")\n");
             output.write(s.toString());
             output.close();

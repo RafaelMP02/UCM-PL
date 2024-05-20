@@ -254,6 +254,10 @@ public class Comp {
         return this.globales;
     }
 
+    public boolean isGlobal(Declaracion dec){
+        return globales.containsKey(dec);
+    }
+
 
 
 }

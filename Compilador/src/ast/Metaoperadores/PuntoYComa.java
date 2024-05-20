@@ -60,6 +60,11 @@ public class PuntoYComa implements Programa {
         return inst.codeI(hcom) + prog.codeI(hcom);
     }
 
+    @Override
+    public String codeFunc(Comp hcom) {
+        return inst.codeFunc(hcom) + prog.codeFunc(hcom);
+    }
+
 
     @Override
     public void recoleccionAtributos(LinkedHashMap<String,LinkedHashSet<Declaracion>> mapa_actual) {

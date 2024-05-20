@@ -76,9 +76,14 @@ public class DefClase implements Definicion{
     public String codeI(Comp hcom) {
         hcom.insertarTipoNuevo(this);
         hcom.pushAtributos(this);
-        String s = ambito.codeI(hcom);
+        String s = ambito.getPrograma().codeFunc(hcom);
         hcom.popAtributos();
         return s;
+    }
+
+    @Override
+    public String codeFunc(Comp hcon){
+        return this.codeI(hcon);
     }
 
     @Override
