@@ -275,6 +275,139 @@ Input26.txt en la carpeta de tests, es un ejemplo que combina los dos anteriores
 	
 \end{algorithm}
 
+\newpage
+
+\subsection{Ejemplo 8}
+Input27.txt en la carpeta de tests, es un ejemplo que muestra el uso de switch y booleanos.
+
+\begin{algorithm}
+
+	
+	\Void() \reserved{main}() \{ \\
+	\quad \reserved{int} x := \const{1} \;
+	\quad \reserved{bool} par := \const{False} \;
+	\quad \reserved{switch}(x) \{\\
+	\quad \quad \reserved{case} \const{1} \{ \\
+	\quad \quad \quad par := \const{False} \;
+	\quad \} \\
+	\quad \quad \reserved{case} \const{2} \{ \\
+	\quad \quad \quad par := \const{True}\,
+	\quad \} \\
+	\quad \} \\
+	\quad \reserved{if}(par) \{ \\
+	\quad \quad \reserved{prints}(\const{0})\;
+	\quad \} \reserved{else}(par) \{ \\
+	\quad \quad \reserved{prints}(\const{1})\;
+	\quad \} \\
+	\}\;
+	
+\end{algorithm}
+
+\newpage
+
+\subsection{Ejemplo 9}
+Input28.txt en la carpeta de tests, es un ejemplo que muestra como los m\'{e}todos funcionan y modifican el estado de la clase.
+
+
+\begin{algorithm}
+
+	\reserved{class} A \{ \\
+	\quad \reserved{int} x \; 
+	\quad \reserved{int}() getX() \{ \\
+	\quad \quad \reserved{return} x\;	
+	\quad \}\;
+	\quad \reserved{void}(\reserved{int}) setX(a) \;
+	\quad \quad x := a\;	
+	\quad \}\;
+	\quad \reserved{void}() incrementX() \{ \\
+	\quad \quad x := x + 1\;	
+	\quad \}\;
+	\Void() \reserved{main}() \{ \\
+	\quad \reserved{Class} A s\;
+	\quad s.x := 1 \;
+	\quad \reserved{prints}(s.x)\;
+	\quad \reserved{prints}(s.getX())\;
+	\quad s.incrementX() \;
+	\quad \reserved{prints}(s.x)\;	
+	\}\;
+	
+\end{algorithm}
+
+\newpage
+
+\subsection{Ejemplo 10}
+Input29.txt en la carpeta de tests, es un ejemplo que muestra como los punteros funcionan.
+
+
+\begin{algorithm}
+
+	\Void() \reserved{main}() \{ \\
+	\quad \reserved{int}* p := \const{null}\;
+	\quad \reserved{prints}(p)\;
+	\quad p := \reserved{new}\;
+	\quad \reserved{prints}(p)\;
+	\quad \reserved{prints}(*p)\;
+	\quad *p := \const{5}\;
+	\quad \reserved{prints}(*p)\;	
+	\}\;
+	
+\end{algorithm}
+
+\newpage
+
+
+\subsection{Ejemplo 11}
+Input30.txt en la carpeta de tests, es un ejemplo que muestra como funcionan los bucles.
+
+
+\begin{algorithm}
+
+	\Void() \reserved{main}() \{ \\
+	\quad \reserved{int} n := \const{2}\;
+	\quad \reserved{int} m := \const{3}\;
+	\quad \reserved{while}(n > \const{0}) \{
+	\quad \quad n := n - \const{1}\;
+	\quad \quad c := c + m\;
+	\quad \}
+	\quad \reserved{prints}(c)\;	
+	\}\;
+	
+\end{algorithm}
+
+\newpage
+
+\subsection{Ejemplo 12}
+Input32.txt en la carpeta de tests, es un ejemplo que muestra como funcionan las llamadas recursivas de funciones. Importante decir que el paso por par\'{a}metro es por valor ya que de otra forma no funciona ya que la recursividad te da un elemento no asignable (a-1).
+
+
+\begin{algorithm}
+
+	\Void() \reserved{main}() \{ \\
+	\quad \reserved{int} n := \const{3}\;
+	\quad \reserved{if}(esPar(n)) \{
+	\quad \quad \reserved{prints}(\const{0})\;	
+	\quad \}	\reserved{else} \{
+	\quad \quad \reserved{prints}(\const{1})\;
+	\quad \}
+	\}\;
+	
+	\reserved{bool}(\Val \reserved{int}) esPar(a) \{
+	\quad \reserved{if}(a == 0) \{
+	\quad \quad \reserved{return } \const{True} \;
+	\quad \} \reserved{elsif} (a == \const{1}) \{
+	\quad \quad \reserved{return} \const{False}\;
+	\quad \} \reserved{else} \{
+	\quad \quad return not esPar(a-1) \;
+	\quad \}
+	\}
+	
+\end{algorithm}
+
+
+\subsection{final}
+Hay un ejemplo 31 sobre la asignaci\'{o}n de arrays o estructs y posibles funciones que devuelvan tipos array o clases o structs. En ambos casos implementabamos lo mismo, suponemos que nos dan la estructura de datos al final de nuestra memoria est\'{a}tica en la zona de memoria no asignada y usamos nuestra funcion copy memory. Solo necesitamos poder copiar a partir del stack pointer cosa que se hace recursivamente en la funci\'{o}n codeB. Solo nos hubiese quedado debuggearla pero no nos di\'{o} el tiempo. Adem\'{a}s,
+    hay problemas de entrelazado con funciones interiores (no en el \'{a}mbito global).
+
 
 
 

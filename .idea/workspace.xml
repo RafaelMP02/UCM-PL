@@ -5,59 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8bf737e8-0e47-415c-a779-c288e404a575" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Compilador/tests/input32.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/generator/input22.wasm" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/generator/input22.wasm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/generator/input27.wat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/generator/input29.wat" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/generator/input29.wat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/generator/input30.wat" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/generator/input30.wat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/generator/input32.wat" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/generator/input32.wat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/generator/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/generator/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Compilador/src/ast/DecFuncion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/DecFuncion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/DecVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/DecVariable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Declaracion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Declaracion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/E.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/E.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/EBin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/EBin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/EFun.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/EFun.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/EUn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/EUn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/False.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/False.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/Identificador.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/Identificador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/Num.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/Num.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/True.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/True.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/Case.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/Case.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/For.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/For.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/Switch.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/Switch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/While.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/While.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/GeneracionCodigo/Comp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/GeneracionCodigo/Comp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Metaoperadores/Ambito.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Metaoperadores/Ambito.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Metaoperadores/Asignacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Metaoperadores/Asignacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Metaoperadores/CabecerAsig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Metaoperadores/CabecerAsig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Tipos/Array.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Tipos/Array.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Tipos/Tipado.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Tipos/Tipado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/tests/input27.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input27.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Compilador/tests/input30.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input30.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrimeraEntrega/Capitulos/GestionDeErrores.tex" beforeDir="false" afterPath="$PROJECT_DIR$/PrimeraEntrega/Capitulos/GestionDeErrores.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/DecFuncion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/DecFuncion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/DecVariable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/DecVariable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Declaracion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Declaracion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/E.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/E.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/EBin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/EBin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/EFun.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/EFun.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/EUn$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/EUn$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/EUn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/EUn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/False.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/False.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/Identificador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/Identificador.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/Num.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/Num.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/True.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/True.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/Case.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/Case.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/For.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/For.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/Switch.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/Switch.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/While.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/While.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/GeneracionCodigo/Comp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/GeneracionCodigo/Comp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Metaoperadores/Ambito.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Metaoperadores/Ambito.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Metaoperadores/Asignacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Metaoperadores/Asignacion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Metaoperadores/CabecerAsig.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Metaoperadores/CabecerAsig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Tipos/Array.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Tipos/Array.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Tipos/Tipado.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Tipos/Tipado.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/tests/input32.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input32.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -399,7 +351,7 @@
       <workItem from="1716135748594" duration="1870000" />
       <workItem from="1716188403473" duration="544000" />
       <workItem from="1716213235746" duration="25000" />
-      <workItem from="1716213276328" duration="24862000" />
+      <workItem from="1716213276328" duration="27270000" />
     </task>
     <servers />
   </component>

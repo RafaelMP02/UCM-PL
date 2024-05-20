@@ -42,7 +42,7 @@ global.get $SP
 i32.const 4
 i32.add
 global.set $SP
-i32.const 2
+i32.const 3
 i32.store
 global.get $SP
 global.set $MP
@@ -56,8 +56,16 @@ i32.const 4
 i32.add
 global.set $SP
 local.get $i
+global.get $SP
+i32.store
 i32.const 4
-(i32.store)
+ (global.get $SP)
+(i32.const 4)
+call $copy_memory 
+global.get $SP
+i32.const 4
+i32.add
+global.set $SP
 local.get $i
 i32.const 4
 i32.add
@@ -68,7 +76,14 @@ global.set $SP
 global.get $SP
 i32.load
 global.set $MP
+if
+i32.const 0
 call $print
+else
+i32.const 1
+call $print
+end
+i32.const 0
 (return)
 )
 ( func $fun0
@@ -103,6 +118,7 @@ if
 i32.const 0
 (return)
 else
+i32.const 1
 global.get $SP
 global.set $MP
 global.get $SP
@@ -115,7 +131,18 @@ i32.const 4
 i32.add
 global.set $SP
 local.get $i
+global.get $SP
+i32.store
+global.get $SP
+local.get $param1
+(i32.load)
+i32.const 1
+i32.sub
 (i32.store)
+global.get $SP
+i32.const 4
+i32.add
+global.set $SP
 local.get $i
 i32.const 4
 i32.add
@@ -126,11 +153,11 @@ global.set $SP
 global.get $SP
 i32.load
 global.set $MP
+i32.sub
 (return)
 end
 end
 i32.const 0
-(return)
 (return)
 )
 )

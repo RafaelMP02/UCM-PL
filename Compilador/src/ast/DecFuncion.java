@@ -157,7 +157,7 @@ public class DecFuncion extends Declaracion {
         }
         s.append("(drop)\n");
         hcon.abreBloque();
-        s.append(ambito.getPrograma().codeI(hcon)).append("(return)\n").append(")\n");
+        s.append(ambito.getPrograma().codeI(hcon)).append("i32.const 0\n").append("(return)\n").append(")\n");
         hcon.clearLocalMap();
         hcon.cierraBloque();
         return s.toString();

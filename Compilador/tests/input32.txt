@@ -1,16 +1,18 @@
 void() main(){
-    int n := 2;
-    prints(esPar(n));
+    int n := 3;
+    if(esPar(n)) {
+        prints(0);
+    } else {
+        prints(1);
+    }
 };
 
-bool(int) esPar(a){
+bool($ int) esPar(a){
     if( a == 0) {
         return True;
     } elsif(a == 1) {
         return False;
     } else {
-        return esPar(a-1);
+        return not esPar(a-1);
     }
-
-    return False;
 };
