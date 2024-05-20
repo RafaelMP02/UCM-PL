@@ -105,8 +105,8 @@ public class Raiz implements NodoAST{
 
     void init(StringBuilder s){  //para copiar en memoria
         s.append("(module\n").append(
-                "(import \"runtime\" \"exceptionHandler\" (func $exception (type $_sig_i32)))\n" ).append(
-                "(import \"runtime\" \"print\" (func $print (type $_sig_i32)))\n" ).append(
+                "(import \"runtime\" \"print\" (func $print (param i32)))\n" ).append(
+                "(import \"runtime\" \"read\" (func $read (result i32)))\n" ).append(
                 "(import \"runtime\" \"read\" (func $read (type $_sig_ri32)))\n" ).append(
                 "(memory 2000)\n" ).append(
                 "(global $SP (mut i32) (i32.const 0)) ;; start of stack\n" ).append(

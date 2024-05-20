@@ -46,7 +46,6 @@ public class EFun extends E implements Instruccion {
         StringBuilder s = new StringBuilder();
         Funcional f = (Funcional) idFuncion.tipo;
         List<Parametrico> l = f.getParametros();
-        s.append(hcon.getFUNSTR());
         if(idFuncion.exp == KindE.CONST){ //identificador
             Identificador id = (Identificador) idFuncion;
             Declaracion dec = id.getVinculo();
@@ -130,6 +129,13 @@ public class EFun extends E implements Instruccion {
             s.append("call ").append(hcon.buscarFun(de)).append("\n");
 
         }
+
+        s.append("get_global $MP\n");
+        s.append("set_global $SP\n");
+        s.append("get_global $SP\n");
+        s.append("i32.load\n");
+        s.append("set_global $MP\n");
+
         return s.toString();
     }
 

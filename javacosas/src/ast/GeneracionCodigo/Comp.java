@@ -42,9 +42,6 @@ public class Comp {
 
     private int NP;
 
-    private final String GL_STR;
-
-    private final String FUN_STR;
 
 
 
@@ -63,26 +60,17 @@ public class Comp {
         this.SP = delta_actual;
         this.next_allocator = 0;
         int num_globals = 1;
-        StringBuilder sb = new StringBuilder();
-        StringBuilder sl = new StringBuilder();
-        sl.append("get_global $MP\n").append("get_global $SP\n").append("i32.store\n");
-        sl.append("get_global $SP\n").append("i32.const 4\n").append("i32.add\n"); //direccion de SP aumentada
         for(String  s: mapa.keySet()){
             for(Declaracion dec: mapa.get(s)){
                 if(dec.getTipo().typeToEnum() != Tipado.TiposEnum.FUNCIONAL) {
                     globales.put(dec, delta_actual);
                     this.delta_actual = delta_actual + dec.getTam();
                     this.SP = delta_actual;
-                    sb.append(" (local $global").append(num_globals).append(" i32)\n");
-                    sl.append("i32.const ").append(delta_actual).append("\n").append("get_global $SP\n").append("i32.store\n");  //guardamos la direccion de memoria
-                    sl.append("get_global $SP\n").append("i32.const 4\n").append("i32.add\n");  //actualizamos SP
                     global_map.put(dec, "global" + Integer.toString(num_globals));
                     num_globals = num_globals + 1;
                 }
             }
         }
-        this.GL_STR = sb.toString();
-        this.FUN_STR = sl.toString();
         this.pilaDeTipos = new LinkedList<>();
         this.pilaDeTipos.add(new LinkedHashMap<>());
         this.funciones = new LinkedHashMap<>();
@@ -276,12 +264,6 @@ public class Comp {
         return this.globales;
     }
 
-    public String getGLSTR(){
-        return GL_STR;
-    }
 
-    public String getFUNSTR(){
-        return FUN_STR;
-    }
 
 }

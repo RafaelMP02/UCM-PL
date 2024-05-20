@@ -51,6 +51,6 @@ public class Scans implements Instruccion {
 
     @Override
     public String codeI(Comp hco) {
-        return "call $read\n";
+        return "(call $read)\n";
     }
 }
