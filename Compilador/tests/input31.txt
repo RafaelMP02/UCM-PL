@@ -1,0 +1,17 @@
+void() main(){
+    int[3] x := [1,2,3];
+    prints(x[2]);
+    int[2][3] y := [[1,2],[3,4],[5,6]];
+    prints(y[0][1]);
+    prints(y[1][1]);
+    struct A  {
+        int a;
+        int[2] b;
+    };
+    struct A s := {1, [7,8]};
+    prints(s.a);
+    prints(s.b[2]);
+    y := [s.b , [9, 10], [11,12]];
+    prints(y[0][1]);
+    prints(y[1][1]);
+};

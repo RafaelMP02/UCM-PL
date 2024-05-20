@@ -81,14 +81,15 @@ public class For implements Programa {
         fin.type(new LinkedHashSet<>(Arrays.asList(new Booleano())));
         if (paso != null)
             paso.type(Tipado.enumToTipo(Set.of(TiposEnum.ASIGNACION)));
-        ambito.type(Tipado.enumToTipo(Tipado.TIPOS_INSTR));
-        
+        ambito.type(tiposEsperados);
+
         Set<NodoTipo> tipado = Tipado.matchTipoEsperado(new TInstruccion(TiposEnum.OTRA_INSTRUCCION), tiposEsperados, fila, columna);
 
-        tipado.addAll(programa.type(tiposEsperados));   
+        tipado.addAll(programa.type(tiposEsperados));
 
         return tipado;
     }
+
 
     @Override
     public String codeI(Comp hcon) {

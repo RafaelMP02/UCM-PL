@@ -47,9 +47,7 @@ public class Return  implements Instruccion {
 
     @Override
     public Set<NodoTipo> type(Set<NodoTipo> tiposEsperados) {
-        if (valor != null)
-            valor.type(Tipado.enumToTipo(Tipado.TIPOS_RETURN));
-        return Tipado.matchTipoEsperado(new TInstruccion(TiposEnum.RETURN), tiposEsperados, fila, columna);
+        return Tipado.matchReturn(valor, tiposEsperados, fila, columna);
     }
 
     @Override

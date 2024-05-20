@@ -26,9 +26,13 @@ public abstract class E implements CabecerAsig {
     @Override
     public boolean esAsignable() { return asignable;}
 
-    public abstract String codeE(Comp hcon);
+    public  String codeE(Comp hcon){return "";}
 
     @Override
     public NodoTipo tip(){ return tipo;}
+
+    public  String codeB(Comp hcon){
+        return "";
+    }
 
 }

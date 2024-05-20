@@ -53,7 +53,7 @@ public class While implements Programa {
     @Override
     public Set<NodoTipo> type(Set<NodoTipo> tiposEsperados) {
         cond.type(new LinkedHashSet<>(Set.of(new Booleano())));
-        ambito.type(Tipado.enumToTipo(Tipado.TIPOS_INSTR));
+        ambito.type(tiposEsperados);
         Set<NodoTipo> tipado = Tipado.matchTipoEsperado(new TInstruccion(TiposEnum.OTRA_INSTRUCCION), tiposEsperados, fila, columna);
         return Tipado.unirConjuntos(tipado, programa.type(tiposEsperados));
     }

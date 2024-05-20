@@ -28,4 +28,14 @@ public class Num extends EBasica{
   }
 
   public int num() {return Integer.parseInt(expString);}
+
+
+  @Override
+  public String codeB(Comp hcon){
+    StringBuilder s = new StringBuilder();
+    s.append("local.get $i\n").append(this.codeE(hcon)).append("i32.store\n");
+    s.append("local.get $i\n").append(4).append("i32.add\n").append("local.set $i\n");
+
+    return s.toString();
+  }
 }

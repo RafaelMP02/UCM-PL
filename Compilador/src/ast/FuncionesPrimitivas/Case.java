@@ -59,11 +59,10 @@ public class Case implements NodoAST {
     public Set<NodoTipo> type(Set<NodoTipo> tiposEsperados) {
         cond.type(new LinkedHashSet<>(Arrays.asList(new Entero())));
 
-        Set<NodoTipo> tHijos = Tipado.enumToTipo(Tipado.TIPOS_INSTR);
-        ambito.type(tHijos);
+        ambito.type(tiposEsperados);
         if (caso != null)
-            caso.type(tHijos);
-        
+            caso.type(tiposEsperados);
+
         return null;
     }
 

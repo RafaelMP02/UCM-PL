@@ -2,8 +2,8 @@
 (import "runtime" "print" (func $print (param i32)))
 (import "runtime" "read" (func $read (result i32)))
 (memory 2000)
-(global $SP (mut i32) (i32.const 20)) ;; start of stack
-(global $MP (mut i32) (i32.const 16)) ;; mark pointer
+(global $SP (mut i32) (i32.const 4)) ;; start of stack
+(global $MP (mut i32) (i32.const 0)) ;; mark pointer
 (global $NP (mut i32) (i32.const 131071996)) ;; heap 2000*64*1024-4
 (start $main)
   (func $copy_memory (param $src i32) (param $dest i32) (param $n i32)
@@ -38,88 +38,77 @@
 (local.tee $i)
 (drop)
 i32.const 0
-i32.const 0
 i32.store
-i32.const 4
-i32.const 0
-(i32.load)
 i32.const 1
-i32.add
 i32.store
 i32.const 4
 (i32.load)
-call $print
-i32.const 0
+global.set $temp
+local.get $tem
+i32.const 1
+ i32.eq
+ if
 global.get $SP
 global.set $MP
-global.get $SP
-i32.const 4
-i32.add
-global.set $SP
-global.get $SP
-local.tee $i
-i32.const 4
-i32.add
-global.set $SP
-local.get $i
-i32.const 4
-(i32.store)
-local.get $i
-i32.const 4
-i32.add
-local.set $i
-call $fun0
+i32.const 8
+i32.const 1
+i32.store
 global.get $MP
 global.set $SP
 global.get $SP
 i32.load
 global.set $MP
-i32.store
-i32.const 4
-(i32.load)
-call $print
-i32.const 0
-(i32.load)
-call $print
-(return)
-)
-( func $fun0
-(result i32)
- (local $param1 i32)
-(local $i i32)
-(local $temp i32)
-(global.get $MP)
-(i32.const 4)
-(i32.add)
-(local.tee $i)
-(i32.load)
-(local.set $param1)
-(local.get $i)
-(i32.const 4)
-(i32.add)
-(local.tee $i)
-(drop)
-i32.const 8
-local.get $param1
-(i32.load)
-i32.store
-i32.const 8
-(i32.load)
-call $print
-local.get $param1
-local.get $param1
-(i32.load)
-i32.const 1
-i32.add
-i32.store
-local.get $param1
-(i32.load)
-call $print
+else
+local.get $tem
 i32.const 2
+ i32.eq
+ if
+global.get $SP
+global.set $MP
+i32.const 8
+i32.const 0
+i32.store
+global.get $MP
+global.set $SP
+global.get $SP
+i32.load
+global.set $MP
+else
+global.get $SP
+global.set $MP
+i32.const 8
+i32.const 0
+i32.store
+global.get $MP
+global.set $SP
+global.get $SP
+i32.load
+global.set $MP
+end
+end
 i32.const 8
 (i32.load)
-i32.mul
-(return)
+if
+global.get $SP
+global.set $MP
+i32.const 0
+call $print
+global.get $MP
+global.set $SP
+global.get $SP
+i32.load
+global.set $MP
+else
+global.get $SP
+global.set $MP
+i32.const 0
+call $print
+global.get $MP
+global.set $SP
+global.get $SP
+i32.load
+global.set $MP
+end
 (return)
 )
 )

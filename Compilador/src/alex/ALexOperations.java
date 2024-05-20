@@ -157,7 +157,7 @@ public class ALexOperations {
      return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.FALSE,"false"); 
   }
   public UnidadLexica unidadNullPtr() {
-     return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.FALSE,"null"); 
+     return new UnidadLexica(alex.fila(),alex.columna(),ClaseLexica.NULLPTR,"null");
   } 
   
   public UnidadLexica unidadMain() {

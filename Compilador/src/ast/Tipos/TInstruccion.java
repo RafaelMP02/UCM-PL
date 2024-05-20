@@ -14,6 +14,12 @@ public class TInstruccion extends TipoParametrizable {
         super(t, fila, columna);
         this.tEnum = tEnum;
     }
+
+    public TInstruccion(TiposEnum tEnum, NodoTipo t) {
+        super(t);
+        this.tEnum = tEnum;
+    }
+
     @Override
     public TiposEnum typeToEnum() {
         return tEnum;
@@ -23,10 +29,10 @@ public class TInstruccion extends TipoParametrizable {
     public String toString() {
         switch (tEnum){
             case ASIGNACION: return "ASIGNACIÓN";
-            case DECVARIABLE: return "DECVARIABLE"; 
-            case DECFUNCION: return "DECFUNCION"; 
+            case DECVARIABLE: return "DECVARIABLE";
+            case DECFUNCION: return "DECFUNCION";
             case DEFCLASE: return "DEFCLASE";
-            case DEFSTRUCT: return "DEFSTRUCT"; 
+            case DEFSTRUCT: return "DEFSTRUCT";
             case RETURN: return "RETURN";
             case ERROR: return "INSTRUCCIÓN ERRÓNEA";
             default: return "INSTRUCCIÓN";

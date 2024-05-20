@@ -49,10 +49,15 @@ public class Asignacion implements Instruccion  {
     public String codeI(Comp hcon) {
         StringBuilder s = new StringBuilder();
         if(cabecera.tip().typeToEnum() == TiposEnum.STRUCT) {
-            //hcon.setTam(cabecera.tip().getTam());
-            //s .append(cabecera.codeD(hcon)).append( "tee_global $llav\n" ).append( exp.codeE(hcon));
+            s.append("global.get $SP").append("local.get $i");
+            s.append(exp.codeB(hcon));
+            s.append("global.get $SP").append(cabecera.codeD(hcon)).append("i32.const ").append(4*cabecera.tip().getTam()).append("\n");
+            s.append("call $copy_memory");
         } else if(cabecera.tip().typeToEnum() == TiposEnum.ARRAY) {
-            //s .append( cabecera.codeD(hcon) ).append( "tee_global $corh\n" ).append( exp.codeE(hcon));
+            s.append("global.get $SP").append("local.get $i");
+            s.append(exp.codeB(hcon));
+            s.append("global.get $SP").append(cabecera.codeD(hcon)).append("i32.const ").append(4*cabecera.tip().getTam()).append("\n");
+            s.append("call $copy_memory");
         } else {
             s .append( cabecera.codeD(hcon) ).append( exp.codeE(hcon) ).append( "i32.store\n");
         }

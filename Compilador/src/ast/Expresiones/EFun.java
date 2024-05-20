@@ -100,7 +100,7 @@ public class EFun extends E implements Instruccion {
             s.append("i32.const ").append(4*c).append("\n").append("i32.add\n").append("global.set $SP\n");
             for(String atri: set.keySet()) {
                 for(Declaracion dec: set.get(atri)) {
-                    s.append(co.codeD(hcon)).append(hcon.buscaCampo(def, dec)).append("i32.add\n").append("local.get $i\n").append("(i32.store\n");
+                    s.append("local.get $i\n").append(co.codeD(hcon)).append("i32.const ").append(hcon.buscaCampo(def, dec)).append("\n").append("i32.add\n").append("(i32.store)\n");
                     s.append("local.get $i\n").append("i32.const ").append(4).append("\n").append("i32.add\n").append("local.set $i\n");
                 }
             }
@@ -113,19 +113,19 @@ public class EFun extends E implements Instruccion {
                 Parametrico t = it_p.next();
                 E e = it_e.next();
                 if(t.copia()) {
-                    s.append("global.get $SP\n").append("local.get $i\n").append("i32.store\n");
+                    s.append("local.get $i\n").append("global.get $SP\n").append("i32.store\n");
                     if(e.asignable) {
-                        s.append(e.codeD(hcon)).append("(global.get $SP)\n").append("(i32.const ").append(
+                        s.append(e.codeD(hcon)).append(" (global.get $SP)\n").append("(i32.const ").append(
                                 4 * e.tipo.getTam()).append(")\n");
                         s.append("call $copy_memory \n");
                         s.append("global.get $SP\n").append("i32.const ").append(4 * e.tipo.getTam()).append("\n").append("i32.add\n").append("global.set $SP\n");
                     } else {
-                        s.append(e.codeE(hcon)).append("global.get $SP\n").append("(i32.store ");
+                        s.append("global.get $SP\n").append(e.codeE(hcon)).append("(i32.store\n");
                         s.append("global.get $SP\n").append("i32.const ").append(4).append("\n").append("i32.add\n").append("global.set $SP\n");
                     }
                     s.append("local.get $i\n").append("i32.const ").append(4).append("\n").append("i32.add\n").append("local.set $i\n");
                 } else {
-                    s.append(e.codeD(hcon)).append("local.get $i\n").append("(i32.store\n");
+                    s.append("local.get $i\n").append(e.codeD(hcon)).append("(i32.store)\n");
                     s.append("local.get $i\n").append("i32.const ").append(4).append("\n").append("i32.add\n").append("local.set $i\n");
                 }
             }

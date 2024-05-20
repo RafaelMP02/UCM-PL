@@ -6,6 +6,7 @@ import java.util.Set;
 import ast.Expresiones.E;
 import ast.GeneracionCodigo.Comp;
 import ast.Tipos.NodoTipo;
+import ast.Tipos.Puntero;
 import ast.Tipos.TInstruccion;
 import ast.Tipos.Tipado;
 import ast.Tipos.Tipado.TiposEnum;
@@ -38,7 +39,7 @@ public class New extends E { //New no debería ser un metaoperador??
 
     @Override
     public Set<NodoTipo> type(Set<NodoTipo> tiposEsperados) {
-        return Tipado.matchTipoEsperado(new TInstruccion(TiposEnum.OTRA_INSTRUCCION), tiposEsperados, fila, columna); //FIXME esto está bien??
+        return Tipado.matchTipoEsperado(new Puntero(), tiposEsperados, fila, columna);
     }
 
 }

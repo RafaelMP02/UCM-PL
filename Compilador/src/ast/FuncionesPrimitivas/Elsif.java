@@ -71,13 +71,13 @@ public class Elsif implements NodoAST {
     @Override
     public Set<NodoTipo> type(Set<NodoTipo> tiposEsperados) {
         cond.type(new LinkedHashSet<>(Arrays.asList(new Booleano())));
-        Set<NodoTipo> tHijos = Tipado.enumToTipo(Tipado.TIPOS_INSTR);
-        ambito.type(tHijos);
-        
+
+        ambito.type(tiposEsperados);
+
         //Elsif
-        if (siguienteElsif != null) siguienteElsif.type(tHijos);        
+        if (siguienteElsif != null) siguienteElsif.type(tiposEsperados);
         //Else
-        if (siguienteElse != null) siguienteElse.type(tHijos);
+        if (siguienteElse != null) siguienteElse.type(tiposEsperados);
         return null;
     }
 

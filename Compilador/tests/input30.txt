@@ -1,0 +1,21 @@
+void() main() {
+    int x := 0;
+    bool par := False;
+    switch(x) {
+        case 1 {
+            par := False;
+        }
+        case 2 {
+            par := True;
+        }
+        default {
+            par := True;
+        }
+    }
+
+    if (par) {
+        prints(0);
+    } else {
+        prints(0);
+    }
+};

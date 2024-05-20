@@ -43,7 +43,7 @@ public class Else implements NodoAST {
 
     @Override
     public Set<NodoTipo> type(Set<NodoTipo> tiposEsperados) {
-        ambito.type(Tipado.enumToTipo(Tipado.TIPOS_INSTR));
+        ambito.type(tiposEsperados);
         return null;
     }
 

@@ -4,10 +4,7 @@ import ast.Declaracion;
 import ast.Expresiones.E;
 import ast.GeneracionCodigo.Comp;
 import ast.Metaoperadores.Ambito;
-import ast.Tipos.Booleano;
-import ast.Tipos.NodoTipo;
-import ast.Tipos.TInstruccion;
-import ast.Tipos.Tipado;
+import ast.Tipos.*;
 import ast.Tipos.Tipado.TiposEnum;
 import ast.Vinculacion.Vinculacion;
 
@@ -57,16 +54,15 @@ public class Switch implements Programa {
 
     @Override
     public Set<NodoTipo> type(Set<NodoTipo> tiposEsperados) {
-        cond.type(new LinkedHashSet<>(Arrays.asList(new Booleano())));
+        cond.type(new LinkedHashSet<>(Arrays.asList(new Entero())));
 
-        Set<NodoTipo> tHijos = Tipado.enumToTipo(Tipado.TIPOS_INSTR);
-        ambito.type(tHijos);
+        ambito.type(tiposEsperados);
         if (caso != null)
-            caso.type(tHijos);
+            caso.type(tiposEsperados);
 
         Set<NodoTipo> tipado = Tipado.matchTipoEsperado(new TInstruccion(TiposEnum.OTRA_INSTRUCCION), tiposEsperados, fila, columna);
 
-        tipado.addAll(programa.type(tiposEsperados));   
+        tipado.addAll(programa.type(tiposEsperados));
 
         return tipado;
     }

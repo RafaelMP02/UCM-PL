@@ -81,18 +81,18 @@ public class If implements Programa {
     @Override
     public Set<NodoTipo> type(Set<NodoTipo> tiposEsperados) {
         cond.type(new LinkedHashSet<>(Arrays.asList(new Booleano())));
-        Set<NodoTipo> tipadoAmbitos = Tipado.enumToTipo(Tipado.TIPOS_INSTR);
-        ambito.type(tipadoAmbitos);
-        
+
+        ambito.type(tiposEsperados);
+
         //Elsif
-        if (siguienteElsif != null) siguienteElsif.type(tipadoAmbitos);
-        
+        if (siguienteElsif != null) siguienteElsif.type(tiposEsperados);
+
         //Else
-        if (siguienteElse != null) siguienteElse.type(tipadoAmbitos);
+        if (siguienteElse != null) siguienteElse.type(tiposEsperados);
 
         Set<NodoTipo> tipado = Tipado.matchTipoEsperado(new TInstruccion(TiposEnum.OTRA_INSTRUCCION), tiposEsperados, fila, columna);
 
-        tipado.addAll(programa.type(tiposEsperados));   
+        tipado.addAll(programa.type(tiposEsperados));
 
         return tipado;
     }

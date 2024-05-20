@@ -24,13 +24,13 @@ import ast.Operadores.BinOperadores.*;
 
 public class Tipado {
     public enum TiposEnum {
-    //Tipos del lenguaje
-    ENTERO, BOOLEANO, ARRAY, PUNTERO, FUNCIONAL, STRUCT, CLASE, VOID, T, //Tipo genérico
-    //Tipo de retorno de instrucciones. Lo utilizaremos para comprobar que todas las instrucciones de una clase o un struct son declaraciones o definiciones
-    ASIGNACION, DECVARIABLE, DECFUNCION, DEFCLASE, DEFSTRUCT, RETURN, OTRA_INSTRUCCION, //No campo es para aquellas instrucciones que no son campos ni de structs ni de clases.
+        //Tipos del lenguaje
+        ENTERO, BOOLEANO, ARRAY, PUNTERO, FUNCIONAL, STRUCT, CLASE, VOID, T, //Tipo genérico
+        //Tipo de retorno de instrucciones. Lo utilizaremos para comprobar que todas las instrucciones de una clase o un struct son declaraciones o definiciones
+        ASIGNACION, DECVARIABLE, DECFUNCION, DEFCLASE, DEFSTRUCT, RETURN, OTRA_INSTRUCCION, //No campo es para aquellas instrucciones que no son campos ni de structs ni de clases.
 
-    ERROR; 
-    } 
+        ERROR;
+    }
     //public static final Set<TiposEnum> TODOS = Set.of(TiposEnum.ENTERO, TiposEnum.BOOLEANO, TiposEnum.PUNTERO, TiposEnum.ARRAY, TiposEnum.STRUCT, TiposEnum.CLASE, TiposEnum.FUNCIONAL, TiposEnum.VOID, TiposEnum.ASIGNACION, TiposEnum.DECVARIABLE, TiposEnum.DECFUNCION, TiposEnum.DEFCLASE, TiposEnum.DEFSTRUCT, TiposEnum.RETURN, TiposEnum.ERROR);
     public static final Set<TiposEnum> TIPOS_EXPRESIONES = Set.of(TiposEnum.ENTERO, TiposEnum.BOOLEANO, TiposEnum.PUNTERO, TiposEnum.ARRAY, TiposEnum.STRUCT, TiposEnum.CLASE, TiposEnum.FUNCIONAL, TiposEnum.ERROR);
     public static final Set<TiposEnum> TIPOS_ARGUMENTOS_FUNCION = Set.of(TiposEnum.ENTERO, TiposEnum.BOOLEANO, TiposEnum.PUNTERO, TiposEnum.ARRAY, TiposEnum.STRUCT, TiposEnum.CLASE);
@@ -40,11 +40,10 @@ public class Tipado {
     public static final Set<TiposEnum> TIPOS_CONTENIDO_ARRAY = Set.of(TiposEnum.ENTERO, TiposEnum.BOOLEANO, TiposEnum.PUNTERO, TiposEnum.STRUCT, TiposEnum.CLASE, TiposEnum.ARRAY);
     public static final Set<TiposEnum> TIPOS_ATRIBUTOS = Set.of(TiposEnum.ENTERO, TiposEnum.BOOLEANO, TiposEnum.PUNTERO, TiposEnum.STRUCT, TiposEnum.CLASE);
     public static final Set<TiposEnum> TIPOS_ENTRADA_SALIDA = Set.of(TiposEnum.ENTERO, TiposEnum.BOOLEANO, TiposEnum.PUNTERO);
-    public static final Set<TiposEnum> TIPOS_INSTR = Set.of(TiposEnum.ASIGNACION, TiposEnum.DECVARIABLE, TiposEnum.DECFUNCION, TiposEnum.DEFCLASE, TiposEnum.DEFSTRUCT,  TiposEnum.RETURN, TiposEnum.OTRA_INSTRUCCION, TiposEnum.ERROR);
+    public static final Set<TiposEnum> TIPOS_INSTR = Set.of(TiposEnum.ASIGNACION, TiposEnum.DECVARIABLE, TiposEnum.DECFUNCION, TiposEnum.DEFCLASE, TiposEnum.DEFSTRUCT, TiposEnum.OTRA_INSTRUCCION, TiposEnum.ERROR);
     public static final Set<TiposEnum> TIPOS_INSTR_STRUCTS = Set.of(TiposEnum.DECVARIABLE, TiposEnum.DEFSTRUCT, TiposEnum.ERROR);
     public static final Set<TiposEnum> TIPOS_INSTR_CLASES = Set.of(TiposEnum.DECVARIABLE, TiposEnum.DEFCLASE, TiposEnum.DEFSTRUCT, TiposEnum.DECFUNCION,  TiposEnum.ERROR);
-    public static final Set<TiposEnum> TIPOS_INSTR_FUNC = Set.of(TiposEnum.ASIGNACION, TiposEnum.DECVARIABLE, TiposEnum.DEFCLASE, TiposEnum.DEFSTRUCT, TiposEnum.DECFUNCION, TiposEnum.OTRA_INSTRUCCION, TiposEnum.RETURN,TiposEnum.ERROR);
-    public static final Set<TiposEnum> TIPOS_INSTR_FUNC_VOID = Set.of(TiposEnum.ASIGNACION, TiposEnum.DECVARIABLE, TiposEnum.DEFCLASE, TiposEnum.DEFSTRUCT, TiposEnum.DECFUNCION, TiposEnum.OTRA_INSTRUCCION, TiposEnum.ERROR);
+    public static final Set<TiposEnum> TIPOS_INSTR_FUNC = Set.of(TiposEnum.ASIGNACION, TiposEnum.DECVARIABLE, TiposEnum.DEFCLASE, TiposEnum.DEFSTRUCT, TiposEnum.DECFUNCION, TiposEnum.OTRA_INSTRUCCION, TiposEnum.ERROR);
     public static final Set<TiposEnum> TIPOS_NUEVOS = Set.of(TiposEnum.STRUCT, TiposEnum.CLASE);
     public static final Set<TiposEnum> TIPOS_ASIGNACIONES = Set.of(TiposEnum.ENTERO, TiposEnum.BOOLEANO, TiposEnum.PUNTERO, TiposEnum.ARRAY, TiposEnum.STRUCT, TiposEnum.CLASE, TiposEnum.DECVARIABLE);
     public static final Set<TiposEnum> TIPOS_PARAMETRIZABLES  = Set.of(TiposEnum.ARRAY, TiposEnum.PUNTERO);
@@ -56,11 +55,13 @@ public class Tipado {
         //Si el segundo tipo es genérico, devolvemos el primer tipo
         if (tEnum2.equals(TiposEnum.T))
             return t1;
-        //Si no son del mismo tipo o uno de los dos es un error de tipo, devolvemos un tipo error
-        else if(!tEnum1.equals(tEnum2) || tEnum1.equals(TiposEnum.ERROR))
+            //Si no son del mismo tipo o uno de los dos es un error de tipo, devolvemos un tipo error
+        else if (tEnum1.equals(TiposEnum.T)) {
+            return t2;
+        } else if(!tEnum1.equals(tEnum2) || tEnum1.equals(TiposEnum.ERROR))
             return new TipoError();
-        
-        
+
+
         //El tipo del resultado se inicializa a tipo error. Si el matching es exitoso, se cambiará su valor al tipo correspondiente.
         NodoTipo tRes = new TipoError();
         NodoTipo tMatch; //Variable auxiliar
@@ -76,20 +77,20 @@ public class Tipado {
                 //Si no es un tipo error, devolvemos un array del tipo
                 if (!tMatch.typeToEnum().equals(TiposEnum.ERROR))
                     tRes =  new Array(tMatch);
-            break;
+                break;
             case PUNTERO:
                 //Hacemos match del elemento del puntero
                 tMatch = match2Tipos(t1.getTipo(), t2.getTipo());
                 //Si no es un tipo error, devolvemos un puntero del tipo
                 if (!tMatch.typeToEnum().equals(TiposEnum.ERROR))
                     tRes =  new Puntero(tMatch);
-            break;
+                break;
             case STRUCT:
             case CLASE:
                 TipoNuevo tn1 = (TipoNuevo) t1;
                 TipoNuevo tn2 = (TipoNuevo) t2;
 
-                
+
                 //Si los nombres coinciden, o alguno es un tipo nuevo auxiliar (tienen un id por defecto)
                 if (tn1.getId().equals(TipoNuevo.DEFAULT_ID) || tn2.getId().equals(TipoNuevo.DEFAULT_ID) || tn1.getId().equals(tn2.getId())) {
                     List<Set<NodoTipo>> tipado1 = tn1.getTipos();
@@ -108,39 +109,39 @@ public class Tipado {
                                     hayMatch = false;
                             }
                         }
-                    }  
+                    }
                     if (hayMatch)
-                        tRes =  t1;               
-                    
+                        tRes =  t1;
+
                 }
-                
-            break;
+
+                break;
             case FUNCIONAL:
                 NodoTipo tRetorno1 = ((Funcional) t1).getTipoRetorno();
                 NodoTipo tRetorno2 = ((Funcional) t2).getTipoRetorno();
 
-                    List<Parametrico> parametros1 = ((Funcional) t1).getParametros();
-                    List<Parametrico> parametros2 = ((Funcional) t2).getParametros();
-                    if (parametros2 == null)
-                        tRes = t1;
-                    else if (!match2Tipos(tRetorno1, tRetorno2).typeToEnum().equals(TiposEnum.ERROR) && parametros1.size() == parametros2.size()  ) {
-                        boolean funIgual = true;
-                        for (int i = 0; i < parametros1.size() && funIgual; i++) {
-                            NodoTipo tParam1 = parametros1.get(i).getTipo();
-                            NodoTipo tParam2 = parametros2.get(i).getTipo();        
-                            if (match2Tipos(tParam1, tParam2).typeToEnum().equals(TiposEnum.ERROR) && !tParam2.typeToEnum().equals(TiposEnum.ERROR))
-                                funIgual = false;
-                        }
-                        if (funIgual)
-                            tRes = t1;
+                List<Parametrico> parametros1 = ((Funcional) t1).getParametros();
+                List<Parametrico> parametros2 = ((Funcional) t2).getParametros();
+                if (parametros2 == null)
+                    tRes = t1;
+                else if (!match2Tipos(tRetorno1, tRetorno2).typeToEnum().equals(TiposEnum.ERROR) && parametros1.size() == parametros2.size()  ) {
+                    boolean funIgual = true;
+                    for (int i = 0; i < parametros1.size() && funIgual; i++) {
+                        NodoTipo tParam1 = parametros1.get(i).getTipo();
+                        NodoTipo tParam2 = parametros2.get(i).getTipo();
+                        if (match2Tipos(tParam1, tParam2).typeToEnum().equals(TiposEnum.ERROR) && !tParam2.typeToEnum().equals(TiposEnum.ERROR))
+                            funIgual = false;
                     }
+                    if (funIgual)
+                        tRes = t1;
+                }
 
-            break;
+                break;
 
             //Tipos básicos
             default:
                 tRes =  t1;
-            break;
+                break;
         }
 
         return tRes;
@@ -161,9 +162,9 @@ public class Tipado {
 
     public static boolean esTipoEsperado (NodoTipo tipo, Set<NodoTipo> tiposEsperados) {
         boolean correcto = false;
-            for (NodoTipo tEsperado : tiposEsperados)
-                if (match2Tipos(tipo, tEsperado).typeToEnum().equals(tipo.typeToEnum()))
-                    correcto = true;
+        for (NodoTipo tEsperado : tiposEsperados)
+            if (match2Tipos(tipo, tEsperado).typeToEnum().equals(tipo.typeToEnum()))
+                correcto = true;
 
         return correcto;
     }
@@ -180,15 +181,15 @@ public class Tipado {
     }
 
     //EXPRESIONES BÁSICAS
-    
+
     public static Set<NodoTipo> matchTipoEsperado(NodoTipo tipo, Set<NodoTipo> tiposEsperados, int fila, int columna) {
         //Si ha habido un error de tipado previamente, lo devolvemos
         if(esConjuntoError(tiposEsperados))
             return tiposEsperados;
-        //Si no, comprobamos si es el tipo esperado
+            //Si no, comprobamos si es el tipo esperado
         else if (esTipoEsperado(tipo, tiposEsperados))
             return new LinkedHashSet<>(Arrays.asList(tipo));
-        //Si no lo es, damos error
+            //Si no lo es, damos error
         else {
             errores.errTipadoExp(tiposEsperados, fila, columna);
             return conjuntoError();
@@ -206,11 +207,11 @@ public class Tipado {
         Set<NodoTipo> tEsperadosOpnd = conjuntoError();     // Tipos esperados para el operando
         Set<NodoTipo> tResOperador = enumToTipo(TIPOS_EXPRESIONES);     // Tipos factibles de devolución
         Set<NodoTipo> tipadoMatch = conjuntoError();        // Tipos que se devuelven en el return
-        
+
         //El tipo de devolución y el tipo esperado en el operando vendrán según el operador
         switch(opString) {
             // tPuntero* -> tPuntero
-            case AccesoPuntero.OPSTRING:                 
+            case AccesoPuntero.OPSTRING:
                 tEsperadosOpnd = new HashSet<>();
                 for (NodoTipo tipo : tiposEsperados) {
                     tEsperadosOpnd.add (new Puntero(tipo));
@@ -226,7 +227,7 @@ public class Tipado {
                             tipadoMatch.add(((Puntero) tipo).getTipo());
                     }
                 }
-            break;
+                break;
             // boolean -> boolean
             // int -> int
             default:
@@ -235,22 +236,22 @@ public class Tipado {
                 //Tipamos la expresión del operando. Este tipado será el tipado de devolución.
                 tipadoMatch = expresion.type(tEsperadosOpnd);
 
-            //Estos dos operadores también son instrucciones, así que añadimos ese tipo
+                //Estos dos operadores también son instrucciones, así que añadimos ese tipo
             case MasMas.OPSTRING:
             case MenosMenos.OPSTRING:
                 tResOperador.add(new TInstruccion(TiposEnum.ASIGNACION));
                 tipadoMatch = match2Conjuntos(tResOperador, tiposEsperados); //Intersecamos para no dar error de ambigüedad
-            break;
-            
-        }        
+                break;
+
+        }
         //Si se epera un tipo de devolución imposible para este operador, detectamos el error y lo devolvemos
         if(match2Conjuntos(tResOperador, tiposEsperados).size() == 0) {
-            errores.errTipadoExp(tiposEsperados, fila, columna);  
+            errores.errTipadoExp(tiposEsperados, fila, columna);
             tipadoMatch = conjuntoError();
         }
         //Ambigüedad
         if (tipadoMatch.size() > 1) {
-            errores.errExpAmbigua(fila, columna);  
+            errores.errExpAmbigua(fila, columna);
             tipadoMatch = conjuntoError();
         }
         return tipadoMatch;
@@ -294,12 +295,12 @@ public class Tipado {
                             tipadoMatch.add(tipo.getTipo());
                     }
                 }
-            break;
+                break;
 
             // tStruct -> id -> tAtributo
             // tClase -> id -> tAtributo
             // tClase -> id -> Funcional
-            case AccesoCampo.OPSTRING: 
+            case AccesoCampo.OPSTRING:
 
                 //Tipamos la clase o struct
                 tResOperando1 = opnd1.type(enumToTipo(TIPOS_NUEVOS));
@@ -337,16 +338,16 @@ public class Tipado {
                         }
                     }
                 }
-            break;
+                break;
 
             // int -> int -> int    o     boolean -> boolean -> boolean
-            case Disyuncion.OPSTRING: 
-            case Conjuncion.OPSTRING: 
-            case Division.OPSTRING: 
-            case Producto.OPSTRING: 
-            case Suma.OPSTRING: 
-            case Resta.OPSTRING: 
-            // tComparable -> tComparable -> boolean 
+            case Disyuncion.OPSTRING:
+            case Conjuncion.OPSTRING:
+            case Division.OPSTRING:
+            case Producto.OPSTRING:
+            case Suma.OPSTRING:
+            case Resta.OPSTRING:
+                // tComparable -> tComparable -> boolean
             case Igual.OPSTRING:
             case Distinto.OPSTRING:
             case MenorQue.OPSTRING:
@@ -364,17 +365,17 @@ public class Tipado {
                 //Si hay al menos uno, lo devolveremos
                 if(tCompatibles.size() > 0)
                     tipadoMatch = tCompatibles;
-            break;
+                break;
         }
-        
+
         //Si se epera un tipo de devolución imposible para este operador, detectamos el error y lo devolvemos
         if(match2Conjuntos(tResOperador, tiposEsperados).size() == 0) {
-            errores.errTipadoExp(tiposEsperados, fila, columna);  
+            errores.errTipadoExp(tiposEsperados, fila, columna);
             tipadoMatch = conjuntoError();
         }
         //Ambigüedad
         if (tipadoMatch.size() > 1) {
-            errores.errExpAmbigua(fila, columna);  
+            errores.errExpAmbigua(fila, columna);
             tipadoMatch = conjuntoError();
         }
         return tipadoMatch;
@@ -389,7 +390,7 @@ public class Tipado {
         for (NodoTipo tipo : tAmbito) {
             if(tipo.typeToEnum().equals(TiposEnum.DECVARIABLE))
                 //Obtenemos el tipo de la declaración y lo añadimos a la lista de tipos
-                tiposResultado.add(new LinkedHashSet<>(Arrays.asList(((TInstruccion) tipo).getTipo())));  
+                tiposResultado.add(new LinkedHashSet<>(Arrays.asList(((TInstruccion) tipo).getTipo())));
         }
 
         return tiposResultado;
@@ -398,8 +399,8 @@ public class Tipado {
     //ASIGNACIONES
 
     public static Set<NodoTipo> matchAsig(Set<NodoTipo> tiposEsperados, CabecerAsig cabecera, E exp, int fila, int columna) {
-        /* 
-        Comprueba si el tipo del operando izquierdo es una declaración, en cuyo caso la instrucción se considera una declaración con asignación 
+        /*
+        Comprueba si el tipo del operando izquierdo es una declaración, en cuyo caso la instrucción se considera una declaración con asignación
         y se devuelve el tipo de la cabecera (tipo declaración). En otro caso, la instrucción es una asignación simple y se devuelve este tipo.
          */
         //Si el operando izquierdo es una expresión válida, tipamos el operando izquierdo. Si no, lanzamos error
@@ -407,8 +408,8 @@ public class Tipado {
         NodoTipo tAsignacion = new TInstruccion(TiposEnum.ASIGNACION);
         boolean esDeclaracion = false;
         boolean asignable = cabecera.esAsignable();
-         //Si el operando izquierdo no es asignable, devolvemos un error y no tipamos la expresión izquierda
-         for (NodoTipo tipo : tCabecera) {
+        //Si el operando izquierdo no es asignable, devolvemos un error y no tipamos la expresión izquierda
+        for (NodoTipo tipo : tCabecera) {
             TiposEnum tEnum = tipo.typeToEnum();
             if (tEnum.equals(TiposEnum.DECVARIABLE)) {
                 esDeclaracion = true;
@@ -418,54 +419,54 @@ public class Tipado {
         }
 
         Set<NodoTipo> tRes = Set.of(tAsignacion);
-        
+
         //Si es una asignación con declaración, devolveremos una declaración
         if (esDeclaracion)
-            tRes = tCabecera;            
+            tRes = tCabecera;
         if (match2Conjuntos(tRes, tiposEsperados).size() == 0) {
             errores.errInstrNoValida(fila, columna);
             tRes = conjuntoError();
         }
         //Si el operando izquierdo es una expresión asignable, tipamos el operando derecho
-        if (asignable) {       
+        if (asignable) {
             if (esDeclaracion)
-                exp.type(Set.of(((Declaracion) cabecera).getTipo()));  
+                exp.type(Set.of(((Declaracion) cabecera).getTipo()));
             else
-                exp.type(tCabecera);            
+                exp.type(tCabecera);
         }
         //Si no, error de asignación
         else
             errores.errAsignacion(fila, columna);
 
         return tRes;
-        
+
     }
-    
-   
+
+
     //LISTAS
 
     public static Set<NodoTipo> matchListaL(Set<NodoTipo> tiposEsperados, List<E> elementos, int fila, int columna) {
-        /* 
+        /*
         Comprueba que los elementos de una lista de llaves son correctos (son tipos válidos para atributos de una clase o struct).
         Devuelve un tipo Struct y un tipo Clase con una lista campos de atributos de los elementos si son correctos.
          */
         //Vemos si algún tipo de los esperados es tipo struct o clase (tipos factibles para una lista de llaves)
         Set<NodoTipo> tRes = new LinkedHashSet<>();
-        for (NodoTipo tEsperado : tiposEsperados) 
+        for (NodoTipo tEsperado : tiposEsperados)
             //Si alguno es factible, hacemos el match
             if (TIPOS_NUEVOS.contains(tEsperado.typeToEnum())) {
                 List<Set<NodoTipo>> tiposAtributos = ((TipoNuevo) tEsperado).getTipos();
                 //Si hay el mismo número de atributos en el tipo struct o clase que número de elementos en la lista de llaves, los tipamos
                 if (elementos.size() == tiposAtributos.size()) {
                     List<Set<NodoTipo>> tiposElemenos = new ArrayList<Set<NodoTipo>>();
-                    for (int i = 0; i < elementos.size(); i++)                        
+                    for (int i = 0; i < elementos.size(); i++)
                         tiposElemenos.add(elementos.get(i).type(tiposAtributos.get(i)));
 
                     //Después de tiparlos, comprobamos si hacen match el tipo esperado y el nuevo tipo
                     NodoTipo tListaLLaves;
                     if (tEsperado.typeToEnum().equals(TiposEnum.CLASE))
                         tListaLLaves = new Clase(tiposElemenos);
-                    else 
+                    else
                         tListaLLaves = new Struct(tiposElemenos);
                     if (!match2Tipos(tEsperado, tListaLLaves).typeToEnum().equals(TiposEnum.ERROR))
                         tRes.add(tListaLLaves);
@@ -478,12 +479,12 @@ public class Tipado {
     }
 
     public static Set<NodoTipo> matchListaC(Set<NodoTipo> tiposEsperados, LinkedList<E> elementos, int fila, int columna) {
-        /* 
+        /*
         Comprueba que los elementos de una lista de corchetes son correctos (son tipos válidos para elemntos de un array y todos del mismo tipo)
         Devuelve un tipo Array con el contenido de los elementos si son correctos.
          */
 
-        //Comprobamos si entre los tipos esperados hay algún tipo array. Si lo hay, añadimos a tContenidoArray el tipo esperado del array 
+        //Comprobamos si entre los tipos esperados hay algún tipo array. Si lo hay, añadimos a tContenidoArray el tipo esperado del array
         Set<NodoTipo> tEsperadosContenido = new LinkedHashSet<>();
         int nElems = elementos.size();
         for (NodoTipo tipo : tiposEsperados)
@@ -535,7 +536,7 @@ public class Tipado {
                 }
                 if (!esFactible)
                     tiposFactibles.remove(tFactible);
-                
+
             }
         }
         ArrayList<NodoTipo> tArraysFactibles = new ArrayList<>();
@@ -572,7 +573,7 @@ public class Tipado {
         }
         //Ambigüedad
         if (tipadoMatch.size() > 1) {
-            errores.errExpAmbigua(identificador.getFila(), identificador.getColumna());  
+            errores.errExpAmbigua(identificador.getFila(), identificador.getColumna());
             tipadoMatch = conjuntoError();
         }
         return tipadoMatch;
@@ -607,7 +608,7 @@ public class Tipado {
         for (NodoTipo tEsperado : tiposEsperados) {
             if (TIPOS_RETURN.contains(tEsperado.typeToEnum()))
                 tFuncionalesEsperados.add(new Funcional(tEsperado, tipadoParametros));
-            //En caso de que no se esperase una expresión, sino una instrucción, el tipo funcional esperado tiene tipo retorno genérico
+                //En caso de que no se esperase una expresión, sino una instrucción, el tipo funcional esperado tiene tipo retorno genérico
             else if (tEsperado.typeToEnum().equals(TiposEnum.OTRA_INSTRUCCION))
                 tFuncionalesEsperados.add(new Funcional(new TipoGenerico(), tipadoParametros));
         }
@@ -616,9 +617,36 @@ public class Tipado {
             errores.errTRetornoFuncion(tiposEsperados, fila, columna);
             return conjuntoError();
         }
-        else
-            return idFuncion.type(tFuncionalesEsperados);
+        //Si todo ha ido bien, tipamos el identificador y devolvemos el tipo de retorno del id
+        else {
+            Set<NodoTipo> tId = idFuncion.type(tFuncionalesEsperados);
+            if (esConjuntoError(tId) || tId.size() > 0)
+                return conjuntoError();
+            else
+                return Set.of(((Funcional) tId.iterator().next()).getTipoRetorno());
+        }
     }
+
+    public static Set<NodoTipo> matchReturn(E valor, Set<NodoTipo> tiposEsperados, int fila, int columna) {
+        LinkedHashSet<NodoTipo> tEsperadosExp = new LinkedHashSet<NodoTipo>();
+        LinkedHashSet<NodoTipo> tRes = new LinkedHashSet<>();
+        for (NodoTipo tipo : tiposEsperados) {
+            if (tipo.typeToEnum().equals(TiposEnum.RETURN)) {
+                tRes.add(tipo); //Añadimos la instrucción de return a los resultados
+                tEsperadosExp.add(((TipoParametrizable) tipo).getTipo()); //Añadimos el tipo de retorno del return a los resultados
+            }
+        }
+
+        //Si no se esperaba un return, devolvemos error
+        if (tEsperadosExp.size() == 0) {
+            errores.errInstrNoValida(fila, columna);
+            return conjuntoError();
+        }
+
+        valor.type(tEsperadosExp);
+        return tRes;
+    }
+
     //INSTRUCCIÓN
     public static Set<NodoTipo> matchInstr(Instruccion inst, Programa prog, Set<NodoTipo> tiposEsperados) {
         Set<NodoTipo> tipadoInst = inst.type(tiposEsperados);
@@ -686,44 +714,44 @@ public class Tipado {
     public static Set<NodoTipo> conjuntoError() {
         return new LinkedHashSet<>(Arrays.asList(new TipoError()));
     }
-   
+
 
     public static Set<NodoTipo> enumToTipo(Set<TiposEnum> enums) {
         Set<NodoTipo> res = new HashSet<>();
         for (TiposEnum enumerado : enums) {
             switch (enumerado) {
-                case ENTERO: 
+                case ENTERO:
                     res.add(new Entero());
-                break;
-                case BOOLEANO: 
+                    break;
+                case BOOLEANO:
                     res.add(new Booleano());
-                break;
-                case ARRAY: 
+                    break;
+                case ARRAY:
                     res.add(new Array());
-                break;
-                case PUNTERO: 
+                    break;
+                case PUNTERO:
                     res.add(new Puntero());
-                break;
-                case FUNCIONAL: 
+                    break;
+                case FUNCIONAL:
                     res.add(new Funcional());
-                break;
-                case STRUCT: 
+                    break;
+                case STRUCT:
                     res.add(new Struct());
-                break;
-                case CLASE: 
+                    break;
+                case CLASE:
                     res.add(new Clase());
-                break;
-                case VOID: 
+                    break;
+                case VOID:
                     res.add(new Void());
-                break;
-                case T: 
+                    break;
+                case T:
                     res.add(new TipoGenerico());
-                break;
+                    break;
                 case ERROR:
                     res.add(new TipoError());
                 default:
                     res.add(new TInstruccion(enumerado));
-                break;
+                    break;
             }
         }
         return res;
@@ -740,5 +768,7 @@ public class Tipado {
         return listaTipos;
     }
 
-        
+
+
+
 }

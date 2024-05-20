@@ -74,11 +74,19 @@ public class DecFuncion extends Declaracion {
     @Override
     public Set<NodoTipo> type(Set<NodoTipo> tiposEsperados) {
         //Si el tipo de retorno es void, no puede haber instrucciones de return.
-        if (((Funcional) tipo).getTipoRetorno().typeToEnum().equals(TiposEnum.VOID))
-            ambito.type(Tipado.enumToTipo(Tipado.TIPOS_INSTR_FUNC_VOID));
-        //Puede haber instrucciones de tipo return
-        else
-            ambito.type(Tipado.enumToTipo(Tipado.TIPOS_INSTR_FUNC));
+        NodoTipo tRetorno = ((Funcional) tipo).getTipoRetorno();
+        NodoTipo tReturn = new TInstruccion(TiposEnum.RETURN, tRetorno);
+
+        LinkedHashSet<NodoTipo> tEsperadosAmbito = new LinkedHashSet<NodoTipo>(); //Tipos de instrucciones válidas en un ámbito de función
+        for (NodoTipo tipo : Tipado.enumToTipo(Tipado.TIPOS_INSTR_FUNC))
+            tEsperadosAmbito.add(tipo); //Añadimos todas
+
+        //Añadimos la instrucción return con el tipo de retorno de la función
+        tEsperadosAmbito.add(tReturn);
+
+        //Tipamos el ámbito
+        ambito.type(tEsperadosAmbito);
+
         return Tipado.matchDec(tipo, tiposEsperados, getFila(), getColumna());
     }
 
@@ -112,7 +120,7 @@ public class DecFuncion extends Declaracion {
         for(String atri: set.keySet()) {
             for(Declaracion dec: set.get(atri)) {
                 s.append(" (local $campo").append(num_campos).append(" i32)\n");
-                parametros.put(dec, "campo" + Integer.toString(num_campos));
+                parametros.put(dec, "$campo" + Integer.toString(num_campos));
                 num_campos = num_campos + 1;
             }
         }

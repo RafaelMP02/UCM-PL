@@ -5,7 +5,63 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8bf737e8-0e47-415c-a779-c288e404a575" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Compilador/tests/input27.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input27.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Compilador/generator/input28.wasm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Compilador/generator/input28.wat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Compilador/tests/input30.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Compilador/tests/input31.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/generator/input20.wat" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/generator/input20.wat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/generator/input21.wat" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/generator/input21.wat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/generator/input22.wat" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/generator/input22.wat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/generator/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/generator/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/alex/ALexOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/alex/ALexOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/DecFuncion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/DecFuncion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/E.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/E.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/EFun.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/EFun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/EListaC.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/EListaC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/EListaL.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/EListaL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/False.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/False.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/Identificador.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/Identificador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/Num.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/Num.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/True.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Expresiones/True.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/Case.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/Case.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/Else.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/Else.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/Elsif.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/Elsif.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/For.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/For.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/If.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/If.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/New.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/New.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/Return.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/Return.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/Switch.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/Switch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/While.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/FuncionesPrimitivas/While.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Metaoperadores/Asignacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Metaoperadores/Asignacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Tipos/TInstruccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Tipos/TInstruccion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/ast/Tipos/Tipado.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/ast/Tipos/Tipado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/constructorast/ClaseLexica.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/constructorast/ClaseLexica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/src/constructorast/ConstructorASTExp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/src/constructorast/ConstructorASTExp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/tests/input28.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input28.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compilador/tests/input29.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Compilador/tests/input29.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/alex/ALexOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/alex/ALexOperations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/DecFuncion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/DecFuncion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/E.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/E.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/EFun.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/EFun.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/EListaC.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/EListaC.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/EListaL.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/EListaL.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/False.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/False.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/Identificador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/Identificador.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/Num.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/Num.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/True.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Expresiones/True.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/Case.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/Case.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/Else.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/Else.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/Elsif.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/Elsif.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/For.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/For.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/If.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/If.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/Return.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/Return.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/Switch.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/Switch.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/While.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/FuncionesPrimitivas/While.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Metaoperadores/Asignacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Metaoperadores/Asignacion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Tipos/TInstruccion$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Tipos/TInstruccion$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Tipos/TInstruccion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Tipos/TInstruccion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Compilador/ast/Tipos/Tipado.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Compilador/ast/Tipos/Tipado.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +123,7 @@
       <recent name="$PROJECT_DIR$/javacosas/src/alex" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test27">
+  <component name="RunManager" selected="Application.Test29">
     <configuration name="Test1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="constructorast.Main" />
       <module name="Compilador" />
@@ -127,7 +183,7 @@
     <configuration name="Test20" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="constructorast.Main" />
       <module name="Compilador" />
-      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/javacosas/tests/input20.txt" />
+      <option name="PROGRAM_PARAMETERS" value="Compilador/tests/input20.txt" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -135,7 +191,7 @@
     <configuration name="Test21" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="constructorast.Main" />
       <module name="Compilador" />
-      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/javacosas/tests/input21.txt" />
+      <option name="PROGRAM_PARAMETERS" value="Compilador/tests/input21.txt" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -143,7 +199,7 @@
     <configuration name="Test22" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="constructorast.Main" />
       <module name="Compilador" />
-      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/javacosas/tests/input22.txt" />
+      <option name="PROGRAM_PARAMETERS" value="Compilador/tests/input22.txt" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -151,7 +207,7 @@
     <configuration name="Test23" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="constructorast.Main" />
       <module name="Compilador" />
-      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/javacosas/tests/input23.txt" />
+      <option name="PROGRAM_PARAMETERS" value="Compilador/tests/input23.txt" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -188,10 +244,42 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test28" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="constructorast.Main" />
+      <module name="Compilador" />
+      <option name="PROGRAM_PARAMETERS" value="./Compilador/tests/input28.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test29" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="constructorast.Main" />
+      <module name="Compilador" />
+      <option name="PROGRAM_PARAMETERS" value="./Compilador/tests/input29.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test3" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="constructorast.Main" />
       <module name="Compilador" />
       <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/javacosas/tests/input3_errstructs.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test30" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="constructorast.Main" />
+      <module name="Compilador" />
+      <option name="PROGRAM_PARAMETERS" value="./Compilador/tests/input30.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test31" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="constructorast.Main" />
+      <module name="Compilador" />
+      <option name="PROGRAM_PARAMETERS" value="./Compilador/tests/input31.txt" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -275,6 +363,10 @@
       <item itemvalue="Application.Test25" />
       <item itemvalue="Application.Test26" />
       <item itemvalue="Application.Test27" />
+      <item itemvalue="Application.Test28" />
+      <item itemvalue="Application.Test29" />
+      <item itemvalue="Application.Test30" />
+      <item itemvalue="Application.Test31" />
       <item itemvalue="Application.Test10" />
       <item itemvalue="Application.Test1" />
       <item itemvalue="Node.js.main.js" />
@@ -302,7 +394,7 @@
       <workItem from="1716135748594" duration="1870000" />
       <workItem from="1716188403473" duration="544000" />
       <workItem from="1716213235746" duration="25000" />
-      <workItem from="1716213276328" duration="9414000" />
+      <workItem from="1716213276328" duration="17053000" />
     </task>
     <servers />
   </component>
@@ -314,7 +406,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Compilador/src/ast/Tipos/Tipado.java</url>
-          <line>117</line>
+          <line>118</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -329,5 +421,8 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/C_Horizon__$Test22.ic" NAME="Test22 Coverage Results" MODIFIED="1716228354272" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

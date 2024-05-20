@@ -38,25 +38,12 @@ public class EListaC extends E {
     }
 
     @Override
-    public String codeE(Comp hcon) {
-        /*
-        String s = "";
-        int tam = hcon.getTam();
-        for(E ex: elementos) {
-            s = s + ex.codeE(hcon);
-            if(ex.exp != KindE.LISTACOR && ex.exp != KindE.LISTALLAV) {
-                s = s +
-            }
-            s = s + "i32.store\n";
-            s = s + "get_global $corh\n";
-            s = s + "i32.const " + Integer.toString(tam) + "\n";
-            s = s + "i32.add";
-            s = s + "tee_global $corh\n";
-
+    public String codeB(Comp hcon){
+        StringBuilder s = new StringBuilder();
+        for(E e: elementos){
+            s.append(e.codeB(hcon));
         }
-        s = s + "set_global $corh\n";
 
-        return s; */
-        return "";
+        return s.toString();
     }
 }
