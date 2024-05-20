@@ -1,8 +1,215 @@
-\chapter{Conclusiones y Trabajo Futuro}
+\chapter{Generaci\'{o}n de c\'{o}digo}
 \label{cap:conclusiones}
 
-Conclusiones del trabajo y líneas de trabajo futuro.
+La generaci\'{o}n de c\'{o}digo se realiza a trav\'{e}s del main de constructorast pasandole el nombre del fichero como par\'{a}metro
+y subiendo el archivo .wat generado a la carpeta generador. Despu\'{e}s convertimos el fichero .wat a wasm y lo ejecutamos con la funci\'{o}n de javascript dada.
 
-Antes de la entrega de actas de cada convocatoria, en el plazo que se indica en el calendario de los trabajos de fin de grado, el estudiante entregará en el Campus Virtual la versión final de la memoria en PDF.
+
+
+
+Los ejemplos de generaci\'{o}n de c\'{o}digo est\'{a}n divididos. Por una parte, el c\'{o}digo fuente se encuentra en la carpeta de test, donde empiezan a partir de input20.txt ya que el resto son test de detecci\'{o}n de errores.
+Por otra parte, el c\'{o}digo .wat generado se va a la carpeta de generador donde tambi\'{e}n se encuentra el main.js dado en ejercicios.
+
+\section{Ejemplos de c\'{o}digo}
+
+\subsection{Ejemplo 1}
+Input20.txt en la carpeta de tests, es un ejemplo sencillo el cual puede compilarse y posteriormente probarse en la carpeta de generador.
+
+\begin{algorithm}
+
+	\Integer{} x  \;
+	\Integer{} y  \;
+	
+	\Void() \reserved{main}() \{ \\
+	\quad x := \const{0} \;
+	\quad y := y + \const{1}\;
+	\quad \reserved{prints}(y)\;
+	\}\;
+
+ 	\Integer{} z \;
+	\Integer{} w \;
+\end{algorithm}
+
+
+
+\subsection{Ejemplo 2}
+Input21.txt en la carpeta de tests, es un ejemplo sencillo parecido al anterior pero se agrega una llamada a funci\'{o}n.
+\begin{algorithm}
+
+	\Integer{} x  \;
+	\Integer{} y  \;
+	
+	\Void() \reserved{main}() \{ \\
+	\quad x := \const{0} \;
+	\quad y := y + \const{1}\;
+	\quad x := f(y)\;
+	\quad \reserved{prints}(y)\;
+	\quad \reserved{prints}(x)\;
+	\}\;
+
+ 	\Integer{} z \;
+	\Integer{} w \;
+	
+	\reserved{int}{(\reserved{int})} f(y) \{ \\
+	\quad z := y \;
+	\quad \reserved{prints}(z) \;
+	\quad y := y + \const{1} \;
+	\quad \reserved{prints}(y) \;
+	\quad \reserved{return} \const{2}*z \;
+	\}\;
+	
+\end{algorithm}
+
+\newpage
+
+\subsection{Ejemplo 3}
+Input22.txt en la carpeta de tests, es un ejemplo sencillo parecido al anterior pero se agrega una variable local.
+
+void() main(){
+    x := 0;
+    y := x + 1;
+    int r;
+    scans(r);
+    prints(r);
+    x := f(r);
+    prints(y);
+    prints(r);
+    prints(y);
+    prints(x);
+};
+int z;
+int w;
+int(int) f(y){ //oculta a la global y
+    z := y;
+    prints(z);
+    y := y + 3;
+    prints(y);
+    return 2*z;
+};
+\begin{algorithm}
+
+	\Integer{} x  \;
+	\Integer{} y  \;
+	
+	\Void() \reserved{main}() \{ \\
+	\quad x := \const{0} \;
+	\quad y := y + \const{1}\;
+	\quad int r\;
+	\quad x := f(y)\;
+	\quad \reserved{prints}(r)\;
+	\quad \reserved{prints}(y)\;
+	\quad \reserved{prints}(x)\;
+	\}\;
+
+ 	\Integer{} z \;
+	\Integer{} w \;
+	
+	\reserved{int}{(\reserved{int})} f(y) \{ \\
+	\quad z := y \;
+	\quad \reserved{prints}(z) \;
+	\quad y := y + \const{3} \;
+	\quad \reserved{prints}(y) \;
+	\quad \reserved{return} \const{2}*z \;
+	\}\;
+	
+\end{algorithm}
+
+\newpage
+
+\subsection{Ejemplo 4}
+Input23.txt en la carpeta de tests, es un ejemplo sencillo parecido al anterior pero se lleva por valor la variable global.
+
+\begin{algorithm}
+
+	\Integer{} x  \;
+	\Integer{} y  \;
+	
+	\Void() \reserved{main}() \{ \\
+	\quad x := \const{0} \;
+	\quad y := y + \const{1}\;
+	\quad int r\;
+	\quad x := f(y)\;
+	\quad \reserved{prints}(r)\;
+	\quad \reserved{prints}(y)\;
+	\quad \reserved{prints}(x)\;
+	\}\;
+
+ 	\Integer{} z \;
+	\Integer{} w \;
+	
+	\reserved{int}{(\reserved{int})} f(y) \{ \\
+	\quad z := y \;
+	\quad \reserved{prints}(z) \;
+	\quad y := y + \const{3} \;
+	\quad \reserved{prints}(y) \;
+	\quad \reserved{return} \const{2}*z \;
+	\}\;
+	
+\end{algorithm}
+
+\subsection{Ejemplo 5}
+Input23.txt en la carpeta de tests, es un ejemplo sencillo parecido al anterior pero se usan arrays.
+
+\begin{algorithm}
+
+	\Integer{} x  \;
+	\Integer{} y  \;
+	
+	\Void() \reserved{main}() \{ \\
+	\quad x := \const{0} \;
+	\quad y := y + \const{1}\;
+	\quad int n\;
+	\quad \reserved{scans}(n)\;
+	\quad \reserved{prints}(n)\;
+	\quad \reserved{int}[\const{3}(a)\;
+	\quad a[\const{0}] := x\;
+	\quad a[\const{1}] := y\;
+	\quad a[\const{2}] := y + \const{1}\;
+	\quad x := f(a[n])\;
+	\quad \reserved{prints}(a[\const{2}])\;
+	\quad \reserved{prints}(a[n])\;
+	\}\;
+
+ 	\Integer{} z \;
+	\Integer{} w \;
+	
+	\reserved{int}{(\reserved{int})} f(y) \{ \\
+	\quad z := y \;
+	\quad \reserved{prints}(z) \;
+	\quad y := y + \const{3} \;
+	\quad \reserved{prints}(y) \;
+	\quad \reserved{return} \const{2}*z \;
+	\}\;
+	
+\end{algorithm}
+
+
+int x;
+int y;
+void() main(){
+    x := 0;
+    y := x + 1;
+    int n;
+    scans(n);
+    prints(n);
+    int[3] a;
+    a[0] := x;
+    a[1] := y;
+    a[2] := y + 1;
+    prints(a[0]);
+    x := f(a[n]);
+    prints(a[2]);
+    prints(a[n]);
+};
+int z;
+int w;
+int(int) f(y){
+    z := y;
+    y := y + 3;
+    return 2*z;
+};
+
+
+
 
 

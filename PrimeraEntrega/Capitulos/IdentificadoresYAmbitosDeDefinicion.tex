@@ -15,7 +15,7 @@ El nombre de una variable no puede ser cualquier cadena de caracteres, solo perm
 $["a"-"z"] \mid ["A"-"z"]$ 
 y el resto de caracteres sean de
 $["0"-"9"] \mid  ["a"-"z"] \mid  ["A"-"z"] \mid  "\_"$. \\
-Además, permitiremos declarar una variable a la misma vez que la instanciamos con un valor. \footnote{Los ejemplos de los siguientes capítulos son meramente ilustrativos, pueden tener errores
+Además, permitiremos declarar una variable a la misma vez que la instanciamos con un valor si no es el \'{a}mbito global. Las funciones siempre deben ser instanciadas al declararse cosa que no era necesar\'{i}a al principio pero para facilitar las etapas posteriores se realiz\'{o} as\'{i}. \footnote{Los ejemplos de los siguientes capítulos son meramente ilustrativos, pueden tener errores
 de compilación. En los capítulos de gestión de errores y generación de código mostraremos ejemplos reales de código.
 Cada un de estos ejemplos proviene de un archivo de texto de la carpeta tests.}
 \begin{algorithm}
@@ -31,16 +31,16 @@ Cada un de estos ejemplos proviene de un archivo de texto de la carpeta tests.}
 \end{algorithm}
 \newpage
 \section{Bloques anidados}
-Cada par $\{$ $\}$ colocado correctamente marca un ámbito en nuestro lenguaje y recíprocamente, cada ámbito es marcado mediante este par, excepto por el ámbito total. Cada par $\{$ $\}$ debe ser colocado tras un contexto que lo permita, como tras un if + condición o tras la declaración de una función con sus argumentos. Cada ámbito puede tener variables locales, las cuales se pierden al abandonar dicho ámbito, y una tabla de simbolos propia. Además, como es razonable, se permite el anidamiento de ámbitos, es decir, subámbitos de un ámbito más grande, el superámbito, definidos mediante el anidamiento de $\{$ $\}$ o si el superámbito es el total, por incluir  $\{$ $\}$. Por tanto, los símbolos del subámbito son un superconjunto de los símbolos del superámbito.
+Cada par $\{$ $\}$ colocado correctamente marca un ámbito en nuestro lenguaje y recíprocamente, cada ámbito es marcado mediante este par, excepto por el ámbito global. Cada par $\{$ $\}$ debe ser colocado tras un contexto que lo permita, como tras un if + condición o tras la declaración de una función con sus argumentos. Cada ámbito puede tener variables locales, las cuales se pierden al abandonar dicho ámbito, y una tabla de simbolos propia. Además, como es razonable, se permite el anidamiento de ámbitos, es decir, subámbitos de un ámbito más grande, el superámbito, definidos mediante el anidamiento de $\{$ $\}$ o si el superámbito es el total, por incluir  $\{$ $\}$ mientras que el sub\'{a}mbito no sea proveniente de una funci\'{o}n o una definici\'{o}n de clase o struct. En este caso, no hay visibilidad para fuera de estos \'{a}mbitos excepto la declaraci\'{o}n de un m\'{e}todo en una clase y los atributos de la misma. Por tanto, los símbolos del subámbito son un superconjunto de los símbolos del superámbito.
 Además, se permite la ocultación de variables del superámbito al definir de nuevo nuevas variables con ese nombre en el subámbito.
 
 \section{Módulos y cláusulas de importación}
-Nuestro lenguaje permite el uso de módulos externos, que son meramente archivos de código. Para usarlos, hacemos uso de la palabra reservada \reserved{import} 'nombre\_archivo'. Al compilar, cada módulo es enlazado y el resultado del compilado es el programa generado por nuestro código donde en cada \reserved{import} es como si estuviera copiado el módulo entero. Por ello, es importante que los conjuntos de símbolos de todos los módulos sean disjuntos dos a dos para que las importaciones sean consistentes.
+Nuestro lenguaje permit\'{i}a el uso de módulos externos, que son meramente archivos de código. Pero al final no se realiz\'{o} ni siquiera al crear el léxico ya que era lo que menos prioridad dimos.
 \newpage
 \section{Funciones}
-Las funciones se declaran con un tipo funcional, un identifcador, una lista de argumentos y el cuerpo de la función (un ámbito acabado en ;).
+Las funciones se declaran con un tipo funcional, un identifcador, una lista de argumentos y el cuerpo de la función (un ámbito acabado en ;). Tambi\'{e}n las funciones pueden ser definidas en cualquier \'{a}mbito aunque no ser\'{a}n visibles fuera del mismo.
 
-Cada programa tiene una función especial de nombre main con tipos de retorno y argumentos sin definir hasta que la creemos, ya que es solo un símbolo especial. 
+Cada programa tiene una función especial de nombre main con tipos de argumentos sin definir hasta que la creemos y tipo retorno void, ya que es solo un símbolo especial. 
 
 Por defecto, el paso de argumentos a función es por referencia y será por valor si se indica lo contrario con el operador \Val. No obstante, este operador es un azúcar sintáctico, el tipo no cambia ya que lo único que nos indica es que debemos copiar cada argumento pasado por valor en una variable nueva auxiliar y operar sobre esa variable nueva como si fuera la antigua. No obstante, no todos los tipos permiten el paso por valor tal como es cualquier tipo funcional. También admitimos la sobrecarga de funciones si el tipo funcional es distinto
 (en el tipo de retorno y/o en el tipo de los parámetros). La salvedad es la función "main", que solo se podrá declarar en el ámbito global y deberá hacerse una vez y solo una vez.

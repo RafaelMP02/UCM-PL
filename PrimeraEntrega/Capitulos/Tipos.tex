@@ -2,6 +2,7 @@
 \label{cap:tipos y operadores}
 En esta sección se especifican los tipos y operadores que vamos a usar. En caso de empate de prioridades,
 siempre asociaremos por la izquierda.
+Tambi\'{e}n recalcar que quitamos el typedef para definir nuestros tipos ya que dos daba conflicto en la gram\'{a}tica.
 
 \section{Integer}
 Corresponde con el \textit{signed int} de C++. Es decir, almacena números enteros representados en sistema decimal. Tienen un espacio reservado de 32 bits, 
@@ -16,7 +17,7 @@ Es el tipo vacío. Lo usaremos cuando alguna función o método no devuelva ning
 
 \section{Array}
 Corresponde con el array de C++. Para declararlo escribiremos el tipo seguido de $[n]$ donde $n$ es un número natural fijo que representa el tamaño. Se accederá a los elementos de la misma
-manera, usando el operador []. 
+manera, usando el operador []. Se pueden asignar directamente con corchetes (permitida definici\'{o}n recursiva) o con otra variable array.
 En los ejemplos siguientes vienen detallados los distintos usos:
 
 \begin{algorithm}
@@ -53,7 +54,7 @@ a variables declaradas del struct o globales y a funciones (declaradas fuera, l�
 		\quad \Integer{} id; \\
 	\}; \\
 
-	\Integer{} main () \{ \\
+	\Void{} main () \{ \\
 	\Struct{} tEstudiante antonio := \{22, 67532\}; \\
 		\quad antonio.edad := antonio.edad + 1; \comm{//La edad se ha incrementado en 1} \\
 	\};
@@ -76,7 +77,7 @@ Este es un ejemplo:
 		\quad \Void incr\_edad() \{ edad := edad + 1; \}\;
 	\}; \\
 
-	\Integer{}() main() \{ \\
+	\Void{}() main() \{ \\
 		\quad Estudiante antonio := \{22, 67532\}; \\
 		\quad antonio.incr\_edad(); 
 		\comm{//La edad se ha incrementado en 1}  \\
@@ -117,7 +118,7 @@ Este símbolo, a parte de su uso en la multiplicación, nos vale para relacionar
 \section{Funcional}
 Como dijimos antes, hay tipos funcionales que están determinados por el tipo de retorno del argumento y los tipos de la tupla ordenada de argumentos. 
 Para saber el valor para determinados argumentos de una función, se usa el operador $()$. Dentro del ámbito de una función, podemos usar la palabra reservada \reserved{return} para devolver un valor. Si el tipo de retorno no es void, el ámbito de la función debe ser una propiedad que llamaremos retornable. Un ámbito se dice retornable si contiene un return fuera de todo subámbito suyo o todos sus subámbitos son retornables. 
-No permitimos prototipos de funciones, siempre se debe definir el cuerpo de la función.
+No permitimos prototipos de funciones, siempre se debe definir el cuerpo de la función aunque no hace falta definirlas en orden.
 	Mostramos ejemplos:
 
 \begin{algorithm}

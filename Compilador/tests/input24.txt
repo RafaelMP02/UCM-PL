@@ -1,0 +1,24 @@
+int x;
+int y;
+void() main(){
+    x := 0;
+    y := x + 1;
+    int n;
+    scans(n);
+    prints(n);
+    int[3] a;
+    a[0] := x;
+    a[1] := y;
+    a[2] := y + 1;
+    prints(a[0]);
+    x := f(a[n]);
+    prints(a[2]);
+    prints(a[n]);
+};
+int z;
+int w;
+int(int) f(y){
+    z := y;
+    y := y + 3;
+    return 2*z;
+};

@@ -1,0 +1,19 @@
+int x;
+int y;
+void() main(){
+    x := 0;
+    y := x + 1;
+    prints(y);
+    x := f(y);
+    prints(y);
+    prints(x);
+};
+int z;
+int w;
+int($ int) f(y){ //oculta a la global y pero es la global y pasada por valor
+    z := y;
+    prints(z);
+    y := y + 3;
+    prints(y);
+    return 2*z;
+};

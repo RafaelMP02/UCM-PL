@@ -1,0 +1,23 @@
+int x;
+int y;
+void() main(){
+    x := 0;
+    y := x + 1;
+    int r;
+    scans(r);
+    prints(r);
+    x := f(r);
+    prints(y);
+    prints(r);
+    prints(y);
+    prints(x);
+};
+int z;
+int w;
+int(int) f(y){ //oculta a la global y
+    z := y;
+    prints(z);
+    y := y + 3;
+    prints(y);
+    return 2*z;
+};

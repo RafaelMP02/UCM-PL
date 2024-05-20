@@ -4,7 +4,7 @@
 
 
 \section{Asignación}
-Nuestro primer tipo de instrucciones son las de asignación. Como hemos visto a lo largo del documento, hay una sintaxis variada para ello dependiendo del tipo de la variable. Se muestran ejemplos de todo el documento.
+Nuestro primer tipo de instrucciones son las de asignación. Como hemos visto a lo largo del documento, hay una sintaxis variada para ello dependiendo del tipo de la variable. Se muestran ejemplos de todo el documento. Recordemos que en el lenguaje no se pueden tener asignaciones en el \'{a}mbito global.
 
 \begin{algorithm}
 
@@ -46,8 +46,8 @@ while (expresión booleana) \{ instrucción \}
 y además, obligamos a colocar \{ y \} para mostrar su ámbito. 
 
 \section{For}
-El siguiente tipo de instrucciones son las formadas por un for. Se usa la palabra reservada \reserved{for} y la sintaxis es la habitual, aunque la variable contadora se declara fuera de este.
-Como antes obligamos a colocar \{ y \} para describir su ámbito. 
+El siguiente tipo de instrucciones son las formadas por un for. Se usa la palabra reservada \reserved{for} y la sintaxis es la habitual de C++.
+Como antes obligamos a colocar \{ y \} para describir su ámbito. Adem\'{a}s, la condici\'{o}n de paso puede escribirse con los operadores m\'{a}s m\'{a}s y menos menos.
 
 	
 \section{If, elsif y else}
@@ -59,7 +59,7 @@ Vemos ahora el siguiente tipo de instrucción, las formadas por un switch. Usamo
 \reserved{case} y \reserved{default}. No es necesario usar break ya que cada switch es independiente del otro pero sí es obligatorio colocar una cláusula default al final. La instrucción switch valora una expresión booleana una sola vez y busca entre cada uno de los casos el que se corresponda con esa evaluación.
 
 \section{Entrada y salida}
-Finalmente el último tipo de instrucción. Para la salida estándar está reservada la palabra \reserved{print} que imprime el contenido de una variable primitiva por la salida estándar. Para la entrada estándar, tenemos la palabra reservada \reserved{read} que de igual manera recoge el valor de una variable primitiva dada por la entrada estándar.
+Finalmente el último tipo de instrucción. Para la salida estándar está reservada la palabra \reserved{prints} que imprime el contenido de una variable primitiva por la salida estándar. Para la entrada estándar, tenemos la palabra reservada \reserved{scans} que de igual manera recoge el valor de una variable primitiva dada por la entrada estándar.
 
 \bigskip
 Finalmente, mostramos un ejemplo en el que se usan todas las instrucciones para ejemplificar su uso: \footnote{Recordamos que es ilustrativo, en el apartado de generación de código
@@ -95,7 +95,7 @@ mostraremos fragmentos que se puedan compilar}
 	\Integer{} Y  := X - Z\;
 	
 	\reserved{while} (Y < \, X)	 \{ \\
-	\quad \reserved{read}(T)\;
+	\quad \reserved{scans}(T)\;
 	\quad \reserved{switch}(T - \const{2}*Y)\\
 	\quad \quad \reserved{case} 0 \{ \\
 	\quad \quad \quad T := X\;
@@ -108,8 +108,8 @@ mostraremos fragmentos que se puedan compilar}
 	\quad \quad\}\\
 	\quad \} \\
 	\quad Y := Y + \const{1}\;
-	\}\\
-	\reserved{print}(Y)\;
+	\}\;
+	\reserved{prints}(Y)\;
 \end{algorithm}
 
 	

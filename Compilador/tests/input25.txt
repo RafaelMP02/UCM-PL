@@ -1,0 +1,26 @@
+int x;
+int y;
+struct A{
+    int a;
+    int b;
+};
+void() main(){
+    x := 0;
+    y := x + 1;
+    int n;
+    scans(n);
+    prints(n);
+    struct A s;
+    s.b := 0;
+    prints(s.a);
+    x := f(s.a);
+    prints(s.b);
+    prints(s.a);
+};
+int z;
+int w;
+int(int) f(y){
+    z := y;
+    y := y + 3;
+    return 2*z;
+};
