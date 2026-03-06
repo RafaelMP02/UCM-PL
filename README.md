@@ -1,28 +1,83 @@
-# C-Horizon Compiler
+# Compilador
 
-### English
+## English
 
-**C-Horizon** is a programming language designed as a university project for the "Language Processors" course (2023-2024), inspired by **C++**. 
+### Project Name
+Compilador (Custom Language Compiler to WebAssembly)
 
-The language supports structured and object-oriented programming with features such as:
-* **Nested Scopes**: Support for local variables and symbol table management using `{}`.
-* **Advanced Type System**: Includes basic types (`int`, `bool`, `void`) and complex types like `pointers`, `arrays`, `structs`, and `classes`.
-* **Functional Types**: Support for functions as first-class citizens, including parameter passing by reference (default) and by value (using the `$` operator).
-* **Control Structures**: Implementation of `while`, `for`, `if/elsif/else`, and `switch`.
-* **Memory Management**: Support for pointers and dynamic memory allocation via the `new` operator.
+### Description
+Compilador is a university compiler project implemented in Java. It parses a custom programming language and performs semantic analysis before generating WebAssembly Text (`.wat`) output. The project includes a small Node.js runtime script for executing compiled WebAssembly modules.
 
-This repository contains the full compiler implementation, including:
-* **Lexical Analysis**: Token recognition and error detection.
-* **Syntax Analysis**: Tree construction and scope recovery.
-* **Semantic Analysis**: Binding, type checking, and function overloading.
-* **Error Handling**: Detailed reporting of errors including file position (row and column).
-* **Code Generation**: Final compilation stage.
+### Key Features
+- Lexical analysis with JFlex and syntax analysis/AST construction with Java CUP.
+- Semantic analysis stages: binding (name resolution) and static type checking.
+- Support for core language constructs: functions, `main`, structs/classes, arrays, pointers, conditionals, loops, and function calls.
+- Code generation to WebAssembly Text (`.wat`) in the `generator/` folder.
 
-📄 The complete language specification is available in the documentation folder.
+### Tech Stack
+- Java (JDK 8+ recommended)
+- JFlex (`lib/jflex.jar`)
+- Java CUP (`lib/cup.jar`)
+- WebAssembly Text (`.wat`) / WebAssembly (`.wasm`)
+- Node.js (optional runtime execution)
 
-### Usage
-
-The compiler processes source files (typically `.txt` or custom extensions) and generates executable code.
+### Quick Start
 ```bash
-# Basic usage: compile a source file
-java Main path/to/file.txt
+# 1) Run from the parent directory (important because output path is ./Compilador/generator)
+cd /path/to/UCM-PL
+
+# 2) Compile Java sources
+javac -cp "Compilador/lib/cup.jar:Compilador/src" -d Compilador/bin $(find Compilador/src -name "*.java")
+
+# 3) Compile a test program (generates .wat)
+java -cp "Compilador/bin:Compilador/lib/cup.jar" constructorast.Main Compilador/tests/input20.txt
+
+# Output example:
+# Compilador/generator/input20.wat
+```
+
+Optional (`.wat` -> `.wasm`, requires `wat2wasm`):
+```bash
+wat2wasm Compilador/generator/input20.wat -o Compilador/generator/input20.wasm
+```
+
+## Español
+
+### Project Name
+Compilador (Compilador de lenguaje personalizado a WebAssembly)
+
+### Description
+Compilador es un proyecto universitario de compiladores implementado en Java. Analiza un lenguaje de programación propio y realiza análisis semántico antes de generar código WebAssembly Text (`.wat`). El proyecto también incluye un script de ejecución en Node.js para correr módulos WebAssembly.
+
+### Key Features
+- Análisis léxico con JFlex y análisis sintáctico/construcción de AST con Java CUP.
+- Etapas de análisis semántico: vinculación (resolución de nombres) y comprobación estática de tipos.
+- Soporte de construcciones del lenguaje: funciones, `main`, structs/clases, arrays, punteros, condicionales, bucles y llamadas a función.
+- Generación de código en WebAssembly Text (`.wat`) dentro de la carpeta `generator/`.
+
+### Tech Stack
+- Java (recomendado JDK 8+)
+- JFlex (`lib/jflex.jar`)
+- Java CUP (`lib/cup.jar`)
+- WebAssembly Text (`.wat`) / WebAssembly (`.wasm`)
+- Node.js (ejecución opcional)
+
+### Quick Start
+```bash
+# 1) Ejecuta desde el directorio padre (importante porque la salida se escribe en ./Compilador/generator)
+cd /ruta/a/UCM-PL
+
+# 2) Compila las fuentes Java
+javac -cp "Compilador/lib/cup.jar:Compilador/src" -d Compilador/bin $(find Compilador/src -name "*.java")
+
+# 3) Compila un programa de prueba (genera .wat)
+java -cp "Compilador/bin:Compilador/lib/cup.jar" constructorast.Main Compilador/tests/input20.txt
+
+# Ejemplo de salida:
+# Compilador/generator/input20.wat
+```
+
+Opcional (`.wat` -> `.wasm`, requiere `wat2wasm`):
+```bash
+wat2wasm Compilador/generator/input20.wat -o Compilador/generator/input20.wasm
+```
