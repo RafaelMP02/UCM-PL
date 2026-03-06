@@ -47,7 +47,7 @@ wat2wasm Compilador/generator/input20.wat -o Compilador/generator/input20.wasm
 Compilador (Compilador de lenguaje personalizado a WebAssembly)
 
 ### Description
-Compilador es un proyecto universitario de compiladores implementado en Java. Analiza un lenguaje de programación propio y realiza análisis semántico antes de generar código WebAssembly Text (`.wat`). El proyecto también incluye un script de ejecución en Node.js para correr módulos WebAssembly. Puedes encontrar toda la explicación detallada en el documento "Memoria.pdf".
+Compilador es un proyecto universitario de compiladores implementado en Java. Analiza un lenguaje de programación propio y realiza análisis semántico antes de generar código WebAssembly Text (`.wat`). El proyecto también incluye un script de ejecución en Node.js para correr módulos WebAssembly. Puedes encontrar toda la explicación detallada en el documento "Documento.pdf".
 
 ### Key Features
 - Análisis léxico con JFlex y análisis sintáctico/construcción de AST con Java CUP.
